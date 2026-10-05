@@ -1,0 +1,35 @@
+{%- comment -%} Garantía con sello grande. Usa los días de Configuración del tema. {%- endcomment -%}
+{%- assign lines = section.settings.points | newline_to_br | split: '<br />' -%}
+<section class="ax-section" id="garantia" aria-labelledby="ax-guarantee-{{ section.id }}">
+  <div class="ax-container ax-container--narrow">
+    <div class="ax-guarantee ax-reveal">
+      <div class="ax-guarantee__seal" aria-hidden="true">
+        <div><strong>{{ settings.ax_guarantee_days }}</strong><span>días de<br>garantía</span></div>
+      </div>
+      <div style="display:grid;gap:12px">
+        <h2 id="ax-guarantee-{{ section.id }}">{% render 'ax-em', text: section.settings.title %}</h2>
+        <p>{% render 'ax-tokens', text: section.settings.text %}</p>
+        {%- if section.settings.points != blank -%}
+          <ul class="ax-guarantee__list">
+            {%- for line in lines -%}
+              {%- assign line = line | strip -%}
+              {%- if line != blank -%}<li>{% render 'ax-icon', name: 'check' %}<span>{% render 'ax-tokens', text: line %}</span></li>{%- endif -%}
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Garantía",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Compra *sin riesgo*" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Pides hoy y no pagas nada hasta que tienes el producto en tus manos. Y si algo no sale bien, tienes [dias] días para decírnoslo.", "info": "Escribe solo lo que de verdad cumples. Puedes usar [dias] y [envio]." },
+    { "type": "textarea", "id": "points", "label": "Puntos (uno por línea)", "default": "Pagas en efectivo al recibir\nSi llega dañado, te lo reponemos sin costo\nTe atendemos por WhatsApp antes y después de tu compra" }
+  ],
+  "presets": [{ "name": "Garantía" }]
+}
+{% endschema %}

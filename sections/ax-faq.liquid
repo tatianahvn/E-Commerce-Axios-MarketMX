@@ -1,0 +1,69 @@
+{%- comment -%}
+  Preguntas frecuentes: primero las del producto (metacampo ax.faq, "Pregunta | Respuesta")
+  y después las generales de la tienda (bloques de esta sección).
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign product_faq = p.metafields.ax.faq.value
+  assign wa = settings.ax_whatsapp | remove: '+' | remove: ' '
+-%}
+<section class="ax-section{% if section.settings.soft %} ax-section--soft{% endif %}" id="preguntas" aria-labelledby="ax-faq-{{ section.id }}">
+  <div class="ax-container ax-container--narrow">
+    {%- assign head_id = 'ax-faq-' | append: section.id -%}
+    {% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, id: head_id %}
+    <div class="ax-faq">
+      {%- for item in product_faq -%}
+        {%- assign parts = item | split: '|' -%}
+        {%- assign answer = parts[1] | strip -%}
+        <details class="ax-details ax-reveal">
+          <summary>{{ parts[0] | strip }} {% render 'ax-icon', name: 'chevron' %}</summary>
+          <div class="ax-details__body"><p>{% render 'ax-tokens', text: answer %}</p></div>
+        </details>
+      {%- endfor -%}
+      {%- for block in section.blocks -%}
+        <details class="ax-details ax-reveal" {{ block.shopify_attributes }}>
+          <summary>{{ block.settings.question }} {% render 'ax-icon', name: 'chevron' %}</summary>
+          <div class="ax-details__body">{% render 'ax-tokens', text: block.settings.answer %}</div>
+        </details>
+      {%- endfor -%}
+    </div>
+    {%- if wa != blank -%}
+      <div class="ax-faq__cta">
+        <p>¿Tienes otra duda? Te respondemos en minutos.</p>
+        <a class="ax-btn ax-btn--dark ax-btn--small" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'ax-icon', name: 'whatsapp' %} Pregúntanos por WhatsApp</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Preguntas frecuentes",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página (sus preguntas salen primero)." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Resolvemos tus dudas" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Preguntas *frecuentes*" },
+    { "type": "checkbox", "id": "soft", "label": "Fondo gris claro", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Pregunta general",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pregunta", "default": "¿Cómo funciona el pago contra entrega?" },
+        { "type": "richtext", "id": "answer", "label": "Respuesta", "default": "<p>Pides sin tarjeta, confirmamos tus datos y pagas en efectivo al recibir.</p>", "info": "Puedes usar [envio] y [dias]." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Preguntas frecuentes",
+      "blocks": [
+        { "type": "question", "settings": { "question": "¿Cómo funciona el pago contra entrega?", "answer": "<p>Pides sin tarjeta, confirmamos tus datos por WhatsApp o llamada y pagas en efectivo al repartidor cuando recibes tu paquete.</p>" } },
+        { "type": "question", "settings": { "question": "¿Cuánto tarda en llegar?", "answer": "<p>De [envio]. Te enviamos el número de rastreo en cuanto sale tu paquete.</p>" } },
+        { "type": "question", "settings": { "question": "¿Y si no me convence?", "answer": "<p>Tienes [dias] días para decírnoslo. Si llega dañado, te lo reponemos sin costo.</p>" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

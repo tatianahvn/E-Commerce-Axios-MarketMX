@@ -1,0 +1,42 @@
+{%- comment -%}
+  Comparador antes / después. Metacampos: ax.before_image, ax.after_image, ax.ba_note
+  Usa fotos REALES del mismo objeto, mismo ángulo y luz.
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign m = p.metafields.ax
+  assign before = m.before_image.value
+  assign after = m.after_image.value
+-%}
+{%- if before and after -%}
+  <section class="ax-section ax-section--soft" id="antes-despues" aria-labelledby="ax-ba-{{ section.id }}">
+    <div class="ax-container ax-container--narrow">
+{%- assign head_id = 'ax-ba-' | append: section.id -%}
+{% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, id: head_id %}
+      <div class="ax-ba ax-reveal" data-ax-ba>
+        {{ before | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1400', sizes: '(min-width: 860px) 780px, 100vw', alt: 'Antes' }}
+        {{ after | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1400', sizes: '(min-width: 860px) 780px, 100vw', alt: 'Después', class: 'ax-ba__after' }}
+        <span class="ax-ba__tag ax-ba__tag--before">Antes</span>
+        <span class="ax-ba__tag ax-ba__tag--after">Después</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Desliza para comparar antes y después">
+        <span class="ax-ba__line" aria-hidden="true"></span>
+        <span class="ax-ba__knob" aria-hidden="true">{% render 'ax-icon', name: 'arrows-h' %}</span>
+      </div>
+      {%- if m.ba_note.value != blank -%}<p class="ax-ba__note">{{ m.ba_note.value }}</p>{%- endif -%}
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Antes y después": sube en el producto dos fotos reales en <code>ax.before_image</code> y <code>ax.after_image</code>.' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Producto: antes y después",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Desliza y compara" },
+    { "type": "text", "id": "title", "label": "Título", "default": "La diferencia se ve *a simple vista*" }
+  ],
+  "presets": [{ "name": "Producto: antes y después" }]
+}
+{% endschema %}

@@ -1,0 +1,62 @@
+{%- comment -%} Barra de confianza: 4 razones para comprar sin miedo. Igual para todos los productos. {%- endcomment -%}
+<section class="ax-section ax-section--tight{% if section.settings.soft %} ax-section--soft{% endif %}" aria-label="Por qué comprar con nosotros">
+  <div class="ax-container">
+    <ul class="ax-trust">
+      {%- for block in section.blocks -%}
+        <li class="ax-trust__item" {{ block.shopify_attributes }}>
+          <span class="ax-trust__icon">{% render 'ax-icon', name: block.settings.icon %}</span>
+          <div>
+            <span class="ax-trust__title">{% render 'ax-tokens', text: block.settings.title %}</span>
+            <span class="ax-trust__text">{% render 'ax-tokens', text: block.settings.text %}</span>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Barra de confianza",
+  "max_blocks": 4,
+  "settings": [
+    { "type": "checkbox", "id": "soft", "label": "Fondo gris claro", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Razón",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ícono",
+          "default": "cash",
+          "options": [
+            { "value": "cash", "label": "Efectivo" },
+            { "value": "truck", "label": "Envío" },
+            { "value": "shield", "label": "Garantía" },
+            { "value": "whatsapp", "label": "WhatsApp" },
+            { "value": "chat", "label": "Chat" },
+            { "value": "return", "label": "Devolución" },
+            { "value": "lock", "label": "Candado" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Título", "default": "Paga al recibir", "info": "Puedes usar [envio] y [dias]." },
+        { "type": "text", "id": "text", "label": "Texto", "default": "Pago contra entrega, sin tarjeta" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Barra de confianza",
+      "blocks": [
+        { "type": "item", "settings": { "icon": "cash", "title": "Paga al recibir", "text": "Pago contra entrega, sin tarjeta" } },
+        { "type": "item", "settings": { "icon": "truck", "title": "Envío con rastreo", "text": "Llega en [envio]" } },
+        { "type": "item", "settings": { "icon": "shield", "title": "Garantía de [dias] días", "text": "Compra sin riesgo" } },
+        { "type": "item", "settings": { "icon": "whatsapp", "title": "Atención por WhatsApp", "text": "Resolvemos tus dudas antes y después" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

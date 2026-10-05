@@ -1,0 +1,327 @@
+{
+  "sections": {
+    "main": {
+      "type": "ax-product",
+      "settings": {
+        "product": "",
+        "countdown_label": "La oferta termina en",
+        "bundles_title": "Elige tu paquete",
+        "single_note": "Ideal para probar",
+        "bundles_note": "Confirmas la cantidad y tus datos en el formulario de pedido.",
+        "secure_text": "Compra segura. Tus datos están protegidos.",
+        "cod_title": "Pagas cuando lo recibes",
+        "cod_text": "Pides hoy sin tarjeta y pagas en efectivo al repartidor.",
+        "show_stock": true,
+        "description_open": false,
+        "sticky": true
+      }
+    },
+    "trust": {
+      "type": "ax-trust",
+      "settings": {
+        "soft": true
+      },
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "cash",
+            "title": "Paga al recibir",
+            "text": "Pago contra entrega, sin tarjeta"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Envío con rastreo",
+            "text": "Llega en [envio]"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Garantía de [dias] días",
+            "text": "Compra sin riesgo"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "whatsapp",
+            "title": "Atención por WhatsApp",
+            "text": "Resolvemos tus dudas antes y después"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    },
+    "problem": {
+      "type": "ax-problem",
+      "settings": {
+        "product": "",
+        "eyebrow": "¿Te pasa esto?"
+      }
+    },
+    "solution": {
+      "type": "ax-solution",
+      "settings": {
+        "product": "",
+        "eyebrow": "La solución",
+        "image_right": false
+      }
+    },
+    "benefits": {
+      "type": "ax-benefits",
+      "settings": {
+        "product": "",
+        "eyebrow": "Así se ve",
+        "title": "Resultados que *se notan*"
+      }
+    },
+    "before_after": {
+      "type": "ax-before-after",
+      "settings": {
+        "product": "",
+        "eyebrow": "Desliza y compara",
+        "title": "La diferencia se ve *a simple vista*"
+      }
+    },
+    "howto": {
+      "type": "ax-howto",
+      "settings": {
+        "product": "",
+        "eyebrow": "Fácil y rápido",
+        "title": "Así de *fácil* se usa"
+      }
+    },
+    "reviews": {
+      "type": "ax-reviews",
+      "settings": {
+        "product": "",
+        "eyebrow": "Opiniones de clientes",
+        "title": "Lo que dicen quienes *ya lo probaron*",
+        "visible_mobile": 4,
+        "form_enabled": true
+      },
+      "blocks": {
+        "review-1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Pensé que iba a ser complicado aplicarlo, pero para nada. Microfibra, producto y listo. Mi carro negro quedó con mucho más brillo y la pintura se siente muy suave al tocarla.",
+            "name": "Astrid P. Ponce H.",
+            "photos": "sa-review-astrid-1.webp, sa-review-astrid-2.webp",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Lo apliqué después de lavar mi camioneta y el cambio se nota muchísimo. El color se ve más profundo y con más brillo. Además, el agua ya no se queda tanto sobre la pintura. Muy buen resultado para algo tan sencillo de aplicar.",
+            "name": "Eduardo J. Ramírez D.",
+            "photos": "sa-review-eduardo.webp",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Lo que más me gustó fue cómo queda la pintura al tacto. Se siente súper suave y el agua hace muchas gotitas que se resbalan. El brillo también mejora bastante, aunque hay que aplicarlo con calma para que quede uniforme.",
+            "name": "Karla M. Cervantes P.",
+            "photos": "sa-review-karla-1.webp, sa-review-karla-2.webp",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Me sorprendió muchísimo lo fácil que es de aplicar. En unos minutos el carro quedó con un brillo increíble. Definitivamente lo voy a volver a usar.",
+            "name": "Mariana L. Salgado T.",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-5": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Definitivamente me gustó más de lo que esperaba. El brillo se nota bastante y el agua ya no se queda igual sobre la pintura. Quiero volver a probarlo después del próximo lavado para ver cuánto dura el efecto.",
+            "name": "Ernesto H. Treviño A.",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-6": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Lo compré principalmente por el efecto hidrofóbico y sí se nota. Después de una lluvia vi cómo el agua se hacía gotitas y se deslizaba bastante bien. La aplicación fue sencilla y el resultado me gustó.",
+            "name": "Jonnathan A. Hernández S.",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-7": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Para alguien que no sabe mucho de detailing está bastante bien. No tienes que hacer un proceso complicado y se aplica rápido. El acabado queda bien, aunque hay que pasar bien la microfibra para que no queden residuos.",
+            "name": "Jesús A. Loza R.",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-8": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Mi moto quedó increíble. La pintura se ve mucho más brillante y el acabado se siente muy suave. Lo que más me gustó fue que no tuve que hacer todo un proceso de encerado para notar la diferencia.",
+            "name": "Alejandro R. Mendoza C.",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-9": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Lo mejor es que no tienes que pasar horas encerando. Lo aplicas, lo retiras con la microfibra y listo. El carro queda con buen brillo y se siente protegido. Muy práctico para mantenerlo limpio.",
+            "name": "Fernando E. Navarro G.",
+            "product": "shine-armor",
+            "verified": false
+          }
+        },
+        "review-10": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Después de aplicarlo sentí que el carro quedó con ese acabado de recién detallado. La pintura se ve más brillante y el agua resbala muy fácil. Para darle mantenimiento al carro me parece bastante práctico.",
+            "name": "Roberto M. Pedraza V.",
+            "product": "shine-armor",
+            "verified": false
+          }
+        }
+      },
+      "block_order": [
+        "review-1",
+        "review-2",
+        "review-3",
+        "review-4",
+        "review-5",
+        "review-6",
+        "review-7",
+        "review-8",
+        "review-9",
+        "review-10"
+      ]
+    },
+    "compare": {
+      "type": "ax-compare",
+      "settings": {
+        "product": "",
+        "eyebrow": "Haz la cuenta",
+        "title": "¿Por qué elegir *[producto]*?"
+      }
+    },
+    "guarantee": {
+      "type": "ax-guarantee",
+      "settings": {
+        "title": "Compra *sin riesgo*",
+        "text": "Pides hoy y no pagas nada hasta que tienes el producto en tus manos. Y si algo no sale bien, tienes [dias] días para decírnoslo.",
+        "points": "Pagas en efectivo al recibir\nSi llega dañado, te lo reponemos sin costo\nTe atendemos por WhatsApp antes y después de tu compra"
+      }
+    },
+    "faq": {
+      "type": "ax-faq",
+      "settings": {
+        "product": "",
+        "eyebrow": "Resolvemos tus dudas",
+        "title": "Preguntas *frecuentes*",
+        "soft": true
+      },
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cómo funciona el pago contra entrega?",
+            "answer": "<p>Pides sin tarjeta, confirmamos tus datos por WhatsApp o llamada y pagas en efectivo al repartidor cuando recibes tu paquete.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuánto tarda en llegar?",
+            "answer": "<p>De [envio]. Te enviamos el número de rastreo en cuanto sale tu paquete.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "¿Hacen envíos a todo México?",
+            "answer": "<p>Sí, enviamos a todo el país con paquetería y número de rastreo.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "¿Y si no me convence?",
+            "answer": "<p>Tienes [dias] días para decírnoslo. Si llega dañado, te lo reponemos sin costo.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4"
+      ]
+    },
+    "final": {
+      "type": "ax-final-cta",
+      "settings": {
+        "product": "",
+        "eyebrow": "Último paso",
+        "title": "Pídelo hoy y *págalo al recibirlo*",
+        "text": "Sin tarjeta y sin riesgo: confirmas tus datos y pagas en efectivo cuando el paquete llega a tu puerta.",
+        "cta": "Lo quiero",
+        "cta_store": "Ver productos"
+      }
+    },
+    "related": {
+      "type": "ax-related",
+      "settings": {
+        "title": "También te puede *interesar*",
+        "collection": "",
+        "limit": 4
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust",
+    "problem",
+    "solution",
+    "benefits",
+    "before_after",
+    "howto",
+    "reviews",
+    "compare",
+    "guarantee",
+    "faq",
+    "final",
+    "related"
+  ]
+}

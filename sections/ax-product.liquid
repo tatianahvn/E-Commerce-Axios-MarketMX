@@ -1,0 +1,396 @@
+{%- comment -%}
+  Caja de compra del producto (arriba del pliegue).
+  Todo el contenido propio de cada producto sale de sus metacampos "ax.*":
+    ax.offer_label, ax.hook, ax.subtitle, ax.rating, ax.rating_count, ax.highlights,
+    ax.offer_ends, ax.bundles, ax.specs, ax.releasit_url
+  La compra la cierra Releasit: al cargar, Releasit oculta el botón del tema y pone el suyo
+  (._rsi-buy-now-button) dentro de este formulario. La barra fija y el llamado final
+  hacen clic en ese botón (ver assets/ax.js). El botón del tema queda como respaldo.
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  if p == blank
+    assign p = collections.all.products.first
+  endif
+  assign v = p.selected_or_first_available_variant
+  assign m = p.metafields.ax
+
+  assign unit_price = v.price
+  assign unit_compare = v.compare_at_price | default: 0
+  assign on_sale = false
+  if unit_compare > unit_price
+    assign on_sale = true
+    assign pct = unit_compare | minus: unit_price | times: 100 | divided_by: unit_compare | floor
+  endif
+
+  assign hook = m.hook.value | default: m.subtitle.value
+  assign bundles = m.bundles.value
+
+  # Paquete destacado: el primero que tenga etiqueta. Si ninguno tiene, el primero.
+  assign selected_index = 0
+  for item in bundles
+    assign parts = item | split: '|'
+    assign flag = parts[3] | strip
+    if flag != blank and selected_index == 0
+      assign selected_index = forloop.index
+    endif
+  endfor
+  if selected_index == 0
+    assign selected_index = 1
+  endif
+  assign selected_total = unit_price
+-%}
+
+{%- if p != blank -%}
+<section class="ax-pdp" id="comprar" data-ax-product="{{ p.id }}">
+  <div class="ax-container ax-pdp__grid">
+    {%- comment -%} Galería {%- endcomment -%}
+    <div class="ax-pdp__media">
+      <div class="ax-gallery" data-ax-gallery>
+        <div class="ax-gallery__track" data-ax-gallery-track tabindex="0" aria-label="Fotos de {{ p.title | escape }}">
+          {%- for media in p.media -%}
+            <div class="ax-gallery__slide" data-media-id="{{ media.id }}">
+              {%- case media.media_type -%}
+                {%- when 'video' -%}
+                  {{ media | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '900x' }}
+                {%- when 'external_video' -%}
+                  {{ media | external_video_tag }}
+                {%- else -%}
+                  {%- liquid
+                    assign img_loading = 'lazy'
+                    assign img_priority = 'auto'
+                    if forloop.first
+                      assign img_loading = 'eager'
+                      assign img_priority = 'high'
+                    endif
+                  -%}
+                  {{
+                    media.preview_image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: img_loading,
+                      fetchpriority: img_priority,
+                      widths: '375, 560, 750, 900, 1200',
+                      sizes: '(min-width: 768px) 560px, 100vw',
+                      alt: media.alt | default: p.title
+                  }}
+              {%- endcase -%}
+            </div>
+          {%- else -%}
+            <div class="ax-gallery__slide" style="display:grid;place-items:center;color:#b9b9be">{% render 'ax-icon', name: 'box' %}</div>
+          {%- endfor -%}
+        </div>
+
+        <div class="ax-gallery__badges">
+          {%- if on_sale -%}<span class="ax-badge">−{{ pct }}% hoy</span>{%- endif -%}
+          {%- if m.badge.value != blank -%}<span class="ax-badge ax-badge--dark">{{ m.badge.value }}</span>{%- endif -%}
+        </div>
+
+        {%- if p.media.size > 1 -%}
+          <div class="ax-gallery__dots" data-ax-gallery-dots>
+            {%- for media in p.media -%}
+              <button class="ax-gallery__dot" type="button" aria-label="Ver foto {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+            {%- endfor -%}
+          </div>
+          <div class="ax-gallery__thumbs" data-ax-gallery-thumbs>
+            {%- for media in p.media limit: 5 -%}
+              <button class="ax-gallery__thumb" type="button" aria-label="Ver foto {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
+                {{ media.preview_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}
+              </button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+
+    {%- comment -%} Información y compra {%- endcomment -%}
+    <div class="ax-pdp__info">
+      <div class="ax-pdp__top">
+        {%- if m.offer_label.value != blank -%}
+          <span class="ax-eyebrow">{% render 'ax-icon', name: 'fire' %}{{ m.offer_label.value }}</span>
+        {%- endif -%}
+        {%- if m.rating.value != blank -%}
+          {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value, link: '#resenas' %}
+        {%- endif -%}
+      </div>
+
+      <h1 class="ax-pdp__title">{{ p.title }}</h1>
+      {%- if hook != blank -%}<p class="ax-pdp__hook">{% render 'ax-em', text: hook %}</p>{%- endif -%}
+
+      <div class="ax-pdp__price" data-ax-price>
+        <span class="ax-price__now{% if on_sale %} ax-price__now--sale{% endif %}" data-ax-price-now>{{ unit_price | money_without_trailing_zeros }}</span>
+        <s class="ax-price__was" data-ax-price-was{% unless on_sale %} hidden{% endunless %}>{{ unit_compare | money_without_trailing_zeros }}</s>
+        <span class="ax-badge ax-badge--soft" data-ax-price-save{% unless on_sale %} hidden{% endunless %}>Ahorras {{ pct }}%</span>
+      </div>
+
+      {%- if m.highlights.value != blank -%}
+        <ul class="ax-pdp__points">
+          {%- for point in m.highlights.value -%}
+            <li>{% render 'ax-icon', name: 'check' %}<span>{{ point }}</span></li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      {% render 'ax-countdown', ends: m.offer_ends.value, label: section.settings.countdown_label %}
+
+      {%- if section.settings.show_stock and v.inventory_management == 'shopify' and v.inventory_quantity > 0 and v.inventory_quantity <= settings.ax_low_stock -%}
+        {%- assign stock_pct = v.inventory_quantity | times: 100 | divided_by: settings.ax_low_stock | floor -%}
+        <p class="ax-stock">
+          {% render 'ax-icon', name: 'fire' %}
+          <span>Quedan solo {{ v.inventory_quantity }} piezas</span>
+          <span class="ax-stock__bar" aria-hidden="true"><span style="width: {{ stock_pct }}%"></span></span>
+        </p>
+      {%- endif -%}
+
+      <div class="ax-buy" data-ax-buy-box{% if m.releasit_url.value != blank %} data-releasit-url="{{ m.releasit_url.value }}"{% endif %}>
+        <form
+          method="post"
+          action="{{ routes.cart_add_url }}"
+          id="ax-form-{{ section.id }}"
+          accept-charset="UTF-8"
+          enctype="multipart/form-data"
+          class="ax-buy__form"
+          data-ax-form
+          data-product-id="{{ p.id }}"
+          novalidate
+        >
+          <input type="hidden" name="form_type" value="product">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="id" value="{{ v.id }}" data-ax-variant-id>
+          <input type="hidden" name="product-id" value="{{ p.id }}">
+
+          {%- unless p.has_only_default_variant -%}
+            {%- for option in p.options_with_values -%}
+              <fieldset class="ax-option" data-ax-option="{{ forloop.index0 }}">
+                <legend>{{ option.name }}: <span data-ax-option-value>{{ option.selected_value }}</span></legend>
+                <div class="ax-option__values">
+                  {%- for value in option.values -%}
+                    <label class="ax-pill">
+                      <input type="radio" name="ax-option-{{ section.id }}-{{ forloop.parentloop.index0 }}" value="{{ value | escape }}"{% if option.selected_value == value %} checked{% endif %}>
+                      <span>{{ value }}</span>
+                    </label>
+                  {%- endfor -%}
+                </div>
+              </fieldset>
+            {%- endfor -%}
+            <script type="application/json" data-ax-variants>
+              [
+                {%- for variant in p.variants -%}
+                  {
+                    "id": {{ variant.id }},
+                    "options": {{ variant.options | json }},
+                    "price": {{ variant.price }},
+                    "compare": {{ variant.compare_at_price | default: 0 }},
+                    "available": {{ variant.available | json }},
+                    "media": {{ variant.featured_media.id | default: 0 }}
+                  }{% unless forloop.last %},{% endunless %}
+                {%- endfor -%}
+              ]
+            </script>
+          {%- endunless -%}
+
+          {%- if bundles != blank -%}
+            <fieldset class="ax-bundles">
+              <legend>{{ section.settings.bundles_title }}</legend>
+              {%- for item in bundles -%}
+                {%- liquid
+                  assign parts = item | split: '|'
+                  assign b_name = parts[0] | strip
+                  assign b_qty = parts[1] | strip | plus: 0
+                  if b_qty < 1
+                    assign b_qty = 1
+                  endif
+                  assign b_price_text = parts[2] | strip
+                  assign b_flag = parts[3] | strip
+                  if b_price_text != blank
+                    assign b_total = b_price_text | times: 100 | round
+                    assign b_custom = true
+                  else
+                    assign b_total = unit_price | times: b_qty
+                    assign b_custom = false
+                  endif
+                  # El ahorro se mide contra las mismas piezas a precio normal;
+                  # para 1 pieza, contra el precio de comparación del producto.
+                  if b_qty > 1
+                    assign b_compare = unit_price | times: b_qty
+                  else
+                    assign b_compare = unit_compare
+                  endif
+                  assign b_per = b_total | divided_by: b_qty | floor
+                  assign b_save = b_compare | minus: b_total
+                  if forloop.index == selected_index
+                    assign selected_total = b_total
+                  endif
+                -%}
+                <label class="ax-bundle">
+                  <input
+                    type="radio"
+                    name="quantity"
+                    value="{{ b_qty }}"
+                    data-ax-bundle
+                    data-total="{{ b_total }}"
+                    data-custom="{{ b_custom }}"
+                    {% if forloop.index == selected_index %}checked{% endif %}
+                  >
+                  <span class="ax-bundle__card">
+                    <span class="ax-bundle__radio" aria-hidden="true"></span>
+                    <span>
+                      <span class="ax-bundle__name">{{ b_name }}</span>
+                      <span class="ax-bundle__meta">
+                        {%- if b_qty > 1 -%}
+                          {{ b_per | money_without_trailing_zeros }} c/u
+                        {%- else -%}
+                          {{ section.settings.single_note }}
+                        {%- endif -%}
+                        {%- if b_save > 0 %} · <span class="ax-bundle__save">Ahorras {{ b_save | money_without_trailing_zeros }}</span>{% endif -%}
+                      </span>
+                    </span>
+                    <span class="ax-bundle__prices">
+                      <span class="ax-bundle__price">{{ b_total | money_without_trailing_zeros }}</span>
+                      {%- if b_compare > b_total -%}<s class="ax-bundle__compare">{{ b_compare | money_without_trailing_zeros }}</s>{%- endif -%}
+                    </span>
+                  </span>
+                  {%- if b_flag != blank -%}<span class="ax-badge ax-bundle__flag">{{ b_flag }}</span>{%- endif -%}
+                </label>
+              {%- endfor -%}
+              {%- if section.settings.bundles_note != blank -%}<p class="ax-bundles__note">{{ section.settings.bundles_note }}</p>{%- endif -%}
+            </fieldset>
+          {%- else -%}
+            <input type="hidden" name="quantity" value="1">
+          {%- endif -%}
+
+          <button class="ax-btn ax-btn--block ax-btn--pulse" type="submit" data-ax-buy{% unless v.available %} disabled{% endunless %}>
+            {%- if v.available -%}
+              {%- assign price_text = selected_total | money_without_trailing_zeros -%}
+              {% render 'ax-cta-label', price: price_text %}
+            {%- else -%}
+              <span class="ax-btn__label">Agotado</span>
+            {%- endif -%}
+          </button>
+          <p class="ax-buy__msg" role="alert" data-ax-msg></p>
+        </form>
+      </div>
+      {%- comment -%} Fuera del formulario: Releasit inserta su botón al final del form y estos avisos quedan debajo {%- endcomment -%}
+      <p class="ax-buy__secure">{% render 'ax-icon', name: 'lock' %} {{ section.settings.secure_text }}</p>
+
+      <div class="ax-cod">
+        {% render 'ax-icon', name: 'cash' %}
+        <div>
+          <strong>{{ section.settings.cod_title }}</strong>
+          <span>{{ section.settings.cod_text }}</span>
+        </div>
+      </div>
+
+      <div class="ax-guarantee-seal">
+        <span class="ax-guarantee-seal__icon">{% render 'ax-icon', name: 'shield' %}</span>
+        <div>
+          <strong>Garantía de {{ settings.ax_guarantee_days }} días</strong>
+          <span>{{ settings.ax_guarantee_text }}</span>
+        </div>
+      </div>
+
+      <ul class="ax-mini-trust">
+        <li>{% render 'ax-icon', name: 'truck' %}{{ settings.ax_shipping_text }}</li>
+        <li>{% render 'ax-icon', name: 'clock' %}Llega en {{ settings.ax_delivery_time }}</li>
+        <li>{% render 'ax-icon', name: 'chat' %}Te atendemos por WhatsApp</li>
+      </ul>
+
+      <div>
+        {%- if p.description != blank -%}
+          <details class="ax-details"{% if section.settings.description_open %} open{% endif %}>
+            <summary>Descripción {% render 'ax-icon', name: 'chevron' %}</summary>
+            <div class="ax-details__body ax-rte">{{ p.description }}</div>
+          </details>
+        {%- endif -%}
+        {%- if m.specs.value != blank -%}
+          <details class="ax-details">
+            <summary>Especificaciones {% render 'ax-icon', name: 'chevron' %}</summary>
+            <div class="ax-details__body">
+              <dl class="ax-specs">
+                {%- for spec in m.specs.value -%}
+                  {%- assign parts = spec | split: '|' -%}
+                  <div><dt>{{ parts[0] | strip }}</dt><dd>{{ parts[1] | strip }}</dd></div>
+                {%- endfor -%}
+              </dl>
+            </div>
+          </details>
+        {%- endif -%}
+        <details class="ax-details">
+          <summary>Envío y pago {% render 'ax-icon', name: 'chevron' %}</summary>
+          <div class="ax-details__body">
+            <ul>
+              <li>{{ settings.ax_shipping_text }}. Tiempo estimado: {{ settings.ax_delivery_time }}.</li>
+              <li>Pagas en efectivo al recibir tu pedido. No pedimos tarjeta.</li>
+              <li>Te enviamos el número de rastreo en cuanto sale tu paquete.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} Barra fija de compra: visible mientras el botón principal no está en pantalla {%- endcomment -%}
+  {%- if section.settings.sticky -%}
+    <div class="ax-sticky" data-ax-sticky aria-hidden="true">
+      <div class="ax-sticky__info">
+        <span class="ax-sticky__title">{{ p.title }}</span>
+        <span class="ax-sticky__price" data-ax-price-label>{{ selected_total | money_without_trailing_zeros }}</span>
+      </div>
+      <button class="ax-btn" type="button" data-ax-order tabindex="-1"{% unless v.available %} disabled{% endunless %}>
+        {{ settings.ax_cta_text | default: 'Pedir ahora' }}
+      </button>
+    </div>
+  {%- endif -%}
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": {{ p.title | json }},
+      "url": {{ request.origin | append: p.url | json }},
+      {%- if p.featured_image -%}
+        "image": [{{ p.featured_image | image_url: width: 1200 | prepend: 'https:' | json }}],
+      {%- endif -%}
+      "description": {{ p.description | strip_html | strip | truncate: 500 | json }},
+      {%- if p.vendor != blank -%}"brand": { "@type": "Brand", "name": {{ p.vendor | json }} },{%- endif -%}
+      {%- if v.sku != blank -%}"sku": {{ v.sku | json }},{%- endif -%}
+      {%- if m.rating.value != blank and m.rating_count.value > 0 -%}
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": {{ m.rating.value | json }},
+          "reviewCount": {{ m.rating_count.value | json }}
+        },
+      {%- endif -%}
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": {{ cart.currency.iso_code | json }},
+        "price": {{ v.price | divided_by: 100.0 | json }},
+        "availability": "https://schema.org/{% if v.available %}InStock{% else %}OutOfStock{% endif %}",
+        "url": {{ request.origin | append: p.url | json }}
+      }
+    }
+  </script>
+</section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Crea al menos un producto en Shopify para ver esta sección.' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Producto: caja de compra",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página. Elige uno solo si usas esta sección en el inicio u otra página." },
+    { "type": "paragraph", "content": "El texto de cada producto se llena en su ficha (Productos → producto → Metacampos): ax.offer_label, ax.hook, ax.rating, ax.highlights, ax.offer_ends, ax.bundles, ax.specs." },
+    { "type": "text", "id": "countdown_label", "label": "Texto del contador", "default": "La oferta termina en" },
+    { "type": "text", "id": "bundles_title", "label": "Título de los paquetes", "default": "Elige tu paquete" },
+    { "type": "text", "id": "single_note", "label": "Detalle del paquete de 1 pieza", "default": "Ideal para probar" },
+    { "type": "text", "id": "bundles_note", "label": "Nota debajo de los paquetes", "default": "Confirmas la cantidad y tus datos en el formulario de pedido." },
+    { "type": "text", "id": "secure_text", "label": "Texto de seguridad", "default": "Compra segura. Tus datos están protegidos." },
+    { "type": "text", "id": "cod_title", "label": "Pago contra entrega: título", "default": "Pagas cuando lo recibes" },
+    { "type": "text", "id": "cod_text", "label": "Pago contra entrega: texto", "default": "Pides hoy sin tarjeta y pagas en efectivo al repartidor." },
+    { "type": "checkbox", "id": "show_stock", "label": "Mostrar \"Quedan solo X piezas\"", "default": true, "info": "Usa el inventario real de Shopify. Solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
+    { "type": "checkbox", "id": "description_open", "label": "Descripción abierta al cargar", "default": false },
+    { "type": "checkbox", "id": "sticky", "label": "Barra fija de compra", "default": true }
+  ]
+}
+{% endschema %}

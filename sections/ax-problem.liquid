@@ -1,0 +1,51 @@
+{%- comment -%}
+  El problema (dolor del cliente). Metacampos:
+  ax.problem_title, ax.problem_text, ax.problem_points ("Título | texto"), ax.problem_images
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign m = p.metafields.ax
+  assign images = m.problem_images.value
+-%}
+{%- if m.problem_title.value != blank or m.problem_points.value != blank -%}
+  <section class="ax-section" id="problema" aria-labelledby="ax-problem-{{ section.id }}">
+    <div class="ax-container">
+{%- assign head_id = 'ax-problem-' | append: section.id -%}
+{% render 'ax-head', eyebrow: section.settings.eyebrow, title: m.problem_title.value, text: m.problem_text.value, id: head_id %}
+      {%- if m.problem_points.value != blank -%}
+        <ul class="ax-pains">
+          {%- for item in m.problem_points.value -%}
+            {%- assign parts = item | split: '|' -%}
+            {%- assign img = images[forloop.index0] -%}
+            <li class="ax-pain ax-reveal">
+              <div class="ax-pain__media">
+                {%- if img -%}
+                  {{ img | image_url: width: 640 | image_tag: loading: 'lazy', widths: '240, 400, 640', sizes: '(min-width: 900px) 380px, 104px', alt: img.alt | default: '' }}
+                {%- else -%}
+                  <span class="ax-pain__num">{{ forloop.index }}</span>
+                {%- endif -%}
+              </div>
+              <div>
+                <h3>{{ parts[0] | strip }}</h3>
+                {%- if parts[1] != blank -%}<p>{{ parts[1] | strip }}</p>{%- endif -%}
+              </div>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "El problema": llena en el producto los metacampos <code>ax.problem_title</code> y <code>ax.problem_points</code>.' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Producto: el problema",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "¿Te pasa esto?" }
+  ],
+  "presets": [{ "name": "Producto: el problema" }]
+}
+{% endschema %}

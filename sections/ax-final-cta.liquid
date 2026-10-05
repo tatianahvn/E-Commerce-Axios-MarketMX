@@ -1,0 +1,54 @@
+{%- comment -%}
+  Llamado final en bloque negro. Metacampos: ax.final_title, ax.final_text, ax.offer_ends.
+  En una página sin producto (p. ej. el inicio) el botón lleva al catálogo.
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign m = p.metafields.ax
+  assign title = m.final_title.value | default: section.settings.title
+  assign text = m.final_text.value | default: section.settings.text
+  assign v = p.selected_or_first_available_variant
+-%}
+<section class="ax-section ax-section--dark ax-final" aria-labelledby="ax-final-{{ section.id }}">
+  <div class="ax-container">
+    <div class="ax-final__inner">
+      {%- if section.settings.eyebrow != blank -%}<span class="ax-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h2 class="ax-final__title" id="ax-final-{{ section.id }}">{% render 'ax-em', text: title %}</h2>
+      {%- if text != blank -%}<p class="ax-final__text">{{ text | escape | newline_to_br }}</p>{%- endif -%}
+
+      {%- if p != blank -%}
+        <div class="ax-final__price">
+          <span>{{ v.price | money_without_trailing_zeros }}</span>
+          {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+        </div>
+        {% render 'ax-countdown', ends: m.offer_ends.value, label: 'Precio especial termina en', light: true %}
+        <button class="ax-btn ax-btn--pulse" type="button" data-ax-order{% unless v.available %} disabled{% endunless %}>
+          {% render 'ax-cta-label', text: section.settings.cta %}
+        </button>
+      {%- else -%}
+        <a class="ax-btn" href="{{ routes.all_products_collection_url }}">{{ section.settings.cta_store }}</a>
+      {%- endif -%}
+
+      <ul class="ax-final__fine">
+        <li>{% render 'ax-icon', name: 'cash' %}Pagas al recibir</li>
+        <li>{% render 'ax-icon', name: 'truck' %}{{ settings.ax_shipping_text }}</li>
+        <li>{% render 'ax-icon', name: 'shield' %}Garantía de {{ settings.ax_guarantee_days }} días</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Llamado final",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Último paso" },
+    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Pídelo hoy y *págalo al recibirlo*", "info": "Cada producto puede cambiarlo con ax.final_title." },
+    { "type": "textarea", "id": "text", "label": "Texto por defecto", "default": "Sin tarjeta y sin riesgo: confirmas tus datos y pagas en efectivo cuando el paquete llega a tu puerta." },
+    { "type": "text", "id": "cta", "label": "Botón (página de producto)", "default": "Lo quiero" },
+    { "type": "text", "id": "cta_store", "label": "Botón (sin producto)", "default": "Ver productos" }
+  ],
+  "presets": [{ "name": "Llamado final" }]
+}
+{% endschema %}

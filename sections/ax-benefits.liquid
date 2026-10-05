@@ -1,0 +1,54 @@
+{%- comment -%}
+  Beneficios en tarjetas (con imagen o GIF opcional). Metacampos:
+  ax.benefits ("Título | texto"), ax.benefit_images
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign m = p.metafields.ax
+  assign images = m.benefit_images.value
+  assign icons = 'sparkle,shield,clock,drop,layers,check' | split: ','
+  assign count = m.benefits.value.size
+-%}
+{%- if count > 0 -%}
+  <section class="ax-section" id="beneficios" aria-labelledby="ax-benefits-{{ section.id }}">
+    <div class="ax-container">
+{%- assign head_id = 'ax-benefits-' | append: section.id -%}
+{% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, id: head_id %}
+      <ul class="ax-benefits{% if count == 2 or count == 4 %} ax-benefits--{{ count }}{% endif %}">
+        {%- for item in m.benefits.value -%}
+          {%- assign parts = item | split: '|' -%}
+          {%- assign img = images[forloop.index0] -%}
+          {%- assign icon_index = forloop.index0 | modulo: icons.size -%}
+          <li class="ax-benefit ax-reveal">
+            {%- if img -%}
+              <div class="ax-benefit__media">
+                {{ img | image_url: width: 760 | image_tag: loading: 'lazy', alt: img.alt | default: '' }}
+              </div>
+            {%- endif -%}
+            <div class="ax-benefit__body">
+              <span class="ax-benefit__icon">{% render 'ax-icon', name: icons[icon_index] %}</span>
+              <div>
+                <h3>{{ parts[0] | strip }}</h3>
+                {%- if parts[1] != blank -%}<p>{{ parts[1] | strip }}</p>{%- endif -%}
+              </div>
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Beneficios": llena en el producto el metacampo <code>ax.benefits</code> (una línea por beneficio: <code>Título | texto</code>).' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Producto: beneficios",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Así se ve" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Resultados que *se notan*", "info": "Lo que va entre *asteriscos* sale en rojo." }
+  ],
+  "presets": [{ "name": "Producto: beneficios" }]
+}
+{% endschema %}

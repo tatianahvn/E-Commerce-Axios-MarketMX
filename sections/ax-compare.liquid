@@ -1,0 +1,69 @@
+{%- comment -%}
+  Comparativa "nosotros vs. alternativas". Metacampos:
+  ax.compare_headers  "Shine Armor | Cera tradicional | Autolavado"
+  ax.compare_rows     "Listo en minutos | si | no | parcial"   (si / no / parcial o un texto corto como "$600 al mes")
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign m = p.metafields.ax
+  assign heads = m.compare_headers.value | split: '|'
+  assign title = section.settings.title | replace: '[producto]', p.title
+-%}
+{%- if m.compare_rows.value != blank and heads.size > 0 -%}
+  <section class="ax-section" id="comparativa" aria-labelledby="ax-compare-{{ section.id }}">
+    <div class="ax-container ax-container--narrow">
+      {%- assign head_id = 'ax-compare-' | append: section.id -%}
+      {% render 'ax-head', eyebrow: section.settings.eyebrow, title: title, id: head_id %}
+      <div class="ax-compare ax-reveal">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"><span class="ax-visually-hidden">Característica</span></th>
+              {%- for h in heads -%}
+                <th scope="col"{% if forloop.first %} class="is-us"{% endif %}>{{ h | strip }}</th>
+              {%- endfor -%}
+            </tr>
+          </thead>
+          <tbody>
+            {%- for row in m.compare_rows.value -%}
+              {%- assign cells = row | split: '|' -%}
+              <tr>
+                <th scope="row">{{ cells[0] | strip }}</th>
+                {%- for h in heads -%}
+                  {%- assign cell = cells[forloop.index] | strip -%}
+                  {%- assign key = cell | downcase | replace: 'í', 'i' -%}
+                  <td{% if forloop.first %} class="is-us"{% endif %}>
+                    {%- case key -%}
+                      {%- when 'si', 'yes', '✓' -%}
+                        <span class="ax-compare__mark ax-compare__mark--yes">{% render 'ax-icon', name: 'check' %}<span class="ax-visually-hidden">Sí</span></span>
+                      {%- when 'no', 'x', '✗' -%}
+                        <span class="ax-compare__mark ax-compare__mark--no">{% render 'ax-icon', name: 'x' %}<span class="ax-visually-hidden">No</span></span>
+                      {%- when 'parcial', 'a veces' -%}
+                        <span class="ax-compare__mark ax-compare__mark--partial">A veces</span>
+                      {%- else -%}
+                        <span class="ax-compare__text">{{ cell }}</span>
+                    {%- endcase -%}
+                  </td>
+                {%- endfor -%}
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Comparativa": llena en el producto <code>ax.compare_headers</code> y <code>ax.compare_rows</code>.' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Producto: comparativa",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Haz la cuenta" },
+    { "type": "text", "id": "title", "label": "Título", "default": "¿Por qué elegir *[producto]*?", "info": "[producto] se cambia por el nombre del producto." }
+  ],
+  "presets": [{ "name": "Producto: comparativa" }]
+}
+{% endschema %}

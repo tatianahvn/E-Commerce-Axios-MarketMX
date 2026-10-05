@@ -1,0 +1,185 @@
+{%- comment -%}
+  Reseñas. Solo contenido real de compradores.
+  - Cada reseña es un bloque. Si el bloque tiene "Producto", solo se ve en la página de ESE producto;
+    sin producto se ve en todas (útil para el inicio).
+  - También acepta el bloque de una app de reseñas (Judge.me, Loox, etc.).
+  - Resumen: en la página de producto usa los metacampos ax.rating y ax.rating_count;
+    si no existen, calcula el promedio de las reseñas visibles.
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign shown = 0
+  assign rated = 0
+  assign rating_sum = 0
+  for block in section.blocks
+    if block.type == '@app'
+      assign shown = shown | plus: 1
+    elsif block.type == 'review'
+      assign ok = true
+      if block.settings.product != blank and p != blank and block.settings.product.id != p.id
+        assign ok = false
+      endif
+      if ok
+        assign shown = shown | plus: 1
+        assign rated = rated | plus: 1
+        assign rating_sum = rating_sum | plus: block.settings.rating
+      endif
+    endif
+  endfor
+
+  assign avg = 0
+  assign total = rated
+  if p != blank and p.metafields.ax.rating.value != blank
+    assign avg = p.metafields.ax.rating.value
+    assign total = p.metafields.ax.rating_count.value | default: rated
+  elsif rated > 0
+    assign avg = rating_sum | times: 1.0 | divided_by: rated
+  endif
+  assign avg_text = avg | round: 1
+  assign visible_first = section.settings.visible_mobile
+-%}
+
+{%- if shown > 0 or request.design_mode -%}
+  <section class="ax-section ax-section--soft" id="resenas" aria-labelledby="ax-reviews-{{ section.id }}">
+    <div class="ax-container">
+      {%- assign head_id = 'ax-reviews-' | append: section.id -%}
+      {% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, id: head_id %}
+
+      {%- if avg > 0 -%}
+        <div class="ax-rsum ax-reveal">
+          <strong class="ax-rsum__score">{{ avg_text }}</strong>
+          <div>
+            {% render 'ax-stars', rating: avg, bare: true %}
+            <p class="ax-rsum__meta">Basado en {{ total }} {% if total == 1 %}opinión{% else %}opiniones{% endif %}</p>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if shown > 0 -%}
+        {%- assign n = 0 -%}
+        <div class="ax-reviews" role="list" data-ax-reviews>
+          {%- for block in section.blocks -%}
+            {%- case block.type -%}
+              {%- when '@app' -%}
+                <div role="listitem" style="grid-column:1/-1">{% render block %}</div>
+              {%- when 'review' -%}
+                {%- if block.settings.product != blank and p != blank and block.settings.product.id != p.id -%}{%- continue -%}{%- endif -%}
+                {%- assign n = n | plus: 1 -%}
+                <article class="ax-review" role="listitem" {{ block.shopify_attributes }}{% if n > visible_first %} hidden data-ax-review-extra{% endif %}>
+                  <div class="ax-review__top">
+                    {% render 'ax-stars', rating: block.settings.rating, bare: true %}
+                    {%- if block.settings.date != blank -%}<span class="ax-review__date">{{ block.settings.date }}</span>{%- endif -%}
+                  </div>
+                  {%- if block.settings.headline != blank -%}<h3 class="ax-review__headline">{{ block.settings.headline }}</h3>{%- endif -%}
+                  <p class="ax-review__text">{{ block.settings.text }}</p>
+                  {%- liquid
+                    assign photo_names = block.settings.photos | split: ','
+                    assign has_photos = false
+                    if block.settings.photo != blank or block.settings.photos != blank
+                      assign has_photos = true
+                    endif
+                  -%}
+                  {%- if has_photos -%}
+                    <ul class="ax-review__photos" aria-label="Fotos del cliente">
+                      {%- if block.settings.photo != blank -%}
+                        <li><a href="{{ block.settings.photo | image_url: width: 1200 }}" data-ax-zoom>{{ block.settings.photo | image_url: width: 200 | image_tag: loading: 'lazy', alt: 'Foto del cliente' }}</a></li>
+                      {%- endif -%}
+                      {%- for photo_name in photo_names -%}
+                        {%- assign photo_file = photo_name | strip -%}
+                        {%- if photo_file != blank -%}
+                          <li><a href="{{ photo_file | asset_url }}" data-ax-zoom><img src="{{ photo_file | asset_url }}" alt="Foto enviada por {{ block.settings.name | escape }}" width="72" height="90" loading="lazy" decoding="async"></a></li>
+                        {%- endif -%}
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                  <footer class="ax-review__who">
+                    {%- if block.settings.name != blank -%}
+                      <span class="ax-review__avatar" aria-hidden="true">{{ block.settings.name | slice: 0 | upcase }}</span>
+                      <span><strong>{{ block.settings.name }}</strong>{% if block.settings.city != blank %}<small>{{ block.settings.city }}</small>{% endif %}</span>
+                    {%- endif -%}
+                    {%- if block.settings.verified -%}
+                      <span class="ax-review__verified">{% render 'ax-icon', name: 'check' %}Compra verificada</span>
+                    {%- endif -%}
+                  </footer>
+                </article>
+            {%- endcase -%}
+          {%- endfor -%}
+        </div>
+        {%- if n > visible_first -%}
+          <button class="ax-btn ax-btn--ghost ax-btn--small ax-reviews__more" type="button" data-ax-reviews-more>
+            Ver {{ n | minus: visible_first }} opiniones más
+          </button>
+        {%- endif -%}
+      {%- else -%}
+        {% render 'ax-hint', text: 'Agrega reseñas reales como bloques (o el bloque de tu app de reseñas).' %}
+      {%- endif -%}
+
+      {%- if section.settings.form_enabled -%}
+        <div class="ax-rform">
+          {%- form 'contact', id: 'ax-review-form' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="ax-alert ax-alert--ok" tabindex="-1" autofocus>¡Gracias! Recibimos tu opinión. La revisamos y la publicamos pronto.</p>
+            {%- else -%}
+              <details{% if form.errors %} open{% endif %}>
+                <summary class="ax-btn ax-btn--ghost ax-btn--small" style="display:inline-flex;list-style:none">Escribir una opinión</summary>
+                <div class="ax-rform__panel">
+                  {%- if form.errors -%}<p class="ax-alert">Revisa tus datos: {{ form.errors | default_errors }}</p>{%- endif -%}
+                  <input type="hidden" name="contact[tipo]" value="Opinión de cliente">
+                  {%- if p != blank -%}<input type="hidden" name="contact[producto]" value="{{ p.title | escape }}">{%- endif -%}
+                  <fieldset class="ax-field" style="border:0;padding:0;margin:0">
+                    <legend style="padding:0;margin-bottom:6px">Calificación</legend>
+                    <div class="ax-rate">
+                      {%- for i in (1..5) reversed -%}
+                        <input type="radio" id="ax-rate-{{ section.id }}-{{ i }}" name="contact[calificacion]" value="{{ i }} de 5" required>
+                        <label for="ax-rate-{{ section.id }}-{{ i }}"><span class="ax-visually-hidden">{{ i }} estrellas</span>{% render 'ax-icon', name: 'star' %}</label>
+                      {%- endfor -%}
+                    </div>
+                  </fieldset>
+                  <label class="ax-field">Nombre<input class="ax-input" type="text" name="contact[name]" autocomplete="name" required minlength="2"></label>
+                  <label class="ax-field">Ciudad (opcional)<input class="ax-input" type="text" name="contact[ciudad]" autocomplete="address-level2"></label>
+                  <label class="ax-field">Correo (no se publica)<input class="ax-input" type="email" name="contact[email]" autocomplete="email" required></label>
+                  <label class="ax-field">Tu opinión<textarea class="ax-input" name="contact[body]" required minlength="10" maxlength="800"></textarea></label>
+                  <label class="ax-check"><input type="checkbox" name="contact[permiso]" value="Sí, autoriza publicar" required>Acepto que publiquen mi opinión con mi nombre y ciudad.</label>
+                  <button class="ax-btn ax-btn--dark ax-btn--block" type="submit">Enviar opinión</button>
+                </div>
+              </details>
+            {%- endif -%}
+          {%- endform -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Reseñas",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página. En el inicio déjalo vacío para ver todas." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Opiniones de clientes" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Lo que dicen quienes *ya lo probaron*" },
+    { "type": "range", "id": "visible_mobile", "label": "Reseñas visibles antes de \"Ver más\"", "min": 2, "max": 12, "step": 1, "default": 4 },
+    { "type": "checkbox", "id": "form_enabled", "label": "Formulario para escribir una opinión", "default": true, "info": "Llega a tu correo como mensaje de contacto. Tú decides si la publicas." }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    {
+      "type": "review",
+      "name": "Reseña",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = se muestra en todos los productos y en el inicio." },
+        { "type": "range", "id": "rating", "label": "Estrellas", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "text", "id": "headline", "label": "Título (opcional)" },
+        { "type": "textarea", "id": "text", "label": "Opinión" },
+        { "type": "text", "id": "name", "label": "Nombre" },
+        { "type": "text", "id": "city", "label": "Ciudad (opcional)" },
+        { "type": "text", "id": "date", "label": "Fecha (opcional)", "info": "Ej. Septiembre 2026" },
+        { "type": "image_picker", "id": "photo", "label": "Foto del cliente" },
+        { "type": "text", "id": "photos", "label": "Fotos incluidas en el tema", "info": "Nombres de archivo separados por coma, ej. sa-review-karla-1.webp" },
+        { "type": "checkbox", "id": "verified", "label": "Compra verificada", "default": false, "info": "Márcalo solo si confirmaste que esta persona compró." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Reseñas" }]
+}
+{% endschema %}

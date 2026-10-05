@@ -1,0 +1,39 @@
+{%- comment -%} Otros productos de la tienda (sin el producto actual). Se oculta si no hay más. {%- endcomment -%}
+{%- liquid
+  assign source = collections[section.settings.collection] | default: collections.all
+  assign current_id = product.id | default: 0
+  assign shown = 0
+  for item in source.products limit: 13
+    if item.id != current_id
+      assign shown = shown | plus: 1
+    endif
+  endfor
+-%}
+{%- if shown > 0 -%}
+  <section class="ax-section" aria-labelledby="ax-related-{{ section.id }}">
+    <div class="ax-container">
+      {%- assign head_id = 'ax-related-' | append: section.id -%}
+      {% render 'ax-head', title: section.settings.title, id: head_id %}
+      <div class="ax-grid ax-grid--4{% if shown == 1 %} ax-grid--single{% endif %}">
+        {%- assign n = 0 -%}
+        {%- for item in source.products limit: 13 -%}
+          {%- if item.id == current_id or n >= section.settings.limit -%}{%- continue -%}{%- endif -%}
+          {%- assign n = n | plus: 1 -%}
+          {% render 'ax-product-card', card_product: item %}
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Otros productos",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "También te puede *interesar*" },
+    { "type": "collection", "id": "collection", "label": "Colección", "info": "Vacío = todos los productos." },
+    { "type": "range", "id": "limit", "label": "Máximo de productos", "min": 2, "max": 12, "step": 1, "default": 4 }
+  ],
+  "presets": [{ "name": "Otros productos" }]
+}
+{% endschema %}

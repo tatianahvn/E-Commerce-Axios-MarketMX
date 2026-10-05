@@ -1,0 +1,55 @@
+{%- comment -%}
+  Cómo se usa, en pasos. Metacampos:
+  ax.howto_title (opcional), ax.steps ("Título | texto"), ax.step_images, ax.howto_tip
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign m = p.metafields.ax
+  assign images = m.step_images.value
+  assign title = m.howto_title.value | default: section.settings.title
+-%}
+{%- if m.steps.value != blank -%}
+  <section class="ax-section" id="como-usar" aria-labelledby="ax-howto-{{ section.id }}">
+    <div class="ax-container">
+{%- assign head_id = 'ax-howto-' | append: section.id -%}
+{% render 'ax-head', eyebrow: section.settings.eyebrow, title: title, id: head_id %}
+      <ol class="ax-steps">
+        {%- for item in m.steps.value -%}
+          {%- assign parts = item | split: '|' -%}
+          {%- assign img = images[forloop.index0] -%}
+          <li class="ax-step ax-reveal"{% unless img %} style="grid-template-columns:48px 1fr"{% endunless %}>
+            {%- if img -%}
+              <div class="ax-step__media">
+                {{ img | image_url: width: 800 | image_tag: loading: 'lazy', widths: '240, 480, 800', sizes: '(min-width: 900px) 380px, 120px', alt: img.alt | default: '' }}
+                <span class="ax-step__num">{{ forloop.index }}</span>
+              </div>
+            {%- else -%}
+              <span class="ax-step__num ax-step__num--inline">{{ forloop.index }}</span>
+            {%- endif -%}
+            <div>
+              <h3>{{ parts[0] | strip }}</h3>
+              {%- if parts[1] != blank -%}<p>{{ parts[1] | strip }}</p>{%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+      </ol>
+      {%- if m.howto_tip.value != blank -%}
+        <p class="ax-note" style="margin-top:20px">{% render 'ax-icon', name: 'info' %}<span>{{ m.howto_tip.value | escape | newline_to_br }}</span></p>
+      {%- endif -%}
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Cómo se usa": llena en el producto el metacampo <code>ax.steps</code> (una línea por paso: <code>Título | texto</code>).' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Producto: cómo se usa",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Fácil y rápido" },
+    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Así de *fácil* se usa", "info": "Cada producto puede cambiarlo con el metacampo ax.howto_title." }
+  ],
+  "presets": [{ "name": "Producto: cómo se usa" }]
+}
+{% endschema %}
