@@ -1,10 +1,10 @@
 {%- comment -%}
-  Comparador antes / después. Metacampos: ax.before_image, ax.after_image, ax.ba_note
+  Comparador antes / después. Metacampos: axios.before_image, axios.after_image, axios.ba_note
   Usa fotos REALES del mismo objeto, mismo ángulo y luz.
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign before = m.before_image.value
   assign after = m.after_image.value
 -%}
@@ -28,7 +28,7 @@
     </div>
   </section>
 {%- else -%}
-  {% render 'ax-hint', text: 'Sección "Antes y después": sube en el producto dos fotos reales en <code>ax.before_image</code> y <code>ax.after_image</code>.' %}
+  {% render 'ax-hint', text: 'Sección "Antes y después": sube en el producto dos fotos reales en <code>axios.before_image</code> y <code>axios.after_image</code>.' %}
 {%- endif -%}
 
 {% schema %}

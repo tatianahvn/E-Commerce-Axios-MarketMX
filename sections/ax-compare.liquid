@@ -1,12 +1,12 @@
 {%- comment -%}
   Comparativa "nosotros vs. alternativas". Metacampos:
-  ax.compare_headers  "Shine Armor | Cera tradicional | Autolavado"
-  ax.compare_rows     "Listo en minutos | si | no | parcial"   (si / no / parcial o un texto corto como "$600 al mes")
-  ax.compare_note     "Título | texto"  (opcional: recuadro de ahorro debajo de la tabla)
+  axios.compare_headers  "Shine Armor | Cera tradicional | Autolavado"
+  axios.compare_rows     "Listo en minutos | si | no | parcial"   (si / no / parcial o un texto corto como "$600 al mes")
+  axios.compare_note     "Título | texto"  (opcional: recuadro de ahorro debajo de la tabla)
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign heads = m.compare_headers.value | split: '|'
   # [producto] usa el nombre corto: lo que va antes de "|" en el título del producto
   assign short_name = p.title | split: '|' | first | strip
@@ -67,7 +67,7 @@
     </div>
   </section>
 {%- else -%}
-  {% render 'ax-hint', text: 'Sección "Comparativa": llena en el producto <code>ax.compare_headers</code> y <code>ax.compare_rows</code>.' %}
+  {% render 'ax-hint', text: 'Sección "Comparativa": llena en el producto <code>axios.compare_headers</code> y <code>axios.compare_rows</code>.' %}
 {%- endif -%}
 
 {% schema %}

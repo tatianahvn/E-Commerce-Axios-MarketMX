@@ -1,7 +1,7 @@
 {%- comment -%}
-  Contador hasta una fecha REAL (metacampo ax.offer_ends).
+  Contador hasta una fecha REAL (metacampo axios.offer_ends).
   Se oculta solo cuando la fecha ya pasó (en el servidor y en el navegador).
-  Uso: {% render 'ax-countdown', ends: product.metafields.ax.offer_ends.value, label: 'La oferta termina en', light: true %}
+  Uso: {% render 'ax-countdown', ends: product.metafields.axios.offer_ends.value, label: 'La oferta termina en', light: true %}
 {%- endcomment -%}
 {%- if ends != blank -%}
   {%- assign ends_ts = ends | date: '%s' | plus: 0 -%}

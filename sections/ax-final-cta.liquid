@@ -1,10 +1,10 @@
 {%- comment -%}
-  Llamado final en bloque negro. Metacampos: ax.final_title, ax.final_text, ax.offer_ends.
+  Llamado final en bloque negro. Metacampos: axios.final_title, axios.final_text, axios.offer_ends.
   En una página sin producto (p. ej. el inicio) el botón lleva al catálogo.
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign title = m.final_title.value | default: section.settings.title
   assign text = m.final_text.value | default: section.settings.text
   assign v = p.selected_or_first_available_variant
@@ -44,7 +44,7 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Último paso" },
-    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Pídelo hoy y *págalo al recibirlo*", "info": "Cada producto puede cambiarlo con ax.final_title." },
+    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Pídelo hoy y *págalo al recibirlo*", "info": "Cada producto puede cambiarlo con axios.final_title." },
     { "type": "textarea", "id": "text", "label": "Texto por defecto", "default": "Sin tarjeta y sin riesgo: confirmas tus datos y pagas en efectivo cuando el paquete llega a tu puerta." },
     { "type": "text", "id": "cta", "label": "Botón (página de producto)", "default": "Ordenar ahora" },
     { "type": "text", "id": "cta_sub", "label": "Segunda línea del botón", "default": "¡Envío GRATIS!", "info": "Vacío = usa la de Configuración del tema (\"Pagas al recibir\")." },

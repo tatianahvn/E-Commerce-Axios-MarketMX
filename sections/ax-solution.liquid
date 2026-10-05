@@ -1,10 +1,10 @@
 {%- comment -%}
   La solución: cómo el producto resuelve el problema. Metacampos:
-  ax.solution_title, ax.solution_text, ax.solution_points ("Título | texto"), ax.solution_image, ax.solution_note
+  axios.solution_title, axios.solution_text, axios.solution_points ("Título | texto"), axios.solution_image, axios.solution_note
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign img = m.solution_image.value
 -%}
 {%- if m.solution_title.value != blank -%}
@@ -41,7 +41,7 @@
     </div>
   </section>
 {%- else -%}
-  {% render 'ax-hint', text: 'Sección "La solución": llena en el producto el metacampo <code>ax.solution_title</code> (y opcionalmente texto, puntos e imagen).' %}
+  {% render 'ax-hint', text: 'Sección "La solución": llena en el producto el metacampo <code>axios.solution_title</code> (y opcionalmente texto, puntos e imagen).' %}
 {%- endif -%}
 
 {% schema %}

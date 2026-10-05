@@ -1,8 +1,8 @@
 {%- comment -%}
   Caja de compra del producto (arriba del pliegue).
-  Todo el contenido propio de cada producto sale de sus metacampos "ax.*":
-    ax.offer_label, ax.hook, ax.subtitle, ax.rating, ax.rating_count, ax.highlights,
-    ax.offer_ends, ax.bundles, ax.specs, ax.releasit_url
+  Todo el contenido propio de cada producto sale de sus metacampos "axios.*":
+    axios.offer_label, axios.hook, axios.subtitle, axios.rating, axios.rating_count, axios.highlights,
+    axios.offer_ends, axios.bundles, axios.specs, axios.releasit_url
   La compra la cierra Releasit: al cargar, Releasit oculta el botón del tema y pone el suyo
   (._rsi-buy-now-button) dentro de este formulario. La barra fija y el llamado final
   llevan al inicio de esta sección (ver assets/ax.js). El botón del tema queda como respaldo.
@@ -13,7 +13,7 @@
     assign p = collections.all.products.first
   endif
   assign v = p.selected_or_first_available_variant
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
 
   assign unit_price = v.price
   assign unit_compare = v.compare_at_price | default: 0
@@ -390,7 +390,7 @@
   "name": "Producto: caja de compra",
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página. Elige uno solo si usas esta sección en el inicio u otra página." },
-    { "type": "paragraph", "content": "El texto de cada producto se llena en su ficha (Productos → producto → Metacampos): ax.offer_label, ax.hook, ax.rating, ax.highlights, ax.offer_ends, ax.bundles, ax.specs." },
+    { "type": "paragraph", "content": "El texto de cada producto se llena en su ficha (Productos → producto → Metacampos): axios.offer_label, axios.hook, axios.rating, axios.highlights, axios.offer_ends, axios.bundles, axios.specs." },
     { "type": "text", "id": "countdown_label", "label": "Texto del contador", "default": "La oferta termina en" },
     { "type": "text", "id": "bundles_title", "label": "Título de los paquetes", "default": "Elige tu paquete" },
     { "type": "text", "id": "single_note", "label": "Detalle del paquete de 1 pieza", "default": "Ideal para probar" },

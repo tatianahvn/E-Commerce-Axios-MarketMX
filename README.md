@@ -3,7 +3,7 @@
 Tema de Shopify **mobile first** para una tienda de varios productos que vende con **Releasit (pago contra entrega)**.
 Fondo blanco; negro para texto y bloques de contraste; rojo solo para acciones (botones, precios, etiquetas).
 
-Cada página de producto sigue la misma estructura de conversión y se llena con los **metacampos `ax.*`** del producto
+Cada página de producto sigue la misma estructura de conversión y se llena con los **metacampos `axios.*`** del producto
 (ver [docs/METACAMPOS.md](docs/METACAMPOS.md)). No hay que tocar código para agregar productos.
 
 ## Estructura de la página de producto
@@ -37,7 +37,7 @@ Después de instalar el tema:
 1. **Tienda online → Temas → Personalizar → Incrustaciones de apps:** activa Releasit en ESTE tema (se activa por tema).
 2. En Releasit, estilo del botón para que combine: color `#D61F2C`, texto blanco, radio de borde ~14 px.
 3. En Releasit, "Redirigir a página personalizada" después de la compra: `https://TU-DOMINIO/?pedido=confirmado` (muestra el aviso de gracias).
-4. Las ofertas por cantidad de Releasit deben coincidir con `ax.bundles` y con los descuentos de Shopify.
+4. Las ofertas por cantidad de Releasit deben coincidir con `axios.bundles` y con los descuentos de Shopify.
 
 La tienda no usa carrito: `/cart` y el blog mandan al inicio (`snippets/ax-redirect.liquid`).
 

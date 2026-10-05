@@ -49,7 +49,7 @@ export const shineArmor = {
   selected_or_first_available_variant: shineVariant,
   options_with_values: [],
   metafields: {
-    ax: {
+    axios: {
       subtitle: mf('Cera cerámica en spray 3 en 1'),
       hook: mf('Brillo de agencia en minutos. *Sin agua, sin cubeta y sin autolavado.*'),
       badge: mf('Más vendido'),
@@ -155,5 +155,5 @@ export const plainProduct = {
   featured_image: shineMedia[2].preview_image,
   variants: [plainVariant],
   selected_or_first_available_variant: plainVariant,
-  metafields: { ax: {} },
+  metafields: { axios: {} },
 };

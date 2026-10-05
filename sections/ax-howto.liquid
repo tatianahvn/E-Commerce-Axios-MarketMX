@@ -1,10 +1,10 @@
 {%- comment -%}
   Cómo se usa, en pasos. Metacampos:
-  ax.howto_title (opcional), ax.steps ("Título | texto"), ax.step_images, ax.howto_tip
+  axios.howto_title (opcional), axios.steps ("Título | texto"), axios.step_images, axios.howto_tip
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign images = m.step_images.value
   assign title = m.howto_title.value | default: section.settings.title
 -%}
@@ -39,7 +39,7 @@
     </div>
   </section>
 {%- else -%}
-  {% render 'ax-hint', text: 'Sección "Cómo se usa": llena en el producto el metacampo <code>ax.steps</code> (una línea por paso: <code>Título | texto</code>).' %}
+  {% render 'ax-hint', text: 'Sección "Cómo se usa": llena en el producto el metacampo <code>axios.steps</code> (una línea por paso: <code>Título | texto</code>).' %}
 {%- endif -%}
 
 {% schema %}
@@ -48,7 +48,7 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Fácil y rápido" },
-    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Así de *fácil* se usa", "info": "Cada producto puede cambiarlo con el metacampo ax.howto_title." }
+    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Así de *fácil* se usa", "info": "Cada producto puede cambiarlo con el metacampo axios.howto_title." }
   ],
   "presets": [{ "name": "Producto: cómo se usa" }]
 }

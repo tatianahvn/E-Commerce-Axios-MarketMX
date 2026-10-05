@@ -3,7 +3,7 @@
   - Cada reseña es un bloque. Si el bloque tiene "Producto", solo se ve en la página de ESE producto;
     sin producto se ve en todas (útil para el inicio).
   - También acepta el bloque de una app de reseñas (Judge.me, Loox, etc.).
-  - Resumen: en la página de producto usa los metacampos ax.rating y ax.rating_count;
+  - Resumen: en la página de producto usa los metacampos axios.rating y axios.rating_count;
     si no existen, calcula el promedio de las reseñas visibles.
 {%- endcomment -%}
 {%- liquid
@@ -29,9 +29,9 @@
 
   assign avg = 0
   assign total = rated
-  if p != blank and p.metafields.ax.rating.value != blank
-    assign avg = p.metafields.ax.rating.value
-    assign total = p.metafields.ax.rating_count.value | default: rated
+  if p != blank and p.metafields.axios.rating.value != blank
+    assign avg = p.metafields.axios.rating.value
+    assign total = p.metafields.axios.rating_count.value | default: rated
   elsif rated > 0
     assign avg = rating_sum | times: 1.0 | divided_by: rated
   endif

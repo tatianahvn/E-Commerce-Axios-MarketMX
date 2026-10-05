@@ -1,10 +1,10 @@
 {%- comment -%}
   La solución: beneficios en tarjetas con imagen o GIF. Metacampos:
-  ax.solution_title (opcional), ax.solution_text (opcional), ax.benefits ("Título | texto"), ax.benefit_images
+  axios.solution_title (opcional), axios.solution_text (opcional), axios.benefits ("Título | texto"), axios.benefit_images
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign images = m.benefit_images.value
   assign icons = 'sparkle,shield,clock,drop,layers,check' | split: ','
   assign count = m.benefits.value.size
@@ -39,7 +39,7 @@
     </div>
   </section>
 {%- else -%}
-  {% render 'ax-hint', text: 'Sección "Beneficios": llena en el producto el metacampo <code>ax.benefits</code> (una línea por beneficio: <code>Título | texto</code>).' %}
+  {% render 'ax-hint', text: 'Sección "Beneficios": llena en el producto el metacampo <code>axios.benefits</code> (una línea por beneficio: <code>Título | texto</code>).' %}
 {%- endif -%}
 
 {% schema %}
@@ -60,7 +60,7 @@
         { "value": "shield", "label": "Escudo" }
       ]
     },
-    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Resultados que *se notan*", "info": "Cada producto puede cambiarlo con ax.solution_title. Lo que va entre *asteriscos* sale en rojo." }
+    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Resultados que *se notan*", "info": "Cada producto puede cambiarlo con axios.solution_title. Lo que va entre *asteriscos* sale en rojo." }
   ],
   "presets": [{ "name": "Producto: la solución" }]
 }

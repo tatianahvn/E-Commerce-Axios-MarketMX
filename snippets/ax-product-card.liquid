@@ -1,12 +1,12 @@
 {%- comment -%}
   Tarjeta de producto para inicio, colecciones, búsqueda y relacionados.
   Uso: {% render 'ax-product-card', card_product: product, eager: true, cta: 'Ver producto' %}
-  Toma de los metacampos: ax.badge (etiqueta), ax.subtitle, ax.rating, ax.rating_count.
+  Toma de los metacampos: axios.badge (etiqueta), axios.subtitle, axios.rating, axios.rating_count.
 {%- endcomment -%}
 {%- liquid
   assign p = card_product
   assign v = p.selected_or_first_available_variant
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign on_sale = false
   if v.compare_at_price > v.price
     assign on_sale = true

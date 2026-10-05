@@ -1,10 +1,10 @@
 {%- comment -%}
-  Preguntas frecuentes: primero las del producto (metacampo ax.faq, "Pregunta | Respuesta")
+  Preguntas frecuentes: primero las del producto (metacampo axios.faq, "Pregunta | Respuesta")
   y después las generales de la tienda (bloques de esta sección).
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign product_faq = p.metafields.ax.faq.value
+  assign product_faq = p.metafields.axios.faq.value
   assign support_email = settings.ax_support_email | default: shop.email
 -%}
 <section class="ax-section{% if section.settings.soft %} ax-section--soft{% endif %}" id="preguntas" aria-labelledby="ax-faq-{{ section.id }}">

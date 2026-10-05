@@ -2,7 +2,7 @@
 import fs from 'node:fs';
 import { shineArmor } from './mock-data.mjs';
 
-const ax = shineArmor.metafields.ax;
+const ax = shineArmor.metafields.axios;
 const fileName = (v) => v.src.split('/').pop();
 const lines = [
   '# Contenido de Shine Armor para sus metacampos',
@@ -10,13 +10,13 @@ const lines = [
   'Copia cada valor en **Productos → Shine Armor → Metacampos**. En los campos de tipo *lista*, cada viñeta es un renglón (botón "Agregar elemento").',
   'Las imágenes están en la carpeta `assets/` del tema: súbelas una vez en **Contenido → Archivos** y luego elígelas en el metacampo.',
   '',
-  '> ⚠️ `ax.offer_ends` debe ser una fecha REAL en la que termina tu promoción. Cuando pasa, el contador desaparece solo.',
+  '> ⚠️ `axios.offer_ends` debe ser una fecha REAL en la que termina tu promoción. Cuando pasa, el contador desaparece solo.',
   '',
   '**Título del producto** (Productos → Shine Armor → Título): `' + shineArmor.title + '`. Lo que va después de la barra `|` sale en una segunda parte con la barra en rojo.',
   '',
 ];
 for (const [key, { value }] of Object.entries(ax)) {
-  lines.push(`### \`ax.${key}\``);
+  lines.push(`### \`axios.${key}\``);
   if (key === 'offer_ends') {
     lines.push('', 'Fecha y hora real de fin de tu promoción (ej. domingo 12 de octubre, 23:59).', '');
     continue;

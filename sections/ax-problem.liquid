@@ -1,10 +1,10 @@
 {%- comment -%}
   El problema (dolor del cliente). Metacampos:
-  ax.problem_title, ax.problem_text, ax.problem_points ("Título | texto"), ax.problem_images
+  axios.problem_title, axios.problem_text, axios.problem_points ("Título | texto"), axios.problem_images
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.ax
+  assign m = p.metafields.axios
   assign images = m.problem_images.value
 -%}
 {%- if m.problem_title.value != blank or m.problem_points.value != blank -%}
@@ -36,7 +36,7 @@
     </div>
   </section>
 {%- else -%}
-  {% render 'ax-hint', text: 'Sección "El problema": llena en el producto los metacampos <code>ax.problem_title</code> y <code>ax.problem_points</code>.' %}
+  {% render 'ax-hint', text: 'Sección "El problema": llena en el producto los metacampos <code>axios.problem_title</code> y <code>axios.problem_points</code>.' %}
 {%- endif -%}
 
 {% schema %}
