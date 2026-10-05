@@ -128,6 +128,7 @@ export const shineArmor = {
         'Limpia, abrillanta y protege a la vez | si | no | parcial',
         'Lo haces tú en casa | si | si | no',
       ]),
+      compare_note: mf('*Ahorra dinero* desde la primera aplicación | Con Shine Armor 3 en 1 dejas de pagar el autolavado cada semana y de perder horas encerando: limpias, abrillantas y proteges tu auto tú mismo, en minutos y sin manguera.'),
       faq: mf([
         '¿Qué incluye? | Una botella de 100 ml con atomizador. Los paños de microfibra no vienen incluidos.',
         '¿Cuánto dura el efecto? | Depende del clima y de qué tan seguido lavas tu auto. Vuelve a aplicar cuando el agua deje de formar gotas.',

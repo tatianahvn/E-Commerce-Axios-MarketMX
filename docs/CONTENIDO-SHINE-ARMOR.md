@@ -153,6 +153,10 @@ Shine Armor | Cera tradicional | Autolavado
 - Limpia, abrillanta y protege a la vez | si | no | parcial
 - Lo haces tú en casa | si | si | no
 
+### `ax.compare_note`
+
+*Ahorra dinero* desde la primera aplicación | Con Shine Armor 3 en 1 dejas de pagar el autolavado cada semana y de perder horas encerando: limpias, abrillantas y proteges tu auto tú mismo, en minutos y sin manguera.
+
 ### `ax.faq`
 
 - ¿Qué incluye? | Una botella de 100 ml con atomizador. Los paños de microfibra no vienen incluidos.

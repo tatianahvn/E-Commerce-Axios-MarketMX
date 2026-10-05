@@ -2,12 +2,15 @@
   Comparativa "nosotros vs. alternativas". Metacampos:
   ax.compare_headers  "Shine Armor | Cera tradicional | Autolavado"
   ax.compare_rows     "Listo en minutos | si | no | parcial"   (si / no / parcial o un texto corto como "$600 al mes")
+  ax.compare_note     "Título | texto"  (opcional: recuadro de ahorro debajo de la tabla)
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
   assign m = p.metafields.ax
   assign heads = m.compare_headers.value | split: '|'
-  assign title = section.settings.title | replace: '[producto]', p.title
+  # [producto] usa el nombre corto: lo que va antes de "|" en el título del producto
+  assign short_name = p.title | split: '|' | first | strip
+  assign title = section.settings.title | replace: '[producto]', short_name
 -%}
 {%- if m.compare_rows.value != blank and heads.size > 0 -%}
   <section class="ax-section" id="comparativa" aria-labelledby="ax-compare-{{ section.id }}">
@@ -50,6 +53,17 @@
           </tbody>
         </table>
       </div>
+      {%- if m.compare_note.value != blank -%}
+        {%- assign note = m.compare_note.value | split: '|' -%}
+        {%- assign note_title = note[0] | strip -%}
+        <div class="ax-savings ax-reveal">
+          <span class="ax-savings__icon">{% render 'ax-icon', name: 'piggy' %}</span>
+          <div>
+            <p class="ax-savings__title">{% render 'ax-em', text: note_title %}</p>
+            {%- if note[1] != blank -%}<p class="ax-savings__text">{{ note[1] | strip }}</p>{%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
     </div>
   </section>
 {%- else -%}
@@ -62,7 +76,7 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Haz la cuenta" },
-    { "type": "text", "id": "title", "label": "Título", "default": "¿Por qué elegir *[producto]*?", "info": "[producto] se cambia por el nombre del producto." }
+    { "type": "text", "id": "title", "label": "Título", "default": "¿Por qué elegir *[producto]*?", "info": "[producto] se cambia por el nombre del producto (lo que va antes de la barra |)." }
   ],
   "presets": [{ "name": "Producto: comparativa" }]
 }

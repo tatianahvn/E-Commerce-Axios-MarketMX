@@ -2445,6 +2445,62 @@ textarea.ax-input {
   color: #116b41;
 }
 
+/* Recuadro de ahorro bajo la comparativa */
+.ax-savings {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-black);
+  color: var(--ax-white);
+}
+
+.ax-savings__icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--ax-red);
+  color: var(--ax-white);
+}
+
+.ax-savings__icon .ax-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.ax-savings__title {
+  font-family: var(--ax-font-head);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.ax-savings__title em {
+  font-style: normal;
+  color: #ff4d58;
+}
+
+.ax-savings__text {
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgb(255 255 255 / 0.82);
+}
+
+@media (min-width: 768px) {
+  .ax-savings {
+    padding: 20px 24px;
+  }
+  .ax-savings__title {
+    font-size: 20px;
+  }
+}
+
 /* ---------- Comparativa ---------- */
 .ax-compare {
   border: 1px solid var(--ax-line);

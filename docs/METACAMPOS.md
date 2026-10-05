@@ -60,6 +60,7 @@ En "Espacio de nombres y clave" escribe exactamente lo de la columna **Clave** (
 | `ax.howto_tip` | Varias líneas de texto | Cómo se usa (consejo) |
 | `ax.compare_headers` | Una sola línea de texto (`Nosotros \| Otro \| Otro`) | Comparativa |
 | `ax.compare_rows` | Una sola línea de texto → **Lista** (`Característica \| si \| no \| parcial`) | Comparativa |
+| `ax.compare_note` | Una sola línea de texto (`Título \| texto`) | Comparativa: recuadro de ahorro con alcancía debajo de la tabla (opcional) |
 | `ax.faq` | Una sola línea de texto → **Lista** (`Pregunta \| Respuesta`) | Preguntas frecuentes (van antes de las generales) |
 | `ax.final_title` | Una sola línea de texto | Llamado final (opcional) |
 | `ax.final_text` | Varias líneas de texto | Llamado final (opcional) |
