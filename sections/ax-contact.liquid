@@ -1,0 +1,29 @@
+{%- assign wa = settings.ax_whatsapp | remove: '+' | remove: ' ' -%}
+<section class="ax-section" style="padding-top:0">
+  <div class="ax-container ax-container--narrow">
+    <header class="ax-page-head">
+      <h1>{{ page.title | default: 'Contacto' }}</h1>
+      {%- if page.content != blank -%}<div class="ax-rte">{{ page.content }}</div>{%- endif -%}
+    </header>
+    {%- if wa != blank -%}
+      <p style="margin:8px 0 24px"><a class="ax-btn ax-btn--dark" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'ax-icon', name: 'whatsapp' %} Escríbenos por WhatsApp</a></p>
+    {%- endif -%}
+    {%- form 'contact', class: 'ax-form' -%}
+      {%- if form.posted_successfully? -%}
+        <p class="ax-alert ax-alert--ok" tabindex="-1" autofocus>¡Gracias! Te respondemos lo antes posible.</p>
+      {%- elsif form.errors -%}
+        <p class="ax-alert">Revisa tus datos: {{ form.errors | default_errors }}</p>
+      {%- endif -%}
+      <label class="ax-field">Nombre<input class="ax-input" type="text" name="contact[name]" autocomplete="name" value="{{ form.name }}"></label>
+      <label class="ax-field">Correo<input class="ax-input" type="email" name="contact[email]" autocomplete="email" required value="{{ form.email }}"></label>
+      <label class="ax-field">Teléfono<input class="ax-input" type="tel" name="contact[phone]" autocomplete="tel" value="{{ form.phone }}"></label>
+      <label class="ax-field">Número de pedido (si ya compraste)<input class="ax-input" type="text" name="contact[pedido]"></label>
+      <label class="ax-field">Mensaje<textarea class="ax-input" name="contact[body]" required>{{ form.body }}</textarea></label>
+      <button class="ax-btn ax-btn--block" type="submit">Enviar mensaje</button>
+    {%- endform -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Formulario de contacto", "settings": [] }
+{% endschema %}

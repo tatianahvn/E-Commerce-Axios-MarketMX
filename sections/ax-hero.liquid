@@ -1,0 +1,43 @@
+{%- comment -%} Portada de la tienda (inicio). {%- endcomment -%}
+<section class="ax-hero" aria-labelledby="ax-hero-{{ section.id }}">
+  <div class="ax-container ax-hero__grid">
+    <div class="ax-hero__copy">
+      {%- if section.settings.eyebrow != blank -%}<span class="ax-eyebrow">{{ section.settings.eyebrow }}</span>{%- endif -%}
+      <h1 class="ax-hero__title" id="ax-hero-{{ section.id }}">{% render 'ax-em', text: section.settings.title %}</h1>
+      {%- if section.settings.text != blank -%}<p class="ax-hero__text">{{ section.settings.text }}</p>{%- endif -%}
+      <div class="ax-hero__ctas">
+        <a class="ax-btn" href="{{ section.settings.cta_link | default: '#productos' }}">{{ section.settings.cta }} {% render 'ax-icon', name: 'arrow' %}</a>
+      </div>
+      <ul class="ax-hero__proof">
+        <li>{% render 'ax-icon', name: 'cash' %}Pagas al recibir</li>
+        <li>{% render 'ax-icon', name: 'truck' %}{{ settings.ax_shipping_text }}</li>
+        <li>{% render 'ax-icon', name: 'shield' %}Garantía {{ settings.ax_guarantee_days }} días</li>
+      </ul>
+    </div>
+    {%- if section.settings.image != blank or section.settings.fallback != blank -%}
+      <div class="ax-hero__media">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '375, 600, 900, 1400', sizes: '(min-width: 768px) 50vw, 100vw', alt: section.settings.image.alt | default: '' }}
+        {%- else -%}
+          <img src="{{ section.settings.fallback | asset_url }}" alt="" width="1000" height="1000" fetchpriority="high">
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Portada de la tienda",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Envío a todo México" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Productos que *sí funcionan*. Pagas al recibir.", "info": "Lo que va entre *asteriscos* sale en rojo." },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Probamos cada producto antes de venderlo. Pides hoy, sin tarjeta, y pagas en efectivo cuando llega a tu puerta." },
+    { "type": "text", "id": "cta", "label": "Botón", "default": "Ver productos" },
+    { "type": "url", "id": "cta_link", "label": "Enlace del botón", "info": "Vacío = baja a la lista de productos." },
+    { "type": "image_picker", "id": "image", "label": "Imagen" },
+    { "type": "text", "id": "fallback", "label": "Imagen incluida en el tema (si no subes una)", "default": "sa-apply.jpg" }
+  ],
+  "presets": [{ "name": "Portada de la tienda" }]
+}
+{% endschema %}

@@ -1,0 +1,24 @@
+<section class="ax-section" style="padding-top:0">
+  <div class="ax-container">
+    <header class="ax-page-head"><h1>Categorías</h1></header>
+    <div class="ax-grid">
+      {%- for item in collections -%}
+        {%- if item.handle == 'frontpage' -%}{%- continue -%}{%- endif -%}
+        <a class="ax-card" href="{{ item.url }}" style="text-decoration:none">
+          <div class="ax-card__media">
+            {%- assign cover = item.featured_image | default: item.products.first.featured_media -%}
+            {%- if cover -%}{{ cover | image_url: width: 600 | image_tag: loading: 'lazy', alt: item.title }}{%- endif -%}
+          </div>
+          <div class="ax-card__body">
+            <h2 class="ax-card__title">{{ item.title }}</h2>
+            <span class="ax-card__sub">{{ item.products_count }} productos</span>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Lista de colecciones", "settings": [] }
+{% endschema %}

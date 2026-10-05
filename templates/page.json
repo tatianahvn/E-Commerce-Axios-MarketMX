@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "ax-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

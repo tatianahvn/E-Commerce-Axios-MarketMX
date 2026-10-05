@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "ax-404",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

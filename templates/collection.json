@@ -1,0 +1,60 @@
+{
+  "sections": {
+    "main": {
+      "type": "ax-collection",
+      "settings": {
+        "per_page": 24
+      }
+    },
+    "trust": {
+      "type": "ax-trust",
+      "settings": {
+        "soft": false
+      },
+      "blocks": {
+        "t1": {
+          "type": "item",
+          "settings": {
+            "icon": "cash",
+            "title": "Paga al recibir",
+            "text": "Pago contra entrega, sin tarjeta"
+          }
+        },
+        "t2": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "title": "Envío con rastreo",
+            "text": "Llega en [envio]"
+          }
+        },
+        "t3": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "title": "Garantía de [dias] días",
+            "text": "Compra sin riesgo"
+          }
+        },
+        "t4": {
+          "type": "item",
+          "settings": {
+            "icon": "whatsapp",
+            "title": "Atención por WhatsApp",
+            "text": "Resolvemos tus dudas antes y después"
+          }
+        }
+      },
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
+    }
+  },
+  "order": [
+    "main",
+    "trust"
+  ]
+}

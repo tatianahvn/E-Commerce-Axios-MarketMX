@@ -1,0 +1,11 @@
+{
+  "sections": {
+    "main": {
+      "type": "ax-redirect-note",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

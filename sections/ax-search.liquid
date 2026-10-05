@@ -1,0 +1,33 @@
+<section class="ax-section" style="padding-top:0">
+  <div class="ax-container">
+    <header class="ax-page-head">
+      <h1>Buscar</h1>
+      <form class="ax-search" action="{{ routes.search_url }}" method="get" role="search">
+        <label class="ax-visually-hidden" for="ax-q">Buscar productos</label>
+        <input class="ax-input" id="ax-q" type="search" name="q" value="{{ search.terms | escape }}" placeholder="¿Qué estás buscando?">
+        <input type="hidden" name="type" value="product">
+        <button class="ax-btn ax-btn--dark ax-btn--small" type="submit" aria-label="Buscar">{% render 'ax-icon', name: 'search' %}</button>
+      </form>
+    </header>
+
+    {%- if search.performed -%}
+      <p class="ax-toolbar">{{ search.results_count }} resultados para "{{ search.terms | escape }}"</p>
+      {%- if search.results_count > 0 -%}
+        <div class="ax-grid">
+          {%- for item in search.results -%}
+            {%- if item.object_type == 'product' -%}{% render 'ax-product-card', card_product: item %}{%- endif -%}
+          {%- endfor -%}
+        </div>
+      {%- else -%}
+        <div class="ax-empty">
+          <p>No encontramos productos con esa búsqueda.</p>
+          <a class="ax-btn ax-btn--small" href="{{ routes.all_products_collection_url }}">Ver todos los productos</a>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Búsqueda", "settings": [] }
+{% endschema %}
