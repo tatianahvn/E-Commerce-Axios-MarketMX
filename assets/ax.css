@@ -1779,11 +1779,15 @@ ol {
 
 .ax-specs__notes {
   margin-top: 14px;
-  display: grid;
-  gap: 4px;
   font-size: 13px;
-  line-height: 1.4;
+  line-height: 1.45;
   color: var(--ax-muted);
+}
+
+/* Notas seguidas, sin espacio entre renglones */
+.ax-details__body .ax-specs__notes p,
+.ax-details__body .ax-specs__notes p + p {
+  margin: 0;
 }
 
 /* Releasit agrega su propio botón flotante al bajar por la página. Se oculta para que solo quede

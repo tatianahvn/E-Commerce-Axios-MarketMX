@@ -70,7 +70,7 @@ export const shineArmor = {
         'Vehículos | Autos, motos, camionetas, lanchas y RVs',
         'Incluye | 1 botella con atomizador',
       ]),
-      specs_notes: mf('* El color y la presentación del producto pueden variar.\n* Las imágenes son de referencia y pueden no mostrar el color real del producto.\n* El tamaño puede variar unos centímetros.\n* El contenido del producto es de 100 ml (3.4 fl oz).'),
+      specs_notes: mf('* El color y la presentación del producto pueden variar.\n* Las imágenes son de referencia y pueden no mostrar el color real del producto.\n* El tamaño puede variar unos centímetros.'),
       problem_title: mf('¿Cansado de la *pintura opaca y la acumulación de polvo*?'),
       problem_text: mf(
         'No es tu culpa: el sol, la lluvia y el polvo atacan el barniz todos los días. Primero se pierde el brillo, luego el color se apaga y al final la pintura queda desprotegida.'
