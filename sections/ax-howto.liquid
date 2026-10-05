@@ -17,10 +17,10 @@
         {%- for item in m.steps.value -%}
           {%- assign parts = item | split: '|' -%}
           {%- assign img = images[forloop.index0] -%}
-          <li class="ax-step ax-reveal"{% unless img %} style="grid-template-columns:48px 1fr"{% endunless %}>
+          <li class="ax-step ax-reveal">
             {%- if img -%}
               <div class="ax-step__media">
-                {{ img | image_url: width: 800 | image_tag: loading: 'lazy', widths: '240, 480, 800', sizes: '(min-width: 900px) 380px, 120px', alt: img.alt | default: '' }}
+                {{ img | image_url: width: 800 | image_tag: loading: 'lazy', widths: '240, 480, 800', sizes: '(min-width: 900px) 380px, 100vw', alt: img.alt | default: '' }}
                 <span class="ax-step__num">{{ forloop.index }}</span>
               </div>
             {%- else -%}
