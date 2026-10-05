@@ -58,8 +58,12 @@ Para ver cambios en vivo mientras editas: `shopify theme dev --store axiosmarket
 `dev/` renderiza las plantillas con datos simulados de Shine Armor para revisar el diseño. No se sube a Shopify (`.shopifyignore`).
 
 ```bash
-cd dev && npm install && node preview.mjs && python3 -m http.server 4173 --directory out
+cd dev && npm install && node serve.mjs
 ```
+
+Abre `http://localhost:4173/products/shine-armor/` (o, en el celular dentro de la misma Wi-Fi, `http://IP-DE-TU-MAC:4173/...`).
+Cada carga vuelve a generar la página: trae las fotos actuales del producto desde la tienda y toma los cambios más recientes del tema.
+Para generar los archivos una sola vez, sin servidor: `node preview.mjs`.
 
 Si cambias el contenido de ejemplo en `dev/mock-data.mjs`, regenera la guía con `node dev/export-content.mjs`.
 
