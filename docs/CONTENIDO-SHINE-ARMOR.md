@@ -127,9 +127,9 @@ Imagen ilustrativa.
 
 ### `ax.steps`
 
-- Rocía | Aplica sobre un paño de microfibra limpio y ligeramente húmedo, por secciones pequeñas (media puerta a la vez).
+- Rocía | Aplica sobre un paño de microfibra limpio y ligeramente húmedo.
 - Extiende | Limpia con movimientos rectos. El producto levanta el polvo y deja la capa cerámica.
-- Pule | Con una microfibra seca retira el velo antes de que seque. Repite panel por panel.
+- Pule | Con una microfibra seca frota suavemente para quitar el excedente y dar más brillo.
 
 ### `ax.step_images`
 
