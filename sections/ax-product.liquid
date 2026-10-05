@@ -39,6 +39,7 @@
     assign selected_index = 1
   endif
   assign selected_total = unit_price
+  assign selected_qty = 1
 -%}
 
 {%- if p != blank -%}
@@ -227,6 +228,7 @@
                   assign b_save = b_compare | minus: b_total
                   if forloop.index == selected_index
                     assign selected_total = b_total
+                    assign selected_qty = b_qty
                   endif
                 -%}
                 <label class="ax-bundle">
@@ -341,7 +343,8 @@
     <div class="ax-sticky" data-ax-sticky aria-hidden="true">
       <div class="ax-sticky__info">
         <span class="ax-sticky__title">{{ p.title | split: '|' | first | strip }}</span>
-        <span class="ax-sticky__price" data-ax-price-label>{{ selected_total | money_without_trailing_zeros }}</span>
+        {%- comment -%} Con paquete de varias piezas se aclara la cantidad: "2 x $599" = 2 piezas por $599 {%- endcomment -%}
+        <span class="ax-sticky__price" data-ax-sticky-price>{% if selected_qty > 1 %}{{ selected_qty }} x {% endif %}{{ selected_total | money_without_trailing_zeros }}</span>
       </div>
       <a class="ax-btn" href="#comprar" data-ax-order tabindex="-1">
         {{ section.settings.sticky_label | default: settings.ax_cta_text }}
