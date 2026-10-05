@@ -16,7 +16,8 @@
       <ol class="ax-steps">
         {%- for item in m.steps.value -%}
           {%- assign parts = item | split: '|' -%}
-          {%- assign img = images[forloop.index0] -%}
+          {%- comment -%} Las listas de archivos de Shopify no se pueden leer por posición ([0]); se recorre la lista {%- endcomment -%}
+{%- assign img = nil -%}{%- assign item_index = forloop.index0 -%}{%- for candidate in images -%}{%- if forloop.index0 == item_index -%}{%- assign img = candidate -%}{%- break -%}{%- endif -%}{%- endfor -%}
           <li class="ax-step ax-reveal">
             {%- if img -%}
               <div class="ax-step__media">

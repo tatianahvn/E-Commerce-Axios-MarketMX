@@ -18,7 +18,8 @@
       <ul class="ax-benefits{% if count == 2 or count == 4 %} ax-benefits--{{ count }}{% endif %}">
         {%- for item in m.benefits.value -%}
           {%- assign parts = item | split: '|' -%}
-          {%- assign img = images[forloop.index0] -%}
+          {%- comment -%} Las listas de archivos de Shopify no se pueden leer por posición ([0]); se recorre la lista {%- endcomment -%}
+{%- assign img = nil -%}{%- assign item_index = forloop.index0 -%}{%- for candidate in images -%}{%- if forloop.index0 == item_index -%}{%- assign img = candidate -%}{%- break -%}{%- endif -%}{%- endfor -%}
           {%- assign icon_index = forloop.index0 | modulo: icons.size -%}
           <li class="ax-benefit ax-reveal">
             {%- if img -%}
