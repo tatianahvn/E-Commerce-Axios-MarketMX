@@ -1,15 +1,24 @@
 {%- comment -%}
-  Barra de avisos. En celular rota un aviso a la vez (se lee mejor que una marquesina);
-  en escritorio se muestran todos juntos.
+  Barra de avisos: cinta que corre hacia la izquierda sin cortes.
+  Los avisos se repiten para llenar pantallas anchas; la segunda mitad es una copia
+  (oculta para lectores de pantalla) que permite que la vuelta sea continua.
 {%- endcomment -%}
 {%- if section.blocks.size > 0 -%}
-  <div class="ax-announce" role="region" aria-label="Avisos" data-ax-announce>
-    {%- for block in section.blocks -%}
-      <p class="ax-announce__item{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
-        {% render 'ax-icon', name: block.settings.icon %}
-        <span>{% render 'ax-tokens', text: block.settings.text %}</span>
-      </p>
+  {%- capture ax_announce_items -%}
+    {%- for i in (1..3) -%}
+      {%- for block in section.blocks -%}
+        <span class="ax-announce__item"{% if forloop.parentloop.first %} {{ block.shopify_attributes }}{% endif %}>
+          {% render 'ax-icon', name: block.settings.icon %}
+          <span>{% render 'ax-tokens', text: block.settings.text %}</span>
+        </span>
+      {%- endfor -%}
     {%- endfor -%}
+  {%- endcapture -%}
+  <div class="ax-announce" role="region" aria-label="Avisos" style="--ax-announce-speed: {{ section.settings.speed }}s">
+    <div class="ax-announce__track">
+      <div class="ax-announce__group">{{ ax_announce_items }}</div>
+      <div class="ax-announce__group" aria-hidden="true">{{ ax_announce_items }}</div>
+    </div>
   </div>
 {%- endif -%}
 
@@ -17,6 +26,9 @@
 {
   "name": "Barra de avisos",
   "max_blocks": 5,
+  "settings": [
+    { "type": "range", "id": "speed", "label": "Duración de una vuelta", "min": 15, "max": 90, "step": 5, "unit": "s", "default": 40, "info": "Menos segundos = corre más rápido." }
+  ],
   "blocks": [
     {
       "type": "item",

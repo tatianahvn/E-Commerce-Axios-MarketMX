@@ -28,29 +28,6 @@
     return data;
   };
 
-  /* ---------- Barra de avisos: un aviso a la vez en celular ---------- */
-  const announce = $('[data-ax-announce]');
-  if (announce) {
-    const items = $$('.ax-announce__item', announce);
-    const mobile = window.matchMedia('(max-width: 1023px)');
-    let i = 0;
-    let timer = null;
-    const start = () => {
-      clearInterval(timer);
-      if (!mobile.matches || items.length < 2 || reducedMotion) {
-        items.forEach((el, n) => el.classList.toggle('is-active', n === 0 || !mobile.matches));
-        return;
-      }
-      timer = setInterval(() => {
-        items[i].classList.remove('is-active');
-        i = (i + 1) % items.length;
-        items[i].classList.add('is-active');
-      }, 3500);
-    };
-    mobile.addEventListener?.('change', start);
-    start();
-  }
-
   /* ---------- Menú móvil ---------- */
   const drawer = $('[data-ax-drawer]');
   const menuBtn = $('[data-ax-menu-open]');
