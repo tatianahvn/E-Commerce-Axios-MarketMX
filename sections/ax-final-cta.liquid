@@ -23,7 +23,7 @@
         </div>
         {% render 'ax-countdown', ends: m.offer_ends.value, label: 'Precio especial termina en', light: true %}
         <a class="ax-btn ax-btn--pulse" href="{{ p.url }}#comprar" data-ax-order>
-          {% render 'ax-cta-label', text: section.settings.cta %}
+          {% render 'ax-cta-label', text: section.settings.cta, sub: section.settings.cta_sub %}
         </a>
       {%- else -%}
         <a class="ax-btn" href="{{ routes.all_products_collection_url }}">{{ section.settings.cta_store }}</a>
@@ -46,7 +46,8 @@
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Último paso" },
     { "type": "text", "id": "title", "label": "Título por defecto", "default": "Pídelo hoy y *págalo al recibirlo*", "info": "Cada producto puede cambiarlo con ax.final_title." },
     { "type": "textarea", "id": "text", "label": "Texto por defecto", "default": "Sin tarjeta y sin riesgo: confirmas tus datos y pagas en efectivo cuando el paquete llega a tu puerta." },
-    { "type": "text", "id": "cta", "label": "Botón (página de producto)", "default": "Lo quiero" },
+    { "type": "text", "id": "cta", "label": "Botón (página de producto)", "default": "Ordenar ahora" },
+    { "type": "text", "id": "cta_sub", "label": "Segunda línea del botón", "default": "¡Envío GRATIS!", "info": "Vacío = usa la de Configuración del tema (\"Pagas al recibir\")." },
     { "type": "text", "id": "cta_store", "label": "Botón (sin producto)", "default": "Ver productos" }
   ],
   "presets": [{ "name": "Llamado final" }]

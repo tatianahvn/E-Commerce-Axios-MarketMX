@@ -348,6 +348,14 @@ ol {
   opacity: 0.88;
 }
 
+.ax-btn__sub--plain {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 14px;
+  font-weight: 700;
+  opacity: 1;
+}
+
 .ax-btn.is-loading {
   pointer-events: none;
   opacity: 0.75;

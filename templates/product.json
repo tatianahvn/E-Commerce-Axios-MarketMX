@@ -292,8 +292,9 @@
         "eyebrow": "Último paso",
         "title": "Pídelo hoy y *págalo al recibirlo*",
         "text": "Sin tarjeta y sin riesgo: confirmas tus datos y pagas en efectivo cuando el paquete llega a tu puerta.",
-        "cta": "Ordenar ahora, ¡Envío Gratis!",
-        "cta_store": "Ver productos"
+        "cta": "Ordenar ahora",
+        "cta_store": "Ver productos",
+        "cta_sub": "¡Envío GRATIS!"
       }
     },
     "related": {
