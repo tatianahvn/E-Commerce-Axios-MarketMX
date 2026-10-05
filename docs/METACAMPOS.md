@@ -29,6 +29,7 @@ En "Espacio de nombres y clave" escribe exactamente lo de la columna **Clave** (
 | `axios.highlights` | Una sola línea de texto → **Lista** | Viñetas con ✓ | Limpia, abrillanta y protege |
 | `axios.bundles` | Una sola línea de texto → **Lista** | Paquetes: `Nombre \| Cantidad \| Precio total \| Etiqueta` | `¡Compra 2! \| 2 \| 599 \| ⭐ Más pedido` |
 | `axios.specs` | Una sola línea de texto → **Lista** | Tabla de especificaciones: `Dato \| Valor` | `Contenido \| 100 ml` |
+| `axios.specs_notes` | Varias líneas de texto | Notas en letra pequeña debajo de las especificaciones (una por renglón) | * El color puede variar. |
 | `axios.releasit_url` | URL | *Opcional.* Solo si algún producto usa un enlace directo de Releasit en vez de su botón | |
 
 **Paquetes (`axios.bundles`)**

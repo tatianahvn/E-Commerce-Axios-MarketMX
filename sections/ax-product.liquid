@@ -311,16 +311,28 @@
             <div class="ax-details__body ax-rte">{{ p.description }}</div>
           </details>
         {%- endif -%}
-        {%- if m.specs.value != blank -%}
+        {%- if m.specs.value != blank or m.specs_notes.value != blank -%}
           <details class="ax-details">
             <summary>Especificaciones {% render 'ax-icon', name: 'chevron' %}</summary>
             <div class="ax-details__body">
-              <dl class="ax-specs">
-                {%- for spec in m.specs.value -%}
-                  {%- assign parts = spec | split: '|' -%}
-                  <div><dt>{{ parts[0] | strip }}</dt><dd>{{ parts[1] | strip }}</dd></div>
-                {%- endfor -%}
-              </dl>
+              {%- if m.specs.value != blank -%}
+                <dl class="ax-specs">
+                  {%- for spec in m.specs.value -%}
+                    {%- assign parts = spec | split: '|' -%}
+                    <div><dt>{{ parts[0] | strip }}</dt><dd>{{ parts[1] | strip }}</dd></div>
+                  {%- endfor -%}
+                </dl>
+              {%- endif -%}
+              {%- comment -%} Notas en letra pequeña (metacampo axios.specs_notes, una por renglón) {%- endcomment -%}
+              {%- if m.specs_notes.value != blank -%}
+                {%- assign note_lines = m.specs_notes.value | newline_to_br | split: '<br />' -%}
+                <div class="ax-specs__notes">
+                  {%- for line in note_lines -%}
+                    {%- assign line = line | strip -%}
+                    {%- if line != blank -%}<p>{{ line }}</p>{%- endif -%}
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
             </div>
           </details>
         {%- endif -%}

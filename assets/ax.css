@@ -1777,6 +1777,15 @@ ol {
   margin: 0;
 }
 
+.ax-specs__notes {
+  margin-top: 14px;
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ax-muted);
+}
+
 /* Releasit agrega su propio botón flotante al bajar por la página. Se oculta para que solo quede
    la barra fija del tema, que sube a la sección de compra; ahí se usa el botón de Releasit. */
 #_rsi-buy-now-button-floating,
