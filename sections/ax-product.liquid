@@ -47,6 +47,7 @@
     {%- comment -%} Galería {%- endcomment -%}
     <div class="ax-pdp__media">
       <div class="ax-gallery" data-ax-gallery>
+        <div class="ax-gallery__stage">
         <div class="ax-gallery__track" data-ax-gallery-track tabindex="0" aria-label="Fotos de {{ p.title | escape }}">
           {%- for media in p.media -%}
             <div class="ax-gallery__slide" data-media-id="{{ media.id }}">
@@ -87,11 +88,17 @@
         </div>
 
         {%- if p.media.size > 1 -%}
+          <button class="ax-gallery__arrow ax-gallery__arrow--prev" type="button" data-ax-gallery-prev aria-label="Foto anterior">{% render 'ax-icon', name: 'chevron-right' %}</button>
+          <button class="ax-gallery__arrow ax-gallery__arrow--next" type="button" data-ax-gallery-next aria-label="Foto siguiente">{% render 'ax-icon', name: 'chevron-right' %}</button>
           <div class="ax-gallery__dots" data-ax-gallery-dots>
             {%- for media in p.media -%}
               <button class="ax-gallery__dot" type="button" aria-label="Ver foto {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
             {%- endfor -%}
           </div>
+        {%- endif -%}
+        </div>
+
+        {%- if p.media.size > 1 -%}
           <div class="ax-gallery__thumbs" data-ax-gallery-thumbs>
             {%- for media in p.media limit: 5 -%}
               <button class="ax-gallery__thumb" type="button" aria-label="Ver foto {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">

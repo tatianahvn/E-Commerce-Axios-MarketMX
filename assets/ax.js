@@ -105,7 +105,9 @@
     const thumbs = $$('.ax-gallery__thumb', gallery);
     if (slides.length < 2) return;
 
+    let current = 0;
     const mark = (index) => {
+      current = index;
       dots.forEach((d, n) => d.setAttribute('aria-current', n === index ? 'true' : 'false'));
       thumbs.forEach((t, n) => t.setAttribute('aria-current', n === index ? 'true' : 'false'));
     };
@@ -128,6 +130,9 @@
     );
     dots.forEach((d, n) => d.addEventListener('click', () => go(n)));
     thumbs.forEach((t, n) => t.addEventListener('click', () => go(n)));
+    // Flechas: avanzan como un carrusel; al final vuelven a la primera foto
+    $('[data-ax-gallery-prev]', gallery)?.addEventListener('click', () => go((current - 1 + slides.length) % slides.length));
+    $('[data-ax-gallery-next]', gallery)?.addEventListener('click', () => go((current + 1) % slides.length));
     gallery.axGoToMedia = (mediaId) => {
       const index = slides.findIndex((s) => s.dataset.mediaId === String(mediaId));
       if (index >= 0) go(index);

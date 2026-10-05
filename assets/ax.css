@@ -1022,6 +1022,70 @@ ol {
   position: relative;
 }
 
+.ax-gallery__stage {
+  position: relative;
+}
+
+.ax-gallery__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.88);
+  color: var(--ax-ink);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.18);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.ax-gallery__arrow:hover {
+  background: var(--ax-white);
+}
+
+.ax-gallery__arrow:active {
+  transform: scale(0.92);
+}
+
+.ax-gallery__arrow .ax-icon {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2.4;
+}
+
+.ax-gallery__arrow--prev {
+  left: 10px;
+}
+
+.ax-gallery__arrow--prev .ax-icon {
+  transform: rotate(180deg);
+}
+
+.ax-gallery__arrow--next {
+  right: 10px;
+}
+
+@media (min-width: 768px) {
+  .ax-gallery__arrow {
+    width: 46px;
+    height: 46px;
+    margin-top: -23px;
+  }
+  .ax-gallery__arrow--prev {
+    left: 14px;
+  }
+  .ax-gallery__arrow--next {
+    right: 14px;
+  }
+}
+
 .ax-gallery__track {
   display: flex;
   overflow-x: auto;

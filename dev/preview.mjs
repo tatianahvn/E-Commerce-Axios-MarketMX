@@ -141,8 +141,10 @@ const money = (cents, trailing = true) => {
   const s = v.toLocaleString('es-MX', { minimumFractionDigits: trailing || v % 1 ? 2 : 0, maximumFractionDigits: 2 });
   return `$${s}`;
 };
+// Versión en la URL (como hace Shopify) para que el navegador no use archivos viejos
+const BUILD = Date.now();
 const filters = {
-  asset_url: (f) => `/assets/${f}`,
+  asset_url: (f) => `/assets/${f}?v=${BUILD}`,
   shopify_asset_url: (f) => `/assets/${f}`,
   image_url: (o) => (o && typeof o === 'object' ? o.src || o.preview_image?.src : o),
   image_tag: (src, ...args) => {
