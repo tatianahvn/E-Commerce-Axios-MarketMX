@@ -103,8 +103,8 @@ export const shineArmor = {
         img('sa-gif-2.webp', 379, 213, 'Reflejo tipo espejo en pintura roja'),
         img('sa-gif-3.webp', 379, 213, 'Persona rociando la puerta de una camioneta'),
       ]),
-      before_image: mf(img('sa-ba-before.webp', 1600, 893)),
-      after_image: mf(img('sa-ba-after.webp', 1600, 893)),
+      before_image: mf(img('sa-ba-antes.jpg', 1400, 1400, 'Auto negro con la pintura opaca y sucia')),
+      after_image: mf(img('sa-ba-despues.jpg', 1400, 1400, 'El mismo auto con brillo y gotas de agua que resbalan')),
       ba_note: mf('Imagen ilustrativa.'),
       howto_title: mf('3 pasos para un *acabado profesional*'),
       steps: mf([

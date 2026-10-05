@@ -13,11 +13,13 @@
     <div class="ax-container ax-container--narrow">
 {%- assign head_id = 'ax-ba-' | append: section.id -%}
 {% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, id: head_id %}
-      <div class="ax-ba ax-reveal" data-ax-ba>
+      <div class="ax-ba ax-reveal" data-ax-ba style="aspect-ratio: {{ before.aspect_ratio | default: 1.6 }}">
         {{ before | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1400', sizes: '(min-width: 860px) 780px, 100vw', alt: 'Antes' }}
         {{ after | image_url: width: 1400 | image_tag: loading: 'lazy', widths: '600, 900, 1400', sizes: '(min-width: 860px) 780px, 100vw', alt: 'Después', class: 'ax-ba__after' }}
-        <span class="ax-ba__tag ax-ba__tag--before">Antes</span>
-        <span class="ax-ba__tag ax-ba__tag--after">Después</span>
+        {%- if section.settings.show_tags -%}
+          <span class="ax-ba__tag ax-ba__tag--before">Antes</span>
+          <span class="ax-ba__tag ax-ba__tag--after">Después</span>
+        {%- endif -%}
         <input type="range" min="0" max="100" value="50" aria-label="Desliza para comparar antes y después">
         <span class="ax-ba__line" aria-hidden="true"></span>
         <span class="ax-ba__knob" aria-hidden="true">{% render 'ax-icon', name: 'arrows-h' %}</span>
@@ -35,7 +37,8 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Desliza y compara" },
-    { "type": "text", "id": "title", "label": "Título", "default": "La diferencia se ve *a simple vista*" }
+    { "type": "text", "id": "title", "label": "Título", "default": "La diferencia se ve *a simple vista*" },
+    { "type": "checkbox", "id": "show_tags", "label": "Mostrar etiquetas \"Antes\" y \"Después\"", "default": true, "info": "Desactívalo si tus fotos ya traen el texto." }
   ],
   "presets": [{ "name": "Producto: antes y después" }]
 }

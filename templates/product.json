@@ -84,7 +84,8 @@
       "settings": {
         "product": "",
         "eyebrow": "Desliza y compara",
-        "title": "La diferencia se ve *a simple vista*"
+        "title": "La diferencia se ve *a simple vista*",
+        "show_tags": false
       }
     },
     "howto": {

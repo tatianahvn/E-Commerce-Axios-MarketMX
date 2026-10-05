@@ -111,11 +111,11 @@ Vuelve a aplicar cuando el agua deje de formar gotas.
 
 ### `ax.before_image`
 
-`sa-ba-before.webp`
+`sa-ba-antes.jpg`
 
 ### `ax.after_image`
 
-`sa-ba-after.webp`
+`sa-ba-despues.jpg`
 
 ### `ax.ba_note`
 

@@ -333,7 +333,7 @@
   {%- if section.settings.sticky -%}
     <div class="ax-sticky" data-ax-sticky aria-hidden="true">
       <div class="ax-sticky__info">
-        <span class="ax-sticky__title">{{ p.title }}</span>
+        <span class="ax-sticky__title">{{ p.title | split: '|' | first | strip }}</span>
         <span class="ax-sticky__price" data-ax-price-label>{{ selected_total | money_without_trailing_zeros }}</span>
       </div>
       <button class="ax-btn" type="button" data-ax-order tabindex="-1"{% unless v.available %} disabled{% endunless %}>
