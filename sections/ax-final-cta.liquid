@@ -22,9 +22,9 @@
           {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
         </div>
         {% render 'ax-countdown', ends: m.offer_ends.value, label: 'Precio especial termina en', light: true %}
-        <button class="ax-btn ax-btn--pulse" type="button" data-ax-order{% unless v.available %} disabled{% endunless %}>
+        <a class="ax-btn ax-btn--pulse" href="{{ p.url }}#comprar" data-ax-order>
           {% render 'ax-cta-label', text: section.settings.cta %}
-        </button>
+        </a>
       {%- else -%}
         <a class="ax-btn" href="{{ routes.all_products_collection_url }}">{{ section.settings.cta_store }}</a>
       {%- endif -%}

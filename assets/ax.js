@@ -293,11 +293,20 @@
     });
   }
 
+  // Barra fija y llamado final: llevan a la caja de compra (paquetes + botón principal);
+  // el formulario de Releasit lo abre solo el botón principal.
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-ax-order]');
     if (!trigger) return;
+    const target = $('.ax-bundles', buyBox || document) || buyBox;
+    if (!target) return;
     e.preventDefault();
-    openOrder(trigger);
+    const headerH = $('[data-ax-header]')?.offsetHeight || 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
+    window.scrollTo({ top, behavior: reducedMotion ? 'auto' : 'smooth' });
+    target.classList.remove('ax-flash');
+    void target.offsetWidth; // reinicia la animación si se toca dos veces
+    target.classList.add('ax-flash');
   });
 
   /* ---------- Barra fija: aparece cuando ningún botón de compra está a la vista ---------- */
@@ -309,7 +318,7 @@
       const visible = !anyVisible;
       sticky.classList.toggle('is-visible', visible);
       sticky.setAttribute('aria-hidden', visible ? 'false' : 'true');
-      $('button', sticky).tabIndex = visible ? 0 : -1;
+      $('[data-ax-order]', sticky).tabIndex = visible ? 0 : -1;
     };
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => watched.set(entry.target, entry.isIntersecting));

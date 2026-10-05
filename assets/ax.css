@@ -1467,6 +1467,24 @@ ol {
   right: 14px;
 }
 
+/* Resalta los paquetes al llegar desde la barra fija o el llamado final */
+.ax-flash {
+  animation: ax-flash 1.4s ease-out 0.35s;
+  border-radius: var(--ax-radius);
+}
+
+@keyframes ax-flash {
+  0% {
+    box-shadow: 0 0 0 0 rgb(214 31 44 / 0.55);
+  }
+  40% {
+    box-shadow: 0 0 0 10px rgb(214 31 44 / 0.18);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgb(214 31 44 / 0);
+  }
+}
+
 .ax-bundles__note {
   font-size: 13px;
   color: var(--ax-muted);

@@ -5,7 +5,7 @@
     ax.offer_ends, ax.bundles, ax.specs, ax.releasit_url
   La compra la cierra Releasit: al cargar, Releasit oculta el botón del tema y pone el suyo
   (._rsi-buy-now-button) dentro de este formulario. La barra fija y el llamado final
-  hacen clic en ese botón (ver assets/ax.js). El botón del tema queda como respaldo.
+  llevan hasta aquí (ver assets/ax.js). El botón del tema queda como respaldo.
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
@@ -343,9 +343,9 @@
         <span class="ax-sticky__title">{{ p.title | split: '|' | first | strip }}</span>
         <span class="ax-sticky__price" data-ax-price-label>{{ selected_total | money_without_trailing_zeros }}</span>
       </div>
-      <button class="ax-btn" type="button" data-ax-order tabindex="-1"{% unless v.available %} disabled{% endunless %}>
+      <a class="ax-btn" href="#comprar" data-ax-order tabindex="-1">
         {{ settings.ax_cta_text | default: 'Pedir ahora' }}
-      </button>
+      </a>
     </div>
   {%- endif -%}
 

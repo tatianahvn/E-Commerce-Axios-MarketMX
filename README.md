@@ -29,7 +29,8 @@ El inicio (`templates/index.json`) es tipo tienda: portada, confianza, lista de 
 ## Releasit
 
 Releasit **reemplaza** el botón del tema con el suyo (`._rsi-buy-now-button`) dentro del formulario del producto.
-La barra fija y el botón del llamado final hacen clic en ese mismo botón, así que todos abren el mismo formulario.
+La barra fija y el botón del llamado final llevan a la caja de compra (paquetes + botón principal) y la resaltan;
+el formulario de Releasit se abre desde el botón principal.
 Si Releasit no carga, el botón del tema queda como respaldo (agrega al carrito y abre el checkout).
 
 Después de instalar el tema:
