@@ -1,0 +1,12 @@
+{
+  "name": "axios-theme-preview",
+  "private": true,
+  "type": "module",
+  "description": "Vista previa local del tema con datos simulados (no se sube a Shopify).",
+  "scripts": {
+    "build": "node preview.mjs"
+  },
+  "dependencies": {
+    "liquidjs": "^10.30.0"
+  }
+}
