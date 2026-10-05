@@ -12,6 +12,8 @@ const lines = [
   '',
   '> ⚠️ `ax.offer_ends` debe ser una fecha REAL en la que termina tu promoción. Cuando pasa, el contador desaparece solo.',
   '',
+  '**Título del producto** (Productos → Shine Armor → Título): `' + shineArmor.title + '`. Lo que va después de la barra `|` sale en una segunda parte con la barra en rojo.',
+  '',
 ];
 for (const [key, { value }] of Object.entries(ax)) {
   lines.push(`### \`ax.${key}\``);

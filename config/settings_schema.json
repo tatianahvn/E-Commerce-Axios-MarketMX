@@ -37,8 +37,6 @@
     "name": "Contacto y redes",
     "settings": [
       { "type": "text", "id": "ax_support_email", "label": "Correo de atención", "default": "axiosmarketmx.soporte@gmail.com", "info": "Vacío = correo de la tienda." },
-      { "type": "text", "id": "ax_whatsapp", "label": "WhatsApp", "info": "Solo números con lada, ej. 5214431234567. Vacío = se ocultan los botones de WhatsApp." },
-      { "type": "checkbox", "id": "ax_whatsapp_float", "label": "Botón flotante de WhatsApp", "default": true },
       { "type": "url", "id": "ax_tiktok", "label": "TikTok" },
       { "type": "url", "id": "ax_instagram", "label": "Instagram" },
       { "type": "url", "id": "ax_facebook", "label": "Facebook" }

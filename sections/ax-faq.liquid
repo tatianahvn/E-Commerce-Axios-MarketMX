@@ -5,7 +5,7 @@
 {%- liquid
   assign p = section.settings.product | default: product
   assign product_faq = p.metafields.ax.faq.value
-  assign wa = settings.ax_whatsapp | remove: '+' | remove: ' '
+  assign support_email = settings.ax_support_email | default: shop.email
 -%}
 <section class="ax-section{% if section.settings.soft %} ax-section--soft{% endif %}" id="preguntas" aria-labelledby="ax-faq-{{ section.id }}">
   <div class="ax-container ax-container--narrow">
@@ -27,10 +27,10 @@
         </details>
       {%- endfor -%}
     </div>
-    {%- if wa != blank -%}
+    {%- if support_email != blank -%}
       <div class="ax-faq__cta">
-        <p>¿Tienes otra duda? Te respondemos en minutos.</p>
-        <a class="ax-btn ax-btn--dark ax-btn--small" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'ax-icon', name: 'whatsapp' %} Pregúntanos por WhatsApp</a>
+        <p>¿Tienes otra duda? Escríbenos y te respondemos.</p>
+        <a class="ax-btn ax-btn--dark ax-btn--small" href="mailto:{{ support_email }}">{% render 'ax-icon', name: 'mail' %} Escríbenos</a>
       </div>
     {%- endif -%}
   </div>
@@ -59,7 +59,7 @@
     {
       "name": "Preguntas frecuentes",
       "blocks": [
-        { "type": "question", "settings": { "question": "¿Cómo funciona el pago contra entrega?", "answer": "<p>Pides sin tarjeta, confirmamos tus datos por WhatsApp o llamada y pagas en efectivo al repartidor cuando recibes tu paquete.</p>" } },
+        { "type": "question", "settings": { "question": "¿Cómo funciona el pago contra entrega?", "answer": "<p>Pides sin tarjeta, confirmamos tus datos por llamada o mensaje y pagas en efectivo al repartidor cuando recibes tu paquete.</p>" } },
         { "type": "question", "settings": { "question": "¿Cuánto tarda en llegar?", "answer": "<p>De [envio]. Te enviamos el número de rastreo en cuanto sale tu paquete.</p>" } },
         { "type": "question", "settings": { "question": "¿Y si no me convence?", "answer": "<p>Tienes [dias] días para decírnoslo. Si llega dañado, te lo reponemos sin costo.</p>" } }
       ]

@@ -67,4 +67,4 @@ Si cambias el contenido de ejemplo en `dev/mock-data.mjs`, regenera la guía con
 - `assets/ax.css`: estilos (variables de color en `:root`).
 - `assets/ax.js`: galería, paquetes, Releasit, barra fija, contador, antes/después.
 - `snippets/ax-*.liquid`: piezas reutilizables (íconos, estrellas, tarjeta de producto, contador…).
-- `config/settings_schema.json`: ajustes globales (textos del botón, envío, garantía, WhatsApp, redes).
+- `config/settings_schema.json`: ajustes globales (textos del botón, envío, garantía, correo, redes).

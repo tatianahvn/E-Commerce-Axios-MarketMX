@@ -189,8 +189,6 @@ const settingsData = JSON.parse(read('config/settings_data.json').replace(/\/\*[
 const settings = {};
 settingsSchema.forEach((g) => (g.settings || []).forEach((d) => d.id && (settings[d.id] = d.default ?? null)));
 Object.assign(settings, settingsData);
-// Solo para ver los botones en la vista previa (en la tienda real se llena en Configuración del tema)
-settings.ax_whatsapp = '5210000000000';
 
 const baseGlobals = (template, extra = {}) => ({
   settings,

@@ -33,7 +33,7 @@ const shineVariant = variant(47163549745249, 39900, 53900);
 export const shineArmor = {
   id: 1001,
   handle: 'shine-armor',
-  title: 'Shine Armor',
+  title: 'SHINE ARMOR | Revestimiento Cerámico 3 en 1',
   url: '/products/shine-armor',
   vendor: 'Shine Armor',
   available: true,

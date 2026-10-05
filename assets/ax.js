@@ -305,7 +305,6 @@
       sticky.classList.toggle('is-visible', visible);
       sticky.setAttribute('aria-hidden', visible ? 'false' : 'true');
       $('button', sticky).tabIndex = visible ? 0 : -1;
-      document.body.classList.toggle('ax-sticky-on', visible);
     };
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => watched.set(entry.target, entry.isIntersecting));

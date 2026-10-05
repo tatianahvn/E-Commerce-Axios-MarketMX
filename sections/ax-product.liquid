@@ -105,8 +105,17 @@
 
     {%- comment -%} Información y compra {%- endcomment -%}
     <div class="ax-pdp__info">
+      {%- liquid
+        # Aviso de pocas unidades: usa el inventario real. Si no aplica, se muestra la etiqueta de oferta.
+        assign low_stock = false
+        if section.settings.show_stock and v.inventory_management == 'shopify' and v.inventory_quantity > 0 and v.inventory_quantity <= settings.ax_low_stock
+          assign low_stock = true
+        endif
+      -%}
       <div class="ax-pdp__top">
-        {%- if m.offer_label.value != blank -%}
+        {%- if low_stock -%}
+          <span class="ax-eyebrow ax-stock"><span class="ax-fire" aria-hidden="true">🔥</span>{{ section.settings.stock_text }}</span>
+        {%- elsif m.offer_label.value != blank -%}
           <span class="ax-eyebrow">{% render 'ax-icon', name: 'fire' %}{{ m.offer_label.value }}</span>
         {%- endif -%}
         {%- if m.rating.value != blank -%}
@@ -114,7 +123,7 @@
         {%- endif -%}
       </div>
 
-      <h1 class="ax-pdp__title">{{ p.title }}</h1>
+      <h1 class="ax-pdp__title">{{ p.title | escape | replace: '|', '<span class="ax-pdp__sep">|</span>' }}</h1>
       {%- if hook != blank -%}<p class="ax-pdp__hook">{% render 'ax-em', text: hook %}</p>{%- endif -%}
 
       <div class="ax-pdp__price" data-ax-price>
@@ -132,15 +141,6 @@
       {%- endif -%}
 
       {% render 'ax-countdown', ends: m.offer_ends.value, label: section.settings.countdown_label %}
-
-      {%- if section.settings.show_stock and v.inventory_management == 'shopify' and v.inventory_quantity > 0 and v.inventory_quantity <= settings.ax_low_stock -%}
-        {%- assign stock_pct = v.inventory_quantity | times: 100 | divided_by: settings.ax_low_stock | floor -%}
-        <p class="ax-stock">
-          <span class="ax-fire" aria-hidden="true">🔥</span>
-          <span>{{ section.settings.stock_text }}</span>
-          <span class="ax-stock__bar" aria-hidden="true"><span style="width: {{ stock_pct }}%"></span></span>
-        </p>
-      {%- endif -%}
 
       <div class="ax-buy" data-ax-buy-box{% if m.releasit_url.value != blank %} data-releasit-url="{{ m.releasit_url.value }}"{% endif %}>
         <form
@@ -292,7 +292,7 @@
       <ul class="ax-mini-trust">
         <li>{% render 'ax-icon', name: 'truck' %}{{ settings.ax_shipping_text }}</li>
         <li>{% render 'ax-icon', name: 'clock' %}Llega en {{ settings.ax_delivery_time }}</li>
-        <li>{% render 'ax-icon', name: 'chat' %}Te atendemos por WhatsApp</li>
+        <li>{% render 'ax-icon', name: 'chat' %}Atención personalizada</li>
       </ul>
 
       <div>
@@ -389,7 +389,7 @@
     { "type": "text", "id": "cod_title", "label": "Pago contra entrega: título", "default": "Pagas cuando lo recibes" },
     { "type": "text", "id": "cod_text", "label": "Pago contra entrega: texto", "default": "Compra con tranquilidad. Ordena hoy y paga en efectivo al repartidor cuando recibas el producto en la puerta de tu casa." },
     { "type": "text", "id": "stock_text", "label": "Texto de pocas unidades", "default": "¡Quedan pocas unidades!" },
-    { "type": "checkbox", "id": "show_stock", "label": "Mostrar aviso de pocas unidades", "default": true, "info": "Usa el inventario real de Shopify. Solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
+    { "type": "checkbox", "id": "show_stock", "label": "Mostrar aviso de pocas unidades", "default": true, "info": "Va arriba del título, en lugar de la etiqueta de oferta. Usa el inventario real: solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
     { "type": "checkbox", "id": "description_open", "label": "Descripción abierta al cargar", "default": false },
     { "type": "checkbox", "id": "sticky", "label": "Barra fija de compra", "default": true }
   ]

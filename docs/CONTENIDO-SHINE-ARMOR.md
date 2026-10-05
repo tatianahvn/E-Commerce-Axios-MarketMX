@@ -5,6 +5,8 @@ Las imágenes están en la carpeta `assets/` del tema: súbelas una vez en **Con
 
 > ⚠️ `ax.offer_ends` debe ser una fecha REAL en la que termina tu promoción. Cuando pasa, el contador desaparece solo.
 
+**Título del producto** (Productos → Shine Armor → Título): `SHINE ARMOR | Revestimiento Cerámico 3 en 1`. Lo que va después de la barra `|` sale en una segunda parte con la barra en rojo.
+
 ### `ax.subtitle`
 
 Cera cerámica en spray 3 en 1

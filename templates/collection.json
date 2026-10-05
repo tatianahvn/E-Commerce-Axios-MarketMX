@@ -39,8 +39,8 @@
         "t4": {
           "type": "item",
           "settings": {
-            "icon": "whatsapp",
-            "title": "Atención por WhatsApp",
+            "icon": "chat",
+            "title": "Atención personalizada",
             "text": "Resolvemos tus dudas antes y después"
           }
         }

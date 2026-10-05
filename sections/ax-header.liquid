@@ -1,6 +1,5 @@
 {%- liquid
   assign menu = linklists[section.settings.menu]
-  assign wa = settings.ax_whatsapp | remove: '+' | remove: ' '
 -%}
 <header class="ax-header" data-ax-header style="--ax-logo-w: {{ section.settings.logo_width_mobile }}px; --ax-logo-w-desk: {{ section.settings.logo_width }}px;">
   <div class="ax-container ax-header__inner">
@@ -29,11 +28,7 @@
     </nav>
 
     <div class="ax-header__right">
-      {%- if wa != blank -%}
-        <a class="ax-icon-btn" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener" aria-label="WhatsApp">{% render 'ax-icon', name: 'whatsapp' %}</a>
-      {%- else -%}
-        <a class="ax-icon-btn" href="{{ routes.search_url }}" aria-label="Buscar">{% render 'ax-icon', name: 'search' %}</a>
-      {%- endif -%}
+      <a class="ax-icon-btn" href="{{ routes.search_url }}" aria-label="Buscar">{% render 'ax-icon', name: 'search' %}</a>
     </div>
   </div>
 </header>
@@ -59,9 +54,6 @@
     </nav>
     <div class="ax-drawer__foot">
       <span>{% render 'ax-icon', name: 'cash' %} Pagas al recibir, sin tarjeta</span>
-      {%- if wa != blank -%}
-        <a class="ax-btn ax-btn--dark ax-btn--small" href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'ax-icon', name: 'whatsapp' %} Escríbenos por WhatsApp</a>
-      {%- endif -%}
     </div>
   </div>
 </div>

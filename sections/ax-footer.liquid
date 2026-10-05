@@ -2,7 +2,6 @@
   assign menu_1 = linklists[section.settings.menu_1]
   assign menu_2 = linklists[section.settings.menu_2]
   assign support_email = settings.ax_support_email | default: shop.email
-  assign wa = settings.ax_whatsapp | remove: '+' | remove: ' '
 -%}
 <footer class="ax-footer">
   <div class="ax-container">
@@ -45,9 +44,6 @@
 
       <div class="ax-footer__contact">
         <h2>Contacto</h2>
-        {%- if wa != blank -%}
-          <a href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'ax-icon', name: 'whatsapp' %} WhatsApp</a><br>
-        {%- endif -%}
         {%- if support_email != blank -%}
           <a href="mailto:{{ support_email }}">{% render 'ax-icon', name: 'mail' %} {{ support_email }}</a>
         {%- endif -%}

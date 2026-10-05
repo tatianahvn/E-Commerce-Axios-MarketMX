@@ -54,13 +54,6 @@
 
     {% section 'ax-footer' %}
 
-    {%- if settings.ax_whatsapp != blank and settings.ax_whatsapp_float -%}
-      {%- capture wa_text -%}Hola, tengo una duda{% if template.name == 'product' %} sobre {{ product.title }}{% endif %}{%- endcapture -%}
-      <a class="ax-wa" href="https://wa.me/{{ settings.ax_whatsapp | remove: '+' | remove: ' ' }}?text={{ wa_text | url_encode }}" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
-        {% render 'ax-icon', name: 'whatsapp' %}
-      </a>
-    {%- endif -%}
-
     {% render 'ax-order-thanks' %}
 
     <dialog class="ax-zoom" data-ax-zoom aria-label="Foto ampliada">

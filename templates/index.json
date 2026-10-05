@@ -44,8 +44,8 @@
         "t4": {
           "type": "item",
           "settings": {
-            "icon": "whatsapp",
-            "title": "Atención por WhatsApp",
+            "icon": "chat",
+            "title": "Atención personalizada",
             "text": "Resolvemos tus dudas antes y después"
           }
         }
@@ -156,7 +156,7 @@
       "settings": {
         "title": "Compra *sin riesgo*",
         "text": "Pides hoy y no pagas nada hasta que tienes el producto en tus manos. Y si algo no sale bien, tienes [dias] días para decírnoslo.",
-        "points": "Pagas en efectivo al recibir\nSi llega dañado, te lo reponemos sin costo\nTe atendemos por WhatsApp antes y después de tu compra"
+        "points": "Pagas en efectivo al recibir\nSi llega dañado, te lo reponemos sin costo\nTe acompañamos antes y después de tu compra"
       }
     },
     "faq": {
@@ -172,7 +172,7 @@
           "type": "question",
           "settings": {
             "question": "¿Cómo funciona el pago contra entrega?",
-            "answer": "<p>Pides sin tarjeta, confirmamos tus datos por WhatsApp o llamada y pagas en efectivo al repartidor cuando recibes tu paquete.</p>"
+            "answer": "<p>Pides sin tarjeta, confirmamos tus datos por llamada o mensaje y pagas en efectivo al repartidor cuando recibes tu paquete.</p>"
           }
         },
         "q2": {
