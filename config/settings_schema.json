@@ -27,7 +27,7 @@
   {
     "name": "Envío y garantía",
     "settings": [
-      { "type": "text", "id": "ax_shipping_text", "label": "Texto de envío", "default": "Envío a todo México" },
+      { "type": "text", "id": "ax_shipping_text", "label": "Texto de envío", "default": "Envío GRATIS a todo México" },
       { "type": "text", "id": "ax_delivery_time", "label": "Tiempo de entrega", "default": "3 a 7 días hábiles", "info": "Se usa donde escribas [envio]." },
       { "type": "number", "id": "ax_guarantee_days", "label": "Días de garantía", "default": 30, "info": "Se usa donde escribas [dias]." },
       { "type": "text", "id": "ax_guarantee_text", "label": "Garantía: texto corto (junto al botón)", "default": "Tu compra está respaldada. Si tu pedido presenta algún inconveniente, nuestro equipo te ayudará a encontrar una solución de forma rápida y sencilla.", "info": "Escribe solo lo que de verdad cumples. Si ofreces devolución de dinero, dilo aquí." }
