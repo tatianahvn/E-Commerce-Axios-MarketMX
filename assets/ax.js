@@ -293,20 +293,17 @@
     });
   }
 
-  // Barra fija y llamado final: llevan a la caja de compra (paquetes + botón principal);
+  // Barra fija y llamado final: llevan al inicio de la sección de compra (fotos, precio y paquetes);
   // el formulario de Releasit lo abre solo el botón principal.
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-ax-order]');
     if (!trigger) return;
-    const target = $('.ax-bundles', buyBox || document) || buyBox;
+    const target = productSection;
     if (!target) return;
     e.preventDefault();
     const headerH = $('[data-ax-header]')?.offsetHeight || 0;
-    const top = target.getBoundingClientRect().top + window.scrollY - headerH - 16;
-    window.scrollTo({ top, behavior: reducedMotion ? 'auto' : 'smooth' });
-    target.classList.remove('ax-flash');
-    void target.offsetWidth; // reinicia la animación si se toca dos veces
-    target.classList.add('ax-flash');
+    const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+    window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion ? 'auto' : 'smooth' });
   });
 
   /* ---------- Barra fija: aparece cuando ningún botón de compra está a la vista ---------- */
