@@ -1,0 +1,15 @@
+{%- comment -%}
+  Encabezado de sección: etiqueta + título + texto.
+  - title: texto plano; lo que va entre *asteriscos* sale en rojo (metacampos)
+  - title_html: título que ya trae HTML (ajustes de sección tipo inline_richtext)
+  Uso: {% render 'ax-head', eyebrow: 'x', title: 'y', text: 'z', id: 'ax-x', left: false %}
+{%- endcomment -%}
+<div class="ax-head{% if left %} ax-head--left{% endif %} ax-reveal">
+  {%- if eyebrow != blank -%}<span class="ax-eyebrow">{{ eyebrow }}</span>{%- endif -%}
+  {%- if title_html != blank -%}
+    <h2 class="ax-title"{% if id %} id="{{ id }}"{% endif %}>{{ title_html }}</h2>
+  {%- elsif title != blank -%}
+    <h2 class="ax-title"{% if id %} id="{{ id }}"{% endif %}>{% render 'ax-em', text: title %}</h2>
+  {%- endif -%}
+  {%- if text != blank -%}<p class="ax-lead">{{ text | escape | newline_to_br }}</p>{%- endif -%}
+</div>

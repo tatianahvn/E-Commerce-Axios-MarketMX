@@ -1,0 +1,64 @@
+{%- comment -%}
+  Tarjeta de producto para inicio, colecciones, búsqueda y relacionados.
+  Uso: {% render 'ax-product-card', card_product: product, eager: true, cta: 'Ver producto' %}
+  Toma de los metacampos: ax.badge (etiqueta), ax.subtitle, ax.rating, ax.rating_count.
+{%- endcomment -%}
+{%- liquid
+  assign p = card_product
+  assign v = p.selected_or_first_available_variant
+  assign m = p.metafields.ax
+  assign on_sale = false
+  if v.compare_at_price > v.price
+    assign on_sale = true
+    assign pct = v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price | floor
+  endif
+  assign img_loading = 'lazy'
+  if eager
+    assign img_loading = 'eager'
+  endif
+-%}
+<article class="ax-card">
+  <div class="ax-card__media">
+    {%- if p.featured_media -%}
+      {{
+        p.featured_media
+        | image_url: width: 900
+        | image_tag:
+          loading: img_loading,
+          widths: '300, 450, 600, 900',
+          sizes: '(min-width: 900px) 380px, 50vw',
+          alt: p.featured_media.alt | default: p.title
+      }}
+      {%- if p.media.size > 1 and p.media[1].media_type == 'image' -%}
+        {{ p.media[1] | image_url: width: 900 | image_tag: loading: 'lazy', widths: '300, 450, 600, 900', sizes: '(min-width: 900px) 380px, 50vw', alt: '' }}
+      {%- endif -%}
+    {%- else -%}
+      <div style="width:100%;height:100%;display:grid;place-items:center;color:#b9b9be">{% render 'ax-icon', name: 'box' %}</div>
+    {%- endif -%}
+    <div class="ax-card__badges">
+      {%- unless p.available -%}
+        <span class="ax-badge ax-badge--dark">Agotado</span>
+      {%- else -%}
+        {%- if on_sale -%}<span class="ax-badge">−{{ pct }}%</span>{%- endif -%}
+        {%- if m.badge.value != blank -%}<span class="ax-badge ax-badge--dark">{{ m.badge.value }}</span>{%- endif -%}
+      {%- endunless -%}
+    </div>
+  </div>
+  <div class="ax-card__body">
+    {%- if m.rating.value != blank -%}
+      {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value %}
+    {%- endif -%}
+    <h3 class="ax-card__title"><a href="{{ p.url }}">{{ p.title }}</a></h3>
+    {%- if m.subtitle.value != blank -%}<p class="ax-card__sub">{{ m.subtitle.value }}</p>{%- endif -%}
+    <div class="ax-price">
+      <span class="ax-price__now{% if on_sale %} ax-price__now--sale{% endif %}">
+        {%- if p.price_varies %}Desde {% endif -%}
+        {{ v.price | money_without_trailing_zeros }}
+      </span>
+      {%- if on_sale -%}<s class="ax-price__was">{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
+    </div>
+  </div>
+  <div class="ax-card__foot">
+    <a class="ax-btn ax-btn--small ax-card__cta" href="{{ p.url }}" tabindex="-1" aria-hidden="true">{{ cta | default: 'Ver producto' }}</a>
+  </div>
+</article>

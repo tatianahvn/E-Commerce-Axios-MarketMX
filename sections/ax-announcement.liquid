@@ -1,0 +1,51 @@
+{%- comment -%}
+  Barra de avisos. En celular rota un aviso a la vez (se lee mejor que una marquesina);
+  en escritorio se muestran todos juntos.
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  <div class="ax-announce" role="region" aria-label="Avisos" data-ax-announce>
+    {%- for block in section.blocks -%}
+      <p class="ax-announce__item{% if forloop.first %} is-active{% endif %}" {{ block.shopify_attributes }}>
+        {% render 'ax-icon', name: block.settings.icon %}
+        <span>{% render 'ax-tokens', text: block.settings.text %}</span>
+      </p>
+    {%- endfor -%}
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Barra de avisos",
+  "max_blocks": 5,
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Aviso",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Texto", "default": "Pagas al recibir: pago contra entrega", "info": "Puedes usar [envio] y [dias]." },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ícono",
+          "default": "cash",
+          "options": [
+            { "value": "cash", "label": "Efectivo" },
+            { "value": "truck", "label": "Envío" },
+            { "value": "shield", "label": "Escudo" },
+            { "value": "fire", "label": "Fuego" },
+            { "value": "gift", "label": "Regalo" },
+            { "value": "return", "label": "Devolución" }
+          ]
+        }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "item", "settings": { "text": "Pagas al recibir: pago contra entrega", "icon": "cash" } },
+      { "type": "item", "settings": { "text": "Envío a todo México con número de rastreo", "icon": "truck" } },
+      { "type": "item", "settings": { "text": "Garantía de satisfacción de [dias] días", "icon": "shield" } }
+    ]
+  }
+}
+{% endschema %}

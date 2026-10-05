@@ -1,0 +1,76 @@
+{%- liquid
+  assign menu_1 = linklists[section.settings.menu_1]
+  assign menu_2 = linklists[section.settings.menu_2]
+  assign support_email = settings.ax_support_email | default: shop.email
+  assign wa = settings.ax_whatsapp | remove: '+' | remove: ' '
+-%}
+<footer class="ax-footer">
+  <div class="ax-container">
+    <div class="ax-footer__grid">
+      <div class="ax-footer__brand">
+        <img src="{{ 'ax-logo-white.png' | asset_url }}" alt="{{ shop.name | escape }}" width="480" height="158" loading="lazy">
+        {%- if section.settings.about != blank -%}<p>{{ section.settings.about }}</p>{%- endif -%}
+        <span class="ax-footer__pay">{% render 'ax-icon', name: 'cash' %} Pago contra entrega</span>
+        {%- if settings.ax_instagram != blank or settings.ax_facebook != blank or settings.ax_tiktok != blank -%}
+          <div class="ax-social">
+            {%- if settings.ax_tiktok != blank -%}<a href="{{ settings.ax_tiktok }}" target="_blank" rel="noopener" aria-label="TikTok">{% render 'ax-icon', name: 'tiktok' %}</a>{%- endif -%}
+            {%- if settings.ax_instagram != blank -%}<a href="{{ settings.ax_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'ax-icon', name: 'instagram' %}</a>{%- endif -%}
+            {%- if settings.ax_facebook != blank -%}<a href="{{ settings.ax_facebook }}" target="_blank" rel="noopener" aria-label="Facebook">{% render 'ax-icon', name: 'facebook' %}</a>{%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div>
+        <h2>{{ section.settings.title_1 }}</h2>
+        <div class="ax-footer__links">
+          {%- if menu_1.links.size > 0 -%}
+            {%- for link in menu_1.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+          {%- else -%}
+            <a href="{{ routes.all_products_collection_url }}">Todos los productos</a>
+            <a href="{{ routes.search_url }}">Buscar</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div>
+        <h2>{{ section.settings.title_2 }}</h2>
+        <div class="ax-footer__links">
+          {%- if menu_2.links.size > 0 -%}
+            {%- for link in menu_2.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
+          {%- else -%}
+            {%- for policy in shop.policies -%}<a href="{{ policy.url }}">{{ policy.title }}</a>{%- endfor -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="ax-footer__contact">
+        <h2>Contacto</h2>
+        {%- if wa != blank -%}
+          <a href="https://wa.me/{{ wa }}" target="_blank" rel="noopener">{% render 'ax-icon', name: 'whatsapp' %} WhatsApp</a><br>
+        {%- endif -%}
+        {%- if support_email != blank -%}
+          <a href="mailto:{{ support_email }}">{% render 'ax-icon', name: 'mail' %} {{ support_email }}</a>
+        {%- endif -%}
+        {%- if section.settings.hours != blank -%}<p style="margin-top:8px;font-size:14px">{{ section.settings.hours }}</p>{%- endif -%}
+      </div>
+    </div>
+
+    <div class="ax-footer__bottom">
+      © {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pie de página",
+  "settings": [
+    { "type": "textarea", "id": "about", "label": "Texto de la marca", "default": "Productos que resuelven problemas reales. Pides hoy, pagas cuando lo recibes." },
+    { "type": "text", "id": "title_1", "label": "Columna 1: título", "default": "Tienda" },
+    { "type": "link_list", "id": "menu_1", "label": "Columna 1: menú", "info": "Vacío = enlaces a productos y búsqueda." },
+    { "type": "text", "id": "title_2", "label": "Columna 2: título", "default": "Ayuda" },
+    { "type": "link_list", "id": "menu_2", "label": "Columna 2: menú", "info": "Vacío = tus políticas de Shopify (envíos, reembolsos, privacidad, términos)." },
+    { "type": "text", "id": "hours", "label": "Horario de atención", "default": "Lunes a sábado, 9:00 a 19:00 h" }
+  ]
+}
+{% endschema %}

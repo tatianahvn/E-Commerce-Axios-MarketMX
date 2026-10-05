@@ -1,0 +1,7 @@
+{%- comment -%}
+  Aviso que SOLO se ve en el editor de temas cuando falta contenido.
+  Uso: {% render 'ax-hint', text: 'Llena los metacampos ...' %}
+{%- endcomment -%}
+{%- if request.design_mode -%}
+  <div class="ax-hint ax-container">{{ text }} <br><small>Este aviso solo lo ves tú en el editor. Los clientes no ven la sección mientras esté vacía.</small></div>
+{%- endif -%}

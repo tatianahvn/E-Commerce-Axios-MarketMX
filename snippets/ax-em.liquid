@@ -1,0 +1,10 @@
+{%- comment -%}
+  Escribe un texto escapado y pone en rojo lo que va entre asteriscos.
+  "Brillo de agencia. *Sin agua.*" → Brillo de agencia. <em>Sin agua.</em>
+  Uso: {% render 'ax-em', text: product.metafields.ax.hook.value %}
+{%- endcomment -%}
+{%- assign ax_parts = text | escape | split: '*' -%}
+{%- for ax_part in ax_parts -%}
+  {%- assign ax_mod = forloop.index0 | modulo: 2 -%}
+  {%- if ax_mod == 1 -%}<em>{{ ax_part }}</em>{%- else -%}{{ ax_part }}{%- endif -%}
+{%- endfor -%}

@@ -1,0 +1,9 @@
+{%- comment -%}
+  Sustituye [envio], [dias] y [whatsapp] por los valores de Configuración del tema.
+  Uso: {% render 'ax-tokens', text: block.settings.answer %}
+{%- endcomment -%}
+{{- text
+  | replace: '[envio]', settings.ax_delivery_time
+  | replace: '[dias]', settings.ax_guarantee_days
+  | replace: '[whatsapp]', settings.ax_whatsapp
+-}}

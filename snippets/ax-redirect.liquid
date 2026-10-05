@@ -1,0 +1,25 @@
+{%- comment -%}
+  Esta tienda vende con el formulario de Releasit (pago contra entrega) y no usa carrito.
+  - /cart manda al inicio.
+  - El blog no se usa por ahora: blog y artículos mandan al inicio.
+  En el editor de temas no se redirige, para poder revisar las plantillas.
+{%- endcomment -%}
+{%- liquid
+  assign ax_redirect = ''
+  unless request.design_mode
+    case template.name
+      when 'cart', 'blog', 'article'
+        assign ax_redirect = routes.root_url
+    endcase
+  endunless
+-%}
+{%- if ax_redirect != blank -%}
+  <meta name="robots" content="noindex">
+  <script>
+    (function () {
+      // Conserva parámetros de campañas (utm, fbclid, ttclid)
+      location.replace({{ ax_redirect | json }} + location.search);
+    })();
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url={{ ax_redirect }}"></noscript>
+{%- endif -%}

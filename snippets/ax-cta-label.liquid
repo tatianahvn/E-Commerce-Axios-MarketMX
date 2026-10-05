@@ -1,0 +1,8 @@
+{%- comment -%}
+  Texto de los botones de compra: dos líneas (acción + pago al recibir).
+  Uso: {% render 'ax-cta-label', text: 'Pedir ahora', price: '$599' %}
+{%- endcomment -%}
+<span class="ax-btn__label">
+  <span class="ax-btn__main">{{ text | default: settings.ax_cta_text | default: 'Pedir ahora' }}{% if price != blank %} · <span data-ax-price-label>{{ price }}</span>{% endif %}</span>
+  {%- if settings.ax_cta_sub != blank -%}<span class="ax-btn__sub">{{ settings.ax_cta_sub }}</span>{%- endif -%}
+</span>

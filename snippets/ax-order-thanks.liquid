@@ -1,0 +1,19 @@
+{%- comment -%}
+  Aviso de pedido recibido. Se muestra al llegar con ?pedido=confirmado
+  (URL de "Redirigir a página personalizada" en Releasit, p. ej. https://tutienda.com/?pedido=confirmado).
+{%- endcomment -%}
+<div class="ax-thanks" data-ax-thanks hidden>
+  <div class="ax-thanks__backdrop" data-ax-thanks-close></div>
+  <div class="ax-thanks__box" role="dialog" aria-modal="true" aria-labelledby="ax-thanks-title" tabindex="-1">
+    <span class="ax-thanks__icon">{% render 'ax-icon', name: 'check' %}</span>
+    <h2 class="ax-thanks__title" id="ax-thanks-title">¡Gracias! Recibimos tu pedido</h2>
+    <p class="ax-thanks__text">
+      Te contactaremos para confirmar tu dirección. Pagas en efectivo cuando lo recibas{% if settings.ax_delivery_time != blank %}, normalmente en {{ settings.ax_delivery_time }}{% endif %}.
+    </p>
+    {%- assign support_email = settings.ax_support_email | default: shop.email -%}
+    {%- if support_email != blank -%}
+      <p class="ax-thanks__help">¿Dudas? Escríbenos a <a href="mailto:{{ support_email }}">{{ support_email }}</a></p>
+    {%- endif -%}
+    <a class="ax-btn ax-btn--block" href="{{ routes.root_url }}" data-ax-thanks-close>Seguir viendo productos</a>
+  </div>
+</div>

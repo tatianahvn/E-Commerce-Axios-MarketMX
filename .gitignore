@@ -1,0 +1,7 @@
+.DS_Store
+._*
+.shopify
+node_modules
+dev/out
+*.zip
+.claude

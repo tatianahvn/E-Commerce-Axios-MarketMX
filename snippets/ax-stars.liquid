@@ -1,0 +1,29 @@
+{%- comment -%}
+  Estrellas de calificación.
+  Uso: {% render 'ax-stars', rating: 4.8, count: 10, link: '#resenas' %}
+  - rating: número de 0 a 5 (con decimal)
+  - count: número de opiniones (opcional)
+  - link: ancla o URL (opcional)
+  - bare: true = solo estrellas, sin número
+{%- endcomment -%}
+{%- liquid
+  assign r = rating | default: 0 | times: 1.0
+  assign r_text = r | round: 1
+  assign tag = 'span'
+  if link != blank
+    assign tag = 'a'
+  endif
+-%}
+{%- if r > 0 -%}
+  <{{ tag }} class="ax-stars"{% if link != blank %} href="{{ link }}"{% endif %}>
+    <span class="ax-stars__icons" role="img" aria-label="{{ r_text }} de 5 estrellas">
+      {%- for i in (1..5) -%}
+        {%- assign threshold = i | minus: 0.25 -%}
+        <span class="{% if r >= threshold %}is-on{% endif %}">{% render 'ax-icon', name: 'star' %}</span>
+      {%- endfor -%}
+    </span>
+    {%- unless bare -%}
+      <span><strong>{{ r_text }}</strong>{% if count != blank and count > 0 %} · {{ count }} {% if count == 1 %}opinión{% else %}opiniones{% endif %}{% endif %}</span>
+    {%- endunless -%}
+  </{{ tag }}>
+{%- endif -%}

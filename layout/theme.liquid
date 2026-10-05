@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code | default: 'es' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- else -%}
+      <link rel="icon" type="image/png" sizes="32x32" href="{{ 'ax-favicon-32.png' | asset_url }}">
+    {%- endif -%}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ 'ax-favicon-180.png' | asset_url }}">
+
+    <title>
+      {{ page_title }}
+      {%- if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif -%}
+      {%- if current_page != 1 %} &ndash; Página {{ current_page }}{% endif -%}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    {% render 'ax-meta-tags' %}
+    {% render 'ax-redirect' %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@700;800&display=swap"
+      rel="stylesheet"
+    >
+
+    {{ 'ax.css' | asset_url | stylesheet_tag }}
+
+    <script>document.documentElement.classList.add('ax-js');</script>
+
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="ax-body ax-t-{{ template.name }}{% if template.name == 'product' %} ax-has-sticky{% endif %}">
+    <a class="ax-skip" href="#ax-main">Saltar al contenido</a>
+
+    {% section 'ax-announcement' %}
+    {% section 'ax-header' %}
+
+    <main id="ax-main" role="main" tabindex="-1">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'ax-footer' %}
+
+    {%- if settings.ax_whatsapp != blank and settings.ax_whatsapp_float -%}
+      {%- capture wa_text -%}Hola, tengo una duda{% if template.name == 'product' %} sobre {{ product.title }}{% endif %}{%- endcapture -%}
+      <a class="ax-wa" href="https://wa.me/{{ settings.ax_whatsapp | remove: '+' | remove: ' ' }}?text={{ wa_text | url_encode }}" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+        {% render 'ax-icon', name: 'whatsapp' %}
+      </a>
+    {%- endif -%}
+
+    {% render 'ax-order-thanks' %}
+
+    <dialog class="ax-zoom" data-ax-zoom aria-label="Foto ampliada">
+      <button class="ax-icon-btn ax-zoom__close" type="button" data-ax-zoom-close aria-label="Cerrar">{% render 'ax-icon', name: 'x' %}</button>
+      <img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="" width="640" height="800" data-ax-zoom-img>
+    </dialog>
+
+    <script>
+      window.axConfig = {
+        routes: {
+          cartAdd: {{ routes.cart_add_url | append: '.js' | json }},
+          cart: {{ routes.cart_url | append: '.js' | json }},
+          cartClear: {{ routes.cart_clear_url | append: '.js' | json }}
+        },
+        releasitSelector: {{ settings.ax_releasit_selector | json }},
+        currency: {{ cart.currency.iso_code | json }},
+        locale: 'es-MX'
+      };
+    </script>
+    <script src="{{ 'ax.js' | asset_url }}" defer></script>
+  </body>
+</html>

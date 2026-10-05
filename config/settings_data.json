@@ -1,0 +1,17 @@
+{
+  "current": {
+    "ax_cta_text": "Pedir ahora",
+    "ax_cta_sub": "Pagas al recibir",
+    "ax_releasit_selector": "._rsi-buy-now-button",
+    "ax_low_stock": 15,
+    "ax_shipping_text": "Envío a todo México",
+    "ax_delivery_time": "3 a 7 días hábiles",
+    "ax_guarantee_days": 30,
+    "ax_guarantee_text": "Si llega dañado o no es lo que esperabas, te ayudamos a resolverlo.",
+    "ax_support_email": "axiosmarketmx.soporte@gmail.com",
+    "ax_whatsapp_float": true
+  },
+  "presets": {
+    "Default": {}
+  }
+}
