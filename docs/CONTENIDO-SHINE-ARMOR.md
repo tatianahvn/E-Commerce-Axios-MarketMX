@@ -53,7 +53,7 @@ Fecha y hora real de fin de tu promoción (ej. domingo 12 de octubre, 23:59).
 - Contenido | 100 ml (3.4 fl oz)
 - Superficies | Pintura, metal, vidrio y plástico exterior
 - Vehículos | Autos, motos, camionetas, lanchas y RVs
-- Incluye | 1 botella con atomizador. Paños de microfibra no incluidos.
+- Incluye | 1 botella con atomizador
 
 ### `ax.problem_title`
 
@@ -139,7 +139,7 @@ Imagen ilustrativa.
 
 ### `ax.howto_tip`
 
-Aplícalo a la sombra y con la superficie fría. Si el auto tiene lodo o arena, enjuágalo antes para no rayar la pintura. Necesitas dos paños de microfibra (no incluidos).
+Aplícalo a la sombra y con la superficie fría. Si el auto tiene lodo o arena, enjuágalo antes para no rayar la pintura.
 
 ### `ax.compare_headers`
 
@@ -159,7 +159,7 @@ Shine Armor | Cera tradicional | Autolavado
 
 ### `ax.faq`
 
-- ¿Qué incluye? | Una botella de 100 ml con atomizador. Los paños de microfibra no vienen incluidos.
+- ¿Qué incluye? | Una botella de 100 ml con atomizador.
 - ¿Cuánto dura el efecto? | Depende del clima y de qué tan seguido lavas tu auto. Vuelve a aplicar cuando el agua deje de formar gotas.
 - ¿Es seguro para mi auto? | Sí, para el exterior: pintura, vidrio, metal y plástico. Aplícalo a la sombra y con la superficie fría.
 - ¿Sirve para moto o camioneta? | Sí: autos, motos, camionetas, lanchas y RVs.

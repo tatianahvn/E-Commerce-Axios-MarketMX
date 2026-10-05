@@ -68,7 +68,7 @@ export const shineArmor = {
         'Contenido | 100 ml (3.4 fl oz)',
         'Superficies | Pintura, metal, vidrio y plástico exterior',
         'Vehículos | Autos, motos, camionetas, lanchas y RVs',
-        'Incluye | 1 botella con atomizador. Paños de microfibra no incluidos.',
+        'Incluye | 1 botella con atomizador',
       ]),
       problem_title: mf('¿Cansado de la *pintura opaca y la acumulación de polvo*?'),
       problem_text: mf(
@@ -118,7 +118,7 @@ export const shineArmor = {
         img('sa-step-3.webp', 1248, 832, 'Puliendo la superficie'),
       ]),
       howto_tip: mf(
-        'Aplícalo a la sombra y con la superficie fría. Si el auto tiene lodo o arena, enjuágalo antes para no rayar la pintura. Necesitas dos paños de microfibra (no incluidos).'
+        'Aplícalo a la sombra y con la superficie fría. Si el auto tiene lodo o arena, enjuágalo antes para no rayar la pintura.'
       ),
       compare_headers: mf('Shine Armor | Cera tradicional | Autolavado'),
       compare_rows: mf([
@@ -130,7 +130,7 @@ export const shineArmor = {
       ]),
       compare_note: mf('*Ahorra dinero* desde la primera aplicación | Con Shine Armor 3 en 1 dejas de pagar el autolavado cada semana y de perder horas encerando: limpias, abrillantas y proteges tu auto tú mismo, en minutos y sin manguera.'),
       faq: mf([
-        '¿Qué incluye? | Una botella de 100 ml con atomizador. Los paños de microfibra no vienen incluidos.',
+        '¿Qué incluye? | Una botella de 100 ml con atomizador.',
         '¿Cuánto dura el efecto? | Depende del clima y de qué tan seguido lavas tu auto. Vuelve a aplicar cuando el agua deje de formar gotas.',
         '¿Es seguro para mi auto? | Sí, para el exterior: pintura, vidrio, metal y plástico. Aplícalo a la sombra y con la superficie fría.',
         '¿Sirve para moto o camioneta? | Sí: autos, motos, camionetas, lanchas y RVs.',
