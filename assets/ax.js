@@ -280,11 +280,14 @@
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-ax-order]');
     if (!trigger) return;
-    const target = productSection;
+    // Celular: la barra fija lleva directo a "Elige tu paquete". Escritorio: al inicio de la sección de compra.
+    const toBundles = trigger.closest('[data-ax-sticky]') && window.matchMedia('(max-width: 767px)').matches;
+    const target = (toBundles && $('.ax-bundles', productSection || document)) || productSection;
     if (!target) return;
     e.preventDefault();
     const headerH = $('[data-ax-header]')?.offsetHeight || 0;
-    const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+    const gap = target === productSection ? 0 : 16;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerH - gap;
     window.scrollTo({ top: Math.max(0, top), behavior: reducedMotion ? 'auto' : 'smooth' });
   });
 
