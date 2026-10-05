@@ -344,7 +344,7 @@
         <span class="ax-sticky__price" data-ax-price-label>{{ selected_total | money_without_trailing_zeros }}</span>
       </div>
       <a class="ax-btn" href="#comprar" data-ax-order tabindex="-1">
-        {{ settings.ax_cta_text | default: 'Pedir ahora' }}
+        {{ section.settings.sticky_label | default: settings.ax_cta_text }}
       </a>
     </div>
   {%- endif -%}
@@ -398,7 +398,8 @@
     { "type": "text", "id": "stock_text", "label": "Texto de pocas unidades", "default": "¡Quedan pocas unidades!" },
     { "type": "checkbox", "id": "show_stock", "label": "Mostrar aviso de pocas unidades", "default": true, "info": "Va arriba del título, en lugar de la etiqueta de oferta. Usa el inventario real: solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
     { "type": "checkbox", "id": "description_open", "label": "Descripción abierta al cargar", "default": false },
-    { "type": "checkbox", "id": "sticky", "label": "Barra fija de compra", "default": true }
+    { "type": "checkbox", "id": "sticky", "label": "Barra fija de compra", "default": true },
+    { "type": "text", "id": "sticky_label", "label": "Botón de la barra fija", "default": "Ordenar ahora" }
   ]
 }
 {% endschema %}

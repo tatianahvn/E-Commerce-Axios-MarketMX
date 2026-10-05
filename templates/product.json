@@ -14,7 +14,8 @@
         "show_stock": true,
         "description_open": false,
         "sticky": true,
-        "stock_text": "¡Quedan pocas unidades!"
+        "stock_text": "¡Quedan pocas unidades!",
+        "sticky_label": "Ordenar ahora"
       }
     },
     "trust": {
@@ -291,7 +292,7 @@
         "eyebrow": "Último paso",
         "title": "Pídelo hoy y *págalo al recibirlo*",
         "text": "Sin tarjeta y sin riesgo: confirmas tus datos y pagas en efectivo cuando el paquete llega a tu puerta.",
-        "cta": "Lo quiero",
+        "cta": "Ordenar ahora, ¡Envío Gratis!",
         "cta_store": "Ver productos"
       }
     },
