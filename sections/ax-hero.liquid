@@ -14,13 +14,26 @@
         <li>{% render 'ax-icon', name: 'shield' %}Garantía {{ settings.ax_guarantee_days }} días</li>
       </ul>
     </div>
-    {%- if section.settings.image != blank or section.settings.fallback != blank -%}
+    {%- liquid
+      # Imagen de la portada: 1) la que subas aquí, 2) la primera foto del producto elegido
+      # (o del primer producto de la tienda), 3) la imagen incluida en el tema.
+      assign hero_product = section.settings.product | default: collections.all.products.first
+      assign hero_media = nil
+      if section.settings.image == blank and section.settings.use_product_image and hero_product.featured_media
+        assign hero_media = hero_product.featured_media
+      endif
+    -%}
+    {%- if section.settings.image != blank -%}
       <div class="ax-hero__media">
-        {%- if section.settings.image != blank -%}
-          {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '375, 600, 900, 1400', sizes: '(min-width: 768px) 50vw, 100vw', alt: section.settings.image.alt | default: '' }}
-        {%- else -%}
-          <img src="{{ section.settings.fallback | asset_url }}" alt="" width="1000" height="1000" fetchpriority="high">
-        {%- endif -%}
+        {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '375, 600, 900, 1400', sizes: '(min-width: 768px) 50vw, 100vw', alt: section.settings.image.alt | default: '' }}
+      </div>
+    {%- elsif hero_media != blank -%}
+      <a class="ax-hero__media" href="{{ hero_product.url }}" style="aspect-ratio: {{ hero_media.preview_image.aspect_ratio | default: 1 }}">
+        {{ hero_media.preview_image | image_url: width: 1400 | image_tag: loading: 'eager', fetchpriority: 'high', widths: '375, 600, 900, 1400', sizes: '(min-width: 768px) 50vw, 100vw', alt: hero_media.alt | default: hero_product.title }}
+      </a>
+    {%- elsif section.settings.fallback != blank -%}
+      <div class="ax-hero__media">
+        <img src="{{ section.settings.fallback | asset_url }}" alt="" width="1000" height="1000" fetchpriority="high">
       </div>
     {%- endif -%}
   </div>
@@ -36,6 +49,8 @@
     { "type": "text", "id": "cta", "label": "Botón", "default": "Ver productos" },
     { "type": "url", "id": "cta_link", "label": "Enlace del botón", "info": "Vacío = baja a la lista de productos." },
     { "type": "image_picker", "id": "image", "label": "Imagen" },
+    { "type": "checkbox", "id": "use_product_image", "label": "Si no subes imagen, usar la primera foto del producto", "default": true },
+    { "type": "product", "id": "product", "label": "Producto para la foto", "info": "Vacío = el primer producto de la tienda." },
     { "type": "text", "id": "fallback", "label": "Imagen incluida en el tema (si no subes una)", "default": "sa-apply.jpg" }
   ],
   "presets": [{ "name": "Portada de la tienda" }]
