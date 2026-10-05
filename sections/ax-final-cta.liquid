@@ -21,7 +21,7 @@
           <span>{{ v.price | money_without_trailing_zeros }}</span>
           {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
         </div>
-        {% render 'ax-countdown', ends: m.offer_ends.value, label: 'Precio especial termina en', light: true %}
+        {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: 'Precio especial termina en', light: true %}
         <a class="ax-btn ax-btn--pulse" href="{{ p.url }}#comprar" data-ax-order>
           {% render 'ax-cta-label', text: section.settings.cta, sub: section.settings.cta_sub %}
         </a>

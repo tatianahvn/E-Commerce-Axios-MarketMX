@@ -313,13 +313,39 @@
     });
   }
 
-  /* ---------- Contador hasta una fecha real ---------- */
-  $$('[data-ax-countdown]').forEach((el) => {
-    const end = Number(el.dataset.axCountdown) * 1000;
+  /* ---------- Contador de la promoción ---------- */
+  // Ciclo automático: fin del ciclo actual por calendario (cada N días desde una fecha fija, a medianoche local).
+  // Se guarda en localStorage para que el cliente vea el mismo contador si regresa.
+  const cycleEnd = (days, key) => {
+    const storageKey = `ax_countdown_${key}`;
+    const now = Date.now();
+    try {
+      const saved = Number(localStorage.getItem(storageKey));
+      if (saved > now) return saved;
+    } catch (e) {}
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const dayNumber = Math.floor((today.getTime() - today.getTimezoneOffset() * 60000) / 86400000);
+    const daysLeft = days - (dayNumber % days);
+    const end = new Date(today);
+    end.setDate(end.getDate() + daysLeft);
+    try {
+      localStorage.setItem(storageKey, String(end.getTime()));
+    } catch (e) {}
+    return end.getTime();
+  };
+
+  $$('[data-ax-countdown], [data-ax-countdown-cycle]').forEach((el) => {
+    const cycleDays = Number(el.dataset.axCountdownCycle || 0);
+    let end = cycleDays ? cycleEnd(cycleDays, el.dataset.axCountdownKey) : Number(el.dataset.axCountdown) * 1000;
     const parts = { d: $('[data-d]', el), h: $('[data-h]', el), m: $('[data-m]', el), s: $('[data-s]', el) };
     const pad = (n) => String(n).padStart(2, '0');
     const tick = () => {
-      const left = end - Date.now();
+      let left = end - Date.now();
+      if (left <= 0 && cycleDays) {
+        end = cycleEnd(cycleDays, el.dataset.axCountdownKey);
+        left = end - Date.now();
+      }
       if (left <= 0) {
         el.remove();
         return false;

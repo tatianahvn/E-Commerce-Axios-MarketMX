@@ -148,7 +148,7 @@
         </ul>
       {%- endif -%}
 
-      {% render 'ax-countdown', ends: m.offer_ends.value, label: section.settings.countdown_label %}
+      {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: section.settings.countdown_label %}
 
       <div class="ax-buy" data-ax-buy-box{% if m.releasit_url.value != blank %} data-releasit-url="{{ m.releasit_url.value }}"{% endif %}>
         <form

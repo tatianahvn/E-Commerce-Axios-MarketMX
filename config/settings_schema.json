@@ -21,6 +21,9 @@
       { "type": "text", "id": "ax_cta_text", "label": "Texto de los botones de compra", "default": "Pedir ahora" },
       { "type": "text", "id": "ax_cta_sub", "label": "Segunda línea de los botones", "default": "Pagas al recibir", "info": "Vacío = una sola línea." },
       { "type": "text", "id": "ax_releasit_selector", "label": "Selector del botón de Releasit", "default": "._rsi-buy-now-button", "info": "No lo cambies salvo que Releasit cambie su botón." },
+      { "type": "header", "content": "Contador de la promoción" },
+      { "type": "checkbox", "id": "ax_countdown_cycle", "label": "Contador automático si el producto no tiene fecha de fin", "default": true, "info": "Cuenta hasta el fin de cada ciclo por calendario y empieza otro al terminar. Si el producto tiene \"Fin de la oferta\", se usa esa fecha." },
+      { "type": "range", "id": "ax_countdown_cycle_days", "label": "Duración del ciclo", "min": 1, "max": 7, "step": 1, "unit": "d", "default": 2 },
       { "type": "range", "id": "ax_low_stock", "label": "Avisar \"Quedan solo X piezas\" desde", "min": 3, "max": 50, "step": 1, "default": 15, "info": "Usa el inventario real del producto." }
     ]
   },

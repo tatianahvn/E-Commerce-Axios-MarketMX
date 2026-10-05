@@ -23,7 +23,7 @@ En "Espacio de nombres y clave" escribe exactamente lo de la columna **Clave** (
 | `axios.hook` | Una sola línea de texto | Frase de beneficio bajo el título | Brillo de agencia en minutos. \*Sin agua.\* |
 | `axios.badge` | Una sola línea de texto | Etiqueta negra sobre la foto | Más vendido |
 | `axios.offer_label` | Una sola línea de texto | Etiqueta roja arriba del título | Precio de lanzamiento |
-| `axios.offer_ends` | Fecha y hora | Contador. **Solo fechas reales.** Al vencer, desaparece | 2026-10-12 23:59 |
+| `axios.offer_ends` | Fecha y hora | Contador hasta esa fecha. Si está vacío, se usa el contador automático por ciclos de Configuración del tema | 2026-10-12 23:59 |
 | `axios.rating` | Decimal | Calificación promedio (de reseñas reales) | 4.8 |
 | `axios.rating_count` | Número entero | Cuántas reseñas | 10 |
 | `axios.highlights` | Una sola línea de texto → **Lista** | Viñetas con ✓ | Limpia, abrillanta y protege |

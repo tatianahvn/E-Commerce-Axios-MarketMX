@@ -1,20 +1,35 @@
 {%- comment -%}
-  Contador hasta una fecha REAL (metacampo axios.offer_ends).
-  Se oculta solo cuando la fecha ya pasó (en el servidor y en el navegador).
-  Uso: {% render 'ax-countdown', ends: product.metafields.axios.offer_ends.value, label: 'La oferta termina en', light: true %}
+  Contador de la promoción. Dos modos:
+  1) Fecha fija: si el producto tiene el metacampo axios.offer_ends con una fecha futura, cuenta hasta esa fecha
+     y desaparece al llegar.
+  2) Ciclo automático: si no hay fecha y está activado en Configuración del tema, cuenta hasta el fin del ciclo
+     actual (cada N días, por calendario). Al terminar empieza otro ciclo. El fin se guarda en el navegador
+     del cliente (localStorage) para que vea el mismo contador si regresa.
+  Uso: {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: 'La oferta termina en', light: true %}
 {%- endcomment -%}
-{%- if ends != blank -%}
-  {%- assign ends_ts = ends | date: '%s' | plus: 0 -%}
-  {%- assign now_ts = 'now' | date: '%s' | plus: 0 -%}
-  {%- if ends_ts > now_ts -%}
-    <div class="ax-countdown{% if light %} ax-countdown--light{% endif %}" data-ax-countdown="{{ ends_ts }}">
-      <span class="ax-countdown__label">{% render 'ax-icon', name: 'clock' %}{{ label | default: 'La oferta termina en' }}</span>
-      <span class="ax-countdown__time" role="timer" aria-live="off">
-        <span class="ax-countdown__unit"><span data-d>00</span><small>días</small></span>
-        <span class="ax-countdown__unit"><span data-h>00</span><small>hrs</small></span>
-        <span class="ax-countdown__unit"><span data-m>00</span><small>min</small></span>
-        <span class="ax-countdown__unit"><span data-s>00</span><small>seg</small></span>
-      </span>
-    </div>
-  {%- endif -%}
+{%- liquid
+  assign mode = ''
+  if ends != blank
+    assign ends_ts = ends | date: '%s' | plus: 0
+    assign now_ts = 'now' | date: '%s' | plus: 0
+    if ends_ts > now_ts
+      assign mode = 'date'
+    endif
+  elsif settings.ax_countdown_cycle and key != blank
+    assign mode = 'cycle'
+  endif
+-%}
+{%- if mode != '' -%}
+  <div
+    class="ax-countdown{% if light %} ax-countdown--light{% endif %}"
+    {% if mode == 'date' %}data-ax-countdown="{{ ends_ts }}"{% else %}data-ax-countdown-cycle="{{ settings.ax_countdown_cycle_days }}" data-ax-countdown-key="{{ key }}"{% endif %}
+  >
+    <span class="ax-countdown__label">{% render 'ax-icon', name: 'clock' %}{{ label | default: 'La oferta termina en' }}</span>
+    <span class="ax-countdown__time" role="timer" aria-live="off">
+      <span class="ax-countdown__unit"><span data-d>00</span><small>días</small></span>
+      <span class="ax-countdown__unit"><span data-h>00</span><small>hrs</small></span>
+      <span class="ax-countdown__unit"><span data-m>00</span><small>min</small></span>
+      <span class="ax-countdown__unit"><span data-s>00</span><small>seg</small></span>
+    </span>
+  </div>
 {%- endif -%}
