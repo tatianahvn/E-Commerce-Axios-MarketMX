@@ -20,7 +20,7 @@
             <li class="ax-pain ax-reveal">
               <div class="ax-pain__media">
                 {%- if img -%}
-                  {{ img | image_url: width: 640 | image_tag: loading: 'lazy', widths: '240, 400, 640', sizes: '(min-width: 900px) 380px, 104px', alt: img.alt | default: '' }}
+                  {{ img | image_url: width: 640 | image_tag: loading: 'lazy', widths: '240, 400, 640', sizes: '(min-width: 900px) 380px, 60vw', alt: img.alt | default: '' }}
                 {%- else -%}
                   <span class="ax-pain__num">{{ forloop.index }}</span>
                 {%- endif -%}
