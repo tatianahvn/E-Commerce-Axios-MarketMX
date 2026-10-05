@@ -13,15 +13,14 @@ Cada página de producto sigue la misma estructura de conversión y se llena con
 | 1 | Caja de compra: galería, ★, precio, contador, paquetes, botón de Releasit, garantía | `sections/ax-product.liquid` | Metacampos |
 | 2 | Barra de confianza | `sections/ax-trust.liquid` | Editor de temas (igual para todos) |
 | 3 | El problema | `sections/ax-problem.liquid` | Metacampos |
-| 4 | La solución | `sections/ax-solution.liquid` | Metacampos |
-| 5 | Beneficios (carrusel en celular) | `sections/ax-benefits.liquid` | Metacampos |
-| 6 | Antes y después | `sections/ax-before-after.liquid` | Metacampos |
-| 7 | Cómo se usa | `sections/ax-howto.liquid` | Metacampos |
-| 8 | Reseñas (filtradas por producto) | `sections/ax-reviews.liquid` | Editor de temas o app de reseñas |
-| 9 | Comparativa | `sections/ax-compare.liquid` | Metacampos |
-| 10 | Garantía con sello | `sections/ax-guarantee.liquid` | Editor de temas |
-| 11 | Preguntas frecuentes (del producto + generales) | `sections/ax-faq.liquid` | Metacampos + editor |
-| 12 | Llamado final con contador | `sections/ax-final-cta.liquid` | Metacampos |
+| 4 | La solución: resultados con GIFs (carrusel en celular) | `sections/ax-benefits.liquid` | Metacampos |
+| 5 | Antes y después | `sections/ax-before-after.liquid` | Metacampos |
+| 6 | Cómo se usa | `sections/ax-howto.liquid` | Metacampos |
+| 7 | Reseñas (filtradas por producto) | `sections/ax-reviews.liquid` | Editor de temas o app de reseñas |
+| 8 | Comparativa | `sections/ax-compare.liquid` | Metacampos |
+| 9 | Garantía con sello | `sections/ax-guarantee.liquid` | Editor de temas |
+| 10 | Preguntas frecuentes (del producto + generales) | `sections/ax-faq.liquid` | Metacampos + editor |
+| 11 | Llamado final con contador | `sections/ax-final-cta.liquid` | Metacampos |
 | — | Otros productos | `sections/ax-related.liquid` | Automático |
 | — | Barra fija de compra (celular) | dentro de `ax-product` | Automático |
 

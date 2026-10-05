@@ -5,6 +5,7 @@
   - count: número de opiniones (opcional)
   - link: ancla o URL (opcional)
   - bare: true = solo estrellas, sin número
+  - size: 'lg' = más grandes (caja de compra)
 {%- endcomment -%}
 {%- liquid
   assign r = rating | default: 0 | times: 1.0
@@ -15,7 +16,7 @@
   endif
 -%}
 {%- if r > 0 -%}
-  <{{ tag }} class="ax-stars"{% if link != blank %} href="{{ link }}"{% endif %}>
+  <{{ tag }} class="ax-stars{% if size %} ax-stars--{{ size }}{% endif %}"{% if link != blank %} href="{{ link }}"{% endif %}>
     <span class="ax-stars__icons" role="img" aria-label="{{ r_text }} de 5 estrellas">
       {%- for i in (1..5) -%}
         {%- assign threshold = i | minus: 0.25 -%}

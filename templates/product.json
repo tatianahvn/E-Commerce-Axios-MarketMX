@@ -10,10 +10,11 @@
         "bundles_note": "Confirmas la cantidad y tus datos en el formulario de pedido.",
         "secure_text": "Compra segura. Tus datos están protegidos.",
         "cod_title": "Pagas cuando lo recibes",
-        "cod_text": "Pides hoy sin tarjeta y pagas en efectivo al repartidor.",
+        "cod_text": "Compra con tranquilidad. Ordena hoy y paga en efectivo al repartidor cuando recibas el producto en la puerta de tu casa.",
         "show_stock": true,
         "description_open": false,
-        "sticky": true
+        "sticky": true,
+        "stock_text": "¡Quedan pocas unidades!"
       }
     },
     "trust": {
@@ -69,19 +70,11 @@
         "eyebrow": "¿Te pasa esto?"
       }
     },
-    "solution": {
-      "type": "ax-solution",
-      "settings": {
-        "product": "",
-        "eyebrow": "La solución",
-        "image_right": false
-      }
-    },
     "benefits": {
       "type": "ax-benefits",
       "settings": {
         "product": "",
-        "eyebrow": "Así se ve",
+        "eyebrow": "La solución",
         "title": "Resultados que *se notan*"
       }
     },
@@ -313,7 +306,6 @@
     "main",
     "trust",
     "problem",
-    "solution",
     "benefits",
     "before_after",
     "howto",

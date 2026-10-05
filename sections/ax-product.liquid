@@ -110,7 +110,7 @@
           <span class="ax-eyebrow">{% render 'ax-icon', name: 'fire' %}{{ m.offer_label.value }}</span>
         {%- endif -%}
         {%- if m.rating.value != blank -%}
-          {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value, link: '#resenas' %}
+          {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value, link: '#resenas', size: 'lg' %}
         {%- endif -%}
       </div>
 
@@ -136,8 +136,8 @@
       {%- if section.settings.show_stock and v.inventory_management == 'shopify' and v.inventory_quantity > 0 and v.inventory_quantity <= settings.ax_low_stock -%}
         {%- assign stock_pct = v.inventory_quantity | times: 100 | divided_by: settings.ax_low_stock | floor -%}
         <p class="ax-stock">
-          {% render 'ax-icon', name: 'fire' %}
-          <span>Quedan solo {{ v.inventory_quantity }} piezas</span>
+          <span class="ax-fire" aria-hidden="true">🔥</span>
+          <span>{{ section.settings.stock_text }}</span>
           <span class="ax-stock__bar" aria-hidden="true"><span style="width: {{ stock_pct }}%"></span></span>
         </p>
       {%- endif -%}
@@ -387,8 +387,9 @@
     { "type": "text", "id": "bundles_note", "label": "Nota debajo de los paquetes", "default": "Confirmas la cantidad y tus datos en el formulario de pedido." },
     { "type": "text", "id": "secure_text", "label": "Texto de seguridad", "default": "Compra segura. Tus datos están protegidos." },
     { "type": "text", "id": "cod_title", "label": "Pago contra entrega: título", "default": "Pagas cuando lo recibes" },
-    { "type": "text", "id": "cod_text", "label": "Pago contra entrega: texto", "default": "Pides hoy sin tarjeta y pagas en efectivo al repartidor." },
-    { "type": "checkbox", "id": "show_stock", "label": "Mostrar \"Quedan solo X piezas\"", "default": true, "info": "Usa el inventario real de Shopify. Solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
+    { "type": "text", "id": "cod_text", "label": "Pago contra entrega: texto", "default": "Compra con tranquilidad. Ordena hoy y paga en efectivo al repartidor cuando recibas el producto en la puerta de tu casa." },
+    { "type": "text", "id": "stock_text", "label": "Texto de pocas unidades", "default": "¡Quedan pocas unidades!" },
+    { "type": "checkbox", "id": "show_stock", "label": "Mostrar aviso de pocas unidades", "default": true, "info": "Usa el inventario real de Shopify. Solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
     { "type": "checkbox", "id": "description_open", "label": "Descripción abierta al cargar", "default": false },
     { "type": "checkbox", "id": "sticky", "label": "Barra fija de compra", "default": true }
   ]

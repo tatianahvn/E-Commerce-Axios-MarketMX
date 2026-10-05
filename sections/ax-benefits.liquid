@@ -1,6 +1,6 @@
 {%- comment -%}
-  Beneficios en tarjetas (con imagen o GIF opcional). Metacampos:
-  ax.benefits ("Título | texto"), ax.benefit_images
+  La solución: beneficios en tarjetas con imagen o GIF. Metacampos:
+  ax.solution_title (opcional), ax.solution_text (opcional), ax.benefits ("Título | texto"), ax.benefit_images
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
@@ -8,12 +8,13 @@
   assign images = m.benefit_images.value
   assign icons = 'sparkle,shield,clock,drop,layers,check' | split: ','
   assign count = m.benefits.value.size
+  assign title = m.solution_title.value | default: section.settings.title
 -%}
 {%- if count > 0 -%}
   <section class="ax-section" id="beneficios" aria-labelledby="ax-benefits-{{ section.id }}">
     <div class="ax-container">
 {%- assign head_id = 'ax-benefits-' | append: section.id -%}
-{% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, id: head_id %}
+{% render 'ax-head', eyebrow: section.settings.eyebrow, title: title, text: m.solution_text.value, id: head_id %}
       <ul class="ax-benefits{% if count == 2 or count == 4 %} ax-benefits--{{ count }}{% endif %}">
         {%- for item in m.benefits.value -%}
           {%- assign parts = item | split: '|' -%}
@@ -43,12 +44,12 @@
 
 {% schema %}
 {
-  "name": "Producto: beneficios",
+  "name": "Producto: la solución",
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
-    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Así se ve" },
-    { "type": "text", "id": "title", "label": "Título", "default": "Resultados que *se notan*", "info": "Lo que va entre *asteriscos* sale en rojo." }
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "La solución" },
+    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Resultados que *se notan*", "info": "Cada producto puede cambiarlo con ax.solution_title. Lo que va entre *asteriscos* sale en rojo." }
   ],
-  "presets": [{ "name": "Producto: beneficios" }]
+  "presets": [{ "name": "Producto: la solución" }]
 }
 {% endschema %}

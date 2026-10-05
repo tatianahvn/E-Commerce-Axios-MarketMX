@@ -27,12 +27,12 @@ En "Espacio de nombres y clave" escribe exactamente lo de la columna **Clave** (
 | `ax.rating` | Decimal | Calificación promedio (de reseñas reales) | 4.8 |
 | `ax.rating_count` | Número entero | Cuántas reseñas | 10 |
 | `ax.highlights` | Una sola línea de texto → **Lista** | Viñetas con ✓ | Limpia, abrillanta y protege |
-| `ax.bundles` | Una sola línea de texto → **Lista** | Paquetes: `Nombre \| Cantidad \| Precio total \| Etiqueta` | `2 piezas \| 2 \| 599 \| ⭐ Más pedido` |
+| `ax.bundles` | Una sola línea de texto → **Lista** | Paquetes: `Nombre \| Cantidad \| Precio total \| Etiqueta` | `¡Compra 2! \| 2 \| 599 \| ⭐ Más pedido` |
 | `ax.specs` | Una sola línea de texto → **Lista** | Tabla de especificaciones: `Dato \| Valor` | `Contenido \| 100 ml` |
 | `ax.releasit_url` | URL | *Opcional.* Solo si algún producto usa un enlace directo de Releasit en vez de su botón | |
 
 **Paquetes (`ax.bundles`)**
-- El precio total es opcional: `1 pieza | 1` usa el precio normal del producto.
+- El precio total es opcional: `¡Compra 1! | 1` usa el precio normal del producto.
 - El paquete que tenga **Etiqueta** sale destacado y preseleccionado.
 - El tema solo **muestra** el precio. El descuento real lo creas en **Descuentos** (descuento automático por cantidad) y Releasit lo toma de ahí. **Que coincidan los dos.**
 
@@ -44,13 +44,13 @@ En "Espacio de nombres y clave" escribe exactamente lo de la columna **Clave** (
 | `ax.problem_text` | Varias líneas de texto | El problema |
 | `ax.problem_points` | Una sola línea de texto → **Lista** (`Título \| texto`) | El problema |
 | `ax.problem_images` | Archivo → **Lista** (solo imágenes) | El problema |
-| `ax.solution_title` | Una sola línea de texto | La solución |
-| `ax.solution_text` | Varias líneas de texto | La solución |
-| `ax.solution_points` | Una sola línea de texto → **Lista** (`Título \| texto`) | La solución |
-| `ax.solution_image` | Archivo (solo imágenes) | La solución |
-| `ax.solution_note` | Una sola línea de texto | La solución (nota con ⓘ) |
-| `ax.benefits` | Una sola línea de texto → **Lista** (`Título \| texto`) | Beneficios |
-| `ax.benefit_images` | Archivo → **Lista** (imágenes o GIF) | Beneficios |
+| `ax.solution_title` | Una sola línea de texto | La solución: título (opcional) |
+| `ax.solution_text` | Varias líneas de texto | La solución: texto bajo el título (opcional) |
+| `ax.benefits` | Una sola línea de texto → **Lista** (`Título \| texto`) | La solución: tarjetas |
+| `ax.benefit_images` | Archivo → **Lista** (imágenes o GIF) | La solución: imagen de cada tarjeta |
+| `ax.solution_points` | Una sola línea de texto → **Lista** (`Título \| texto`) | *Solo si agregas la sección extra "Producto: explicación"* |
+| `ax.solution_image` | Archivo (solo imágenes) | *Solo con la sección extra* |
+| `ax.solution_note` | Una sola línea de texto | *Solo con la sección extra* |
 | `ax.before_image` | Archivo (solo imágenes) | Antes y después |
 | `ax.after_image` | Archivo (solo imágenes) | Antes y después |
 | `ax.ba_note` | Una sola línea de texto | Antes y después (nota debajo) |

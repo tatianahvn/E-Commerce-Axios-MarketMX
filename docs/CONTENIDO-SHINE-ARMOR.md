@@ -41,8 +41,9 @@ Fecha y hora real de fin de tu promoción (ej. domingo 12 de octubre, 23:59).
 
 ### `ax.bundles`
 
-- 1 pieza | 1
-- 2 piezas | 2 | 599 | ⭐ Más pedido
+- ¡Compra 1! | 1 | 399
+- ¡Compra 2! | 2 | 599 | ⭐ Más pedido
+- ¡Compra 3! | 3 | 799 | Mejor precio
 
 ### `ax.specs`
 
@@ -74,11 +75,11 @@ No es tu culpa: el sol, la lluvia y el polvo atacan el barniz todos los días. P
 
 ### `ax.solution_title`
 
-Una capa cerámica que *protege y hace brillar*
+Brillo y protección cerámica *en un solo paso*
 
 ### `ax.solution_text`
 
-Shine Armor tiene dióxido de silicio (SiO₂), el componente de los recubrimientos cerámicos, en un spray que aplicas tú en casa.
+Shine Armor tiene dióxido de silicio (SiO₂), el componente de los recubrimientos cerámicos, en un spray que aplicas tú en casa. Limpia, abrillanta y deja una capa que hace que el agua resbale.
 
 ### `ax.solution_points`
 

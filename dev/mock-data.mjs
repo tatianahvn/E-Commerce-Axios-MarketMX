@@ -62,7 +62,7 @@ export const shineArmor = {
         'Capa cerámica: el agua resbala y se lleva el polvo',
         'Sin agua, sin máquinas y sin experiencia',
       ]),
-      bundles: mf(['1 pieza | 1', '2 piezas | 2 | 599 | ⭐ Más pedido']),
+      bundles: mf(['¡Compra 1! | 1 | 399', '¡Compra 2! | 2 | 599 | ⭐ Más pedido', '¡Compra 3! | 3 | 799 | Mejor precio']),
       specs: mf([
         'Tipo | Spray cerámico 3 en 1',
         'Contenido | 100 ml (3.4 fl oz)',
@@ -84,9 +84,9 @@ export const shineArmor = {
         img('sa-pain-rain.webp', 1280, 720, 'Gotas de lluvia sobre la pintura'),
         img('sa-pain-time.webp', 1600, 900, 'Persona sin tiempo para encerar'),
       ]),
-      solution_title: mf('Una capa cerámica que *protege y hace brillar*'),
+      solution_title: mf('Brillo y protección cerámica *en un solo paso*'),
       solution_text: mf(
-        'Shine Armor tiene dióxido de silicio (SiO₂), el componente de los recubrimientos cerámicos, en un spray que aplicas tú en casa.'
+        'Shine Armor tiene dióxido de silicio (SiO₂), el componente de los recubrimientos cerámicos, en un spray que aplicas tú en casa. Limpia, abrillanta y deja una capa que hace que el agua resbale.'
       ),
       solution_points: mf([
         'Se adhiere al barniz | El SiO₂ entra en los poros microscópicos de la pintura y se fija.',
