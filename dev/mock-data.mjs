@@ -70,7 +70,7 @@ export const shineArmor = {
         'Vehículos | Autos, motos, camionetas, lanchas y RVs',
         'Incluye | 1 botella con atomizador. Paños de microfibra no incluidos.',
       ]),
-      problem_title: mf('Lavas tu auto y a los dos días *ya se ve opaco otra vez*'),
+      problem_title: mf('¿Cansado de la *pintura opaca y la acumulación de polvo*?'),
       problem_text: mf(
         'No es tu culpa: el sol, la lluvia y el polvo atacan el barniz todos los días. Primero se pierde el brillo, luego el color se apaga y al final la pintura queda desprotegida.'
       ),

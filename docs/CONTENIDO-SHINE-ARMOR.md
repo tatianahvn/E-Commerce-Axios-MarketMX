@@ -57,7 +57,7 @@ Fecha y hora real de fin de tu promoción (ej. domingo 12 de octubre, 23:59).
 
 ### `ax.problem_title`
 
-Lavas tu auto y a los dos días *ya se ve opaco otra vez*
+¿Cansado de la *pintura opaca y la acumulación de polvo*?
 
 ### `ax.problem_text`
 
