@@ -12,6 +12,31 @@ const theme = path.resolve(here, '..');
 const out = path.join(here, 'out');
 const read = (p) => fs.readFileSync(path.join(theme, p), 'utf8');
 const products = [shineArmor];
+
+// Fotos reales: se leen de la página pública del producto en la tienda (sin iniciar sesión).
+// Si no hay conexión, se quedan las fotos de ejemplo de mock-data.mjs.
+const STORE = 'https://axiosmarketmx.myshopify.com';
+async function useStoreImages(product) {
+  try {
+    const res = await fetch(`${STORE}/products/${product.handle}.js`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const media = data.media
+      .filter((m) => m.media_type === 'image')
+      .map((m) => {
+        const image = { src: m.src, width: m.width, height: m.height, alt: m.alt || data.title, aspect_ratio: m.width / m.height };
+        return { id: m.id, media_type: 'image', alt: image.alt, preview_image: image, ...image };
+      });
+    if (!media.length) throw new Error('sin imágenes');
+    product.media = media;
+    product.featured_media = media[0];
+    product.featured_image = media[0].preview_image;
+    console.log(`✓ ${media.length} fotos de Shopify para ${product.handle}`);
+  } catch (err) {
+    console.log(`! No se pudieron leer las fotos de Shopify (${err.message}); se usan las de ejemplo`);
+  }
+}
+await useStoreImages(shineArmor);
 const byHandle = (h) => [shineArmor, plainProduct].find((p) => p.handle === h) || null;
 
 // Sintaxis de Shopify que LiquidJS no entiende tal cual
