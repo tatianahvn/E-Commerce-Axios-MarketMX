@@ -1621,12 +1621,16 @@ ol {
   flex: none;
 }
 
+.ax-guarantee-seal__icon .ax-icon {
+  stroke-width: 2.2;
+}
+
 .ax-guarantee-seal strong {
   display: block;
   font-size: 15px;
 }
 
-.ax-guarantee-seal span {
+.ax-guarantee-seal div > span {
   font-size: 13px;
   color: var(--ax-ink-2);
 }
