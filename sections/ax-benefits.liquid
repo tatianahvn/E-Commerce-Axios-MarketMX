@@ -1,7 +1,6 @@
 {%- comment -%}
   La solución: beneficios en tarjetas con imagen o GIF. Metacampos:
-  ax.solution_title (opcional), ax.solution_text (opcional),
-  ax.solution_callout (opcional, "Título | texto", recuadro con alcancía), ax.benefits ("Título | texto"), ax.benefit_images
+  ax.solution_title (opcional), ax.solution_text (opcional), ax.benefits ("Título | texto"), ax.benefit_images
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
@@ -15,17 +14,7 @@
   <section class="ax-section" id="beneficios" aria-labelledby="ax-benefits-{{ section.id }}">
     <div class="ax-container">
 {%- assign head_id = 'ax-benefits-' | append: section.id -%}
-{% render 'ax-head', eyebrow: section.settings.eyebrow, title: title, text: m.solution_text.value, id: head_id %}
-      {%- if m.solution_callout.value != blank -%}
-        {%- assign callout = m.solution_callout.value | split: '|' -%}
-        <div class="ax-callout ax-reveal">
-          <span class="ax-callout__icon">{% render 'ax-icon', name: 'piggy' %}</span>
-          <p>
-            <strong>{{ callout[0] | strip }}</strong>
-            {%- if callout[1] != blank %} {{ callout[1] | strip }}{% endif -%}
-          </p>
-        </div>
-      {%- endif -%}
+{% render 'ax-head', eyebrow: section.settings.eyebrow, title: title, text: m.solution_text.value, id: head_id, icon: section.settings.icon %}
       <ul class="ax-benefits{% if count == 2 or count == 4 %} ax-benefits--{{ count }}{% endif %}">
         {%- for item in m.benefits.value -%}
           {%- assign parts = item | split: '|' -%}
@@ -59,6 +48,18 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "La solución" },
+    {
+      "type": "select",
+      "id": "icon",
+      "label": "Ícono sobre el título",
+      "default": "piggy",
+      "options": [
+        { "value": "", "label": "Ninguno" },
+        { "value": "piggy", "label": "Alcancía" },
+        { "value": "sparkle", "label": "Brillo" },
+        { "value": "shield", "label": "Escudo" }
+      ]
+    },
     { "type": "text", "id": "title", "label": "Título por defecto", "default": "Resultados que *se notan*", "info": "Cada producto puede cambiarlo con ax.solution_title. Lo que va entre *asteriscos* sale en rojo." }
   ],
   "presets": [{ "name": "Producto: la solución" }]

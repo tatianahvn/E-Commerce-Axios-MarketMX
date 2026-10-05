@@ -77,21 +77,17 @@ No es tu culpa: el sol, la lluvia y el polvo atacan el barniz todos los días. P
 
 ### `ax.solution_title`
 
-Brillo y protección cerámica *en un solo paso*
+¡Ahorra *tiempo y dinero*!
 
 ### `ax.solution_text`
 
-Shine Armor tiene dióxido de silicio (SiO₂), el componente de los recubrimientos cerámicos, en un spray que aplicas tú en casa. Limpia, abrillanta y deja una capa que hace que el agua resbale.
+Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.
 
 ### `ax.solution_points`
 
 - Se adhiere al barniz | El SiO₂ entra en los poros microscópicos de la pintura y se fija.
 - Forma una película lisa | Nivela la superficie: más color y efecto espejo.
 - Repele agua y suciedad | El agua forma gotas y resbala llevándose el polvo.
-
-### `ax.solution_callout`
-
-¡Ahorra tiempo y dinero! | Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.
 
 ### `ax.solution_image`
 

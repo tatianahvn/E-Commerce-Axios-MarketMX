@@ -84,16 +84,13 @@ export const shineArmor = {
         img('sa-pain-rain.webp', 1280, 720, 'Gotas de lluvia sobre la pintura'),
         img('sa-pain-time.webp', 1600, 900, 'Persona sin tiempo para encerar'),
       ]),
-      solution_title: mf('Brillo y protección cerámica *en un solo paso*'),
-      solution_text: mf(
-        'Shine Armor tiene dióxido de silicio (SiO₂), el componente de los recubrimientos cerámicos, en un spray que aplicas tú en casa. Limpia, abrillanta y deja una capa que hace que el agua resbale.'
-      ),
+      solution_title: mf('¡Ahorra *tiempo y dinero*!'),
+      solution_text: mf('Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.'),
       solution_points: mf([
         'Se adhiere al barniz | El SiO₂ entra en los poros microscópicos de la pintura y se fija.',
         'Forma una película lisa | Nivela la superficie: más color y efecto espejo.',
         'Repele agua y suciedad | El agua forma gotas y resbala llevándose el polvo.',
       ]),
-      solution_callout: mf('¡Ahorra tiempo y dinero! | Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.'),
       solution_image: mf(img('sa-hydrophobic.webp', 1280, 720, 'Gotas de agua sobre pintura protegida')),
       solution_note: mf('Vuelve a aplicar cuando el agua deje de formar gotas.'),
       benefits: mf([

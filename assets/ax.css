@@ -1959,47 +1959,21 @@ ol {
   }
 }
 
-/* Recuadro de ahorro (La solución) */
-.ax-callout {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  max-width: 640px;
-  margin: -8px auto 24px;
-  padding: 14px 16px;
-  border-radius: var(--ax-radius);
-  background: var(--ax-red-tint);
-  border: 1px solid #f6c9cd;
-}
-
-.ax-callout__icon {
+/* Ícono sobre el título de una sección */
+.ax-head__icon {
   display: grid;
   place-items: center;
-  flex: none;
-  width: 52px;
-  height: 52px;
+  width: 60px;
+  height: 60px;
   border-radius: 999px;
   background: var(--ax-red);
   color: var(--ax-white);
+  box-shadow: var(--ax-shadow-red);
 }
 
-.ax-callout__icon .ax-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.ax-callout p {
-  font-size: 15px;
-  line-height: 1.45;
-  color: var(--ax-ink-2);
-}
-
-.ax-callout strong {
-  display: block;
-  font-family: var(--ax-font-head);
-  font-size: 17px;
-  font-weight: 800;
-  color: var(--ax-red-ink);
+.ax-head__icon .ax-icon {
+  width: 34px;
+  height: 34px;
 }
 
 /* ---------- Antes y después ---------- */
