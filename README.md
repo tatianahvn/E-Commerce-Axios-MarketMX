@@ -13,7 +13,7 @@ Cada página de producto sigue la misma estructura de conversión y se llena con
 | 1 | Caja de compra: galería, ★, precio, contador, paquetes, botón de Releasit, garantía | `sections/ax-product.liquid` | Metacampos |
 | 2 | Barra de confianza | `sections/ax-trust.liquid` | Editor de temas (igual para todos) |
 | 3 | El problema | `sections/ax-problem.liquid` | Metacampos |
-| 4 | La solución: resultados con GIFs (carrusel en celular) | `sections/ax-benefits.liquid` | Metacampos |
+| 4 | La solución: resultados con GIFs (uno debajo de otro en celular) | `sections/ax-benefits.liquid` | Metacampos |
 | 5 | Antes y después | `sections/ax-before-after.liquid` | Metacampos |
 | 6 | Cómo se usa | `sections/ax-howto.liquid` | Metacampos |
 | 7 | Reseñas (filtradas por producto) | `sections/ax-reviews.liquid` | Editor de temas o app de reseñas |

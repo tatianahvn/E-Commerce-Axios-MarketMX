@@ -1948,27 +1948,11 @@ ol {
   }
 }
 
-/* ---------- Beneficios ---------- */
-/* En celular: carrusel horizontal (ocupa menos alto y se nota que hay más) */
+/* ---------- Beneficios / La solución ---------- */
+/* En celular: tarjetas una debajo de otra, con el GIF a todo el ancho */
 .ax-benefits {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 84%;
-  gap: 12px;
-  margin: 0 calc(var(--ax-gutter) * -1);
-  padding: 0 var(--ax-gutter) 6px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 0 var(--ax-gutter);
-  scrollbar-width: none;
-}
-
-.ax-benefits::-webkit-scrollbar {
-  display: none;
-}
-
-.ax-benefit {
-  scroll-snap-align: start;
+  gap: 16px;
 }
 
 .ax-benefit {
@@ -2019,13 +2003,8 @@ ol {
 
 @media (min-width: 900px) {
   .ax-benefits {
-    grid-auto-flow: row;
-    grid-auto-columns: auto;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
   }
   .ax-benefits--2 {
     grid-template-columns: repeat(2, 1fr);
