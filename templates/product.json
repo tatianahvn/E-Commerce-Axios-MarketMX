@@ -74,8 +74,9 @@
       "type": "ax-benefits",
       "settings": {
         "product": "",
-        "eyebrow": "La solución",
-        "title": "Resultados que *se notan*"
+        "eyebrow": "",
+        "title": "Resultados que *se notan*",
+        "icon": "sparkle"
       }
     },
     "before_after": {

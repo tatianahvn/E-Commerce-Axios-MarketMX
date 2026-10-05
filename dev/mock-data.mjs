@@ -84,8 +84,8 @@ export const shineArmor = {
         img('sa-pain-rain.webp', 1280, 720, 'Gotas de lluvia sobre la pintura'),
         img('sa-pain-time.webp', 1600, 900, 'Persona sin tiempo para encerar'),
       ]),
-      solution_title: mf('¡Ahorra *tiempo y dinero*!'),
-      solution_text: mf('Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.'),
+      solution_title: mf('¡Abrillanta, limpia y *protege tu auto*!'),
+      solution_text: mf('Con Shine Armor 3 en 1, limpias tu auto, devuelves el brillo y proteges tu auto con un acabado hidrofóbico que repele el agua y el polvo, con una fácil aplicación desde casa.'),
       solution_points: mf([
         'Se adhiere al barniz | El SiO₂ entra en los poros microscópicos de la pintura y se fija.',
         'Forma una película lisa | Nivela la superficie: más color y efecto espejo.',

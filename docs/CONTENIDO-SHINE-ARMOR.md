@@ -77,11 +77,11 @@ No es tu culpa: el sol, la lluvia y el polvo atacan el barniz todos los días. P
 
 ### `ax.solution_title`
 
-¡Ahorra *tiempo y dinero*!
+¡Abrillanta, limpia y *protege tu auto*!
 
 ### `ax.solution_text`
 
-Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.
+Con Shine Armor 3 en 1, limpias tu auto, devuelves el brillo y proteges tu auto con un acabado hidrofóbico que repele el agua y el polvo, con una fácil aplicación desde casa.
 
 ### `ax.solution_points`
 
