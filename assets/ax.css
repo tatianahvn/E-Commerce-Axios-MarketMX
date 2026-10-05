@@ -1777,6 +1777,13 @@ ol {
   margin: 0;
 }
 
+/* Releasit agrega su propio botón flotante al bajar por la página. Se oculta para que solo quede
+   la barra fija del tema, que sube a la sección de compra; ahí se usa el botón de Releasit. */
+#_rsi-buy-now-button-floating,
+._rsi-buy-now-button-floating {
+  display: none !important;
+}
+
 /* Barra fija de compra (celular) */
 .ax-sticky {
   position: fixed;
