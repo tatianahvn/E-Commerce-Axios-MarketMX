@@ -89,6 +89,10 @@ Shine Armor tiene dióxido de silicio (SiO₂), el componente de los recubrimien
 - Forma una película lisa | Nivela la superficie: más color y efecto espejo.
 - Repele agua y suciedad | El agua forma gotas y resbala llevándose el polvo.
 
+### `ax.solution_callout`
+
+¡Ahorra tiempo y dinero! | Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.
+
 ### `ax.solution_image`
 
 `sa-hydrophobic.webp`

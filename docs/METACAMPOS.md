@@ -46,6 +46,7 @@ En "Espacio de nombres y clave" escribe exactamente lo de la columna **Clave** (
 | `ax.problem_images` | Archivo → **Lista** (solo imágenes) | El problema |
 | `ax.solution_title` | Una sola línea de texto | La solución: título (opcional) |
 | `ax.solution_text` | Varias líneas de texto | La solución: texto bajo el título (opcional) |
+| `ax.solution_callout` | Una sola línea de texto (`Título \| texto`) | La solución: recuadro con alcancía (opcional) |
 | `ax.benefits` | Una sola línea de texto → **Lista** (`Título \| texto`) | La solución: tarjetas |
 | `ax.benefit_images` | Archivo → **Lista** (imágenes o GIF) | La solución: imagen de cada tarjeta |
 | `ax.solution_points` | Una sola línea de texto → **Lista** (`Título \| texto`) | *Solo si agregas la sección extra "Producto: explicación"* |

@@ -93,6 +93,7 @@ export const shineArmor = {
         'Forma una película lisa | Nivela la superficie: más color y efecto espejo.',
         'Repele agua y suciedad | El agua forma gotas y resbala llevándose el polvo.',
       ]),
+      solution_callout: mf('¡Ahorra tiempo y dinero! | Con Shine Armor 3 en 1 limpias, abrillantas y proteges tu auto del agua y la suciedad desde casa.'),
       solution_image: mf(img('sa-hydrophobic.webp', 1280, 720, 'Gotas de agua sobre pintura protegida')),
       solution_note: mf('Vuelve a aplicar cuando el agua deje de formar gotas.'),
       benefits: mf([
