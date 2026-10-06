@@ -1,0 +1,52 @@
+{%- comment -%}
+  Míralo en acción: resumen rápido (problema → aplicación → resultado) con GIFs, dos columnas también en celular. Metacampos:
+  axios.action_title (opcional), axios.action_text (opcional), axios.action_items ("Título | texto"), axios.action_media (GIF o imágenes)
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign m = p.metafields.axios
+  assign images = m.action_media.value
+  assign count = m.action_items.value.size
+  assign title = m.action_title.value | default: section.settings.title
+  assign text = m.action_text.value | default: section.settings.text
+-%}
+{%- if count > 0 -%}
+  <section class="ax-section ax-action-section" id="en-accion" aria-labelledby="ax-action-{{ section.id }}">
+    <div class="ax-container">
+{%- assign head_id = 'ax-action-' | append: section.id -%}
+{% render 'ax-head', eyebrow: section.settings.eyebrow, title: title, text: text, id: head_id %}
+      <ol class="ax-action{% if count == 1 %} ax-action--1{% endif %}">
+        {%- for item in m.action_items.value -%}
+          {%- assign parts = item | split: '|' -%}
+          {%- comment -%} Las listas de archivos de Shopify no se pueden leer por posición ([0]); se recorre la lista {%- endcomment -%}
+{%- assign img = nil -%}{%- assign item_index = forloop.index0 -%}{%- for candidate in images -%}{%- if forloop.index0 == item_index -%}{%- assign img = candidate -%}{%- break -%}{%- endif -%}{%- endfor -%}
+          <li class="ax-action__item ax-reveal">
+            <div class="ax-action__media">
+              <span class="ax-action__num">{{ forloop.index }}</span>
+              {%- if img -%}
+                {{ img | image_url: width: 640 | image_tag: loading: 'lazy', alt: img.alt | default: '' }}
+              {%- endif -%}
+            </div>
+            <h3>{{ parts[0] | strip }}</h3>
+            {%- if parts[1] != blank -%}<p>{{ parts[1] | strip }}</p>{%- endif -%}
+          </li>
+        {%- endfor -%}
+      </ol>
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Míralo en acción": llena en el producto <code>axios.action_items</code> (una línea por GIF: <code>Título | texto</code>) y <code>axios.action_media</code> (los GIF, en el mismo orden).' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Producto: en acción",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Míralo en acción" },
+    { "type": "text", "id": "title", "label": "Título por defecto", "default": "Así de *fácil* se ve", "info": "Cada producto puede cambiarlo con axios.action_title. Lo que va entre *asteriscos* sale en rojo." },
+    { "type": "textarea", "id": "text", "label": "Texto por defecto", "info": "Cada producto puede cambiarlo con axios.action_text." }
+  ],
+  "presets": [{ "name": "Producto: en acción" }]
+}
+{% endschema %}

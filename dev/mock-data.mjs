@@ -104,6 +104,16 @@ export const shineArmor = {
         img('sa-gif-2.webp', 379, 213, 'Reflejo tipo espejo en pintura roja'),
         img('sa-gif-3.webp', 379, 213, 'Persona rociando la puerta de una camioneta'),
       ]),
+      action_title: mf('Del polvo al brillo *en minutos*'),
+      action_text: mf('¿Pintura opaca y llena de polvo? Rocías, retiras y tu auto queda brillante y protegido.'),
+      action_items: mf([
+        'El agua resbala | La capa cerámica repele el agua y el polvo, y tu auto se mantiene brillante por más tiempo.',
+        'Rocía y retira | Un paño de microfibra y unas pasadas. Sin cubeta, sin manguera y sin experiencia.',
+      ]),
+      action_media: mf([
+        { src: '/thumbs/sa-action-resultado.webp', width: 440, height: 494, alt: 'El agua resbala sobre un vidrio tratado', aspect_ratio: 440 / 494 },
+        { src: '/thumbs/sa-action-aplica.webp', width: 440, height: 494, alt: 'Persona rociando Shine Armor sobre un auto rojo', aspect_ratio: 440 / 494 },
+      ]),
       before_image: mf(img('sa-ba-antes.jpg', 1400, 1400, 'Auto negro con la pintura opaca y sucia')),
       after_image: mf(img('sa-ba-despues.jpg', 1400, 1400, 'El mismo auto con brillo y gotas de agua que resbalan')),
       ba_note: mf('Imagen ilustrativa.'),

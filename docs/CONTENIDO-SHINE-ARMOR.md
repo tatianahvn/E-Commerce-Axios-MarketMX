@@ -115,6 +115,24 @@ Vuelve a aplicar cuando el agua deje de formar gotas.
 - `sa-gif-2.webp`
 - `sa-gif-3.webp`
 
+### `axios.action_title`
+
+Del polvo al brillo *en minutos*
+
+### `axios.action_text`
+
+¿Pintura opaca y llena de polvo? Rocías, retiras y tu auto queda brillante y protegido.
+
+### `axios.action_items`
+
+- El agua resbala | La capa cerámica repele el agua y el polvo, y tu auto se mantiene brillante por más tiempo.
+- Rocía y retira | Un paño de microfibra y unas pasadas. Sin cubeta, sin manguera y sin experiencia.
+
+### `axios.action_media`
+
+- `sa-action-resultado.webp`
+- `sa-action-aplica.webp`
+
 ### `axios.before_image`
 
 `sa-ba-antes.jpg`

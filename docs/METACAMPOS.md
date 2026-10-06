@@ -45,6 +45,10 @@ En "Espacio de nombres y clave" escribe exactamente lo de la columna **Clave** (
 | `axios.problem_text` | Varias líneas de texto | El problema |
 | `axios.problem_points` | Una sola línea de texto → **Lista** (`Título \| texto`) | El problema |
 | `axios.problem_images` | Archivo → **Lista** (solo imágenes) | El problema |
+| `axios.action_title` | Una sola línea de texto | Míralo en acción: título (opcional) |
+| `axios.action_text` | Varias líneas de texto | Míralo en acción: texto bajo el título (opcional) |
+| `axios.action_items` | Una sola línea de texto → **Lista** (`Título \| texto`) | Míralo en acción: texto de cada GIF (2 recomendados) |
+| `axios.action_media` | Archivo → **Lista** (imágenes o GIF) | Míralo en acción: los GIF, en el mismo orden |
 | `axios.solution_title` | Una sola línea de texto | La solución: título (opcional) |
 | `axios.solution_text` | Varias líneas de texto | La solución: texto bajo el título (opcional) |
 | `axios.benefits` | Una sola línea de texto → **Lista** (`Título \| texto`) | La solución: tarjetas |

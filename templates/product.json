@@ -64,6 +64,15 @@
         "t4"
       ]
     },
+    "in_action": {
+      "type": "ax-in-action",
+      "settings": {
+        "product": "",
+        "eyebrow": "Míralo en acción",
+        "title": "Así de *fácil* se ve",
+        "text": ""
+      }
+    },
     "problem": {
       "type": "ax-problem",
       "settings": {
@@ -309,6 +318,7 @@
   "order": [
     "main",
     "trust",
+    "in_action",
     "problem",
     "benefits",
     "before_after",
