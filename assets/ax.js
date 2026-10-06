@@ -147,10 +147,6 @@
       }
       if (total === null) return;
       updatePriceLabels(total);
-      // Barra fija: con paquete de varias piezas se aclara la cantidad ("2 x $599")
-      const qty = Number(bundle?.value || 1);
-      const stickyPrice = $('[data-ax-sticky-price]');
-      if (stickyPrice) stickyPrice.textContent = qty > 1 ? `${qty} x ${money(total)}` : money(total);
     };
 
     if (variants) {

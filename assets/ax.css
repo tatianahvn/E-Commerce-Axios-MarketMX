@@ -1819,26 +1819,6 @@ ol {
   transform: none;
 }
 
-.ax-sticky__info {
-  display: grid;
-  line-height: 1.2;
-  min-width: 0;
-}
-
-.ax-sticky__title {
-  font-size: 13px;
-  color: var(--ax-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 34vw;
-}
-
-.ax-sticky__price {
-  font-weight: 800;
-  font-size: 18px;
-}
-
 .ax-sticky .ax-btn {
   flex: 1;
   min-height: 52px;
@@ -1853,9 +1833,6 @@ ol {
     width: 420px;
     border: 1px solid var(--ax-line);
     border-radius: var(--ax-radius-lg);
-  }
-  .ax-sticky__title {
-    max-width: 160px;
   }
 }
 

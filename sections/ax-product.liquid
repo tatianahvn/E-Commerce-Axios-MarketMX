@@ -350,14 +350,9 @@
     </div>
   </div>
 
-  {%- comment -%} Barra fija de compra: visible mientras el botón principal no está en pantalla {%- endcomment -%}
+  {%- comment -%} Barra fija de compra (solo el botón, sin precio): visible mientras el botón principal no está en pantalla {%- endcomment -%}
   {%- if section.settings.sticky -%}
     <div class="ax-sticky" data-ax-sticky aria-hidden="true">
-      <div class="ax-sticky__info">
-        <span class="ax-sticky__title">{{ p.title | split: '|' | first | strip }}</span>
-        {%- comment -%} Con paquete de varias piezas se aclara la cantidad: "2 x $599" = 2 piezas por $599 {%- endcomment -%}
-        <span class="ax-sticky__price" data-ax-sticky-price>{% if selected_qty > 1 %}{{ selected_qty }} x {% endif %}{{ selected_total | money_without_trailing_zeros }}</span>
-      </div>
       <a class="ax-btn" href="#comprar" data-ax-order tabindex="-1">
         {{ section.settings.sticky_label | default: settings.ax_cta_text }}
       </a>
