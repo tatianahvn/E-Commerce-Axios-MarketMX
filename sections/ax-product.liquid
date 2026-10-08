@@ -221,10 +221,10 @@
                     assign b_total = unit_price | times: b_qty
                     assign b_custom = false
                   endif
-                  # Precio de referencia: precio de comparación del producto × piezas
-                  # (sin precio de comparación, el precio normal × piezas).
-                  if unit_compare > unit_price
-                    assign b_compare = unit_compare | times: b_qty
+                  # Precio de referencia (igual que las ofertas por cantidad de Releasit):
+                  # 1 pieza contra el precio de comparación; 2 o más contra el precio actual × piezas.
+                  if b_qty == 1 and unit_compare > unit_price
+                    assign b_compare = unit_compare
                   else
                     assign b_compare = unit_price | times: b_qty
                   endif
@@ -254,8 +254,8 @@
                     <span>
                       <span class="ax-bundle__name">{{ b_name }}</span>
                       <span class="ax-bundle__meta">
-                        {{- b_per | money_without_trailing_zeros }} c/u
-                        {%- if b_pct > 0 %} · <span class="ax-bundle__save">{{ b_pct }}% Descuento</span>{% endif -%}
+                        <span class="ax-bundle__per">{{ b_per | money_without_trailing_zeros }} <small>c/u</small></span>
+                        {%- if b_pct > 0 %}<span class="ax-bundle__save">{{ b_pct }}% Descuento</span>{% endif -%}
                       </span>
                     </span>
                     <span class="ax-bundle__prices">

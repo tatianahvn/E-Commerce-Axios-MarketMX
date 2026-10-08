@@ -1519,14 +1519,30 @@ ol {
 }
 
 .ax-bundle__meta {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  margin-top: 2px;
   font-size: 13px;
   color: var(--ax-muted);
 }
 
-.ax-bundle__save {
-  color: var(--ax-red-ink);
+/* Precio por pieza: lo más visible del detalle */
+.ax-bundle__per {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--ax-red);
+}
+
+.ax-bundle__per small {
+  font-size: 12px;
   font-weight: 700;
+}
+
+.ax-bundle__save {
+  color: var(--ax-muted);
+  font-weight: 600;
 }
 
 .ax-bundle__prices {
