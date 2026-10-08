@@ -277,8 +277,14 @@
     const trigger = e.target.closest('[data-ax-order]');
     if (!trigger) return;
     // Celular: la barra fija lleva directo a "Elige tu paquete". Escritorio: al inicio de la sección de compra.
+    // Botones "Quiero mi…" de la página: al contador de la oferta (justo arriba de "Elige tu paquete");
+    // si el contador ya no está, a los paquetes.
+    const scope = productSection || document;
     const toBundles = trigger.closest('[data-ax-sticky]') && window.matchMedia('(max-width: 767px)').matches;
-    const target = (toBundles && $('.ax-bundles', productSection || document)) || productSection;
+    const toOffer = trigger.closest('.ax-copy__cta');
+    let target = productSection;
+    if (toOffer) target = $('.ax-countdown', scope) || $('.ax-bundles', scope) || productSection;
+    else if (toBundles) target = $('.ax-bundles', scope) || productSection;
     if (!target) return;
     e.preventDefault();
     const headerH = $('[data-ax-header]')?.offsetHeight || 0;
