@@ -248,9 +248,9 @@
         "media-3": {
           "type": "media",
           "settings": {
-            "ratio": "1/1",
+            "ratio": "2/3",
             "overlay": "",
-            "alt": "Cómo se utiliza Shine Armor Quick Coat: 1 rociar, 2 aplicar, 3 pulir, 4 repetir. Pro tip: trabaja a la sombra y sobre una superficie que no esté caliente.",
+            "alt": "Cómo se utiliza Shine Armor Quick Coat: 1 rociar en una microfibra limpia y húmeda, 2 limpiar suavemente la superficie, 3 pulir con una microfibra seca, 4 repetir por secciones.",
             "label": "IMAGEN CÓMO SE UTILIZA",
             "asset": "qc-como-usar.webp"
           }

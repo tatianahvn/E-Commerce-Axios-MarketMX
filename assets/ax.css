@@ -3752,9 +3752,12 @@ textarea.ax-input {
 }
 
 .ax-copy__media--9x16,
-.ax-copy__media--2x3,
 .ax-copy__media--4x5 {
   max-width: 360px;
+}
+
+.ax-copy__media--2x3 {
+  max-width: 480px;
 }
 
 .ax-qa__closing + .ax-copy__media,
