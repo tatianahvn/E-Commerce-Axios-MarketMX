@@ -7,104 +7,477 @@
         "countdown_label": "La oferta termina en",
         "bundles_title": "Elige tu paquete",
         "single_note": "Ideal para probar",
-        "bundles_note": "Confirmas la cantidad y tus datos en el formulario de pedido.",
-        "secure_text": "Compra segura. Tus datos están protegidos.",
-        "cod_title": "Pagas cuando lo recibes",
-        "cod_text": "Compra con tranquilidad. Ordena hoy y paga en efectivo al repartidor cuando recibas el producto en la puerta de tu casa.",
+        "bundles_note": "",
+        "secure_text": "",
         "show_stock": true,
         "description_open": false,
         "sticky": true,
         "stock_text": "¡Quedan pocas unidades!",
-        "sticky_label": "Ordenar ahora"
+        "sticky_label": "Ordenar ahora",
+        "reviews_total": "2,739",
+        "show_description": false,
+        "show_specs": false,
+        "shipping_title": "Envíos y devoluciones",
+        "guarantee_title": "Nuestra garantía para ti",
+        "shipping_info": "<p>Te escribimos por WhatsApp para validar tus datos y confirmar tu pedido. Una vez confirmado, lo enviamos en un plazo de 24 a 48 horas y te compartimos el número de rastreo. La entrega a tu domicilio tarda de [envio], según tu ubicación.</p><p>Si tu paquete llega dañado o presenta algún problema, te lo reponemos sin costo.</p>",
+        "verified_text": "Tienda comprometida con la calidad y el cumplimiento"
       }
     },
     "trust": {
-      "type": "ax-trust",
+      "type": "ax-voices",
       "settings": {
+        "title": "Lo que dicen sobre *su entrega*",
         "soft": true
       },
       "blocks": {
-        "t1": {
-          "type": "item",
+        "voice-1": {
+          "type": "voice",
           "settings": {
-            "icon": "cash",
-            "title": "Paga al recibir",
-            "text": "Pago contra entrega, sin tarjeta"
+            "rating": 5,
+            "name": "Carlos M.",
+            "city": "Michoacán",
+            "text": "Me confirmaron mis datos por WhatsApp y eso me dio confianza. Llegó bien y a tiempo."
           }
         },
-        "t2": {
-          "type": "item",
+        "voice-2": {
+          "type": "voice",
           "settings": {
-            "icon": "truck",
-            "title": "Envío con rastreo",
-            "text": "Llega en [envio]"
+            "rating": 5,
+            "name": "Andrea R.",
+            "city": "CDMX",
+            "text": "Confirmaron mi pedido y me mandaron el rastreo. Sí están al pendiente de la entrega."
           }
         },
-        "t3": {
-          "type": "item",
+        "voice-3": {
+          "type": "voice",
           "settings": {
-            "icon": "shield",
-            "title": "Garantía de [dias] días",
-            "text": "Compra sin riesgo"
+            "rating": 5,
+            "name": "Roberto H.",
+            "city": "Guanajuato",
+            "text": "Era mi primera compra y fue muy sencillo: me confirmaron, pagué al recibir y llegó en buen estado."
           }
         },
-        "t4": {
-          "type": "item",
+        "voice-4": {
+          "type": "voice",
           "settings": {
-            "icon": "chat",
-            "title": "Atención personalizada",
-            "text": "Resolvemos tus dudas antes y después"
+            "rating": 5,
+            "name": "Fernanda G.",
+            "city": "Mérida",
+            "text": "Me mantuvieron informada y llegó tal como me dijeron. Se nota que sí cumplen."
+          }
+        },
+        "voice-5": {
+          "type": "voice",
+          "settings": {
+            "rating": 5,
+            "name": "Miguel A.",
+            "city": "Monterrey",
+            "text": "Confirmación por WhatsApp, seguimiento y entrega sin problemas. La garantía da mucha tranquilidad."
           }
         }
       },
       "block_order": [
-        "t1",
-        "t2",
-        "t3",
-        "t4"
+        "voice-1",
+        "voice-2",
+        "voice-3",
+        "voice-4",
+        "voice-5"
       ]
     },
-    "in_action": {
-      "type": "ax-in-action",
+    "hook": {
+      "type": "ax-copy",
       "settings": {
-        "product": "",
-        "eyebrow": "Míralo en acción",
-        "title": "Así de *fácil* se ve",
-        "text": ""
-      }
+        "anchor": "",
+        "eyebrow": "",
+        "title": "",
+        "lead": "",
+        "background": "white",
+        "final": false
+      },
+      "blocks": {
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "text": "¡Recupera el brillo y dale *un acabado renovado* a tu vehículo!",
+            "sub": ""
+          }
+        },
+        "media-2": {
+          "type": "media",
+          "settings": {
+            "ratio": "1/1",
+            "overlay": "",
+            "alt": "¿Tu auto ya no luce como antes? Recupera el brillo, limpia y protege la pintura sin pasar horas encerándolo. Shine Armor Quick Coat: limpia, brilla, protege.",
+            "label": "IMAGEN PUBLICITARIA 1:1\nAuto negro u oscuro, de frente o en 3/4, con acabado extremadamente brillante y reflejos definidos. Botella de Shine Armor Quick Coat bien visible en primer plano, algunas gotas de agua sobre la pintura, fondo de garage premium oscuro y mucho contraste.\nObjetivo: que se entienda en menos de 3 segundos qué se vende y cuál es el resultado.",
+            "asset": "qc-hero.webp"
+          }
+        },
+        "text-3": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Shine Armor Quick Coat</strong> le da a tu auto una apariencia más limpia, brillante y protegida en pocos minutos.</p>",
+            "size": "normal"
+          }
+        }
+      },
+      "block_order": [
+        "callout-1",
+        "media-2",
+        "text-3"
+      ]
     },
     "problem": {
-      "type": "ax-problem",
+      "type": "ax-copy",
       "settings": {
-        "product": "",
-        "eyebrow": ""
-      }
+        "anchor": "problema",
+        "eyebrow": "¿Te pasa esto?",
+        "title": "¿Lavas tu auto y al poco tiempo *vuelve a verse sucio?*",
+        "lead": "",
+        "background": "soft",
+        "final": false
+      },
+      "blocks": {
+        "text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Polvo, lluvia, insectos y contaminación forman parte del día a día. Con el tiempo, la pintura pierde el brillo que tenía cuando el auto era nuevo y se ve apagada, aunque esté limpia.</p>",
+            "size": "normal"
+          }
+        },
+        "lines-2": {
+          "type": "lines",
+          "settings": {
+            "heading": "Y entonces tienes dos opciones:",
+            "lines": "Gastar constantemente en lavados y detallados.\nComprar varios productos para limpiar, encerar y proteger.",
+            "style": "x"
+          }
+        },
+        "callout-3": {
+          "type": "callout",
+          "settings": {
+            "text": "O puedes hacerlo *mucho más sencillo.*",
+            "sub": ""
+          }
+        },
+        "media-4": {
+          "type": "media",
+          "settings": {
+            "ratio": "1/1",
+            "overlay": "",
+            "alt": "Antes y después de aplicar Shine Armor Quick Coat",
+            "label": "GIF / VIDEO CORTO (4–6 s)\n1) Auto con polvo u opacidad · 2) Producto sobre la microfibra · 3) Pasada de la microfibra · 4) Corte rápido · 5) La misma zona completamente brillante.\nTexto encima: ANTES → APLICA → BRILLO\nUsa un «antes» realista que el producto sí pueda reproducir.",
+            "asset": "qc-problema.webp"
+          }
+        }
+      },
+      "block_order": [
+        "text-1",
+        "lines-2",
+        "callout-3",
+        "media-4"
+      ]
     },
-    "benefits": {
-      "type": "ax-benefits",
+    "pillars": {
+      "type": "ax-copy",
       "settings": {
-        "product": "",
+        "anchor": "beneficios",
         "eyebrow": "",
-        "title": "Resultados que *se notan*",
-        "icon": "sparkle"
-      }
-    },
-    "before_after": {
-      "type": "ax-before-after",
-      "settings": {
-        "product": "",
-        "eyebrow": "Desliza y compara",
-        "title": "La diferencia se ve *a simple vista*",
-        "show_tags": false
-      }
+        "title": "",
+        "lead": "",
+        "background": "white",
+        "final": false
+      },
+      "blocks": {
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "text": "¿Por qué elegir *Shine Armor Quick Coat?*",
+            "sub": ""
+          }
+        },
+        "lines-2": {
+          "type": "lines",
+          "settings": {
+            "heading": "",
+            "lines": "✨ Recupera el aspecto brillante\n💧 Efecto hidrofóbico\n🧼 Limpieza práctica\n⏱️ Ahorra tiempo\n🙌 Fácil de aplicar\n🚗 Ideal para mantenimiento frecuente\n💰 Una alternativa económica\n🪞 Acabado suave y brillante",
+            "style": "cards"
+          }
+        },
+        "media-3": {
+          "type": "media",
+          "settings": {
+            "ratio": "1/1",
+            "overlay": "",
+            "alt": "Shine Armor Quick Coat 3 en 1: limpia, brilla y protege",
+            "label": "IMAGEN 3 EN 1",
+            "asset": "qc-3en1.webp"
+          }
+        }
+      },
+      "block_order": [
+        "callout-1",
+        "lines-2",
+        "media-3"
+      ]
     },
     "howto": {
-      "type": "ax-howto",
+      "type": "ax-copy",
       "settings": {
-        "product": "",
-        "eyebrow": "Fácil y rápido",
-        "title": "Así de *fácil* se usa"
-      }
+        "anchor": "como-usar",
+        "eyebrow": "",
+        "title": "",
+        "lead": "",
+        "background": "soft",
+        "final": false
+      },
+      "blocks": {
+        "callout-1": {
+          "type": "callout",
+          "settings": {
+            "text": "Hazlo tú mismo *en minutos*",
+            "sub": ""
+          }
+        },
+        "text-2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sin máquinas ni experiencia: rocía, distribuye y pule por secciones. Solo necesitas el producto y 2 microfibras.</p>",
+            "size": "normal"
+          }
+        },
+        "media-3": {
+          "type": "media",
+          "settings": {
+            "ratio": "1/1",
+            "overlay": "",
+            "alt": "Cómo se utiliza Shine Armor Quick Coat: 1 rociar, 2 aplicar, 3 pulir, 4 repetir. Pro tip: trabaja a la sombra y sobre una superficie que no esté caliente.",
+            "label": "IMAGEN CÓMO SE UTILIZA",
+            "asset": "qc-como-usar.webp"
+          }
+        },
+        "text-4": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Así de fácil se ve en la vida real 👇</p>",
+            "size": "large"
+          }
+        },
+        "media-5": {
+          "type": "media",
+          "settings": {
+            "ratio": "1/1",
+            "overlay": "",
+            "alt": "Aplicación de Shine Armor Quick Coat paso a paso",
+            "label": "GIF / VIDEO VERTICAL 9:16 (máx. 8 s)\nSPRAY → MICROFIBRA → PASADA → PULIDO → BRILLO\nNo muestres solo el auto terminado: el cliente necesita ver que él mismo puede conseguir el resultado.",
+            "asset": "qc-aplicacion.webp"
+          }
+        },
+        "media-antes-despues": {
+          "type": "media",
+          "settings": {
+            "ratio": "1/1",
+            "overlay": "",
+            "asset": "qc-antes-despues.jpg",
+            "label": "IMAGEN ANTES Y DESPUÉS",
+            "alt": "Antes y después de aplicar Shine Armor Quick Coat: el agua y la suciedad resbalan"
+          }
+        }
+      },
+      "block_order": [
+        "callout-1",
+        "text-2",
+        "media-3",
+        "text-4",
+        "media-5",
+        "media-antes-despues"
+      ]
+    },
+    "hydrophobic": {
+      "type": "ax-copy",
+      "settings": {
+        "anchor": "efecto-hidrofobico",
+        "eyebrow": "El efecto hidrofóbico",
+        "title": "Mira qué pasa cuando el agua encuentra *una superficie protegida*",
+        "lead": "En lugar de extenderse sobre la pintura, las gotas forman pequeñas perlas y resbalan con facilidad.",
+        "background": "dark",
+        "final": false
+      },
+      "blocks": {
+        "media-1": {
+          "type": "media",
+          "settings": {
+            "ratio": "4/5",
+            "overlay": "",
+            "alt": "Agua formando perlas sobre pintura tratada",
+            "label": "VIDEO / GIF MACRO DE LA PINTURA\n1ª mitad: 💦 agua sobre una superficie SIN producto.\n2ª mitad: 💧 agua sobre una superficie TRATADA, con las gotas formando perlas y desplazándose.\nTexto encima: ¿NOTAS LA DIFERENCIA?",
+            "asset": "qc-hidrofobico.webp"
+          }
+        },
+        "lines-2": {
+          "type": "lines",
+          "settings": {
+            "heading": "",
+            "lines": "Menos agua pegada.\nMás brillo.\n*Más fácil de mantener.*",
+            "style": "statement"
+          }
+        }
+      },
+      "block_order": [
+        "media-1",
+        "lines-2"
+      ]
+    },
+    "offer": {
+      "type": "ax-copy",
+      "settings": {
+        "anchor": "oferta",
+        "eyebrow": "La oferta",
+        "title": "¿Y cuánto *cuesta?*",
+        "lead": "Menos que una colección de ceras, abrillantadores y protectores… o que un servicio de detallado.",
+        "background": "white",
+        "final": false
+      },
+      "blocks": {
+        "media-1": {
+          "type": "media",
+          "settings": {
+            "ratio": "1/1",
+            "overlay": "",
+            "alt": "No necesitas varios productos: Shine Armor Quick Coat limpia, brilla y protege en un solo producto. Precio especial, envío gratis a todo México y pago al recibir.",
+            "label": "IMAGEN LIMPIA (sin llenarla de texto)\nProducto + precio $399 + sello «PAGA AL RECIBIR».\nSHINE ARMOR QUICK COAT · $399 · precio anterior tachado → PRECIO ESPECIAL · 🚚 ENVÍO GRATIS · 💵 PAGA AL RECIBIR",
+            "asset": "qc-oferta.webp"
+          }
+        },
+        "price-2": {
+          "type": "price",
+          "settings": {
+            "boxed": true,
+            "label": "Prueba Shine Armor Quick Coat por:",
+            "show_compare": true,
+            "suffix": "MXN",
+            "sub": "",
+            "perks": ""
+          }
+        },
+        "lines-3": {
+          "type": "lines",
+          "settings": {
+            "heading": "Tu oferta incluye:",
+            "lines": "1 Shine Armor Quick Coat\nEnvío GRATIS a todo México\nPago contra entrega: *no pagas por adelantado*",
+            "style": "check"
+          }
+        },
+        "cta-5": {
+          "type": "cta",
+          "settings": {
+            "label": "Quiero mi Shine Armor",
+            "sub": "¡Envío Gratis!"
+          }
+        },
+        "compare-offer": {
+          "type": "compare",
+          "settings": {
+            "headers": "Shine Armor | Cera tradicional | Autolavado",
+            "rows": "Listo en minutos | si | no | parcial\nSin manguera ni cubeta | si | no | si\nCapa cerámica que repele el agua | si | no | parcial\nLimpia, abrillanta y protege a la vez | si | no | parcial\nLo haces tú en casa | si | si | no",
+            "note_title": "*Ahorra dinero* desde la primera aplicación",
+            "note_text": "Con Shine Armor 3 en 1 dejas de pagar el autolavado cada semana y de perder horas encerando: limpias, abrillantas y proteges tu auto tú mismo, en minutos y sin manguera."
+          }
+        }
+      },
+      "block_order": [
+        "media-1",
+        "compare-offer",
+        "price-2",
+        "lines-3",
+        "cta-5"
+      ]
+    },
+    "faq": {
+      "type": "ax-qa",
+      "settings": {
+        "anchor": "preguntas",
+        "eyebrow": "Resolvemos tus dudas",
+        "title": "Preguntas *frecuentes*",
+        "lead": "",
+        "style": "accordion",
+        "soft": false,
+        "show_contact": true,
+        "closing": "",
+        "callout": "",
+        "show_media": false,
+        "asset": "",
+        "ratio": "9/16",
+        "overlay": "",
+        "label": ""
+      },
+      "blocks": {
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "question": "¿Y si mi auto no es nuevo?",
+            "answer": "<p>No necesitas un auto nuevo: está pensado para el mantenimiento y la mejora visual de la pintura. Eso sí, ningún producto de este tipo repara pintura muy dañada, oxidación o defectos de la pintura.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "question": "¿Necesito experiencia, pulidora o llevarlo con un profesional?",
+            "answer": "<p>No. Lo aplicas tú mismo, a mano, con microfibras. No necesitas pulidora ni maquinaria profesional.</p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "question": "¿Necesito lavar el auto antes?",
+            "answer": "<p>Sí es recomendable trabajar sobre una superficie limpia. El producto es para mantenimiento y limpieza ligera, no sustituye un lavado cuando el auto está muy sucio.</p>"
+          }
+        },
+        "question-4": {
+          "type": "question",
+          "settings": {
+            "question": "¿Puedo aplicarlo bajo el sol?",
+            "answer": "<p>Mejor a la sombra y sobre una superficie que no esté caliente: tendrás más control durante la aplicación.</p>"
+          }
+        },
+        "question-5": {
+          "type": "question",
+          "settings": {
+            "question": "¿Sirve para autos de cualquier color?",
+            "answer": "<p>Sí. El efecto se nota especialmente en pinturas oscuras y bien mantenidas.</p>"
+          }
+        },
+        "question-6": {
+          "type": "question",
+          "settings": {
+            "question": "¿Hace que desaparezcan los rayones?",
+            "answer": "<p>No es un removedor de rayones profundos. Puede mejorar la apariencia de imperfecciones leves, pero no sustituye una corrección profesional de pintura.</p>"
+          }
+        },
+        "question-7": {
+          "type": "question",
+          "settings": {
+            "question": "¿El efecto dura para siempre?",
+            "answer": "<p>No. Ningún producto de mantenimiento es permanente: la duración depende del clima, el uso y la frecuencia de lavado.</p>"
+          }
+        },
+        "question-8": {
+          "type": "question",
+          "settings": {
+            "question": "¿Puedo pagar cuando llegue?",
+            "answer": "<p><strong>Sí. 💵 Pagas al recibir:</strong> haces tu pedido sin tarjeta y pagas en efectivo cuando el paquete llega a tu puerta.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question-1",
+        "question-2",
+        "question-3",
+        "question-4",
+        "question-5",
+        "question-6",
+        "question-7",
+        "question-8"
+      ]
     },
     "reviews": {
       "type": "ax-reviews",
@@ -113,7 +486,9 @@
         "eyebrow": "Opiniones de clientes",
         "title": "Lo que dicen quienes *ya lo probaron*",
         "visible_mobile": 4,
-        "form_enabled": true
+        "form_enabled": true,
+        "layout": "slider",
+        "total_text": "2,739"
       },
       "blocks": {
         "review-1": {
@@ -233,14 +608,6 @@
         "review-10"
       ]
     },
-    "compare": {
-      "type": "ax-compare",
-      "settings": {
-        "product": "",
-        "eyebrow": "Haz la cuenta",
-        "title": "¿Por qué elegir *[producto]*?"
-      }
-    },
     "guarantee": {
       "type": "ax-guarantee",
       "settings": {
@@ -249,85 +616,70 @@
         "points": "Pagas en efectivo al recibir\nSi llega dañado, te lo reponemos sin costo\nTe acompañamos antes y después de tu compra"
       }
     },
-    "faq": {
-      "type": "ax-faq",
+    "final": {
+      "type": "ax-copy",
       "settings": {
-        "product": "",
-        "eyebrow": "Resolvemos tus dudas",
-        "title": "Preguntas *frecuentes*",
-        "soft": true
+        "anchor": "ordenar",
+        "eyebrow": "Último paso",
+        "title": "¿Listo para volver a ver tu auto *con ese brillo?*",
+        "lead": "",
+        "background": "dark",
+        "final": true
       },
       "blocks": {
-        "q1": {
-          "type": "question",
+        "lines-1": {
+          "type": "lines",
           "settings": {
-            "question": "¿Cómo funciona el pago contra entrega?",
-            "answer": "<p>Pides sin tarjeta, confirmamos tus datos por llamada o mensaje y pagas en efectivo al repartidor cuando recibes tu paquete.</p>"
+            "heading": "",
+            "lines": "Limpia.\nBrilla.\n*Protege.*",
+            "style": "statement"
           }
         },
-        "q2": {
-          "type": "question",
+        "price-2": {
+          "type": "price",
           "settings": {
-            "question": "¿Cuánto tarda en llegar?",
-            "answer": "<p>De [envio]. Te enviamos el número de rastreo en cuanto sale tu paquete.</p>"
+            "boxed": true,
+            "label": "Hoy puedes probarlo por:",
+            "show_compare": true,
+            "suffix": "MXN",
+            "sub": "",
+            "perks": "🚚 ENVÍO GRATIS A TODO MÉXICO\n💵 PAGAS AL RECIBIR"
           }
         },
-        "q3": {
-          "type": "question",
+        "cta-4": {
+          "type": "cta",
           "settings": {
-            "question": "¿Hacen envíos a todo México?",
-            "answer": "<p>Sí, enviamos a todo el país con paquetería y número de rastreo.</p>"
+            "label": "Quiero mi Shine Armor",
+            "sub": "¡Envío Gratis!"
           }
         },
-        "q4": {
-          "type": "question",
+        "countdown-final": {
+          "type": "countdown",
           "settings": {
-            "question": "¿Y si no me convence?",
-            "answer": "<p>Tienes [dias] días para decírnoslo. Si llega dañado, te lo reponemos sin costo.</p>"
+            "label": "La oferta termina en"
           }
         }
       },
       "block_order": [
-        "q1",
-        "q2",
-        "q3",
-        "q4"
+        "lines-1",
+        "price-2",
+        "countdown-final",
+        "cta-4"
       ]
-    },
-    "final": {
-      "type": "ax-final-cta",
-      "settings": {
-        "product": "",
-        "eyebrow": "Último paso",
-        "title": "Pídelo hoy y *págalo al recibirlo*",
-        "text": "Sin tarjeta y sin riesgo: confirmas tus datos y pagas en efectivo cuando el paquete llega a tu puerta.",
-        "cta": "Ordenar ahora",
-        "cta_store": "Ver productos",
-        "cta_sub": "¡Envío GRATIS!"
-      }
-    },
-    "related": {
-      "type": "ax-related",
-      "settings": {
-        "title": "También te puede *interesar*",
-        "collection": "",
-        "limit": 4
-      }
     }
   },
   "order": [
     "main",
     "trust",
-    "in_action",
+    "hook",
     "problem",
-    "benefits",
-    "before_after",
+    "pillars",
     "howto",
-    "reviews",
-    "compare",
-    "guarantee",
+    "hydrophobic",
+    "offer",
     "faq",
-    "final",
-    "related"
+    "reviews",
+    "guarantee",
+    "final"
   ]
 }

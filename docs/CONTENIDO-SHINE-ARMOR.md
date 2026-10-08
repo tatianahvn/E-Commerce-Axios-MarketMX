@@ -55,12 +55,6 @@ Fecha y hora real de fin de tu promoción (ej. domingo 12 de octubre, 23:59).
 - Vehículos | Autos, motos, camionetas, lanchas y RVs
 - Incluye | 1 botella con atomizador
 
-### `axios.specs_notes`
-
-* El color y la presentación del producto pueden variar.
-* Las imágenes son de referencia y pueden no mostrar el color real del producto.
-* El tamaño puede variar unos centímetros.
-
 ### `axios.problem_title`
 
 ¿Cansado de la *pintura opaca y la acumulación de polvo*?

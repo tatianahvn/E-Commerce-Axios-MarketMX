@@ -1,5 +1,18 @@
 {%- liquid
   assign menu = linklists[section.settings.menu]
+  # Modo landing: el logo lleva a la página del producto y el menú baja a sus secciones
+  assign landing = settings.ax_landing_product
+  assign home_url = routes.root_url
+  if landing != blank
+    assign home_url = landing.url
+  endif
+  # Anclas de la landing, en orden: "id de la sección|texto del enlace" (sin texto = no se muestra)
+  assign anchors = 'comprar|' | append: section.settings.anchor_0
+  assign anchors = anchors | append: '~beneficios|' | append: section.settings.anchor_1
+  assign anchors = anchors | append: '~como-usar|' | append: section.settings.anchor_2
+  assign anchors = anchors | append: '~preguntas|' | append: section.settings.anchor_3
+  assign anchors = anchors | append: '~resenas|' | append: section.settings.anchor_4
+  assign anchors = anchors | split: '~'
 -%}
 <header class="ax-header" data-ax-header style="--ax-logo-w: {{ section.settings.logo_width_mobile }}px; --ax-logo-w-desk: {{ section.settings.logo_width }}px;">
   <div class="ax-container ax-header__inner">
@@ -7,7 +20,7 @@
       {% render 'ax-icon', name: 'menu' %}
     </button>
 
-    <a class="ax-brand" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}, inicio">
+    <a class="ax-brand" href="{{ home_url }}" aria-label="{{ shop.name | escape }}, inicio">
       {%- if settings.logo != blank -%}
         {{ settings.logo | image_url: width: 480 | image_tag: alt: shop.name, loading: 'eager', fetchpriority: 'high' }}
       {%- else -%}
@@ -16,7 +29,12 @@
     </a>
 
     <nav class="ax-nav" aria-label="Principal">
-      {%- if menu.links.size > 0 -%}
+      {%- if landing != blank -%}
+        {%- for anchor in anchors -%}
+          {%- assign parts = anchor | split: '|' -%}
+          {%- if parts[1] != blank -%}<a href="{{ landing.url }}#{{ parts[0] }}">{{ parts[1] }}</a>{%- endif -%}
+        {%- endfor -%}
+      {%- elsif menu.links.size > 0 -%}
         {%- for link in menu.links -%}
           <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
         {%- endfor -%}
@@ -28,7 +46,9 @@
     </nav>
 
     <div class="ax-header__right">
-      <a class="ax-icon-btn" href="{{ routes.search_url }}" aria-label="Buscar">{% render 'ax-icon', name: 'search' %}</a>
+      {%- unless landing != blank -%}
+        <a class="ax-icon-btn" href="{{ routes.search_url }}" aria-label="Buscar">{% render 'ax-icon', name: 'search' %}</a>
+      {%- endunless -%}
     </div>
   </div>
 </header>
@@ -41,7 +61,12 @@
       <button class="ax-icon-btn" type="button" data-ax-menu-close aria-label="Cerrar menú">{% render 'ax-icon', name: 'x' %}</button>
     </div>
     <nav class="ax-drawer__nav" aria-label="Menú móvil">
-      {%- if menu.links.size > 0 -%}
+      {%- if landing != blank -%}
+        {%- for anchor in anchors -%}
+          {%- assign parts = anchor | split: '|' -%}
+          {%- if parts[1] != blank -%}<a href="{{ landing.url }}#{{ parts[0] }}">{{ parts[1] }}{% render 'ax-icon', name: 'chevron-right' %}</a>{%- endif -%}
+        {%- endfor -%}
+      {%- elsif menu.links.size > 0 -%}
         {%- for link in menu.links -%}
           <a href="{{ link.url }}">{{ link.title }}{% render 'ax-icon', name: 'chevron-right' %}</a>
         {%- endfor -%}
@@ -50,7 +75,9 @@
         <a href="{{ routes.all_products_collection_url }}">Productos{% render 'ax-icon', name: 'chevron-right' %}</a>
         <a href="{{ routes.root_url }}#preguntas">Preguntas frecuentes{% render 'ax-icon', name: 'chevron-right' %}</a>
       {%- endif -%}
-      <a href="{{ routes.search_url }}">Buscar{% render 'ax-icon', name: 'search' %}</a>
+      {%- unless landing != blank -%}
+        <a href="{{ routes.search_url }}">Buscar{% render 'ax-icon', name: 'search' %}</a>
+      {%- endunless -%}
     </nav>
     <div class="ax-drawer__foot">
       <span>{% render 'ax-icon', name: 'cash' %} Pagas al recibir, sin tarjeta</span>
@@ -62,7 +89,12 @@
 {
   "name": "Encabezado",
   "settings": [
-    { "type": "link_list", "id": "menu", "label": "Menú", "default": "main-menu" },
+    { "type": "link_list", "id": "menu", "label": "Menú", "default": "main-menu", "info": "En modo landing se usan las anclas de abajo en lugar de este menú." },
+    { "type": "text", "id": "anchor_0", "label": "Modo landing: enlace a la compra", "default": "Comprar", "info": "Vacío = no se muestra ese enlace." },
+    { "type": "text", "id": "anchor_1", "label": "Modo landing: enlace a beneficios", "default": "Beneficios" },
+    { "type": "text", "id": "anchor_2", "label": "Modo landing: enlace a cómo se usa", "default": "Funcionamiento" },
+    { "type": "text", "id": "anchor_3", "label": "Modo landing: enlace a preguntas", "default": "Preguntas" },
+    { "type": "text", "id": "anchor_4", "label": "Modo landing: enlace a opiniones", "default": "Opiniones" },
     { "type": "range", "id": "logo_width_mobile", "label": "Ancho del logo en celular", "min": 90, "max": 200, "step": 2, "unit": "px", "default": 132 },
     { "type": "range", "id": "logo_width", "label": "Ancho del logo en escritorio", "min": 100, "max": 260, "step": 2, "unit": "px", "default": 156 }
   ]

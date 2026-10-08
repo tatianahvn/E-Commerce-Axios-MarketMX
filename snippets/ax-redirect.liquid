@@ -2,6 +2,8 @@
   Esta tienda vende con el formulario de Releasit (pago contra entrega) y no usa carrito.
   - /cart manda al inicio.
   - El blog no se usa por ahora: blog y artículos mandan al inicio.
+  - Modo landing (Configuración del tema → Modo landing): inicio, catálogo, búsqueda, carrito y blog
+    mandan a la página del producto elegido.
   En el editor de temas no se redirige, para poder revisar las plantillas.
 {%- endcomment -%}
 {%- liquid
@@ -11,14 +13,21 @@
       when 'cart', 'blog', 'article'
         assign ax_redirect = routes.root_url
     endcase
+    # Modo landing: todo lo que muestra catálogo manda a la página del producto
+    if settings.ax_landing_product != blank
+      case template.name
+        when 'index', 'collection', 'list-collections', 'search', 'cart', 'blog', 'article'
+          assign ax_redirect = settings.ax_landing_product.url
+      endcase
+    endif
   endunless
 -%}
 {%- if ax_redirect != blank -%}
   <meta name="robots" content="noindex">
   <script>
     (function () {
-      // Conserva parámetros de campañas (utm, fbclid, ttclid)
-      location.replace({{ ax_redirect | json }} + location.search);
+      // Conserva parámetros de campañas (utm, fbclid, ttclid) y el ancla
+      location.replace({{ ax_redirect | json }} + location.search + location.hash);
     })();
   </script>
   <noscript><meta http-equiv="refresh" content="0;url={{ ax_redirect }}"></noscript>

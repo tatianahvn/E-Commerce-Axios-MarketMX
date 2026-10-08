@@ -3,27 +3,36 @@
 Tema de Shopify **mobile first** para una tienda de varios productos que vende con **Releasit (pago contra entrega)**.
 Fondo blanco; negro para texto y bloques de contraste; rojo solo para acciones (botones, precios, etiquetas).
 
-Cada página de producto sigue la misma estructura de conversión y se llena con los **metacampos `axios.*`** del producto
-(ver [docs/METACAMPOS.md](docs/METACAMPOS.md)). No hay que tocar código para agregar productos.
+La página de producto sigue el modelo **AIDA** (guía de Shine Armor Quick Coat). **No usa metacampos para el contenido de abajo:**
+todo el texto vive en el tema, en `templates/product.json`, y se edita desde Personalizar o en ese archivo.
+La caja de compra (sección 1) y las reseñas se dejaron exactamente igual que en el tema anterior.
 
 ## Estructura de la página de producto
 
-| # | Sección | Archivo | Contenido |
-|---|---|---|---|
-| 1 | Caja de compra: galería, ★, precio, contador, paquetes, botón de Releasit, garantía | `sections/ax-product.liquid` | Metacampos |
-| 2 | Barra de confianza | `sections/ax-trust.liquid` | Editor de temas (igual para todos) |
-| 3 | Míralo en acción: resumen rápido con 2 GIFs (aplicación y resultado), dos columnas también en celular | `sections/ax-in-action.liquid` | Metacampos |
-| 4 | El problema | `sections/ax-problem.liquid` | Metacampos |
-| 5 | La solución: resultados con GIFs (uno debajo de otro en celular) | `sections/ax-benefits.liquid` | Metacampos |
-| 6 | Antes y después | `sections/ax-before-after.liquid` | Metacampos |
-| 7 | Cómo se usa | `sections/ax-howto.liquid` | Metacampos |
-| 8 | Reseñas (filtradas por producto) | `sections/ax-reviews.liquid` | Editor de temas o app de reseñas |
-| 9 | Comparativa | `sections/ax-compare.liquid` | Metacampos |
-| 10 | Garantía con sello | `sections/ax-guarantee.liquid` | Editor de temas |
-| 11 | Preguntas frecuentes (del producto + generales) | `sections/ax-faq.liquid` | Metacampos + editor |
-| 12 | Llamado final con contador | `sections/ax-final-cta.liquid` | Metacampos |
-| — | Otros productos | `sections/ax-related.liquid` | Automático |
-| — | Barra fija de compra (celular) | dentro de `ax-product` | Automático |
+| # | Sección | Archivo |
+|---|---|---|
+| 1 | Caja de compra (sin cambios; sigue leyendo sus metacampos `axios.*`) | `sections/ax-product.liquid` |
+| 2 | Opiniones de entrega (WhatsApp, rastreo, pago al recibir, garantía) | `sections/ax-voices.liquid` |
+| 3 | Interés: gancho + imagen 1:1 | `sections/ax-copy.liquid` |
+| 4 | El problema (agua y suciedad) + GIF "ANTES → APLICA → BRILLO" | `sections/ax-copy.liquid` |
+| 5 | Beneficios (lista grande con emojis) + imagen 3 en 1 | `sections/ax-copy.liquid` |
+| 6 | Cómo se usa: imagen con los 4 pasos y PRO TIP + GIF vertical | `sections/ax-copy.liquid` |
+| 7 | Efecto hidrofóbico + video "¿NOTAS LA DIFERENCIA?" | `sections/ax-copy.liquid` |
+| 8 | La oferta + contador + botón | `sections/ax-copy.liquid` |
+| 9 | Preguntas frecuentes (objeciones + FAQ) | `sections/ax-qa.liquid` |
+| 10 | Reseñas (sin cambios) | `sections/ax-reviews.liquid` |
+| 11 | Garantía | `sections/ax-guarantee.liquid` |
+| 12 | Cierre (bloque negro) + contador + botón | `sections/ax-copy.liquid` |
+
+Todos los botones "QUIERO MI…" llevan a la caja de compra (`#comprar`). Los precios salen del producto en Shopify.
+
+### Imágenes, GIFs y videos
+
+Cada recuadro gris dice qué va ahí. Para llenarlo hay tres opciones (gana la primera que exista):
+1. **Video** subido desde Personalizar.
+2. **Imagen o GIF** subido desde Personalizar.
+3. **Archivo en `assets/`**: copia el archivo (p. ej. `qc-hero.webp` o `qc-aplicacion.gif`) a la carpeta `assets/`
+   y escribe su nombre en el campo `asset` del bloque en `templates/product.json`. Sube con un solo `shopify theme push`.
 
 El inicio (`templates/index.json`) es tipo tienda: portada, confianza, lista de productos (una sola tarjeta se centra), reseñas, garantía y preguntas.
 

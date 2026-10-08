@@ -1,0 +1,56 @@
+{%- comment -%}
+  Opiniones de compradores sobre la entrega, la confirmación por WhatsApp y el pago al recibir.
+  Slider en celular (usa el mismo slider que las reseñas: data-ax-slider en assets/ax.js).
+  Solo opiniones reales de clientes. Contenido en la plantilla (sin metacampos).
+{%- endcomment -%}
+{%- assign head_id = 'ax-voices-' | append: section.id -%}
+{%- assign count = section.blocks.size -%}
+{%- if count > 0 -%}
+<section class="ax-voices{% if section.settings.soft %} ax-section--soft{% endif %}" aria-labelledby="{{ head_id }}">
+  <div class="ax-container">
+    <h2 class="ax-voices__title" id="{{ head_id }}">{% render 'ax-em', text: section.settings.title %}</h2>
+    <div class="ax-voices__slider" data-ax-slider>
+      <div class="ax-voices__track" role="list" data-ax-slider-track tabindex="0" aria-label="Opiniones sobre la entrega, desliza para ver más">
+        {%- for block in section.blocks -%}
+          {%- assign s = block.settings -%}
+          <article class="ax-voice" role="listitem" {{ block.shopify_attributes }}>
+            <p class="ax-voice__top">
+              {% render 'ax-stars', rating: s.rating, bare: true %}
+              <span class="ax-voice__who"><strong>{{ s.name }}</strong>{% if s.city != blank %} · {{ s.city }}{% endif %}</span>
+            </p>
+            <p class="ax-voice__text">“{{ s.text }}”</p>
+          </article>
+        {%- endfor -%}
+      </div>
+      {%- if count > 1 -%}
+        <button class="ax-voices__arrow ax-voices__arrow--prev" type="button" data-ax-slider-prev aria-label="Opinión anterior">{% render 'ax-icon', name: 'chevron-right' %}</button>
+        <button class="ax-voices__arrow ax-voices__arrow--next" type="button" data-ax-slider-next aria-label="Opinión siguiente">{% render 'ax-icon', name: 'chevron-right' %}</button>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Opiniones de entrega",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "info": "Lo que va entre *asteriscos* sale en rojo." },
+    { "type": "checkbox", "id": "soft", "label": "Fondo gris claro", "default": true },
+    { "type": "paragraph", "content": "Usa solo opiniones reales de tus clientes." }
+  ],
+  "blocks": [
+    {
+      "type": "voice",
+      "name": "Opinión",
+      "settings": [
+        { "type": "range", "id": "rating", "label": "Estrellas", "min": 1, "max": 5, "step": 1, "default": 5 },
+        { "type": "textarea", "id": "text", "label": "Opinión" },
+        { "type": "text", "id": "name", "label": "Nombre" },
+        { "type": "text", "id": "city", "label": "Ciudad o estado" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Opiniones de entrega" }]
+}
+{% endschema %}

@@ -3,6 +3,7 @@
   Uso: {% render 'ax-stars', rating: 4.8, count: 10, link: '#resenas' %}
   - rating: número de 0 a 5 (con decimal)
   - count: número de opiniones (opcional)
+  - count_text: total ya formateado, p. ej. '2,739' (opcional; tiene prioridad sobre count)
   - link: ancla o URL (opcional)
   - bare: true = solo estrellas, sin número
   - size: 'lg' = más grandes (caja de compra)
@@ -24,7 +25,7 @@
       {%- endfor -%}
     </span>
     {%- unless bare -%}
-      <span><strong>{{ r_text }}</strong>{% if count != blank and count > 0 %} · {{ count }} {% if count == 1 %}opinión{% else %}opiniones{% endif %}{% endif %}</span>
+      <span><strong>{{ r_text }}</strong>{% if count_text != blank %} · {{ count_text }} opiniones{% elsif count != blank and count > 0 %} · {{ count }} {% if count == 1 %}opinión{% else %}opiniones{% endif %}{% endif %}</span>
     {%- endunless -%}
   </{{ tag }}>
 {%- endif -%}

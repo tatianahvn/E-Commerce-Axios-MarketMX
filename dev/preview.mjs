@@ -166,6 +166,7 @@ const filters = {
   video_tag: () => '',
   external_video_tag: () => '',
   font_face: () => '',
+  handleize: (t) => String(t ?? '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
 };
 Object.entries(filters).forEach(([n, f]) => engine.registerFilter(n, f));
 
@@ -216,6 +217,7 @@ const settingsData = JSON.parse(read('config/settings_data.json').replace(/\/\*[
 const settings = {};
 settingsSchema.forEach((g) => (g.settings || []).forEach((d) => d.id && (settings[d.id] = d.default ?? null)));
 Object.assign(settings, settingsData);
+if (typeof settings.ax_landing_product === 'string') settings.ax_landing_product = byHandle(settings.ax_landing_product);
 
 const baseGlobals = (template, extra = {}) => ({
   settings,

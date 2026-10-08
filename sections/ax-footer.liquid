@@ -22,7 +22,14 @@
       <div>
         <h2>{{ section.settings.title_1 }}</h2>
         <div class="ax-footer__links">
-          {%- if menu_1.links.size > 0 -%}
+          {%- if settings.ax_landing_product != blank -%}
+            {%- assign landing_url = settings.ax_landing_product.url -%}
+            <a href="{{ landing_url }}#comprar">Comprar</a>
+            <a href="{{ landing_url }}#beneficios">Beneficios</a>
+            <a href="{{ landing_url }}#como-usar">Funcionamiento</a>
+            <a href="{{ landing_url }}#preguntas">Preguntas</a>
+            <a href="{{ landing_url }}#resenas">Opiniones</a>
+          {%- elsif menu_1.links.size > 0 -%}
             {%- for link in menu_1.links -%}<a href="{{ link.url }}">{{ link.title }}</a>{%- endfor -%}
           {%- else -%}
             <a href="{{ routes.all_products_collection_url }}">Todos los productos</a>

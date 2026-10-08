@@ -183,10 +183,10 @@
         const onSale = current.compare > current.price;
         priceNow.classList.toggle('ax-price__now--sale', onSale);
         priceWas.hidden = !onSale;
-        priceSave.hidden = !onSale;
+        priceSave.parentElement.hidden = !onSale;
         if (onSale) {
           priceWas.textContent = money(current.compare);
-          priceSave.textContent = `Ahorras ${Math.floor(((current.compare - current.price) * 100) / current.compare)}%`;
+          priceSave.textContent = `${Math.floor(((current.compare - current.price) * 100) / current.compare)}% Descuento`;
         }
         if (current.media) $('[data-ax-gallery]', productSection)?.axGoToMedia?.(current.media);
         const url = new URL(window.location.href);
@@ -418,6 +418,29 @@
       extra[0]?.setAttribute('tabindex', '-1');
       extra[0]?.focus({ preventScroll: true });
     });
+  });
+
+  /* ---------- Reseñas en slider: flechas y contador ---------- */
+  $$('[data-ax-slider]').forEach((slider) => {
+    const track = $('[data-ax-slider-track]', slider);
+    const items = [...track.children];
+    const current = $('[data-ax-slider-current]', slider);
+    const prev = $('[data-ax-slider-prev]', slider);
+    const next = $('[data-ax-slider-next]', slider);
+    const step = () => (items[1] ? items[1].offsetLeft - items[0].offsetLeft : track.clientWidth);
+    const index = () => Math.round(track.scrollLeft / step());
+    const sync = () => {
+      const i = index();
+      if (current) current.textContent = Math.min(i + 1, items.length);
+      prev.disabled = track.scrollLeft <= 2;
+      next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    };
+    const go = (dir) => track.scrollBy({ left: dir * step(), behavior: reducedMotion ? 'auto' : 'smooth' });
+    prev.addEventListener('click', () => go(-1));
+    next.addEventListener('click', () => go(1));
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    window.addEventListener('resize', sync);
+    sync();
   });
 
   /* ---------- Fotos de reseñas ampliadas ---------- */

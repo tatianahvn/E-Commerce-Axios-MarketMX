@@ -1,0 +1,107 @@
+{%- comment -%}
+  Preguntas y respuestas: como tarjetas (objeciones) o como acordeón (preguntas frecuentes).
+  Contenido en la plantilla (sin metacampos). Al final puede llevar una frase y un video.
+{%- endcomment -%}
+{%- assign head_id = 'ax-qa-' | append: section.id -%}
+{%- assign s = section.settings -%}
+{%- assign support_email = settings.ax_support_email | default: shop.email -%}
+<section class="ax-section{% if s.soft %} ax-section--soft{% endif %}" {% if s.anchor != blank %}id="{{ s.anchor | handleize }}"{% endif %} aria-labelledby="{{ head_id }}">
+  <div class="ax-container ax-container--narrow">
+    {% render 'ax-head', eyebrow: s.eyebrow, title: s.title, text: s.lead, id: head_id %}
+
+    {%- if s.style == 'cards' -%}
+      <div class="ax-objections">
+        {%- for block in section.blocks -%}
+          <article class="ax-objection ax-reveal" {{ block.shopify_attributes }}>
+            <h3>“{{ block.settings.question }}”</h3>
+            <div class="ax-objection__answer">{% render 'ax-tokens', text: block.settings.answer %}</div>
+          </article>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="ax-faq">
+        {%- for block in section.blocks -%}
+          <details class="ax-details ax-reveal" {{ block.shopify_attributes }}>
+            <summary>{{ block.settings.question }} {% render 'ax-icon', name: 'chevron' %}</summary>
+            <div class="ax-details__body">{% render 'ax-tokens', text: block.settings.answer %}</div>
+          </details>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if s.closing != blank or s.callout != blank -%}
+      <div class="ax-qa__closing ax-reveal">
+        {%- if s.closing != blank -%}<p>{{ s.closing }}</p>{%- endif -%}
+        {%- if s.callout != blank -%}<p class="ax-callout__text">{% render 'ax-em', text: s.callout %}</p>{%- endif -%}
+      </div>
+    {%- endif -%}
+    {%- if s.show_media -%}
+      <div class="ax-copy__media ax-copy__media--{{ s.ratio | replace: '/', 'x' }} ax-reveal">
+        {% render 'ax-slot', image: s.image, video: s.video, asset: s.asset, ratio: s.ratio, label: s.label, overlay: s.overlay %}
+      </div>
+    {%- endif -%}
+
+    {%- if s.show_contact and support_email != blank -%}
+      <div class="ax-faq__cta">
+        <p>¿Tienes otra duda? Escríbenos y te respondemos.</p>
+        <a class="ax-btn ax-btn--dark ax-btn--small" href="mailto:{{ support_email }}">{% render 'ax-icon', name: 'mail' %} Escríbenos</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Preguntas y respuestas",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "Ancla (id)" },
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta" },
+    { "type": "text", "id": "title", "label": "Título" },
+    { "type": "textarea", "id": "lead", "label": "Texto" },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "Estilo",
+      "default": "accordion",
+      "options": [
+        { "value": "accordion", "label": "Acordeón (preguntas frecuentes)" },
+        { "value": "cards", "label": "Tarjetas abiertas (objeciones)" }
+      ]
+    },
+    { "type": "checkbox", "id": "soft", "label": "Fondo gris claro", "default": false },
+    { "type": "checkbox", "id": "show_contact", "label": "Mostrar \"¿Tienes otra duda? Escríbenos\"", "default": false },
+    { "type": "header", "content": "Cierre (opcional)" },
+    { "type": "textarea", "id": "closing", "label": "Texto" },
+    { "type": "text", "id": "callout", "label": "Frase destacada" },
+    { "type": "checkbox", "id": "show_media", "label": "Mostrar imagen / video al final", "default": false },
+    { "type": "image_picker", "id": "image", "label": "Imagen o GIF" },
+    { "type": "video", "id": "video", "label": "Video" },
+    { "type": "text", "id": "asset", "label": "O archivo en assets/" },
+    {
+      "type": "select",
+      "id": "ratio",
+      "label": "Proporción",
+      "default": "9/16",
+      "options": [
+        { "value": "1/1", "label": "Cuadrada 1:1" },
+        { "value": "4/5", "label": "Vertical 4:5" },
+        { "value": "9/16", "label": "Vertical 9:16" },
+        { "value": "16/9", "label": "Horizontal 16:9" }
+      ]
+    },
+    { "type": "text", "id": "overlay", "label": "Texto encima del archivo" },
+    { "type": "textarea", "id": "label", "label": "Descripción del recuadro gris" }
+  ],
+  "blocks": [
+    {
+      "type": "question",
+      "name": "Pregunta",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Pregunta" },
+        { "type": "richtext", "id": "answer", "label": "Respuesta", "info": "Puedes usar [envio] y [dias]." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Preguntas y respuestas" }]
+}
+{% endschema %}

@@ -10,39 +10,150 @@
   {
     "name": "Marca",
     "settings": [
-      { "type": "image_picker", "id": "logo", "label": "Logo (opcional)", "info": "Vacío = logo de Axios Market incluido en el tema." },
-      { "type": "image_picker", "id": "favicon", "label": "Ícono de la pestaña (opcional)" }
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo (opcional)",
+        "info": "Vacío = logo de Axios Market incluido en el tema."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Ícono de la pestaña (opcional)"
+      }
+    ]
+  },
+  {
+    "name": "Modo landing",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Mientras la tienda tenga un solo producto: el inicio, el catálogo, la búsqueda, el carrito y el blog mandan a la página de este producto, y el menú se vuelve de anclas (Beneficios, Funcionamiento, Preguntas). Vacío = tienda normal."
+      },
+      {
+        "type": "product",
+        "id": "ax_landing_product",
+        "label": "Producto de la landing"
+      }
     ]
   },
   {
     "name": "Compra (Releasit)",
     "settings": [
-      { "type": "paragraph", "content": "Releasit pone su propio botón en cada producto. Los otros botones de la página (barra fija y llamado final) lo abren con un clic." },
-      { "type": "text", "id": "ax_cta_text", "label": "Texto de los botones de compra", "default": "Pedir ahora" },
-      { "type": "text", "id": "ax_cta_sub", "label": "Segunda línea de los botones", "default": "Pagas al recibir", "info": "Vacío = una sola línea." },
-      { "type": "text", "id": "ax_releasit_selector", "label": "Selector del botón de Releasit", "default": "._rsi-buy-now-button", "info": "No lo cambies salvo que Releasit cambie su botón." },
-      { "type": "header", "content": "Contador de la promoción" },
-      { "type": "checkbox", "id": "ax_countdown_cycle", "label": "Contador automático si el producto no tiene fecha de fin", "default": true, "info": "Cuenta hasta el fin de cada ciclo por calendario y empieza otro al terminar. Si el producto tiene \"Fin de la oferta\", se usa esa fecha." },
-      { "type": "range", "id": "ax_countdown_cycle_days", "label": "Duración del ciclo", "min": 1, "max": 7, "step": 1, "unit": "d", "default": 2 },
-      { "type": "range", "id": "ax_low_stock", "label": "Avisar \"Quedan solo X piezas\" desde", "min": 3, "max": 50, "step": 1, "default": 15, "info": "Usa el inventario real del producto." }
+      {
+        "type": "paragraph",
+        "content": "Releasit pone su propio botón en cada producto. Los otros botones de la página (barra fija y llamado final) lo abren con un clic."
+      },
+      {
+        "type": "text",
+        "id": "ax_cta_text",
+        "label": "Texto de los botones de compra",
+        "default": "Pedir ahora"
+      },
+      {
+        "type": "text",
+        "id": "ax_cta_sub",
+        "label": "Segunda línea de los botones",
+        "default": "Pagas al recibir",
+        "info": "Vacío = una sola línea."
+      },
+      {
+        "type": "text",
+        "id": "ax_releasit_selector",
+        "label": "Selector del botón de Releasit",
+        "default": "._rsi-buy-now-button",
+        "info": "No lo cambies salvo que Releasit cambie su botón."
+      },
+      {
+        "type": "header",
+        "content": "Contador de la promoción"
+      },
+      {
+        "type": "checkbox",
+        "id": "ax_countdown_cycle",
+        "label": "Contador automático si el producto no tiene fecha de fin",
+        "default": true,
+        "info": "Cuenta hasta el fin de cada ciclo por calendario y empieza otro al terminar. Si el producto tiene \"Fin de la oferta\", se usa esa fecha."
+      },
+      {
+        "type": "range",
+        "id": "ax_countdown_cycle_days",
+        "label": "Duración del ciclo",
+        "min": 1,
+        "max": 7,
+        "step": 1,
+        "unit": "d",
+        "default": 2
+      },
+      {
+        "type": "range",
+        "id": "ax_low_stock",
+        "label": "Avisar \"Quedan solo X piezas\" desde",
+        "min": 3,
+        "max": 50,
+        "step": 1,
+        "default": 15,
+        "info": "Usa el inventario real del producto."
+      }
     ]
   },
   {
     "name": "Envío y garantía",
     "settings": [
-      { "type": "text", "id": "ax_shipping_text", "label": "Texto de envío", "default": "Envío GRATIS a todo México" },
-      { "type": "text", "id": "ax_delivery_time", "label": "Tiempo de entrega", "default": "3 a 7 días hábiles", "info": "Se usa donde escribas [envio]." },
-      { "type": "number", "id": "ax_guarantee_days", "label": "Días de garantía", "default": 30, "info": "Se usa donde escribas [dias]." },
-      { "type": "text", "id": "ax_guarantee_text", "label": "Garantía: texto corto (junto al botón)", "default": "Tu compra está respaldada. Si tu pedido presenta algún inconveniente, nuestro equipo te ayudará a encontrar una solución de forma rápida y sencilla.", "info": "Escribe solo lo que de verdad cumples. Si ofreces devolución de dinero, dilo aquí." }
+      {
+        "type": "text",
+        "id": "ax_shipping_text",
+        "label": "Texto de envío",
+        "default": "Envío GRATIS a todo México"
+      },
+      {
+        "type": "text",
+        "id": "ax_delivery_time",
+        "label": "Tiempo de entrega",
+        "default": "3 a 7 días hábiles",
+        "info": "Se usa donde escribas [envio]."
+      },
+      {
+        "type": "number",
+        "id": "ax_guarantee_days",
+        "label": "Días de garantía",
+        "default": 30,
+        "info": "Se usa donde escribas [dias]."
+      },
+      {
+        "type": "text",
+        "id": "ax_guarantee_text",
+        "label": "Garantía: texto corto (junto al botón)",
+        "default": "Tu compra está respaldada. Si tu pedido presenta algún inconveniente, nuestro equipo te ayudará a encontrar una solución de forma rápida y sencilla.",
+        "info": "Escribe solo lo que de verdad cumples. Si ofreces devolución de dinero, dilo aquí."
+      }
     ]
   },
   {
     "name": "Contacto y redes",
     "settings": [
-      { "type": "text", "id": "ax_support_email", "label": "Correo de atención", "default": "axiosmarketmx.soporte@gmail.com", "info": "Vacío = correo de la tienda." },
-      { "type": "url", "id": "ax_tiktok", "label": "TikTok" },
-      { "type": "url", "id": "ax_instagram", "label": "Instagram" },
-      { "type": "url", "id": "ax_facebook", "label": "Facebook" }
+      {
+        "type": "text",
+        "id": "ax_support_email",
+        "label": "Correo de atención",
+        "default": "axiosmarketmx.soporte@gmail.com",
+        "info": "Vacío = correo de la tienda."
+      },
+      {
+        "type": "url",
+        "id": "ax_tiktok",
+        "label": "TikTok"
+      },
+      {
+        "type": "url",
+        "id": "ax_instagram",
+        "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "ax_facebook",
+        "label": "Facebook"
+      }
     ]
   }
 ]

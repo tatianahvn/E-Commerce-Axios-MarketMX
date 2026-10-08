@@ -10,7 +10,8 @@
     "ax_guarantee_text": "Tu compra está respaldada. Si tu pedido presenta algún inconveniente, nuestro equipo te ayudará a encontrar una solución de forma rápida y sencilla.",
     "ax_support_email": "axiosmarketmx.soporte@gmail.com",
     "ax_countdown_cycle": true,
-    "ax_countdown_cycle_days": 2
+    "ax_countdown_cycle_days": 2,
+    "ax_landing_product": "shine-armor"
   },
   "presets": {
     "Default": {}

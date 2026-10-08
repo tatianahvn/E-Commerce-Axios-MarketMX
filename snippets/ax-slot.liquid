@@ -1,0 +1,36 @@
+{%- comment -%}
+  Espacio para imagen, GIF o video. Mientras no tenga archivo se ve como un recuadro gris
+  con la descripción de lo que va ahí.
+  Fuentes (gana la primera que exista):
+  - video: video subido en el editor (setting tipo "video")
+  - image: imagen o GIF subido en el editor (setting tipo "image_picker")
+  - asset: nombre de un archivo en assets/ (p. ej. "qc-hero.webp" o "qc-aplicacion.gif")
+  Opciones: ratio ("1/1", "16/9", "9/16", "4/5"), label (descripción del recuadro gris),
+  overlay (texto encima del archivo), alt
+  Uso: {% render 'ax-slot', image: s.image, video: s.video, asset: s.asset, ratio: '1/1', label: '...', overlay: '...' %}
+{%- endcomment -%}
+{%- liquid
+  assign slot_ratio = ratio | default: '1/1'
+  assign slot_alt = alt | default: image.alt | default: ''
+  assign slot_has = false
+  if video != blank or image != blank or asset != blank
+    assign slot_has = true
+  endif
+-%}
+<figure class="ax-slot{% unless slot_has %} ax-slot--empty{% endunless %}" style="--ax-slot-ratio: {{ slot_ratio }}">
+  {%- if video != blank -%}
+    {{ video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1080x' }}
+  {%- elsif image != blank -%}
+    {{ image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '375, 560, 750, 900, 1200', sizes: '(min-width: 900px) 560px, 100vw', alt: slot_alt }}
+  {%- elsif asset != blank -%}
+    <img src="{{ asset | strip | asset_url }}" alt="{{ slot_alt | escape }}" width="1080" height="1080" loading="lazy">
+  {%- else -%}
+    <figcaption class="ax-slot__label">
+      {% render 'ax-icon', name: 'image' %}
+      <span>{{ label | default: 'Espacio para imagen' }}</span>
+    </figcaption>
+  {%- endif -%}
+  {%- if overlay != blank and slot_has -%}
+    <span class="ax-slot__overlay">{{ overlay }}</span>
+  {%- endif -%}
+</figure>

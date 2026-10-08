@@ -84,7 +84,7 @@
         </div>
 
         <div class="ax-gallery__badges">
-          {%- if on_sale -%}<span class="ax-badge">−{{ pct }}% hoy</span>{%- endif -%}
+          {%- if on_sale -%}<span class="ax-badge ax-badge--icon">{% render 'ax-icon', name: 'tag' %}−{{ pct }}% hoy</span>{%- endif -%}
           {%- if m.badge.value != blank -%}<span class="ax-badge ax-badge--dark">{{ m.badge.value }}</span>{%- endif -%}
         </div>
 
@@ -127,7 +127,7 @@
           <span class="ax-eyebrow">{% render 'ax-icon', name: 'fire' %}{{ m.offer_label.value }}</span>
         {%- endif -%}
         {%- if m.rating.value != blank -%}
-          {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value, link: '#resenas', size: 'lg' %}
+          {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value, count_text: section.settings.reviews_total, link: '#resenas', size: 'lg' %}
         {%- endif -%}
       </div>
 
@@ -137,7 +137,7 @@
       <div class="ax-pdp__price" data-ax-price>
         <span class="ax-price__now{% if on_sale %} ax-price__now--sale{% endif %}" data-ax-price-now>{{ unit_price | money_without_trailing_zeros }}</span>
         <s class="ax-price__was" data-ax-price-was{% unless on_sale %} hidden{% endunless %}>{{ unit_compare | money_without_trailing_zeros }}</s>
-        <span class="ax-badge ax-badge--soft" data-ax-price-save{% unless on_sale %} hidden{% endunless %}>Ahorras {{ pct }}%</span>
+        <span class="ax-badge ax-badge--soft ax-badge--icon"{% unless on_sale %} hidden{% endunless %}>{% render 'ax-icon', name: 'tag' %}<span data-ax-price-save>{{ pct }}% Descuento</span></span>
       </div>
 
       {%- if m.highlights.value != blank -%}
@@ -210,6 +210,10 @@
                   endif
                   assign b_price_text = parts[2] | strip
                   assign b_flag = parts[3] | strip
+                  # La etiqueta viene del metacampo axios.bundles; "Mejor precio" lleva fuego
+                  if b_flag == 'Mejor precio'
+                    assign b_flag = '🔥 Mejor precio'
+                  endif
                   if b_price_text != blank
                     assign b_total = b_price_text | times: 100 | round
                     assign b_custom = true
@@ -217,15 +221,19 @@
                     assign b_total = unit_price | times: b_qty
                     assign b_custom = false
                   endif
-                  # El ahorro se mide contra las mismas piezas a precio normal;
-                  # para 1 pieza, contra el precio de comparación del producto.
-                  if b_qty > 1
-                    assign b_compare = unit_price | times: b_qty
+                  # Precio de referencia: precio de comparación del producto × piezas
+                  # (sin precio de comparación, el precio normal × piezas).
+                  if unit_compare > unit_price
+                    assign b_compare = unit_compare | times: b_qty
                   else
-                    assign b_compare = unit_compare
+                    assign b_compare = unit_price | times: b_qty
                   endif
                   assign b_per = b_total | divided_by: b_qty | floor
                   assign b_save = b_compare | minus: b_total
+                  assign b_pct = 0
+                  if b_save > 0
+                    assign b_pct = b_save | times: 100.0 | divided_by: b_compare | round
+                  endif
                   if forloop.index == selected_index
                     assign selected_total = b_total
                     assign selected_qty = b_qty
@@ -246,12 +254,8 @@
                     <span>
                       <span class="ax-bundle__name">{{ b_name }}</span>
                       <span class="ax-bundle__meta">
-                        {%- if b_qty > 1 -%}
-                          {{ b_per | money_without_trailing_zeros }} c/u
-                        {%- else -%}
-                          {{ section.settings.single_note }}
-                        {%- endif -%}
-                        {%- if b_save > 0 %} · <span class="ax-bundle__save">Ahorras {{ b_save | money_without_trailing_zeros }}</span>{% endif -%}
+                        {{- b_per | money_without_trailing_zeros }} c/u
+                        {%- if b_pct > 0 %} · <span class="ax-bundle__save">{{ b_pct }}% Descuento</span>{% endif -%}
                       </span>
                     </span>
                     <span class="ax-bundle__prices">
@@ -280,38 +284,32 @@
         </form>
       </div>
       {%- comment -%} Fuera del formulario: Releasit inserta su botón al final del form y estos avisos quedan debajo {%- endcomment -%}
-      <p class="ax-buy__secure">{% render 'ax-icon', name: 'lock' %} {{ section.settings.secure_text }}</p>
+      {%- if section.settings.secure_text != blank -%}
+        <p class="ax-buy__secure">{% render 'ax-icon', name: 'lock' %} {{ section.settings.secure_text }}</p>
+      {%- endif -%}
 
-      <div class="ax-cod">
-        {% render 'ax-icon', name: 'cash' %}
-        <div>
-          <strong>{{ section.settings.cod_title }}</strong>
-          <span>{{ section.settings.cod_text }}</span>
+      {%- comment -%} Tres razones cortas para comprar sin miedo {%- endcomment -%}
+      {%- comment -%} Sello de confianza: escudo + compromiso + tres razones para comprar sin miedo {%- endcomment -%}
+      <div class="ax-assure">
+        <span class="ax-assure__shield">{% render 'ax-icon', name: 'shield' %}</span>
+        <div class="ax-assure__body">
+          {%- if section.settings.verified_text != blank -%}<p class="ax-assure__title">{{ section.settings.verified_text }}</p>{%- endif -%}
+          <ul class="ax-assure__items">
+            <li>{% render 'ax-icon', name: 'lock' %}<span>{{ section.settings.assure_1 }}</span></li>
+            <li>{% render 'ax-icon', name: 'clock' %}<span>{{ section.settings.assure_2 }}</span></li>
+            <li>{% render 'ax-icon', name: 'cash' %}<span>{{ section.settings.assure_3 }}</span></li>
+          </ul>
         </div>
       </div>
-
-      <div class="ax-guarantee-seal">
-        <span class="ax-guarantee-seal__icon">{% render 'ax-icon', name: 'shield' %}</span>
-        <div>
-          <strong>Garantía de {{ settings.ax_guarantee_days }} días</strong>
-          <span>{{ settings.ax_guarantee_text }}</span>
-        </div>
-      </div>
-
-      <ul class="ax-mini-trust">
-        <li>{% render 'ax-icon', name: 'truck' %}{{ settings.ax_shipping_text }}</li>
-        <li>{% render 'ax-icon', name: 'clock' %}Llega en {{ settings.ax_delivery_time }}</li>
-        <li>{% render 'ax-icon', name: 'chat' %}Atención personalizada</li>
-      </ul>
 
       <div>
-        {%- if p.description != blank -%}
+        {%- if section.settings.show_description and p.description != blank -%}
           <details class="ax-details"{% if section.settings.description_open %} open{% endif %}>
             <summary>Descripción {% render 'ax-icon', name: 'chevron' %}</summary>
             <div class="ax-details__body ax-rte">{{ p.description }}</div>
           </details>
         {%- endif -%}
-        {%- if m.specs.value != blank or m.specs_notes.value != blank -%}
+        {%- if section.settings.show_specs and m.specs.value != blank or section.settings.show_specs and m.specs_notes.value != blank -%}
           <details class="ax-details">
             <summary>Especificaciones {% render 'ax-icon', name: 'chevron' %}</summary>
             <div class="ax-details__body">
@@ -336,16 +334,18 @@
             </div>
           </details>
         {%- endif -%}
-        <details class="ax-details">
-          <summary>Envío y pago {% render 'ax-icon', name: 'chevron' %}</summary>
-          <div class="ax-details__body">
-            <ul>
-              <li>{{ settings.ax_shipping_text }}. Tiempo estimado: {{ settings.ax_delivery_time }}.</li>
-              <li>Pagas en efectivo al recibir tu pedido. No pedimos tarjeta.</li>
-              <li>Te enviamos el número de rastreo en cuanto sale tu paquete.</li>
-            </ul>
-          </div>
-        </details>
+        {%- if section.settings.shipping_info != blank -%}
+          <details class="ax-details ax-details--icon">
+            <summary><span>{% render 'ax-icon', name: 'truck' %}{{ section.settings.shipping_title }}</span>{% render 'ax-icon', name: 'chevron' %}</summary>
+            <div class="ax-details__body ax-rte">{% render 'ax-tokens', text: section.settings.shipping_info %}</div>
+          </details>
+        {%- endif -%}
+        {%- if section.settings.guarantee_info != blank -%}
+          <details class="ax-details ax-details--icon">
+            <summary><span>{% render 'ax-icon', name: 'shield' %}{{ section.settings.guarantee_title }}</span>{% render 'ax-icon', name: 'chevron' %}</summary>
+            <div class="ax-details__body ax-rte">{% render 'ax-tokens', text: section.settings.guarantee_info %}</div>
+          </details>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -398,15 +398,25 @@
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página. Elige uno solo si usas esta sección en el inicio u otra página." },
     { "type": "paragraph", "content": "El texto de cada producto se llena en su ficha (Productos → producto → Metacampos): axios.offer_label, axios.hook, axios.rating, axios.highlights, axios.offer_ends, axios.bundles, axios.specs." },
+    { "type": "text", "id": "reviews_total", "label": "Total de reseñas junto a las estrellas", "info": "Ej. 2,739. Vacío = usa el metacampo axios.rating_count." },
     { "type": "text", "id": "countdown_label", "label": "Texto del contador", "default": "La oferta termina en" },
     { "type": "text", "id": "bundles_title", "label": "Título de los paquetes", "default": "Elige tu paquete" },
-    { "type": "text", "id": "single_note", "label": "Detalle del paquete de 1 pieza", "default": "Ideal para probar" },
-    { "type": "text", "id": "bundles_note", "label": "Nota debajo de los paquetes", "default": "Confirmas la cantidad y tus datos en el formulario de pedido." },
-    { "type": "text", "id": "secure_text", "label": "Texto de seguridad", "default": "Compra segura. Tus datos están protegidos." },
-    { "type": "text", "id": "cod_title", "label": "Pago contra entrega: título", "default": "Pagas cuando lo recibes" },
-    { "type": "text", "id": "cod_text", "label": "Pago contra entrega: texto", "default": "Compra con tranquilidad. Ordena hoy y paga en efectivo al repartidor cuando recibas el producto en la puerta de tu casa." },
+    { "type": "text", "id": "single_note", "label": "Detalle del paquete de 1 pieza (ya no se usa)", "default": "Ideal para probar" },
+    { "type": "text", "id": "bundles_note", "label": "Nota debajo de los paquetes", "default": "Confirmas la cantidad y tus datos en el formulario de pedido.", "info": "Vacío = no se muestra." },
+    { "type": "text", "id": "secure_text", "label": "Texto de seguridad", "default": "Compra segura. Tus datos están protegidos.", "info": "Vacío = no se muestra." },
+    { "type": "header", "content": "Debajo del botón" },
+    { "type": "text", "id": "verified_text", "label": "Sello de confianza: texto", "default": "Tienda comprometida con la calidad y el cumplimiento", "info": "Vacío = no se muestra." },
+    { "type": "text", "id": "assure_1", "label": "Columna 1 (candado)", "default": "Compra segura" },
+    { "type": "text", "id": "assure_2", "label": "Columna 2 (reloj)", "default": "Pide hoy" },
+    { "type": "text", "id": "assure_3", "label": "Columna 3 (efectivo)", "default": "Pago al recibir" },
+    { "type": "text", "id": "shipping_title", "label": "Plegable 1: título", "default": "Envíos y devoluciones" },
+    { "type": "richtext", "id": "shipping_info", "label": "Plegable 1: texto", "default": "<p>Te escribimos por WhatsApp para validar tus datos y confirmar tu pedido. Una vez confirmado, lo enviamos en un plazo de 24 a 48 horas y te compartimos el número de rastreo. La entrega a tu domicilio tarda de [envio], según tu ubicación.</p><p>Si tu paquete llega dañado o presenta algún problema, te lo reponemos sin costo.</p>", "info": "Puedes usar [envio] y [dias]. Vacío = no se muestra." },
+    { "type": "text", "id": "guarantee_title", "label": "Plegable 2: título", "default": "Nuestra garantía para ti" },
+    { "type": "richtext", "id": "guarantee_info", "label": "Plegable 2: texto", "default": "<p>Queremos que quedes feliz con tu compra. Tu pedido está respaldado por una garantía de [dias] días: si algo no sale como esperabas, escríbenos y lo resolvemos contigo.</p>", "info": "Puedes usar [envio] y [dias]. Vacío = no se muestra." },
     { "type": "text", "id": "stock_text", "label": "Texto de pocas unidades", "default": "¡Quedan pocas unidades!" },
     { "type": "checkbox", "id": "show_stock", "label": "Mostrar aviso de pocas unidades", "default": true, "info": "Va arriba del título, en lugar de la etiqueta de oferta. Usa el inventario real: solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
+    { "type": "checkbox", "id": "show_description", "label": "Mostrar \"Descripción\"", "default": true },
+    { "type": "checkbox", "id": "show_specs", "label": "Mostrar \"Especificaciones\"", "default": true },
     { "type": "checkbox", "id": "description_open", "label": "Descripción abierta al cargar", "default": false },
     { "type": "checkbox", "id": "sticky", "label": "Barra fija de compra", "default": true },
     { "type": "text", "id": "sticky_label", "label": "Botón de la barra fija", "default": "Ordenar ahora" }
