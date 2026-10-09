@@ -4,7 +4,9 @@
   Fuentes (gana la primera que exista):
   - video: video subido en el editor (setting tipo "video")
   - image: imagen o GIF subido en el editor (setting tipo "image_picker")
-  - asset: nombre de un archivo en assets/ (p. ej. "qc-hero.webp" o "qc-aplicacion.gif")
+  - asset: nombre de un archivo en assets/ (p. ej. "qc-hero.webp", "qc-aplicacion.gif" o un video "qc-x.mp4")
+  - poster: (solo videos) imagen en assets/ que se ve mientras carga el video
+  - controls: true = muestra los controles del video (reproducir, pausar)
   Opciones: ratio ("1/1", "16/9", "9/16", "4/5"), label (descripción del recuadro gris),
   overlay (texto encima del archivo), alt
   Uso: {% render 'ax-slot', image: s.image, video: s.video, asset: s.asset, ratio: '1/1', label: '...', overlay: '...' %}
@@ -19,11 +21,19 @@
 -%}
 <figure class="ax-slot{% unless slot_has %} ax-slot--empty{% endunless %}" style="--ax-slot-ratio: {{ slot_ratio }}">
   {%- if video != blank -%}
-    {{ video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, image_size: '1080x' }}
+    {%- assign slot_controls = false -%}{%- if controls -%}{%- assign slot_controls = true -%}{%- endif -%}
+    {{ video | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: slot_controls, image_size: '1080x' }}
   {%- elsif image != blank -%}
     {{ image | image_url: width: 1200 | image_tag: loading: 'lazy', widths: '375, 560, 750, 900, 1200', sizes: '(min-width: 900px) 560px, 100vw', alt: slot_alt }}
   {%- elsif asset != blank -%}
-    <img src="{{ asset | strip | asset_url }}" alt="{{ slot_alt | escape }}" width="1080" height="1080" loading="lazy">
+    {%- assign slot_file = asset | strip -%}
+    {%- assign slot_ext = slot_file | split: '.' | last | downcase -%}
+    {%- if slot_ext == 'mp4' or slot_ext == 'webm' -%}
+      {%- comment -%} Video del tema: se reproduce solo, en silencio y en bucle, como un GIF {%- endcomment -%}
+      <video src="{{ slot_file | asset_url }}"{% if poster != blank %} poster="{{ poster | strip | asset_url }}"{% endif %} autoplay muted loop playsinline preload="metadata"{% if controls %} controls{% endif %} aria-label="{{ slot_alt | escape }}"></video>
+    {%- else -%}
+      <img src="{{ slot_file | asset_url }}" alt="{{ slot_alt | escape }}" width="1080" height="1080" loading="lazy">
+    {%- endif -%}
   {%- else -%}
     <figcaption class="ax-slot__label">
       {% render 'ax-icon', name: 'image' %}

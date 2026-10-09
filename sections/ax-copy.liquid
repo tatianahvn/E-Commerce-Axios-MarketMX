@@ -52,7 +52,7 @@
 
           {%- when 'media' -%}
             <div class="ax-copy__media ax-copy__media--{{ s.ratio | replace: '/', 'x' }} ax-reveal" {{ block.shopify_attributes }}>
-              {% render 'ax-slot', image: s.image, video: s.video, asset: s.asset, ratio: s.ratio, label: s.label, overlay: s.overlay, alt: s.alt %}
+              {% render 'ax-slot', image: s.image, video: s.video, asset: s.asset, poster: s.poster, controls: s.controls, ratio: s.ratio, label: s.label, overlay: s.overlay, alt: s.alt %}
             </div>
 
           {%- when 'callout' -%}
@@ -247,7 +247,9 @@
       "settings": [
         { "type": "image_picker", "id": "image", "label": "Imagen o GIF" },
         { "type": "video", "id": "video", "label": "Video (tiene prioridad sobre la imagen)" },
-        { "type": "text", "id": "asset", "label": "O archivo en assets/", "info": "Nombre exacto del archivo subido con el tema, p. ej. qc-hero.webp o qc-aplicacion.gif" },
+        { "type": "text", "id": "asset", "label": "O archivo en assets/", "info": "Nombre exacto del archivo subido con el tema, p. ej. qc-hero.webp, qc-aplicacion.gif o un video .mp4" },
+        { "type": "text", "id": "poster", "label": "Imagen mientras carga el video (assets/)", "info": "Solo para videos .mp4 del tema." },
+        { "type": "checkbox", "id": "controls", "label": "Mostrar controles del video (reproducir y pausar)", "default": false },
         {
           "type": "select",
           "id": "ratio",
