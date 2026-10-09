@@ -21,7 +21,7 @@ const variant = (id, price, compare, extra = {}) => ({
   compare_at_price: compare,
   available: true,
   inventory_management: 'shopify',
-  inventory_quantity: 12,
+  inventory_quantity: 120,
   sku: 'SA-100',
   options: ['Default Title'],
   featured_media: null,

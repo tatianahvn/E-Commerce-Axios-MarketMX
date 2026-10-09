@@ -123,6 +123,8 @@
       <div class="ax-pdp__top">
         {%- if low_stock -%}
           <span class="ax-eyebrow ax-stock"><span class="ax-fire" aria-hidden="true">🔥</span>{{ section.settings.stock_text }}</span>
+        {%- elsif section.settings.offer_label != blank -%}
+          <span class="ax-eyebrow ax-stock"><span class="ax-fire" aria-hidden="true">🔥</span>{{ section.settings.offer_label }}</span>
         {%- elsif m.offer_label.value != blank -%}
           <span class="ax-eyebrow">{% render 'ax-icon', name: 'fire' %}{{ m.offer_label.value }}</span>
         {%- endif -%}
@@ -410,6 +412,7 @@
     { "type": "richtext", "id": "shipping_info", "label": "Plegable 1: texto", "default": "<p>Te escribimos por WhatsApp para validar tus datos y confirmar tu pedido. Una vez confirmado, lo enviamos en un plazo de 24 a 48 horas y te compartimos el número de rastreo. La entrega a tu domicilio tarda de [envio], según tu ubicación.</p><p>Si tu paquete llega dañado o presenta algún problema, te lo reponemos sin costo.</p>", "info": "Puedes usar [envio] y [dias]. Vacío = no se muestra." },
     { "type": "text", "id": "guarantee_title", "label": "Plegable 2: título", "default": "Nuestra garantía para ti" },
     { "type": "richtext", "id": "guarantee_info", "label": "Plegable 2: texto", "default": "<p>Queremos que quedes feliz con tu compra. Tu pedido está respaldado por una garantía de [dias] días: si algo no sale como esperabas, escríbenos y lo resolvemos contigo.</p>", "info": "Puedes usar [envio] y [dias]. Vacío = no se muestra." },
+    { "type": "text", "id": "offer_label", "label": "Etiqueta de oferta (con fuego animado)", "info": "Reemplaza el metacampo axios.offer_label. Vacío = usa el metacampo." },
     { "type": "text", "id": "stock_text", "label": "Texto de pocas unidades", "default": "¡Quedan pocas unidades!" },
     { "type": "checkbox", "id": "show_stock", "label": "Mostrar aviso de pocas unidades", "default": true, "info": "Va arriba del título, en lugar de la etiqueta de oferta. Usa el inventario real: solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
     { "type": "checkbox", "id": "show_description", "label": "Mostrar \"Descripción\"", "default": true },
