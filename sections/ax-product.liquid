@@ -148,7 +148,9 @@
         </ul>
       {%- endif -%}
 
-      {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: section.settings.countdown_label %}
+      {%- if section.settings.show_countdown -%}
+        {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: section.settings.countdown_label %}
+      {%- endif -%}
 
       <div class="ax-buy" data-ax-buy-box{% if m.releasit_url.value != blank %} data-releasit-url="{{ m.releasit_url.value }}"{% endif %}>
         <form
@@ -229,11 +231,6 @@
                     assign b_compare = unit_price | times: b_qty
                   endif
                   assign b_per = b_total | divided_by: b_qty | floor
-                  assign b_save = b_compare | minus: b_total
-                  assign b_pct = 0
-                  if b_save > 0
-                    assign b_pct = b_save | times: 100.0 | divided_by: b_compare | round
-                  endif
                   if forloop.index == selected_index
                     assign selected_total = b_total
                     assign selected_qty = b_qty
@@ -255,7 +252,6 @@
                       <span class="ax-bundle__name">{{ b_name }}</span>
                       <span class="ax-bundle__meta">
                         <span class="ax-bundle__per">{{ b_per | money_without_trailing_zeros }} <small>c/u</small></span>
-                        {%- if b_pct > 0 %}<span class="ax-bundle__save">{{ b_pct }}% Descuento</span>{% endif -%}
                       </span>
                     </span>
                     <span class="ax-bundle__prices">
@@ -399,6 +395,7 @@
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página. Elige uno solo si usas esta sección en el inicio u otra página." },
     { "type": "paragraph", "content": "El texto de cada producto se llena en su ficha (Productos → producto → Metacampos): axios.offer_label, axios.hook, axios.rating, axios.highlights, axios.offer_ends, axios.bundles, axios.specs." },
     { "type": "text", "id": "reviews_total", "label": "Total de reseñas junto a las estrellas", "info": "Ej. 2,739. Vacío = usa el metacampo axios.rating_count." },
+    { "type": "checkbox", "id": "show_countdown", "label": "Mostrar contador de la oferta", "default": true },
     { "type": "text", "id": "countdown_label", "label": "Texto del contador", "default": "La oferta termina en" },
     { "type": "text", "id": "bundles_title", "label": "Título de los paquetes", "default": "Elige tu paquete" },
     { "type": "text", "id": "single_note", "label": "Detalle del paquete de 1 pieza (ya no se usa)", "default": "Ideal para probar" },

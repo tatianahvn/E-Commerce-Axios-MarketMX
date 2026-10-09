@@ -1409,6 +1409,24 @@ ol {
   justify-content: center;
 }
 
+/* Esqueleto mientras ax.js calcula el tiempo (evita que se vea 00 00 00 00) */
+.ax-js .ax-countdown.is-loading .ax-countdown__unit > span {
+  color: transparent;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #e4e4e7 0%, #f4f4f5 50%, #e4e4e7 100%);
+  background-size: 200% 100%;
+  animation: ax-skeleton 1.1s ease-in-out infinite;
+}
+
+@keyframes ax-skeleton {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
 /* Celular: todo centrado en dos filas fijas y con números más grandes */
 @media (max-width: 767px) {
   .ax-countdown {
@@ -1451,10 +1469,26 @@ ol {
 }
 
 .ax-bundles legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  font-family: var(--ax-font-head);
   font-weight: 800;
-  font-size: 15px;
+  font-size: 19px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* --- Elige tu paquete --- */
+.ax-bundles legend::before,
+.ax-bundles legend::after {
+  content: '';
+  flex: 1;
+  height: 1.5px;
+  background: rgb(214 31 44 / 0.35);
 }
 
 .ax-bundle {
@@ -3863,6 +3897,11 @@ textarea.ax-input {
   font-size: 20px;
   font-weight: 600;
   color: var(--ax-muted);
+}
+
+.ax-offer__badge {
+  padding: 6px 12px;
+  font-size: 15px;
 }
 
 .ax-offer__sub {

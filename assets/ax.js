@@ -357,6 +357,7 @@
       parts.h.textContent = pad(Math.floor((s % 86400) / 3600));
       parts.m.textContent = pad(Math.floor((s % 3600) / 60));
       parts.s.textContent = pad(s % 60);
+      el.classList.remove('is-loading');
       return true;
     };
     if (tick()) {

@@ -5,6 +5,7 @@
   2) Ciclo automático: si no hay fecha y está activado en Configuración del tema, cuenta hasta el fin del ciclo
      actual (cada N días, por calendario). Al terminar empieza otro ciclo. El fin se guarda en el navegador
      del cliente (localStorage) para que vea el mismo contador si regresa.
+  Mientras ax.js calcula el tiempo, los números se ven como esqueleto (clase is-loading) en lugar de 00.
   Uso: {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: 'La oferta termina en', light: true %}
 {%- endcomment -%}
 {%- liquid
@@ -21,7 +22,7 @@
 -%}
 {%- if mode != '' -%}
   <div
-    class="ax-countdown{% if light %} ax-countdown--light{% endif %}"
+    class="ax-countdown is-loading{% if light %} ax-countdown--light{% endif %}"
     {% if mode == 'date' %}data-ax-countdown="{{ ends_ts }}"{% else %}data-ax-countdown-cycle="{{ settings.ax_countdown_cycle_days }}" data-ax-countdown-key="{{ key }}"{% endif %}
   >
     <span class="ax-countdown__label">{% render 'ax-icon', name: 'clock' %}{{ label | default: 'La oferta termina en' }}</span>

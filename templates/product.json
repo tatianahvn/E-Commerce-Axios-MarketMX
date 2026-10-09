@@ -14,13 +14,14 @@
         "sticky": true,
         "stock_text": "¡Quedan pocas unidades!",
         "sticky_label": "Ordenar ahora",
-        "reviews_total": "2,739",
+        "reviews_total": "",
         "show_description": false,
         "show_specs": false,
         "shipping_title": "Envíos y devoluciones",
         "guarantee_title": "Nuestra garantía para ti",
         "shipping_info": "<p>Te escribimos por WhatsApp para validar tus datos y confirmar tu pedido. Una vez confirmado, lo enviamos en un plazo de 24 a 48 horas y te compartimos el número de rastreo. La entrega a tu domicilio tarda de [envio], según tu ubicación.</p><p>Si tu paquete llega dañado o presenta algún problema, te lo reponemos sin costo.</p>",
-        "verified_text": "Tienda comprometida con la calidad y el cumplimiento"
+        "verified_text": "Tienda comprometida con la calidad y el cumplimiento",
+        "show_countdown": false
       }
     },
     "trust": {
@@ -488,7 +489,7 @@
         "visible_mobile": 4,
         "form_enabled": true,
         "layout": "slider",
-        "total_text": "2,739"
+        "total_text": ""
       },
       "blocks": {
         "review-1": {
@@ -643,7 +644,8 @@
             "show_compare": true,
             "suffix": "MXN",
             "sub": "",
-            "perks": "🚚 ENVÍO GRATIS A TODO MÉXICO\n💵 PAGAS AL RECIBIR"
+            "perks": "🚚 ENVÍO GRATIS A TODO MÉXICO\n💵 PAGAS AL RECIBIR",
+            "show_badge": true
           }
         },
         "cta-4": {
@@ -652,18 +654,11 @@
             "label": "Quiero mi Shine Armor",
             "sub": "¡Envío Gratis!"
           }
-        },
-        "countdown-final": {
-          "type": "countdown",
-          "settings": {
-            "label": "La oferta termina en"
-          }
         }
       },
       "block_order": [
         "lines-1",
         "price-2",
-        "countdown-final",
         "cta-4"
       ]
     }

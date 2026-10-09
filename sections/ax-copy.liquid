@@ -73,6 +73,10 @@
                   <span>{{ v.price | money_without_trailing_zeros }}{% if s.suffix != blank %} <small>{{ s.suffix }}</small>{% endif %}</span>
                 </p>
               {%- endif -%}
+              {%- if s.show_badge and v.compare_at_price > v.price -%}
+                {%- assign offer_pct = v.compare_at_price | minus: v.price | times: 100 | divided_by: v.compare_at_price | floor -%}
+                <span class="ax-badge ax-badge--soft ax-badge--icon ax-offer__badge">{% render 'ax-icon', name: 'tag' %}{{ offer_pct }}% Descuento</span>
+              {%- endif -%}
               {%- if s.sub != blank -%}<p class="ax-offer__sub">{{ s.sub }}</p>{%- endif -%}
               {%- if s.perks != blank -%}
                 <ul class="ax-offer__perks">
@@ -277,6 +281,7 @@
         { "type": "checkbox", "id": "boxed", "label": "En recuadro", "default": true },
         { "type": "text", "id": "label", "label": "Texto arriba del precio" },
         { "type": "checkbox", "id": "show_compare", "label": "Mostrar precio anterior tachado", "default": false },
+        { "type": "checkbox", "id": "show_badge", "label": "Mostrar etiqueta de descuento", "default": false },
         { "type": "text", "id": "suffix", "label": "Después del precio", "default": "MXN" },
         { "type": "text", "id": "sub", "label": "Texto debajo del precio" },
         { "type": "textarea", "id": "perks", "label": "Etiquetas (una por línea)", "default": "🚚 ENVÍO GRATIS A TODO MÉXICO\n💵 PAGAS AL RECIBIR" }
