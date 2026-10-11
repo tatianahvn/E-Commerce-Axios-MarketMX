@@ -11,8 +11,8 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 ## ⚠️ Antes de vender
 
 1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
-2. **Fotos.** Todas son del mismo modelo (base rectangular con pantalla cuadrada y 3 botones): `sec-medidas.jpg`, `sec-funda.jpg` y `sec-base.jpg` salen del creativo de Dropi; `sec-closet.webp`, `sec-calor-casa.jpg`, `sec-aire-caliente.jpg` y `sec-ganchos-ropa.jpg`, del [anuncio de AliExpress](https://es.aliexpress.com/item/1005012054192431.html), recortadas para quitar textos en inglés. Ese anuncio mezcla fotos y un video de otros modelos (base redonda); esos no se usaron. Como hay pocas fotos de este modelo, algunas se repiten en la página: si Dropi te da más, cámbialas.
-   El anuncio también dice que trae temporizador de 30 a 180 minutos y luz LED UV, pero Dropi no lo confirma: no se puso en la página.
+2. **Fotos.** Salen de los creativos de Dropi (carpeta "Producto_ Secador de Ropa Zapato Portatil" en Descargas), hechos con IA, así que algunos detalles pueden variar respecto al producto real. Se recortaron para quitar textos en inglés y el logo de otra tienda (HYPER MODA). `sec-usos.jpg` va completo porque ya está en español. Se dejaron fuera los que hablan de luz UV, antibacterial o "600 W" (no confirmados por Dropi) y el de "hasta 8 piezas o 10 kg", que contradice las 9 prendas de Dropi.
+   Dos fotos de clientes en la carpeta (`imgi_67`, `imgi_68`) muestran **clavija americana**: buena señal para el voltaje, pero son muy chicas (166 × 220 px) para usarlas.
 3. **Reseñas.** La sección de reseñas está **desactivada**: las 11 reseñas que había eran de otro modelo (HP-901). Actívala (Personalizar → Reseñas → mostrar) cuando tengas opiniones reales, y cambia los textos de los bloques.
 4. **Precio y paquetes.** Quedan pendientes. En la vista previa local se usan $899 y $1,599 solo de ejemplo.
 5. **Silencio.** La descripción de Dropi no dice que sea silenciosa, así que la página ya no lo promete.
@@ -22,7 +22,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 - **Título:** `Secadora de Ropa Portátil | Plegable con temporizador`
 - **Identificador (handle):** `secadora-ropa-portatil`
 - **Plantilla:** en la ficha del producto → *Plantilla del tema* → **`secadora`**.
-- **Fotos del producto:** las de Dropi. De `assets/`, sirven `sec-medidas.jpg`, `sec-funda.jpg`, `sec-base.jpg` y `sec-calor-casa.jpg`.
+- **Fotos del producto:** las de Dropi. De `assets/`, sirven `sec-estilo.jpg`, `sec-medidas.jpg`, `sec-usos.jpg`, `sec-ropero.jpg` y `sec-calor-base.jpg`.
 - **Descripción:**
 
   > Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.
@@ -54,9 +54,9 @@ Todo, incluida la caja de compra, se edita en **Personalizar → plantilla de pr
 | 1 | Caja de compra (la misma de Shine Armor, con sus propios textos) | `ax-product` | Atención |
 | 2 | "Tu ropa seca, *sin depender del sol*": imagen + 4 momentos | `ax-story` | Interés |
 | 3 | Reseñas en slider (**desactivada** hasta tener reseñas reales) | `ax-reviews` | Deseo (prueba social) |
-| 4 | "Tu tendedero bajo techo, *que se guarda en el clóset*": imagen, 3 puntos y botón | `ax-split` | Interés y acción |
+| 4 | "Tu tendedero bajo techo, *donde lo necesites*": imagen de usos, 3 puntos y botón | `ax-split` | Interés y acción |
 | 5 | Franja oscura "Días de lluvia / ropa que no seca" | `ax-band` | Atención (dolor) |
-| 6 | "Pensada para *los días grises*": 3 tarjetas | `ax-cards` | Deseo |
+| 6 | "Pensada para *los días grises*": 4 tarjetas | `ax-cards` | Deseo |
 | 7 | "Es *muy sencillo*": 3 pasos | `ax-cards` (numerado) | Deseo |
 | 8 | Cinta de promesas (pago al recibir, envío, garantía) | `ax-marquee` | Confianza |
 | 9 | "Nuestra *diferencia*": secadora portátil vs. tender adentro | `ax-diff` | Deseo |

@@ -43,8 +43,8 @@
         "eyebrow": "",
         "title": "Tu ropa seca, *sin depender del sol*",
         "text": "Esto es lo que cambia en tu casa desde que la conectas.",
-        "image_file": "sec-funda.jpg",
-        "image_alt": "Secadora colgada de un tubo con la funda abierta y ropa adentro"
+        "image_file": "sec-sala-estante.jpg",
+        "image_alt": "Secadora armada en una repisa junto a su base plegada"
       },
       "blocks": {
         "m1": {
@@ -230,10 +230,10 @@
       "type": "ax-split",
       "settings": {
         "product": "",
-        "title": "Tu tendedero bajo techo, *que se guarda en el clóset*",
-        "text": "Hecha para casas y departamentos pequeños: no necesitas patio, cuarto de lavado ni instalación. Solo un contacto y un lugar donde colgarla.",
-        "image_file": "sec-closet.webp",
-        "image_alt": "Secadora armada dentro de un clóset junto a ropa colgada, con la base guardada en la repisa",
+        "title": "Tu tendedero bajo techo, *donde lo necesites*",
+        "text": "Hecha para casas y departamentos pequeños, y también para viajes, campamento o casa rodante: no necesitas patio, cuarto de lavado ni instalación. Solo un contacto y un lugar donde colgarla.",
+        "image_file": "sec-usos.jpg",
+        "image_alt": "Usos de la secadora: ropero de hotel, dormitorio, camping en casa rodante y viaje de negocios",
         "cta": "Consigue la tuya ahora"
       },
       "blocks": {
@@ -319,7 +319,7 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-aire-caliente.jpg",
+            "image_file": "sec-calor-base.jpg",
             "title": "Calor y aire a la vez",
             "text": "Combina calor y flujo de aire a temperatura constante para quitar la humedad de toda la prenda."
           }
@@ -327,7 +327,7 @@
         "c2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-base.jpg",
+            "image_file": "sec-base-plegada.jpg",
             "title": "Plegable y ligera",
             "text": "Pliegas la funda y la base de 22 cm se guarda en el clóset o se va contigo de viaje."
           }
@@ -335,16 +335,25 @@
         "c3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-calor-casa.jpg",
+            "image_file": "sec-recamara.jpg",
             "title": "Se apaga sola",
             "text": "Programa el tiempo en su pantalla digital y olvídate: se apaga cuando termina."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-capacidad.jpg",
+            "title": "Hasta 9 prendas",
+            "text": "Cuelga varias prendas a la vez en su barra de ganchos y sécalas juntas."
           }
         }
       },
       "block_order": [
         "c1",
         "c2",
-        "c3"
+        "c3",
+        "c4"
       ]
     },
     "steps": {
@@ -361,9 +370,9 @@
         "s1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-ganchos-ropa.jpg",
+            "image_file": "sec-barra-ganchos.jpg",
             "title": "Cuelga",
-            "text": "Cuelga la base de un tubo, sube la funda y acomoda tus prendas en los ganchos."
+            "text": "Cuelga la base de un tubo, sube la funda y acomoda tus prendas en la barra de ganchos."
           }
         },
         "s2": {
@@ -377,7 +386,7 @@
         "s3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-funda.jpg",
+            "image_file": "sec-ropero.jpg",
             "title": "Listo",
             "text": "Abre la funda y saca tu ropa seca, lista para usar. Pliégala y guárdala."
           }
@@ -554,7 +563,7 @@
         "product": "",
         "title": "Garantía *sin riesgos*",
         "text": "Pídela hoy sin tarjeta y págala en efectivo cuando llegue a tu puerta. Si llega dañada te la reponemos sin costo, y tienes [dias] días para decirnos si algo no salió bien.",
-        "image_files": "sec-closet.webp, sec-funda.jpg, sec-aire-caliente.jpg, sec-calor-casa.jpg",
+        "image_files": "sec-sala-estante.jpg, sec-ropero.jpg, sec-litera.jpg, sec-calor-base.jpg",
         "cta": "Pídela hoy, págala al recibir"
       }
     },
