@@ -14,9 +14,9 @@
         "badge": "Nuevo",
         "rating": "",
         "reviews_total": "",
-        "highlights": "Seca tu ropa dentro de casa, llueva o no\nHasta 8 prendas por carga\nTemporizador de 1, 2 o 4 horas: se apaga sola\nSe enciende con un solo botón\nSe pliega y se guarda en el clóset",
+        "highlights": "Seca tu ropa dentro de casa, llueva o no\nHasta 9 prendas por carga\nPrendas ligeras secas desde 20 minutos\nPantalla digital con temporizador: se apaga sola\nPlegable y ligera: se guarda en el clóset",
         "bundles": "",
-        "specs": "Modelo | SH-005\nTemporizador | 1, 2 o 4 horas\nCapacidad | Hasta 8 prendas\nSecado | Aire caliente que circula a 360°\nEncendido | Un solo botón\nFuncionamiento | Silencioso\nIncluye | Base secadora con gancho y funda plegable con cierre",
+        "specs": "Capacidad | Hasta 9 prendas\nSecado | Calor y flujo de aire a temperatura constante\nPrendas ligeras | Desde 20 minutos\nControles | Pantalla digital con encendido, temporizador y calor\nMedidas armada | 152 cm de alto × 60 cm de ancho\nBase plegada | 22 cm de ancho × 14 cm de alto\nIncluye | Base con gancho y funda plegable con cierre",
         "countdown_label": "La oferta termina en",
         "bundles_title": "Elige tu paquete",
         "single_note": "Ideal para probar",
@@ -43,8 +43,8 @@
         "eyebrow": "",
         "title": "Tu ropa seca, *sin depender del sol*",
         "text": "Esto es lo que cambia en tu casa desde que la conectas.",
-        "image_file": "sec-rack.webp",
-        "image_alt": "Secadora portátil con su funda beige, colgada de un perchero en una sala"
+        "image_file": "sec-funda.jpg",
+        "image_alt": "Secadora colgada de un tubo con la funda abierta y ropa adentro"
       },
       "blocks": {
         "m1": {
@@ -60,7 +60,7 @@
           "settings": {
             "tag": "Esa misma noche",
             "title": "El uniforme listo para mañana",
-            "text": "Elige 1, 2 o 4 horas antes de dormir. Se apaga sola y en la mañana la ropa de la escuela o del trabajo ya está seca."
+            "text": "Programa el temporizador antes de dormir. Se apaga sola y en la mañana la ropa de la escuela o del trabajo ya está seca."
           }
         },
         "m3": {
@@ -250,15 +250,15 @@
           "settings": {
             "icon": "moon",
             "title": "Trabaja mientras duermes.",
-            "text": "Su temporizador la apaga sola y funciona sin hacer ruido: despiertas con la ropa seca."
+            "text": "Programa el temporizador y se apaga sola: despiertas con la ropa seca."
           }
         },
         "p3": {
           "type": "point",
           "settings": {
             "icon": "clock",
-            "title": "Un solo botón.",
-            "text": "Enciéndela y elige 1, 2 o 4 horas."
+            "title": "Pantalla digital.",
+            "text": "Enciéndela y programa el tiempo con un botón."
           }
         }
       },
@@ -320,16 +320,16 @@
           "type": "card",
           "settings": {
             "image_file": "sec-aire-360.jpg",
-            "title": "Aire caliente a 360°",
-            "text": "El aire caliente circula alrededor de toda la prenda dentro de la funda, para que se seque pareja."
+            "title": "Calor y aire a la vez",
+            "text": "Combina calor y flujo de aire a temperatura constante para quitar la humedad de toda la prenda."
           }
         },
         "c2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-sala.jpg",
-            "title": "Plegable y portátil",
-            "text": "Cuando terminas, pliegas la funda y guardas la base. Llévala de un cuarto a otro."
+            "image_file": "sec-base.jpg",
+            "title": "Plegable y ligera",
+            "text": "Cuando terminas, pliegas la funda: la base mide 22 cm y es fácil de mover."
           }
         },
         "c3": {
@@ -337,15 +337,15 @@
           "settings": {
             "image_file": "sec-noche.jpg",
             "title": "Se apaga sola",
-            "text": "Elige 1, 2 o 4 horas y olvídate: se apaga cuando termina el tiempo."
+            "text": "Programa el tiempo en su pantalla digital y olvídate: se apaga cuando termina."
           }
         },
         "c4": {
           "type": "card",
           "settings": {
-            "image_file": "sec-lectura.jpg",
-            "title": "Silenciosa",
-            "text": "Funciona con poco ruido, así que puedes dejarla encendida mientras descansas."
+            "image_file": "sec-calor-casa.jpg",
+            "title": "Úsala donde estés",
+            "text": "En tu departamento, de viaje, de campamento o en tu casa rodante."
           }
         }
       },
@@ -378,9 +378,9 @@
         "s2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-producto.webp",
-            "title": "Elige el tiempo",
-            "text": "Presiona el botón, elige 1, 2 o 4 horas y cierra la funda."
+            "image_file": "sec-producto.jpg",
+            "title": "Programa",
+            "text": "Enciéndela, programa el tiempo en la pantalla y cierra la funda."
           }
         },
         "s3": {
@@ -485,14 +485,14 @@
           "type": "question",
           "settings": {
             "question": "¿Cuánta ropa le cabe?",
-            "answer": "<p>Hasta 8 prendas por carga, según el grosor. Las prendas gruesas, como sudaderas o pantalones de mezclilla, ocupan más espacio, así que caben menos.</p>"
+            "answer": "<p>Hasta 9 prendas por carga, según el grosor. Las prendas gruesas, como sudaderas o pantalones de mezclilla, ocupan más espacio, así que caben menos.</p>"
           }
         },
         "f2": {
           "type": "question",
           "settings": {
             "question": "¿Cuánto tarda en secar?",
-            "answer": "<p>Depende de la tela y de qué tan mojada esté la ropa: exprímela bien antes de colgarla. Puedes elegir 1, 2 o 4 horas y se apaga sola al terminar.</p>"
+            "answer": "<p>Las prendas ligeras, como ropa interior o ropa de bebé, pueden quedar en unos 20 minutos; las gruesas tardan más. Exprime bien la ropa antes de colgarla y programa el tiempo en la pantalla: se apaga sola al terminar.</p>"
           }
         },
         "f3": {
@@ -536,6 +536,13 @@
             "question": "¿Y si no me convence?",
             "answer": "<p>Tienes [dias] días para decírnoslo. Si llega dañada, te la reponemos sin costo.</p>"
           }
+        },
+        "f6": {
+          "type": "question",
+          "settings": {
+            "question": "¿Me la puedo llevar de viaje?",
+            "answer": "<p>Sí. Es ligera y, plegada, la base mide 22 cm de ancho. Sirve en tu casa, de viaje, de campamento o en una casa rodante.</p>"
+          }
         }
       },
       "block_order": [
@@ -544,6 +551,7 @@
         "f3",
         "f4",
         "f5",
+        "f6",
         "q1",
         "q2",
         "q3"
@@ -555,7 +563,7 @@
         "product": "",
         "title": "Garantía *sin riesgos*",
         "text": "Pídela hoy sin tarjeta y págala en efectivo cuando llegue a tu puerta. Si llega dañada te la reponemos sin costo, y tienes [dias] días para decirnos si algo no salió bien.",
-        "image_files": "sec-rack.webp, sec-frescura.jpg, sec-noche.jpg, sec-closet.webp",
+        "image_files": "sec-funda.jpg, sec-frescura.jpg, sec-noche.jpg, sec-closet.webp",
         "cta": "Pídela hoy, págala al recibir"
       }
     },

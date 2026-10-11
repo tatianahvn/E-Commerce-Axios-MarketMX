@@ -3,45 +3,30 @@
 Landing con la **paleta "Miel y canela"** (crema `#FFF8EC`, miel `#F6B93B`, canela `#E07B2E`, café `#8A4B20`, espresso `#3A2717`) y letra **Nunito**, en la plantilla `templates/product.secadora.json`.
 Shine Armor y el resto de la tienda no cambian: los colores cálidos solo se cargan en esta plantilla.
 
-Modelo: **SH-005**, el que se vende por Dropi. Dropi no trae especificaciones, así que **la página solo dice lo que se ve en la caja y en el producto**:
-temporizador de **1, 2 o 4 horas**, encendido con **un solo botón**, **hasta 8 prendas**, aire caliente a **360°**, funcionamiento **silencioso**,
-base que se cuelga de un tubo con su gancho y funda plegable con cierre. No tiene control remoto ni pantalla de números.
+Producto: **Dropi 36701 "Secador de ropa/zapato portátil"**. La página solo dice lo que viene en la descripción de Dropi y en su creativo de medidas:
+hasta **9 prendas**, prendas ligeras secas **desde 20 minutos**, **calor + flujo de aire** a temperatura constante, plegable y ligera,
+para departamento, viaje, campamento o casa rodante, **pantalla digital** con botones de encendido, temporizador y calor,
+**152 × 60 cm** armada y base de **22 × 14 cm**. El texto de Dropi viene de la marca MOJOCO: no se usa ese nombre.
 
 ## ⚠️ Antes de vender
 
-1. **Voltaje.** Confirma con Dropi que el SH-005 es de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
-2. **Fotos ilustrativas.** Los creativos vienen de anuncios de AliExpress de secadoras con la misma forma (funda beige y base blanca). Solo `sec-closet.webp` es igual al arte de la caja del SH-005. En las demás, el panel de la base se ve pequeño, pero los detalles pueden variar. Por eso no se usó ninguna foto donde se lean controles distintos (pantalla con números, control remoto o 6 niveles de tiempo).
-3. **Funda real.** En la foto del producto real, la funda es beige translúcida y de nailon, menos lisa que en los creativos. La página no promete acabado ni color exacto.
-4. **Reseñas.** La sección de reseñas está **desactivada**: las 11 reseñas que había eran del modelo anterior (HP-901), no del SH-005. Actívala (Personalizar → Reseñas → mostrar) cuando tengas opiniones reales, y cambia los textos de los bloques.
-5. **Precio y paquetes.** Quedan pendientes. En la vista previa local se usan $899 y $1,599 solo de ejemplo.
+1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
+2. **Fotos.** `sec-medidas.jpg`, `sec-funda.jpg` y `sec-base.jpg` salen del creativo de Dropi (el mismo modelo). `sec-producto.jpg`, `sec-calor-casa.jpg`, `sec-ganchos-ropa.jpg` y `sec-closet.webp` son del [anuncio 1](https://es.aliexpress.com/item/1005012054192431.html), que vende este modelo. `sec-aire-360.jpg`, `sec-noche.jpg` y `sec-frescura.jpg` son del [anuncio 2](https://es.aliexpress.com/item/1005013101753915.html), un modelo parecido; en ellas la base casi no se ve. Si Dropi te da más fotos, cambia esas tres primero.
+3. **Reseñas.** La sección de reseñas está **desactivada**: las 11 reseñas que había eran de otro modelo (HP-901). Actívala (Personalizar → Reseñas → mostrar) cuando tengas opiniones reales, y cambia los textos de los bloques.
+4. **Precio y paquetes.** Quedan pendientes. En la vista previa local se usan $899 y $1,599 solo de ejemplo.
+5. **Silencio.** La descripción de Dropi no dice que sea silenciosa, así que la página ya no lo promete.
 
 ## 1. Crear el producto
 
 - **Título:** `Secadora de Ropa Portátil | Plegable con temporizador`
 - **Identificador (handle):** `secadora-ropa-portatil`
 - **Plantilla:** en la ficha del producto → *Plantilla del tema* → **`secadora`**.
-- **Fotos del producto:** primero tus fotos reales del SH-005 (producto armado y caja). Después, si quieres, los creativos de `assets/`: `sec-closet.webp`, `sec-producto.webp`, `sec-rack.webp`, `sec-aire-360.jpg`, `sec-sala.jpg`.
+- **Fotos del producto:** las de Dropi. De `assets/`, sirven `sec-medidas.jpg`, `sec-funda.jpg`, `sec-base.jpg` y `sec-calor-casa.jpg`.
 - **Descripción:**
 
   > Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.
   >
-  > Temporizador de 1, 2 o 4 horas y encendido con un solo botón. Cuando terminas, la funda se pliega y la base se guarda en el clóset.
-
-### De dónde salen los creativos
-
-| Archivo | Dónde va | Origen |
-|---|---|---|
-| `sec-closet.webp` | Imagen + puntos ("se guarda en el clóset"), garantía | [Anuncio 1](https://es.aliexpress.com/item/1005012054192431.html) (igual al arte de la caja) |
-| `sec-rack.webp` | Línea de tiempo, garantía | [Anuncio 2](https://es.aliexpress.com/item/1005013101753915.html) |
-| `sec-producto.webp` | Paso 2 "Elige el tiempo" | Anuncio 2 |
-| `sec-aire-360.jpg` | Tarjeta "Aire caliente a 360°" | Anuncio 2 (recorte sin texto) |
-| `sec-sala.jpg` | Tarjeta "Plegable y portátil" | Anuncio 2 (recorte sin texto) |
-| `sec-noche.jpg` | Tarjeta "Se apaga sola", garantía | Anuncio 2 (recorte sin texto) |
-| `sec-lectura.jpg` | Tarjeta "Silenciosa" | Anuncio 2 (recorte sin texto) |
-| `sec-ganchos-ropa.jpg` | Paso 1 "Cuelga" | Anuncio 1 (recorte sin texto) |
-| `sec-frescura.jpg` | Paso 3 "Listo", garantía | Anuncio 2 (recorte sin texto) |
-
-El [anuncio 3](https://es.aliexpress.com/item/1005008077622397.html) es otro modelo (temporizador de 60 a 240 min y gancho secador), con creativos más "tech" (azules, virus). No se usó.
+  > Combina calor y flujo de aire, y tiene pantalla digital con temporizador. Le caben hasta 9 prendas y las ligeras quedan desde 20 minutos. Cuando terminas, la funda se pliega y la base se guarda en el clóset.
 
 ## 2. Caja de compra (ya viene en la plantilla, sin metacampos)
 
@@ -50,9 +35,9 @@ Se edita en **Personalizar → plantilla "secadora" → Producto: caja de compra
 - **Frase gancho:** Aunque llueva toda la semana, *tu ropa seca en horas, no en días.*
 - **Etiqueta sobre la foto:** Nuevo
 - **Etiqueta de oferta:** Precio especial de temporada de lluvias
-- **Viñetas:** seca dentro de casa · hasta 8 prendas · temporizador de 1, 2 o 4 h · un solo botón · se guarda en el clóset
-- **Especificaciones:** modelo SH-005, temporizador, capacidad, secado, encendido, funcionamiento e incluye. Agrega `Voltaje | 127 V` y las medidas solo cuando Dropi las confirme.
-- **Calificación y total de reseñas:** vacíos a propósito, hasta tener reseñas reales del SH-005.
+- **Viñetas:** seca dentro de casa · hasta 9 prendas · ligeras desde 20 min · pantalla digital con temporizador · plegable y ligera
+- **Especificaciones:** capacidad, secado, prendas ligeras, controles, medidas armada y plegada, e incluye. Agrega `Voltaje | 127 V` solo cuando Dropi lo confirme.
+- **Calificación y total de reseñas:** vacíos a propósito, hasta tener reseñas reales.
 - **Paquetes:** pendientes, se definen junto con el precio. Formato, uno por renglón: `¡Compra 2! | 2 | 1499 | ⭐ Más pedido`. Mientras estén vacíos, se vende de 1 en 1.
 
 La tarjeta del producto en el inicio y en "Otros productos" toma su subtítulo y etiqueta de **Configuración del tema → Tarjetas de producto**
@@ -74,7 +59,7 @@ Todo, incluida la caja de compra, se edita en **Personalizar → plantilla de pr
 | 7 | "Es *muy sencillo*": 3 pasos | `ax-cards` (numerado) | Deseo |
 | 8 | Cinta de promesas (pago al recibir, envío, garantía) | `ax-marquee` | Confianza |
 | 9 | "Nuestra *diferencia*": secadora portátil vs. tender adentro | `ax-diff` | Deseo |
-| 10 | Preguntas frecuentes (5 del producto + 3 generales) | `ax-faq` | Objeciones |
+| 10 | Preguntas frecuentes (6 del producto + 3 generales) | `ax-faq` | Objeciones |
 | 11 | "Garantía *sin riesgos*" con 4 fotos y botón | `ax-promise` | Acción |
 | 12 | Otros productos (Shine Armor) | `ax-related` | — |
 
@@ -86,5 +71,5 @@ Todo, incluida la caja de compra, se edita en **Personalizar → plantilla de pr
 
 ### Reseñas
 
-Los bloques de reseñas siguen en la plantilla, pero la sección está desactivada: eran opiniones del HP-901 (otro modelo) y no deben mostrarse para el SH-005.
+Los bloques de reseñas siguen en la plantilla, pero la sección está desactivada: eran opiniones del HP-901 (otro modelo) y no deben mostrarse para este producto.
 Cuando tengas reseñas reales, reemplaza el texto de los bloques y activa la sección.
