@@ -68,6 +68,7 @@ const secMedia = [
   img('sec-medidas.jpg', 1000, 1000, 'Secadora portátil armada y plegada, con sus medidas'),
   img('sec-funda.jpg', 780, 975, 'Secadora colgada de un tubo con la funda abierta y ropa adentro'),
   img('sec-base.jpg', 800, 650, 'Base plegada con pantalla digital'),
+  img('sec-aire-caliente.jpg', 950, 760, 'Base con pantalla digital soltando aire caliente'),
   img('sec-calor-casa.jpg', 340, 799, 'Calor y aire circulando dentro de la funda'),
   img('sec-closet.webp', 1000, 1000, 'Secadora armada en un clóset'),
 ].map((m, i) => ({ id: 9100 + i, media_type: 'image', alt: m.alt, preview_image: m, src: m.src, width: m.width, height: m.height }));

@@ -11,7 +11,8 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 ## ⚠️ Antes de vender
 
 1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
-2. **Fotos.** `sec-medidas.jpg`, `sec-funda.jpg` y `sec-base.jpg` salen del creativo de Dropi (el mismo modelo). `sec-producto.jpg`, `sec-calor-casa.jpg`, `sec-ganchos-ropa.jpg` y `sec-closet.webp` son del [anuncio 1](https://es.aliexpress.com/item/1005012054192431.html), que vende este modelo. `sec-aire-360.jpg`, `sec-noche.jpg` y `sec-frescura.jpg` son del [anuncio 2](https://es.aliexpress.com/item/1005013101753915.html), un modelo parecido; en ellas la base casi no se ve. Si Dropi te da más fotos, cambia esas tres primero.
+2. **Fotos.** Todas son del mismo modelo (base rectangular con pantalla cuadrada y 3 botones): `sec-medidas.jpg`, `sec-funda.jpg` y `sec-base.jpg` salen del creativo de Dropi; `sec-closet.webp`, `sec-calor-casa.jpg`, `sec-aire-caliente.jpg` y `sec-ganchos-ropa.jpg`, del [anuncio de AliExpress](https://es.aliexpress.com/item/1005012054192431.html), recortadas para quitar textos en inglés. Ese anuncio mezcla fotos y un video de otros modelos (base redonda); esos no se usaron. Como hay pocas fotos de este modelo, algunas se repiten en la página: si Dropi te da más, cámbialas.
+   El anuncio también dice que trae temporizador de 30 a 180 minutos y luz LED UV, pero Dropi no lo confirma: no se puso en la página.
 3. **Reseñas.** La sección de reseñas está **desactivada**: las 11 reseñas que había eran de otro modelo (HP-901). Actívala (Personalizar → Reseñas → mostrar) cuando tengas opiniones reales, y cambia los textos de los bloques.
 4. **Precio y paquetes.** Quedan pendientes. En la vista previa local se usan $899 y $1,599 solo de ejemplo.
 5. **Silencio.** La descripción de Dropi no dice que sea silenciosa, así que la página ya no lo promete.
@@ -55,7 +56,7 @@ Todo, incluida la caja de compra, se edita en **Personalizar → plantilla de pr
 | 3 | Reseñas en slider (**desactivada** hasta tener reseñas reales) | `ax-reviews` | Deseo (prueba social) |
 | 4 | "Tu tendedero bajo techo, *que se guarda en el clóset*": imagen, 3 puntos y botón | `ax-split` | Interés y acción |
 | 5 | Franja oscura "Días de lluvia / ropa que no seca" | `ax-band` | Atención (dolor) |
-| 6 | "Pensada para *los días grises*": 4 tarjetas | `ax-cards` | Deseo |
+| 6 | "Pensada para *los días grises*": 3 tarjetas | `ax-cards` | Deseo |
 | 7 | "Es *muy sencillo*": 3 pasos | `ax-cards` (numerado) | Deseo |
 | 8 | Cinta de promesas (pago al recibir, envío, garantía) | `ax-marquee` | Confianza |
 | 9 | "Nuestra *diferencia*": secadora portátil vs. tender adentro | `ax-diff` | Deseo |

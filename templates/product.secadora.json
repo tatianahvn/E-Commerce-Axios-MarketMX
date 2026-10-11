@@ -319,7 +319,7 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-aire-360.jpg",
+            "image_file": "sec-aire-caliente.jpg",
             "title": "Calor y aire a la vez",
             "text": "Combina calor y flujo de aire a temperatura constante para quitar la humedad de toda la prenda."
           }
@@ -329,31 +329,22 @@
           "settings": {
             "image_file": "sec-base.jpg",
             "title": "Plegable y ligera",
-            "text": "Cuando terminas, pliegas la funda: la base mide 22 cm y es fácil de mover."
+            "text": "Pliegas la funda y la base de 22 cm se guarda en el clóset o se va contigo de viaje."
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-noche.jpg",
+            "image_file": "sec-calor-casa.jpg",
             "title": "Se apaga sola",
             "text": "Programa el tiempo en su pantalla digital y olvídate: se apaga cuando termina."
-          }
-        },
-        "c4": {
-          "type": "card",
-          "settings": {
-            "image_file": "sec-calor-casa.jpg",
-            "title": "Úsala donde estés",
-            "text": "En tu departamento, de viaje, de campamento o en tu casa rodante."
           }
         }
       },
       "block_order": [
         "c1",
         "c2",
-        "c3",
-        "c4"
+        "c3"
       ]
     },
     "steps": {
@@ -378,7 +369,7 @@
         "s2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-producto.jpg",
+            "image_file": "sec-base.jpg",
             "title": "Programa",
             "text": "Enciéndela, programa el tiempo en la pantalla y cierra la funda."
           }
@@ -386,9 +377,9 @@
         "s3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-frescura.jpg",
+            "image_file": "sec-funda.jpg",
             "title": "Listo",
-            "text": "Saca tu ropa seca y lista para usar. Pliega la funda y guárdala."
+            "text": "Abre la funda y saca tu ropa seca, lista para usar. Pliégala y guárdala."
           }
         }
       },
@@ -563,7 +554,7 @@
         "product": "",
         "title": "Garantía *sin riesgos*",
         "text": "Pídela hoy sin tarjeta y págala en efectivo cuando llegue a tu puerta. Si llega dañada te la reponemos sin costo, y tienes [dias] días para decirnos si algo no salió bien.",
-        "image_files": "sec-funda.jpg, sec-frescura.jpg, sec-noche.jpg, sec-closet.webp",
+        "image_files": "sec-closet.webp, sec-funda.jpg, sec-aire-caliente.jpg, sec-calor-casa.jpg",
         "cta": "Pídela hoy, págala al recibir"
       }
     },
