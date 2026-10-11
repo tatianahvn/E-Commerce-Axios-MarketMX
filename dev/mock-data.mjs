@@ -65,16 +65,14 @@ export const plainProduct = {
 // Secadora de ropa portátil: usa la plantilla product.secadora.json (paleta Miel y canela).
 // Todo su contenido vive en la plantilla. El precio es SOLO de ejemplo para la vista previa.
 const secMedia = [
-  img('sec-principal.webp', 1000, 1000, 'Secadora de ropa portátil con su base plegada y control remoto'),
-  img('sec-calor.webp', 1000, 1000, 'Aire caliente constante dentro de la funda'),
-  img('sec-prendas.webp', 1000, 1000, 'Sirve para todo tipo de telas'),
-  img('sec-ganchos.webp', 1000, 1000, 'Ganchos de acero inoxidable para 8 a 10 prendas'),
-  img('sec-aire-uv.webp', 1000, 1000, 'Modo de aire caliente y luz UV'),
-  img('sec-compacta.webp', 1000, 1000, 'Plegada cabe en un cajón, una maleta o el clóset'),
-  img('sec-medidas.webp', 1000, 1095, 'Medidas: 111 × 60.5 cm armada, 21.5 × 21.5 × 11 cm plegada'),
+  img('sec-closet.webp', 1000, 1000, 'Secadora portátil SH-005 armada en un clóset, con la base guardada en la repisa'),
+  img('sec-producto.webp', 800, 800, 'Secadora portátil con su funda beige'),
+  img('sec-rack.webp', 800, 800, 'Secadora colgada de un perchero junto a su base plegada'),
+  img('sec-aire-360.jpg', 789, 789, 'Aire caliente que circula alrededor de la prenda'),
+  img('sec-sala.jpg', 789, 789, 'Base de la secadora plegada sobre una mesa'),
 ].map((m, i) => ({ id: 9100 + i, media_type: 'image', alt: m.alt, preview_image: m, src: m.src, width: m.width, height: m.height }));
 
-const secVariant = variant(5600, 89900, 159900, { sku: 'SEC-HP901' });
+const secVariant = variant(5600, 89900, 159900, { sku: 'SEC-SH005' });
 export const secadora = {
   ...shineArmor,
   id: 1003,
@@ -84,7 +82,7 @@ export const secadora = {
   vendor: 'Axios Market',
   price: 89900,
   description:
-    '<p>Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos de acero inoxidable, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.</p><p>Temporizador de 1 a 8 horas, control remoto y pantalla LED. Cuando terminas, se pliega y la base cabe en un cajón.</p>',
+    '<p>Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.</p><p>Temporizador de 1, 2 o 4 horas y encendido con un solo botón. Cuando terminas, la funda se pliega y la base se guarda en el clóset.</p>',
   media: secMedia,
   featured_media: secMedia[0],
   featured_image: secMedia[0].preview_image,

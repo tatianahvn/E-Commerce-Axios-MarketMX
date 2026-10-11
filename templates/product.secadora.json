@@ -14,9 +14,9 @@
         "badge": "Nuevo",
         "rating": "",
         "reviews_total": "",
-        "highlights": "Seca tu ropa dentro de casa, llueva o no\nCuelgas hasta 8 a 10 prendas ligeras a la vez\nTemporizador de 1 a 8 horas y control remoto\nSe pliega y cabe en un cajón",
+        "highlights": "Seca tu ropa dentro de casa, llueva o no\nHasta 8 prendas por carga\nTemporizador de 1, 2 o 4 horas: se apaga sola\nSe enciende con un solo botón\nSe pliega y se guarda en el clóset",
         "bundles": "",
-        "specs": "Modelo | HP-901\nCalefacción | Cerámica PTC, aire caliente constante y luz UV\nTemporizador | De 1 a 8 horas\nCapacidad | 3 a 5 prendas gruesas u 8 a 10 ligeras\nMedidas armada | 111 cm de alto × 60.5 cm de ancho\nMedidas plegada | 21.5 × 21.5 × 11 cm\nGanchos | Acero inoxidable 304\nIncluye | Base con calefactor, funda plegable y control remoto",
+        "specs": "Modelo | SH-005\nTemporizador | 1, 2 o 4 horas\nCapacidad | Hasta 8 prendas\nSecado | Aire caliente que circula a 360°\nEncendido | Un solo botón\nFuncionamiento | Silencioso\nIncluye | Base secadora con gancho y funda plegable con cierre",
         "countdown_label": "La oferta termina en",
         "bundles_title": "Elige tu paquete",
         "single_note": "Ideal para probar",
@@ -43,8 +43,8 @@
         "eyebrow": "",
         "title": "Tu ropa seca, *sin depender del sol*",
         "text": "Esto es lo que cambia en tu casa desde que la conectas.",
-        "image_file": "sec-portatil.webp",
-        "image_alt": "Secadora portátil armada en una sala, con su base plegada a un lado"
+        "image_file": "sec-rack.webp",
+        "image_alt": "Secadora portátil con su funda beige, colgada de un perchero en una sala"
       },
       "blocks": {
         "m1": {
@@ -60,7 +60,7 @@
           "settings": {
             "tag": "Esa misma noche",
             "title": "El uniforme listo para mañana",
-            "text": "Prográmala antes de dormir, de 1 a 8 horas. Se apaga sola y en la mañana la ropa de la escuela o del trabajo ya está seca."
+            "text": "Elige 1, 2 o 4 horas antes de dormir. Se apaga sola y en la mañana la ropa de la escuela o del trabajo ya está seca."
           }
         },
         "m3": {
@@ -68,7 +68,7 @@
           "settings": {
             "tag": "Toda la semana",
             "title": "Tu casa sin ropa colgada por todos lados",
-            "text": "Se acabaron las sillas, puertas y cuerdas llenas de ropa mojada. Cuando terminas, la pliegas y cabe en un cajón."
+            "text": "Se acabaron las sillas, puertas y cuerdas llenas de ropa mojada. Cuando terminas, pliegas la funda y la guardas en el clóset."
           }
         },
         "m4": {
@@ -116,7 +116,6 @@
             "rating": 5,
             "text": "Aparentemente es tal como lo describen. Ya la armé y la voy a seguir probando para contarles.",
             "name": "C***a",
-            "photos": "sec-review-armada.webp, sec-review-caja-2.webp",
             "product": "secadora-ropa-portatil",
             "verified": false
           }
@@ -137,7 +136,6 @@
             "rating": 5,
             "text": "El producto coincide con la descripción.",
             "name": "Cliente anónimo",
-            "photos": "sec-review-caja.webp",
             "product": "secadora-ropa-portatil",
             "verified": false
           }
@@ -225,16 +223,17 @@
         "r9",
         "r10",
         "r11"
-      ]
+      ],
+      "disabled": true
     },
     "split": {
       "type": "ax-split",
       "settings": {
         "product": "",
-        "title": "Tu tendedero bajo techo, *que cabe en un cajón*",
+        "title": "Tu tendedero bajo techo, *que se guarda en el clóset*",
         "text": "Hecha para casas y departamentos pequeños: no necesitas patio, cuarto de lavado ni instalación. Solo un contacto y un lugar donde colgarla.",
-        "image_file": "sec-compacta.webp",
-        "image_alt": "La base plegada de la secadora cabe en un cajón, en una maleta y en el clóset",
+        "image_file": "sec-closet.webp",
+        "image_alt": "Secadora armada dentro de un clóset junto a ropa colgada, con la base guardada en la repisa",
         "cta": "Consigue la tuya ahora"
       },
       "blocks": {
@@ -243,7 +242,7 @@
           "settings": {
             "icon": "home",
             "title": "Sin instalación.",
-            "text": "Cuélgala de un perchero, un tubo o una barra con su gancho, extiende la funda y conéctala."
+            "text": "Cuélgala de un tubo, un perchero o la barra del clóset, sube la funda y conéctala."
           }
         },
         "p2": {
@@ -251,15 +250,15 @@
           "settings": {
             "icon": "moon",
             "title": "Trabaja mientras duermes.",
-            "text": "Su temporizador la apaga sola y es silenciosa: despiertas con la ropa seca."
+            "text": "Su temporizador la apaga sola y funciona sin hacer ruido: despiertas con la ropa seca."
           }
         },
         "p3": {
           "type": "point",
           "settings": {
-            "icon": "remote",
-            "title": "Control remoto y pantalla LED.",
-            "text": "Enciéndela y elige el tiempo desde donde estés."
+            "icon": "clock",
+            "title": "Un solo botón.",
+            "text": "Enciéndela y elige 1, 2 o 4 horas."
           }
         }
       },
@@ -275,7 +274,7 @@
         "title": "Días de lluvia",
         "highlight": "ropa que no seca",
         "text": "Cuando llueve varios días seguidos, la ropa se queda húmeda en el tendedero, agarra mal olor y la casa se llena de prendas colgadas.",
-        "note": "La solución se guarda en una caja de *21 cm*."
+        "note": "La solución se cuelga de *cualquier tubo* de tu casa."
       },
       "blocks": {
         "b1": {
@@ -320,33 +319,33 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-calor.webp",
-            "title": "Calor parejo por dentro",
-            "text": "El aire caliente circula por toda la funda y seca la prenda completa, no solo por fuera."
+            "image_file": "sec-aire-360.jpg",
+            "title": "Aire caliente a 360°",
+            "text": "El aire caliente circula alrededor de toda la prenda dentro de la funda, para que se seque pareja."
           }
         },
         "c2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-portatil.webp",
+            "image_file": "sec-sala.jpg",
             "title": "Plegable y portátil",
-            "text": "Armada mide 1.11 m de alto; plegada, solo 21.5 cm. Llévala de un cuarto a otro o de viaje."
+            "text": "Cuando terminas, pliegas la funda y guardas la base. Llévala de un cuarto a otro."
           }
         },
         "c3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-temporizador.webp",
-            "title": "Temporizador de 1 a 8 horas",
-            "text": "Eliges el tiempo y te olvidas: se apaga sola al terminar."
+            "image_file": "sec-noche.jpg",
+            "title": "Se apaga sola",
+            "text": "Elige 1, 2 o 4 horas y olvídate: se apaga cuando termina el tiempo."
           }
         },
         "c4": {
           "type": "card",
           "settings": {
-            "image_file": "sec-silenciosa.webp",
+            "image_file": "sec-lectura.jpg",
             "title": "Silenciosa",
-            "text": "Hace poco ruido (alrededor de 50 dB), así que puedes dejarla encendida mientras trabajas o duermes."
+            "text": "Funciona con poco ruido, así que puedes dejarla encendida mientras descansas."
           }
         }
       },
@@ -371,25 +370,25 @@
         "s1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-prendas.webp",
+            "image_file": "sec-ganchos-ropa.jpg",
             "title": "Cuelga",
-            "text": "Arma la funda, cuélgala y pon tus prendas en los ganchos de acero inoxidable."
+            "text": "Cuelga la base de un tubo, sube la funda y acomoda tus prendas en los ganchos."
           }
         },
         "s2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-aire-uv.webp",
-            "title": "Programa",
-            "text": "Con el control elige el tiempo, de 1 a 8 horas, y cierra la funda."
+            "image_file": "sec-producto.webp",
+            "title": "Elige el tiempo",
+            "text": "Presiona el botón, elige 1, 2 o 4 horas y cierra la funda."
           }
         },
         "s3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-ganchos.webp",
+            "image_file": "sec-frescura.jpg",
             "title": "Listo",
-            "text": "Saca tu ropa seca y lista para usar. Pliega la secadora y guárdala."
+            "text": "Saca tu ropa seca y lista para usar. Pliega la funda y guárdala."
           }
         }
       },
@@ -410,7 +409,7 @@
       "type": "ax-diff",
       "settings": {
         "title": "Nuestra *diferencia*",
-        "text": "Hecha para casas donde no hay espacio ni secadora: seca tu ropa bajo techo y después se guarda en un cajón.",
+        "text": "Hecha para casas donde no hay espacio ni secadora: seca tu ropa bajo techo y después se guarda en el clóset.",
         "us": "Secadora portátil",
         "them": "Tender adentro"
       },
@@ -458,7 +457,7 @@
         "d6": {
           "type": "row",
           "settings": {
-            "label": "Se guarda en un cajón",
+            "label": "Se guarda en el clóset",
             "us": true,
             "them": false
           }
@@ -486,35 +485,35 @@
           "type": "question",
           "settings": {
             "question": "¿Cuánta ropa le cabe?",
-            "answer": "<p>Depende del grosor: alrededor de 3 a 5 prendas gruesas, como sudaderas o pantalones, o hasta 8 a 10 prendas ligeras, como playeras, blusas o ropa de bebé.</p>"
+            "answer": "<p>Hasta 8 prendas por carga, según el grosor. Las prendas gruesas, como sudaderas o pantalones de mezclilla, ocupan más espacio, así que caben menos.</p>"
           }
         },
         "f2": {
           "type": "question",
           "settings": {
             "question": "¿Cuánto tarda en secar?",
-            "answer": "<p>Depende de la tela y de qué tan mojada esté. Las prendas ligeras bien exprimidas suelen quedar en 1 a 2 horas; las gruesas tardan más. Puedes programarla de 1 a 8 horas y se apaga sola.</p>"
+            "answer": "<p>Depende de la tela y de qué tan mojada esté la ropa: exprímela bien antes de colgarla. Puedes elegir 1, 2 o 4 horas y se apaga sola al terminar.</p>"
           }
         },
         "f3": {
           "type": "question",
           "settings": {
             "question": "¿Necesita instalación?",
-            "answer": "<p>No. La cuelgas con su gancho de un perchero, un tubo o una barra, extiendes la funda y la conectas.</p>"
+            "answer": "<p>No. La cuelgas con su gancho de un tubo, un perchero o la barra del clóset, subes la funda y la conectas.</p>"
           }
         },
         "f4": {
           "type": "question",
           "settings": {
             "question": "¿Maltrata la ropa?",
-            "answer": "<p>No da vueltas como una secadora de tambor: la ropa queda colgada y el aire caliente circula a temperatura constante. Sirve para algodón, lino, lana, fibras sintéticas y ropa de bebé.</p>"
+            "answer": "<p>No da vueltas como una secadora de tambor: la ropa se queda colgada mientras el aire caliente circula a su alrededor.</p>"
           }
         },
         "f5": {
           "type": "question",
           "settings": {
             "question": "¿Qué incluye?",
-            "answer": "<p>La base con calefactor, pantalla y ganchos de acero inoxidable, la funda plegable y el control remoto.</p>"
+            "answer": "<p>La base secadora con gancho para colgar y la funda plegable con cierre.</p>"
           }
         },
         "q1": {
@@ -556,7 +555,7 @@
         "product": "",
         "title": "Garantía *sin riesgos*",
         "text": "Pídela hoy sin tarjeta y págala en efectivo cuando llegue a tu puerta. Si llega dañada te la reponemos sin costo, y tienes [dias] días para decirnos si algo no salió bien.",
-        "image_files": "sec-ganchos.webp, sec-prendas.webp, sec-silenciosa.webp, sec-portatil.webp",
+        "image_files": "sec-rack.webp, sec-frescura.jpg, sec-noche.jpg, sec-closet.webp",
         "cta": "Pídela hoy, págala al recibir"
       }
     },
