@@ -13,7 +13,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
 2. **Fotos.** Salen de los creativos de Dropi (carpeta "Producto_ Secador de Ropa Zapato Portatil" en Descargas), hechos con IA, así que algunos detalles pueden variar respecto al producto real. Van completos aunque tengan texto en inglés, cada uno en la sección cuyo texto coincide:
    - Línea de tiempo: antes y después ("No more damp, musty clothes"). Es de 480 px, se ve un poco suave en escritorio.
-   - Tarjetas: "Constant temperature" (calor y aire), base plegada, "Equipped with timer" (se apaga sola) y gran capacidad.
+   - Tarjetas: "Secado de circulación descendente" (calor y aire), base plegada, "Equipped with timer" (se apaga sola) y gran capacidad.
    - Pasos: barra para perchas y gancho plegable (en español), base con pantalla y ropero.
    - Imagen + puntos: "Ampliamente usado" (en español).
    - Garantía: repisa, espacios (dormitorio, ropero, sala), "Portable dryer" y ropero.

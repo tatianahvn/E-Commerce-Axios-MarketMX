@@ -319,7 +319,7 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-temperatura.jpg",
+            "image_file": "sec-circulacion.jpg",
             "title": "Calor y aire a la vez",
             "text": "Combina calor y flujo de aire a temperatura constante para quitar la humedad de toda la prenda."
           }
