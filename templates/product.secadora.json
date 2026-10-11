@@ -100,131 +100,806 @@
         "rating": ""
       },
       "blocks": {
-        "r1": {
+        "ae-1": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "text": "Increíble: le caben 5 ganchos y en más o menos una hora la ropa está seca. Además no la arruga como las secadoras normales. Me gusta mucho.",
+            "text": "Después de usarlo una semana, lo recomiendo. Lo uso para poca ropa, de una a tres prendas; para una urgencia en épocas de lluvia es perfecto. No hace ruido. Pesa poquísimo. Calienta perfecto, facilita el secado de la ropa cercana por el calor que genera en el exterior de la bolsa. Recogido ocupa muy poco espacio. Volvería a comprar sin lugar a duda. Muy bien embalado, sin ningún desperfecto. Envío súper rápido.",
             "name": "Cliente anónimo",
+            "date": "Febrero 2026",
             "product": "secadora-ropa-portatil",
             "verified": false
           }
         },
-        "r2": {
+        "ae-7": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "text": "Aparentemente es tal como lo describen. Ya la armé y la voy a seguir probando para contarles.",
-            "name": "C***a",
-            "product": "secadora-ropa-portatil",
-            "verified": false
-          }
-        },
-        "r3": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "text": "Funciona perfectamente y es muy útil cuando el clima está húmedo para secar prendas pequeñas.",
-            "name": "S***d",
-            "product": "secadora-ropa-portatil",
-            "verified": false
-          }
-        },
-        "r4": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "text": "El producto coincide con la descripción.",
+            "text": "Primero lo probé con 3 prendas de ropa y luego con 5, incluyendo pantalones. Me sorprende lo bien que funciona. La verdad es que no esperaba que funcionara tan bien. Lo compré para mi apartamento, donde no tengo mucho espacio. Si lo hubiera sabido, lo habría comprado antes. Lo recomiendo a todos. La entrega fue muy buena. Bien empaquetado. Sin daños. Todo fue excelente.",
             "name": "Cliente anónimo",
+            "date": "Febrero 2026",
             "product": "secadora-ropa-portatil",
             "verified": false
           }
         },
-        "r5": {
+        "ae-3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "¡El producto llegó en buen estado! Es uno de los mejores productos: colocas la ropa mojada para que se seque y, en aproximadamente una hora, ¡está lista! Incluso la ropa que huele a cigarrillos, por ejemplo, ¡vuelve a oler a jabón en tan solo una hora! ¡La mejor compra de tu vida! ¡Lo recomiendo encarecidamente!",
+            "name": "J***a",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-5": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "En la vida real, no creería que esto funcionaría, pero funciona de maravilla. Seca camisetas en unos quince minutos y chaquetas gruesas de softshell en más de una hora. Las toallas salen de la lavadora en dos horas, pero se secan en cuestión de minutos en el parque acuático. Estoy encantado y satisfecho. Es tan potente que no agota la batería de la furgoneta y seca todo fácilmente.",
+            "name": "Cliente anónimo",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-10": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Muy satisfecho, pero calienta la habitación, así que en verano, si no tienes aire acondicionado, puede estar caluroso en la habitación. Sin embargo, cumple perfectamente con su propósito.",
+            "name": "Cliente anónimo",
+            "date": "Mayo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-10a.jpg"
+          }
+        },
+        "ae-35": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Funciona muy bien, seca la ropa húmeda en pocos minutos. Recomiendo este producto.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-35a.jpg"
+          }
+        },
+        "ae-15": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Funciona bien. Cable corto. Secadora para prendas cortas como camisas.",
+            "name": "M***k",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-15a.jpg"
+          }
+        },
+        "ae-18": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Producto extra. Se seca rápido. Buen precio 😉.",
+            "name": "Cliente anónimo",
+            "date": "Octubre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-18a.jpg"
+          }
+        },
+        "ae-59": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "¡Recomiendo encarecidamente este secador! Ayudó más de una vez para secar chaquetas y suéteres. ¡Genial!",
+            "name": "A***n",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-23": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Funciona muy bien, no ocupa espacio apenas y seca rápido.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-38": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Silencioso y funciona de manera uniforme.",
+            "name": "P***o",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-42": {
           "type": "review",
           "settings": {
             "rating": 4,
-            "text": "Muy útil, sobre todo para casas pequeñas.",
-            "name": "F***i",
-            "product": "secadora-ropa-portatil",
-            "verified": false
-          }
-        },
-        "r6": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "text": "Está súper práctica, fácil de usar y, lo más importante, seca muy bien la ropa.",
+            "text": "Eso está bien. Pensé que sería ruidoso. El sonido también es bastante bajo...",
             "name": "Cliente anónimo",
+            "date": "Febrero 2026",
             "product": "secadora-ropa-portatil",
             "verified": false
           }
         },
-        "r7": {
+        "ae-31": {
           "type": "review",
           "settings": {
             "rating": 4,
-            "text": "Para salir del paso y secar dos o tres prendas está bien: en una o dos horas están listas. No es para secar mucha ropa todos los días, pero es muy interesante.",
-            "name": "A***z",
-            "product": "secadora-ropa-portatil",
-            "verified": false
-          }
-        },
-        "r8": {
-          "type": "review",
-          "settings": {
-            "rating": 5,
-            "text": "Probablemente el mejor invento para las personas que viven solas.",
+            "text": "El dispositivo luce exactamente como en la imagen y parece ser de alta calidad. Pero me parece que seca más que plancha la prenda.",
             "name": "Cliente anónimo",
+            "date": "Noviembre 2025",
             "product": "secadora-ropa-portatil",
             "verified": false
           }
         },
-        "r9": {
+        "ae-41": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Funciona bien, pero como hay que colgarlo del techo es difícil encontrar un lugar adecuado para usarlo.",
+            "name": "M***o",
+            "date": "Enero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-52": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Se seca moderadamente. La manguera no es de muy buena calidad.",
+            "name": "B***r",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-44": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Funciona bien, pero el enchufe está muy flojo.",
+            "name": "D***l",
+            "date": "Mayo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-0": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "text": "Le caben unas 3 prendas gruesas. Secó bien y me gustó; fue una buena compra.",
+            "text": "Muy contenta con esta secadora de ropa. Ya tengo una anterior del mismo modelo y la uso con frecuencia en los días de lluvia, cuando no se puede tender la ropa en el exterior. Es estupenda, porque te permite secar ropa en cualquier espacio de tu casa. Yo la tengo puesta sobre la barra de la cortina del baño. Hay que ponerlo en una zona que no esté el aparato pegado en la pared. Una vez colgado, se introduce la ropa en perchas, se cierra la cremallera, la conectamos a la red eléctrica y podemos encenderla con el mando a distancia o a mano, en los botones de la pantalla de la propia secadora. Le ponemos el tiempo y la temperatura y listo. El envío ha sido rápido. El único inconveniente es que no trae su caja, sino que viene en la caja de cartón del envío. Mi anterior secadora venía también con su caja.",
             "name": "Cliente anónimo",
+            "date": "Marzo 2026",
             "product": "secadora-ropa-portatil",
-            "verified": false
-          }
+            "verified": false,
+            "photos": "sec-rev-00a.jpg, sec-rev-00b.jpg"
+          },
+          "disabled": true
         },
-        "r10": {
+        "ae-2": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "text": "Genial. La compré para acampar, pero también se puede usar en casa o cuando viajas.",
-            "name": "W***r",
+            "text": "Secadora conveniente. Quiero mencionar que al secar toallas, pantalones o vestidos (artículos largos), la parte inferior permanece húmeda mientras que la parte superior ya está seca. La ropa de niños se seca rápidamente y de manera uniforme (5 suéteres y 2 pantalones secados en 80 minutos). En general, recomiendo comprarla. La entrega es rápida y todo viene bien empaquetado. Por este precio (comprada por 90 PLN) es excelente.",
+            "name": "K***r",
+            "date": "Noviembre 2025",
             "product": "secadora-ropa-portatil",
-            "verified": false
-          }
+            "verified": false,
+            "photos": "sec-rev-02a.jpg, sec-rev-02b.jpg"
+          },
+          "disabled": true
         },
-        "r11": {
+        "ae-4": {
           "type": "review",
           "settings": {
             "rating": 5,
-            "text": "Fabulosa, cumple su función. Lo único es que hay que tener paciencia para acomodar la funda en el aparato la primera vez.",
+            "text": "Dispositivo muy ingenioso. El aire caliente y la luz UV-C, junto con un ventilador, ofrecen un rendimiento excelente. 1h y un montón de camisetas y calcetines están secos. Una cómoda forma tipo caja facilita su almacenamiento en baños pequeños. Recomiendo. El mejor gasto de 30 $ este año 😎",
             "name": "Cliente anónimo",
+            "date": "Abril 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-04a.jpg, sec-rev-04b.jpg"
+          },
+          "disabled": true
+        },
+        "ae-6": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "La máquina perfecta, altamente recomendada. La utilicé en un día lluvioso y funciona a la perfección. 👍🏻",
+            "name": "Cliente anónimo",
+            "date": "Noviembre 2025",
             "product": "secadora-ropa-portatil",
             "verified": false
           }
+        },
+        "ae-8": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Funciona como debería. Me preocupaba que no lo manejara bien, pero resultó secar muy bien.",
+            "name": "Cliente anónimo",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-9": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Llegó en 14 días. Excelente embalaje: caja + material suave en el interior. Funciona, incluye control remoto, potencia de 600W. Revisión adicional: 25$ pagados con créditos, 7$ con fondos personales.",
+            "name": "Cliente anónimo",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-09a.jpg, sec-rev-09b.jpg"
+          },
+          "disabled": true
+        },
+        "ae-11": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "El artículo llegó bien empaquetado y en buen estado. Es de 220V, lo cual era perfecto para nuestro uso. No compres otros productos; compra este. Es excelente.",
+            "name": "Cliente anónimo",
+            "date": "Mayo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-11a.jpg"
+          },
+          "disabled": true
+        },
+        "ae-12": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "La secadora llegó antes del plazo declarado. Después de dos usos, no puedo hacer más que recomendar este producto ;)",
+            "name": "A***a",
+            "date": "Octubre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-13": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Llegó perfecto, exactamente como se describió. Altamente recomendado. Funciona bien y se calienta.",
+            "name": "Cliente anónimo",
+            "date": "Enero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-14": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Perfecto para utilizar si tienes prisa por secar algunas prendas. Lo recomiendo.",
+            "name": "M***r",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-16": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Lo recomiendo ampliamente.",
+            "name": "Cliente anónimo",
+            "date": "Octubre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-17": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Excelente producto, se seca rápidamente.",
+            "name": "Cliente anónimo",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-19": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Finalmente, este vendedor fue honesto y profesional, y envió el producto tal como se describía en el anuncio. Muchas gracias. Intenté comprar este producto a otros 2 vendedores y me enviaron productos completamente diferentes.",
+            "name": "Cliente anónimo",
+            "date": "Mayo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-20": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Está muyyyyyy bien, se ve perfecto. Bien protegido y vino mucho antes de lo que decían. Voy a probar y ya diré.",
+            "name": "M***o",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-21": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Recibí el paquete, muy bien embalado. En cuanto al dispositivo, es muy sencillo y está bien diseñado.",
+            "name": "Cliente anónimo",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-22": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Me sorprendió gratamente, funciona perfectamente. La he usado dos veces y es genial.",
+            "name": "J***z",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-24": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "El dispositivo funciona de maravilla. Solo el control remoto dejó de responder después de un día. Pero de todos modos no lo necesito.",
+            "name": "J***t",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-25": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Producto de gran calidad y excelente artesanía, aunque aún no he tenido la oportunidad de usarlo para probarlo.",
+            "name": "K***g",
+            "date": "Enero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-26": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Es perfecto, cumple totalmente con su objetivo.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-27": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Excelente producto y vendedor.",
+            "name": "Cliente anónimo",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-28": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "El embalaje se realizó correctamente y tiene un buen aspecto. El acabado es de calidad.",
+            "name": "Cliente anónimo",
+            "date": "Mayo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-29": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Tal como se describe, aún no lo he probado, pero funciona y la calidad de construcción es sólida.",
+            "name": "Cliente anónimo",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-30": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Bueno.",
+            "name": "C***z",
+            "date": "Enero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-32": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "¡Muy bien!",
+            "name": "V***h",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-33": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Calidad 👌",
+            "name": "Cliente anónimo",
+            "date": "Junio 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-34": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "El dispositivo coincide con lo que se muestra en las imágenes y está siendo probado para determinar su calidad y eficacia.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-36": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Funcionando bien.",
+            "name": "Y***y",
+            "date": "Enero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-37": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Antes de usarlo, lo probé y funcionó muy bien. Gracias.",
+            "name": "Cliente anónimo",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-39": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Llegó en buen estado.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-40": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Todo funciona.",
+            "name": "R***a",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-43": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Funcionando bien hasta ahora.",
+            "name": "A***r",
+            "date": "Mayo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-45": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Cumple con su deber.",
+            "name": "Cliente anónimo",
+            "date": "Mayo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-45a.jpg"
+          }
+        },
+        "ae-46": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Aún no lo he estrenado. Cuando lo haga, si tengo opción de exponer cómo me fue la experiencia, lo pondré.",
+            "name": "J***r",
+            "date": "Enero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-47": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Aún no sé cómo va y qué tal será, es para un regalo. El envío ha sido en una semana, muy bien embalado.",
+            "name": "L***r",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-48": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Aún no lo he usado, pero estoy deseando probarlo.",
+            "name": "Cliente anónimo",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-48a.jpg"
+          }
+        },
+        "ae-49": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Lo encendí y está funcionando. Veamos si seca bien la ropa.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-50": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Ok.",
+            "name": "Cliente anónimo",
+            "date": "Abril 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-51": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Está bien.",
+            "name": "L***i",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-53": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Como en la página, falta probar.",
+            "name": "Cliente anónimo",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-54": {
+          "type": "review",
+          "settings": {
+            "rating": 1,
+            "text": "No funciona, no enciende, es inútil. Tiré mi dinero a la basura.",
+            "name": "Cliente anónimo",
+            "date": "Junio 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false,
+            "photos": "sec-rev-54a.jpg, sec-rev-54b.jpg"
+          },
+          "disabled": true
+        },
+        "ae-55": {
+          "type": "review",
+          "settings": {
+            "rating": 1,
+            "text": "Gracias por el reembolso, seguiré comprando.",
+            "name": "Cliente anónimo",
+            "date": "Marzo 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-56": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "¿Estás bien?",
+            "name": "Cliente anónimo",
+            "date": "Noviembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-57": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Justo como me habían dicho, muy contento, perfecto, gracias.",
+            "name": "Cliente anónimo",
+            "date": "Abril 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-58": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Recibido a tiempo y de calidad excepcional.",
+            "name": "B***s",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "ae-193": {
+          "type": "review",
+          "settings": {
+            "rating": 1,
+            "text": "La entrega bien. El artículo roto, no se hacen responsables, y la devolución que me dan es de €5 y yo he pagado por algo roto €28. DESASTRE.",
+            "name": "E***r",
+            "date": "Diciembre 2025",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-194": {
+          "type": "review",
+          "settings": {
+            "rating": 1,
+            "text": "No plancha nada. Lo probé varias veces con camisas y pantalones, lo dejé encendido durante dos horas o más. No plancha.",
+            "name": "Cliente anónimo",
+            "date": "Enero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-211": {
+          "type": "review",
+          "settings": {
+            "rating": 1,
+            "text": "No pudieron entregármelo por problemas de aduana.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
+        },
+        "ae-212": {
+          "type": "review",
+          "settings": {
+            "rating": 1,
+            "text": "Nunca me llegó.",
+            "name": "Cliente anónimo",
+            "date": "Febrero 2026",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          },
+          "disabled": true
         }
       },
       "block_order": [
-        "r1",
-        "r2",
-        "r3",
-        "r4",
-        "r5",
-        "r6",
-        "r7",
-        "r8",
-        "r9",
-        "r10",
-        "r11"
-      ],
-      "disabled": true
+        "ae-10",
+        "ae-35",
+        "ae-1",
+        "ae-15",
+        "ae-7",
+        "ae-18",
+        "ae-3",
+        "ae-5",
+        "ae-45",
+        "ae-59",
+        "ae-23",
+        "ae-38",
+        "ae-42",
+        "ae-31",
+        "ae-41",
+        "ae-52",
+        "ae-44",
+        "ae-0",
+        "ae-2",
+        "ae-4",
+        "ae-6",
+        "ae-8",
+        "ae-9",
+        "ae-11",
+        "ae-12",
+        "ae-13",
+        "ae-14",
+        "ae-16",
+        "ae-17",
+        "ae-19",
+        "ae-20",
+        "ae-21",
+        "ae-22",
+        "ae-24",
+        "ae-25",
+        "ae-26",
+        "ae-27",
+        "ae-28",
+        "ae-29",
+        "ae-30",
+        "ae-32",
+        "ae-33",
+        "ae-34",
+        "ae-36",
+        "ae-37",
+        "ae-39",
+        "ae-40",
+        "ae-43",
+        "ae-46",
+        "ae-47",
+        "ae-48",
+        "ae-49",
+        "ae-50",
+        "ae-51",
+        "ae-53",
+        "ae-54",
+        "ae-55",
+        "ae-56",
+        "ae-57",
+        "ae-58",
+        "ae-193",
+        "ae-194",
+        "ae-211",
+        "ae-212"
+      ]
     },
     "split": {
       "type": "ax-split",

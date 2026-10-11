@@ -198,7 +198,7 @@ const buildSettings = (defs = [], given = {}) => {
 async function renderSection(type, data, id, globals) {
   const schema = schemaOf(type);
   const blocksSource = data
-    ? (data.block_order || []).map((k) => data.blocks[k])
+    ? (data.block_order || []).map((k) => data.blocks[k]).filter((b) => !b.disabled)
     : (schema.default?.blocks || []);
   const section = {
     id,
