@@ -88,7 +88,7 @@
 
 .ax-story__media img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
   object-fit: cover;
   object-position: center bottom;
   border-radius: var(--ax-radius-lg);
@@ -137,9 +137,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 32px;
     align-items: center;
-  }
-  .ax-story__media img {
-    aspect-ratio: 4 / 5;
   }
 }
 

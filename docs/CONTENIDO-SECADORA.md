@@ -11,7 +11,14 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 ## ⚠️ Antes de vender
 
 1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
-2. **Fotos.** Salen de los creativos de Dropi (carpeta "Producto_ Secador de Ropa Zapato Portatil" en Descargas), hechos con IA, así que algunos detalles pueden variar respecto al producto real. Se recortaron para quitar textos en inglés y el logo de otra tienda (HYPER MODA). `sec-usos.jpg` va completo porque ya está en español. Se dejaron fuera los que hablan de luz UV, antibacterial o "600 W" (no confirmados por Dropi) y el de "hasta 8 piezas o 10 kg", que contradice las 9 prendas de Dropi.
+2. **Fotos.** Salen de los creativos de Dropi (carpeta "Producto_ Secador de Ropa Zapato Portatil" en Descargas), hechos con IA, así que algunos detalles pueden variar respecto al producto real. Van completos aunque tengan texto en inglés, cada uno en la sección cuyo texto coincide:
+   - Línea de tiempo: antes y después ("No more damp, musty clothes"). Es de 480 px, se ve un poco suave en escritorio.
+   - Tarjetas: "Constant temperature" (calor y aire), base plegada, "Equipped with timer" (se apaga sola) y gran capacidad.
+   - Pasos: barra para perchas y gancho plegable (en español), base con pantalla y ropero.
+   - Imagen + puntos: "Ampliamente usado" (en español).
+   - Garantía: repisa, espacios (dormitorio, ropero, sala), "Portable dryer" y ropero.
+   La base plegada es un recorte, para quitar el logo HYPER MODA de otra tienda.
+   **Ojo:** dos creativos dicen cosas que la página no promete. El de los pasos dice "hasta 8 piezas o 10 kg" (Dropi dice 9 prendas) y el de "se apaga sola" muestra abajo luz UV (Dropi no la menciona). Cámbialos o confirma con Dropi cuando hagas las correcciones.
    Dos fotos de clientes en la carpeta (`imgi_67`, `imgi_68`) muestran **clavija americana**: buena señal para el voltaje, pero son muy chicas (166 × 220 px) para usarlas.
 3. **Reseñas.** La sección de reseñas está **desactivada**: las 11 reseñas que había eran de otro modelo (HP-901). Actívala (Personalizar → Reseñas → mostrar) cuando tengas opiniones reales, y cambia los textos de los bloques.
 4. **Precio y paquetes.** Quedan pendientes. En la vista previa local se usan $899 y $1,599 solo de ejemplo.
@@ -22,7 +29,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 - **Título:** `Secadora de Ropa Portátil | Plegable con temporizador`
 - **Identificador (handle):** `secadora-ropa-portatil`
 - **Plantilla:** en la ficha del producto → *Plantilla del tema* → **`secadora`**.
-- **Fotos del producto:** las de Dropi. De `assets/`, sirven `sec-estilo.jpg`, `sec-medidas.jpg`, `sec-usos.jpg`, `sec-ropero.jpg` y `sec-calor-base.jpg`.
+- **Fotos del producto:** las de Dropi. De `assets/`, sirven `sec-estilo.jpg`, `sec-espacios.jpg`, `sec-perchas.jpg`, `sec-temporizador.jpg`, `sec-usos.jpg` y `sec-medidas.jpg`.
 - **Descripción:**
 
   > Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.

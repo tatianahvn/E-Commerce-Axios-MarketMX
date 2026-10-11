@@ -66,10 +66,11 @@ export const plainProduct = {
 // Todo su contenido vive en la plantilla. El precio es SOLO de ejemplo para la vista previa.
 const secMedia = [
   img('sec-estilo.jpg', 1000, 1000, 'Secadora portátil armada y su base plegada sobre una repisa'),
-  img('sec-medidas.jpg', 1000, 1000, 'Secadora portátil armada y plegada, con sus medidas'),
+  img('sec-espacios.jpg', 1000, 1000, 'La secadora en un dormitorio, un ropero y una sala'),
+  img('sec-perchas.jpg', 1000, 1000, 'Gran capacidad, barra para perchas y gancho plegable'),
+  img('sec-temporizador.jpg', 1000, 1000, 'Temporizador y secado con aire caliente'),
   img('sec-usos.jpg', 1000, 1000, 'Usos: ropero, dormitorio, casa rodante y viajes'),
-  img('sec-ropero.jpg', 925, 750, 'Secadora armada dentro de un ropero'),
-  img('sec-calor-base.jpg', 1000, 797, 'Base con pantalla digital soltando aire caliente'),
+  img('sec-medidas.jpg', 1000, 1000, 'Secadora portátil armada y plegada, con sus medidas'),
 ].map((m, i) => ({ id: 9100 + i, media_type: 'image', alt: m.alt, preview_image: m, src: m.src, width: m.width, height: m.height }));
 
 const secVariant = variant(5600, 89900, 159900, { sku: 'SEC-36701' });

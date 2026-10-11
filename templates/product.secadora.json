@@ -43,8 +43,8 @@
         "eyebrow": "",
         "title": "Tu ropa seca, *sin depender del sol*",
         "text": "Esto es lo que cambia en tu casa desde que la conectas.",
-        "image_file": "sec-sala-estante.jpg",
-        "image_alt": "Secadora armada en una repisa junto a su base plegada"
+        "image_file": "sec-antes-despues.jpg",
+        "image_alt": "Antes: ropa húmeda colgada en el balcón. Después: ropa seca dentro de la secadora"
       },
       "blocks": {
         "m1": {
@@ -319,7 +319,7 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-calor-base.jpg",
+            "image_file": "sec-temperatura.jpg",
             "title": "Calor y aire a la vez",
             "text": "Combina calor y flujo de aire a temperatura constante para quitar la humedad de toda la prenda."
           }
@@ -335,7 +335,7 @@
         "c3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-recamara.jpg",
+            "image_file": "sec-temporizador.jpg",
             "title": "Se apaga sola",
             "text": "Programa el tiempo en su pantalla digital y olvídate: se apaga cuando termina."
           }
@@ -370,7 +370,7 @@
         "s1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-barra-ganchos.jpg",
+            "image_file": "sec-perchas.jpg",
             "title": "Cuelga",
             "text": "Cuelga la base de un tubo, sube la funda y acomoda tus prendas en la barra de ganchos."
           }
@@ -378,7 +378,7 @@
         "s2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-base.jpg",
+            "image_file": "sec-calor-base.jpg",
             "title": "Programa",
             "text": "Enciéndela, programa el tiempo en la pantalla y cierra la funda."
           }
@@ -563,7 +563,7 @@
         "product": "",
         "title": "Garantía *sin riesgos*",
         "text": "Pídela hoy sin tarjeta y págala en efectivo cuando llegue a tu puerta. Si llega dañada te la reponemos sin costo, y tienes [dias] días para decirnos si algo no salió bien.",
-        "image_files": "sec-sala-estante.jpg, sec-ropero.jpg, sec-litera.jpg, sec-calor-base.jpg",
+        "image_files": "sec-estilo.jpg, sec-espacios.jpg, sec-360.jpg, sec-ropero.jpg",
         "cta": "Pídela hoy, págala al recibir"
       }
     },
