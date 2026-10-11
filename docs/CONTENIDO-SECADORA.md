@@ -13,11 +13,11 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
 2. **Fotos.** Salen de los creativos de Dropi (carpeta "Producto_ Secador de Ropa Zapato Portatil" en Descargas), hechos con IA, así que algunos detalles pueden variar respecto al producto real. Van completos aunque tengan texto en inglés, cada uno en la sección cuyo texto coincide:
    - Línea de tiempo: antes y después ("No more damp, musty clothes"). Es de 480 px, se ve un poco suave en escritorio.
-   - Tarjetas: "Secado de circulación descendente" (calor y aire), "Compact & portable" (plegable y ligera), "Equipped with timer" (se apaga sola) y gran capacidad.
+   - Tarjetas: "Secado de circulación descendente" (calor y aire), "Compact & portable" (plegable y ligera), "Dual-mode drying" con el dedo en la pantalla (se apaga sola) y gran capacidad.
    - Pasos: barra para perchas y gancho plegable (en español), base con pantalla y ropero.
    - Imagen + puntos: "Ampliamente usado" (en español).
    - Garantía: repisa, espacios (dormitorio, ropero, sala), "Portable dryer" y ropero.
-   **Ojo:** dos creativos dicen cosas que la página no promete. El de los pasos dice "hasta 8 piezas o 10 kg" (Dropi dice 9 prendas) y el de "se apaga sola" muestra abajo luz UV (Dropi no la menciona). Cámbialos o confirma con Dropi cuando hagas las correcciones.
+   **Ojo:** un creativo dice algo que la página no promete: el de los pasos dice "hasta 8 piezas o 10 kg" (Dropi dice 9 prendas). Cámbialo o confirma con Dropi cuando hagas las correcciones.
    Dos fotos de clientes en la carpeta (`imgi_67`, `imgi_68`) muestran **clavija americana**: buena señal para el voltaje, pero son muy chicas (166 × 220 px) para usarlas.
 3. **Reseñas.** La sección de reseñas está **desactivada**: las 11 reseñas que había eran de otro modelo (HP-901). Actívala (Personalizar → Reseñas → mostrar) cuando tengas opiniones reales, y cambia los textos de los bloques.
 4. **Precio y paquetes.** Quedan pendientes. En la vista previa local se usan $899 y $1,599 solo de ejemplo.
