@@ -5,13 +5,13 @@ import { Liquid, Tag, Hash } from 'liquidjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { shineArmor, plainProduct } from './mock-data.mjs';
+import { shineArmor, plainProduct, secadora } from './mock-data.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const theme = path.resolve(here, '..');
 const out = path.join(here, 'out');
 const read = (p) => fs.readFileSync(path.join(theme, p), 'utf8');
-const products = [shineArmor];
+const products = [shineArmor, secadora];
 
 // Fotos reales: se leen de la página pública del producto en la tienda (sin iniciar sesión).
 // Si no hay conexión, se quedan las fotos de ejemplo de mock-data.mjs.
@@ -37,7 +37,7 @@ async function useStoreImages(product) {
   }
 }
 await useStoreImages(shineArmor);
-const byHandle = (h) => [shineArmor, plainProduct].find((p) => p.handle === h) || null;
+const byHandle = (h) => [shineArmor, plainProduct, secadora].find((p) => p.handle === h) || null;
 
 // Sintaxis de Shopify que LiquidJS no entiende tal cual
 const shopifyToLiquidjs = (src) => src.replace(/posted_successfully\?/g, 'posted_successfully');
@@ -275,6 +275,7 @@ if (!fs.existsSync(assetsLink)) fs.symlinkSync(path.join(theme, 'assets'), asset
 
 await renderPage('index.json', 'index.html', { name: 'index' }, { page_title: 'Axios Market MX' });
 await renderPage('product.json', 'products/shine-armor/index.html', { name: 'product' }, { product: shineArmor, page_title: shineArmor.title });
+await renderPage('product.secadora.json', 'products/secadora-ropa-portatil/index.html', { name: 'product', suffix: 'secadora' }, { product: secadora, page_title: secadora.title });
 await renderPage('product.json', 'products/producto-nuevo/index.html', { name: 'product' }, { product: plainProduct, page_title: plainProduct.title });
 await renderPage('collection.json', 'collections/all/index.html', { name: 'collection' }, {
   collection: { title: 'Todos los productos', description: '', products, products_count: products.length, sort_options: [{ value: 'best-selling', name: 'Más vendidos' }, { value: 'price-ascending', name: 'Precio: menor a mayor' }], default_sort_by: 'best-selling' },

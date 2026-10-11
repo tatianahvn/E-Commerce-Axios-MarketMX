@@ -1,10 +1,7 @@
 {%- comment -%}
-  Preguntas frecuentes: primero las del producto (metacampo axios.faq, "Pregunta | Respuesta")
-  y después las generales de la tienda (bloques de esta sección).
+  Preguntas frecuentes: cada pregunta es un bloque de esta sección (sin metacampos).
 {%- endcomment -%}
 {%- liquid
-  assign p = section.settings.product | default: product
-  assign product_faq = p.metafields.axios.faq.value
   assign support_email = settings.ax_support_email | default: shop.email
 -%}
 <section class="ax-section{% if section.settings.soft %} ax-section--soft{% endif %}" id="preguntas" aria-labelledby="ax-faq-{{ section.id }}">
@@ -12,14 +9,6 @@
     {%- assign head_id = 'ax-faq-' | append: section.id -%}
     {% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, id: head_id %}
     <div class="ax-faq">
-      {%- for item in product_faq -%}
-        {%- assign parts = item | split: '|' -%}
-        {%- assign answer = parts[1] | strip -%}
-        <details class="ax-details ax-reveal">
-          <summary>{{ parts[0] | strip }} {% render 'ax-icon', name: 'chevron' %}</summary>
-          <div class="ax-details__body"><p>{% render 'ax-tokens', text: answer %}</p></div>
-        </details>
-      {%- endfor -%}
       {%- for block in section.blocks -%}
         <details class="ax-details ax-reveal" {{ block.shopify_attributes }}>
           <summary>{{ block.settings.question }} {% render 'ax-icon', name: 'chevron' %}</summary>
@@ -40,7 +29,7 @@
 {
   "name": "Preguntas frecuentes",
   "settings": [
-    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página (sus preguntas salen primero)." },
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
     { "type": "text", "id": "eyebrow", "label": "Etiqueta", "default": "Resolvemos tus dudas" },
     { "type": "text", "id": "title", "label": "Título", "default": "Preguntas *frecuentes*" },
     { "type": "checkbox", "id": "soft", "label": "Fondo gris claro", "default": false }

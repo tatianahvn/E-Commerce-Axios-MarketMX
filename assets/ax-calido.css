@@ -1,0 +1,681 @@
+/* ==========================================================================
+   Paleta "Miel y canela" para UNA plantilla de producto: crema, amarillo miel, naranja canela y café.
+   Letra: Nunito (títulos y texto).
+   La carga la sección "Paleta de la página" (sections/ax-skin.liquid); el resto de la tienda no cambia.
+   Los colores se redefinen solo dentro de #ax-main: encabezado y pie se quedan con los de la tienda.
+   También trae los estilos de las secciones de esa plantilla: ax-story, ax-split, ax-band, ax-cards,
+   ax-marquee, ax-diff y ax-promise. Mobile first, igual que ax.css.
+
+   Paleta: #FFF8EC crema · #FCEBC7 crema miel · #F6B93B miel · #E07B2E canela · #8A4B20 café · #3A2717 espresso
+   La canela (#E07B2E) no alcanza contraste para texto: es solo para íconos y adornos. Para texto y
+   botones con letra blanca se usa una canela tostada (#B95A1A, 4.6:1 sobre blanco).
+   ========================================================================== */
+
+#ax-main {
+  --ax-bg: #fffcf5;
+  --ax-soft: #fff8ec;
+  --ax-soft-2: #fcebc7;
+  --ax-ink: #3a2717;
+  --ax-ink-2: #5a4130;
+  --ax-muted: #7d6550;
+  --ax-line: #f3e3c3;
+  --ax-black: #3a2717;
+  --ax-red: #b95a1a;
+  --ax-red-hover: #9e4c15;
+  --ax-red-ink: #9e4c15;
+  --ax-red-tint: #fce6d2;
+  --ax-shadow-red: 0 8px 20px rgb(185 90 26 / 0.25);
+  --ax-star: #f6b93b;
+  --ax-sun: #f6b93b;
+  --ax-sun-hover: #eea81f;
+  --ax-sun-soft: #fce1a0;
+  --ax-canela: #e07b2e;
+  --ax-cafe: #8a4b20;
+  --ax-peach: #fdf0da;
+  --ax-font: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ax-font-head: 'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  background: var(--ax-bg);
+  color: var(--ax-ink);
+  font-family: var(--ax-font);
+}
+
+#ax-main :focus-visible {
+  outline-color: var(--ax-red);
+}
+
+/* ---------- Títulos ---------- */
+#ax-main .ax-title {
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+#ax-main .ax-title em {
+  font-style: normal;
+  color: var(--ax-red);
+}
+
+#ax-main .ax-section--dark .ax-title em {
+  color: var(--ax-sun);
+}
+
+/* ---------- Botón ámbar (el de la referencia) ---------- */
+.ax-btn--sun {
+  background: var(--ax-sun);
+  color: var(--ax-ink);
+  border: 2px solid var(--ax-ink);
+  box-shadow: 0 4px 0 var(--ax-ink);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+}
+
+.ax-btn--sun:hover {
+  background: var(--ax-sun-hover);
+}
+
+.ax-btn--sun:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--ax-ink);
+}
+
+/* ---------- Imagen + línea de tiempo ---------- */
+.ax-story__grid {
+  display: grid;
+  gap: 20px;
+}
+
+.ax-story__media img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center bottom;
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-soft-2);
+}
+
+.ax-story__list {
+  display: grid;
+  gap: 12px;
+  counter-reset: none;
+}
+
+.ax-story__item {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border: 1px solid var(--ax-line);
+  border-radius: var(--ax-radius);
+  background: var(--ax-bg);
+}
+
+.ax-story__tag {
+  justify-self: start;
+  padding: 3px 10px;
+  border: 1px solid var(--ax-soft-2);
+  border-radius: 6px;
+  background: var(--ax-peach);
+  color: var(--ax-red-ink);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.ax-story__item h3 {
+  font-family: var(--ax-font-head);
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.ax-story__item p {
+  color: var(--ax-ink-2);
+  font-size: 15px;
+}
+
+@media (min-width: 900px) {
+  .ax-story__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+  .ax-story__media img {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* ---------- Reseñas (el slider es el de ax.css) ---------- */
+#ax-main .ax-review {
+  border-radius: var(--ax-radius-lg);
+}
+
+#ax-main .ax-review__photos {
+  order: -1;
+}
+
+#ax-main .ax-review__photos a {
+  width: 110px;
+  height: 140px;
+  border-radius: 12px;
+}
+
+#ax-main .ax-review__avatar {
+  background: var(--ax-red);
+}
+
+#ax-main .ax-rsum {
+  border-radius: 999px;
+}
+
+/* ---------- Imagen + puntos + botón ---------- */
+.ax-split {
+  display: grid;
+  gap: 20px;
+  padding: 14px;
+  border: 1px solid var(--ax-line);
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-bg);
+  box-shadow: 0 4px 24px rgb(58 39 23 / 0.06);
+}
+
+.ax-split__media img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--ax-radius);
+}
+
+.ax-split__body {
+  display: grid;
+  gap: 16px;
+  align-content: center;
+}
+
+.ax-split__points {
+  display: grid;
+  gap: 10px;
+}
+
+.ax-split__points li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--ax-peach);
+  font-size: 15px;
+  color: var(--ax-ink-2);
+}
+
+.ax-split__points strong {
+  color: var(--ax-ink);
+}
+
+.ax-split__icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 10px;
+  background: var(--ax-bg);
+  color: var(--ax-red);
+}
+
+.ax-split__icon .ax-icon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width: 900px) {
+  .ax-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 20px;
+  }
+}
+
+/* ---------- Franja oscura: el problema ---------- */
+.ax-band {
+  background: var(--ax-black);
+}
+
+.ax-band__grid {
+  display: grid;
+  gap: 28px;
+}
+
+.ax-band__intro {
+  display: grid;
+  gap: 14px;
+  text-align: center;
+  justify-items: center;
+}
+
+.ax-band__title {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  font-family: var(--ax-font-head);
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.ax-band__mark {
+  display: inline-block;
+  padding: 2px 14px 4px;
+  border-radius: 6px;
+  background: var(--ax-sun);
+  color: var(--ax-ink);
+  transform: rotate(-2deg);
+}
+
+.ax-band__side {
+  display: grid;
+  gap: 18px;
+}
+
+.ax-band__points {
+  display: grid;
+  gap: 16px;
+}
+
+.ax-band__points li {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgb(255 255 255 / 0.12);
+}
+
+.ax-band__points li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.ax-band__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  flex: none;
+  border: 2px solid var(--ax-sun);
+  border-radius: 999px;
+  color: var(--ax-sun);
+}
+
+.ax-band__points p {
+  color: rgb(255 255 255 / 0.86);
+}
+
+.ax-band__points em,
+.ax-band__note em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--ax-white);
+}
+
+.ax-band__note {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: var(--ax-soft);
+  color: var(--ax-ink);
+  font-size: 15px;
+  text-align: center;
+}
+
+.ax-band__note em {
+  color: var(--ax-red);
+}
+
+@media (min-width: 900px) {
+  .ax-band__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .ax-band__title {
+    font-size: 40px;
+  }
+}
+
+/* ---------- Tarjetas con imagen ---------- */
+.ax-cards {
+  display: grid;
+  gap: 16px;
+}
+
+.ax-cards--4 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 12px;
+}
+
+.ax-card {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  text-align: center;
+}
+
+.ax-card__media {
+  position: relative;
+}
+
+.ax-card__media img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-soft-2);
+}
+
+.ax-card__num {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 2px solid var(--ax-ink);
+  border-radius: 999px;
+  background: var(--ax-sun);
+  color: var(--ax-ink);
+  font-weight: 800;
+}
+
+.ax-card__body {
+  display: grid;
+  gap: 4px;
+}
+
+.ax-card h3 {
+  color: var(--ax-red);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.ax-card p {
+  color: var(--ax-ink-2);
+  font-size: 14px;
+}
+
+.ax-cards--framed .ax-card {
+  padding: 10px 10px 16px;
+  border: 1px solid var(--ax-line);
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-bg);
+  box-shadow: 0 2px 10px rgb(58 39 23 / 0.06);
+}
+
+.ax-cards--framed .ax-card__media img {
+  border-radius: var(--ax-radius);
+}
+
+.ax-cards-wrap--slant {
+  padding: calc(var(--ax-section) + 4vw) 0;
+  clip-path: polygon(0 4vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
+}
+
+@media (min-width: 900px) {
+  .ax-cards--3 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .ax-cards--4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .ax-card h3 {
+    font-size: 18px;
+  }
+}
+
+/* ---------- Cinta de promesas ---------- */
+.ax-marquee {
+  padding: 16px 0 18px;
+  background: var(--ax-black);
+  color: var(--ax-white);
+  overflow: hidden;
+}
+
+.ax-marquee__label {
+  margin-bottom: 10px;
+  color: var(--ax-sun);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.ax-marquee__viewport {
+  display: flex;
+  width: max-content;
+  animation: ax-marquee 32s linear infinite;
+}
+
+.ax-marquee__track {
+  display: flex;
+  gap: 36px;
+  padding-right: 36px;
+}
+
+.ax-marquee__track li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ax-marquee__track .ax-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--ax-sun);
+  stroke-width: 3;
+}
+
+@keyframes ax-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ax-marquee__viewport {
+    width: auto;
+    justify-content: center;
+    animation: none;
+  }
+  .ax-marquee__track {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 24px;
+    padding: 0 var(--ax-gutter);
+  }
+  .ax-marquee__track[aria-hidden='true'] {
+    display: none;
+  }
+}
+
+/* ---------- Nuestra diferencia (tabla) ---------- */
+.ax-diff {
+  display: grid;
+  gap: 24px;
+}
+
+.ax-diff__intro {
+  display: grid;
+  gap: 10px;
+  text-align: center;
+  justify-items: center;
+}
+
+.ax-diff__table {
+  padding-top: 18px;
+}
+
+.ax-diff__table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--ax-line);
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-bg);
+  font-size: 14px;
+}
+
+.ax-diff__table th,
+.ax-diff__table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--ax-line);
+  text-align: center;
+}
+
+.ax-diff__table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+.ax-diff__table thead th {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ax-muted);
+}
+
+.ax-diff__table tbody th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ax-ink);
+}
+
+.ax-diff__table .is-us {
+  width: 28%;
+  background: var(--ax-sun-soft);
+  border-bottom-color: rgb(43 33 24 / 0.08);
+}
+
+.ax-diff__table thead .is-us {
+  position: relative;
+  background: var(--ax-sun);
+  color: var(--ax-ink);
+}
+
+.ax-diff__table thead .is-us::before {
+  content: '';
+  position: absolute;
+  inset: -18px 0 auto;
+  height: 18px;
+  border-radius: 14px 14px 0 0;
+  background: var(--ax-sun);
+}
+
+.ax-diff__table tbody tr:last-child .is-us {
+  box-shadow: 0 10px 0 var(--ax-sun-soft);
+}
+
+.ax-diff__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+}
+
+.ax-diff__mark .ax-icon {
+  width: 16px;
+  height: 16px;
+  stroke-width: 3;
+}
+
+.ax-diff__mark--yes {
+  border: 2px solid var(--ax-ink);
+  background: var(--ax-bg);
+  color: var(--ax-ink);
+}
+
+.ax-diff__mark--no {
+  color: var(--ax-canela);
+}
+
+@media (min-width: 900px) {
+  .ax-diff {
+    grid-template-columns: 1fr 1.15fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .ax-diff__intro {
+    text-align: left;
+    justify-items: start;
+  }
+  .ax-diff__table table {
+    font-size: 15px;
+  }
+}
+
+/* ---------- Garantía con fotos ---------- */
+.ax-promise {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ax-promise__body {
+  grid-column: 1 / -1;
+  order: -1;
+  display: grid;
+  gap: 14px;
+  justify-items: center;
+  padding: 24px 18px;
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-soft);
+  text-align: center;
+}
+
+.ax-promise__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: var(--ax-ink);
+  color: var(--ax-sun);
+}
+
+.ax-promise__photo img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-soft-2);
+}
+
+@media (min-width: 900px) {
+  .ax-promise {
+    grid-template-columns: 1fr 1.5fr 1fr;
+    grid-template-areas:
+      'p1 body p3'
+      'p2 body p4';
+    gap: 18px;
+    align-items: center;
+  }
+  .ax-promise__body {
+    grid-area: body;
+    grid-column: auto;
+    padding: 40px 32px;
+  }
+  .ax-promise__photo--1 { grid-area: p1; }
+  .ax-promise__photo--2 { grid-area: p2; }
+  .ax-promise__photo--3 { grid-area: p3; }
+  .ax-promise__photo--4 { grid-area: p4; }
+  .ax-promise__photo--2,
+  .ax-promise__photo--3 {
+    transform: translateY(18px);
+  }
+}

@@ -1,0 +1,29 @@
+{%- comment -%}
+  Paleta propia para UNA plantilla de producto (no cambia el resto de la tienda).
+  Va primero en la plantilla: carga assets/ax-calido.css, que redefine los colores y la letra (Nunito) solo dentro del contenido de la página (encabezado y pie se quedan igual).
+{%- endcomment -%}
+{%- if section.settings.skin == 'calido' -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  {{ 'ax-calido.css' | asset_url | stylesheet_tag }}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Paleta de la página",
+  "settings": [
+    {
+      "type": "select",
+      "id": "skin",
+      "label": "Colores",
+      "default": "calido",
+      "options": [
+        { "value": "", "label": "Los de la tienda" },
+        { "value": "calido", "label": "Miel y canela (crema, miel, canela y café)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Paleta de la página" }]
+}
+{% endschema %}

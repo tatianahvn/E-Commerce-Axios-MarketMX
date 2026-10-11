@@ -1,0 +1,41 @@
+{%- comment -%}
+  Garantía con fotos alrededor (hasta 4) y botón que lleva a la compra.
+  Usa los días de garantía de Configuración del tema ([dias]).
+{%- endcomment -%}
+{%- liquid
+  assign p = section.settings.product | default: product
+  assign files = section.settings.image_files | split: ','
+-%}
+<section class="ax-section ax-promise-wrap" aria-labelledby="ax-promise-{{ section.id }}">
+  <div class="ax-container">
+    <div class="ax-promise">
+      {%- for file in files limit: 4 -%}
+        <div class="ax-promise__photo ax-promise__photo--{{ forloop.index }} ax-reveal">
+          {% render 'ax-media-img', file: file, alt: '' %}
+        </div>
+      {%- endfor -%}
+      <div class="ax-promise__body ax-reveal">
+        <span class="ax-promise__icon">{% render 'ax-icon', name: 'shield' %}</span>
+        <h2 class="ax-title" id="ax-promise-{{ section.id }}">{% render 'ax-em', text: section.settings.title %}</h2>
+        <p class="ax-lead">{% render 'ax-tokens', text: section.settings.text %}</p>
+        {%- if section.settings.cta != blank and p != blank -%}
+          <a class="ax-btn ax-btn--sun" href="{{ p.url }}#comprar" data-ax-order>{{ section.settings.cta }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Garantía con fotos",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "title", "label": "Título", "default": "Garantía *sin riesgos*" },
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Pides hoy y no pagas nada hasta que tienes el producto en tus manos. Si algo no sale bien, tienes [dias] días para decírnoslo.", "info": "Escribe solo lo que de verdad cumples. Puedes usar [dias] y [envio]." },
+    { "type": "text", "id": "image_files", "label": "Fotos incluidas en el tema", "info": "Hasta 4 nombres de archivo de assets/, separados por coma." },
+    { "type": "text", "id": "cta", "label": "Botón", "default": "Comprar ahora", "info": "Lleva a la sección de compra. Vacío = sin botón." }
+  ],
+  "presets": [{ "name": "Garantía con fotos" }]
+}
+{% endschema %}

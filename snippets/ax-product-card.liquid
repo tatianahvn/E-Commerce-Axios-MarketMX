@@ -1,12 +1,28 @@
 {%- comment -%}
   Tarjeta de producto para inicio, colecciones, búsqueda y relacionados.
   Uso: {% render 'ax-product-card', card_product: product, eager: true, cta: 'Ver producto' %}
-  Toma de los metacampos: axios.badge (etiqueta), axios.subtitle, axios.rating, axios.rating_count.
+  Subtítulo, calificación y etiqueta salen de Configuración del tema → "Tarjetas de producto"
+  (un renglón por producto: identificador | subtítulo | calificación | opiniones | etiqueta). Sin metacampos.
 {%- endcomment -%}
 {%- liquid
   assign p = card_product
   assign v = p.selected_or_first_available_variant
-  assign m = p.metafields.axios
+  assign card_sub = ''
+  assign card_rating = 0
+  assign card_count = 0
+  assign card_badge = ''
+  assign card_lines = settings.ax_cards | newline_to_br | split: '<br />'
+  for line in card_lines
+    assign parts = line | split: '|'
+    assign line_handle = parts[0] | strip
+    if line_handle == p.handle
+      assign card_sub = parts[1] | strip
+      assign card_rating = parts[2] | strip | plus: 0
+      assign card_count = parts[3] | strip | remove: ',' | plus: 0
+      assign card_badge = parts[4] | strip
+      break
+    endif
+  endfor
   assign on_sale = false
   if v.compare_at_price > v.price
     assign on_sale = true
@@ -40,16 +56,16 @@
         <span class="ax-badge ax-badge--dark">Agotado</span>
       {%- else -%}
         {%- if on_sale -%}<span class="ax-badge">−{{ pct }}%</span>{%- endif -%}
-        {%- if m.badge.value != blank -%}<span class="ax-badge ax-badge--dark">{{ m.badge.value }}</span>{%- endif -%}
+        {%- if card_badge != blank -%}<span class="ax-badge ax-badge--dark">{{ card_badge }}</span>{%- endif -%}
       {%- endunless -%}
     </div>
   </div>
   <div class="ax-card__body">
-    {%- if m.rating.value != blank -%}
-      {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value %}
+    {%- if card_rating > 0 -%}
+      {% render 'ax-stars', rating: card_rating, count: card_count %}
     {%- endif -%}
     <h3 class="ax-card__title"><a href="{{ p.url }}">{{ p.title }}</a></h3>
-    {%- if m.subtitle.value != blank -%}<p class="ax-card__sub">{{ m.subtitle.value }}</p>{%- endif -%}
+    {%- if card_sub != blank -%}<p class="ax-card__sub">{{ card_sub }}</p>{%- endif -%}
     <div class="ax-price">
       <span class="ax-price__now{% if on_sale %} ax-price__now--sale{% endif %}">
         {%- if p.price_varies %}Desde {% endif -%}

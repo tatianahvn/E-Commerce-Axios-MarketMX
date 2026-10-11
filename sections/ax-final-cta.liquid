@@ -1,12 +1,11 @@
 {%- comment -%}
-  Llamado final en bloque negro. Metacampos: axios.final_title, axios.final_text, axios.offer_ends.
+  Llamado final en bloque negro. Título y texto son ajustes de la sección (sin metacampos).
   En una página sin producto (p. ej. el inicio) el botón lleva al catálogo.
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
-  assign m = p.metafields.axios
-  assign title = m.final_title.value | default: section.settings.title
-  assign text = m.final_text.value | default: section.settings.text
+  assign title = section.settings.title
+  assign text = section.settings.text
   assign v = p.selected_or_first_available_variant
 -%}
 <section class="ax-section ax-section--dark ax-final" aria-labelledby="ax-final-{{ section.id }}">
@@ -21,7 +20,7 @@
           <span>{{ v.price | money_without_trailing_zeros }}</span>
           {%- if v.compare_at_price > v.price -%}<s>{{ v.compare_at_price | money_without_trailing_zeros }}</s>{%- endif -%}
         </div>
-        {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: 'Precio especial termina en', light: true %}
+        {% render 'ax-countdown', key: p.id, label: 'Precio especial termina en', light: true %}
         <a class="ax-btn ax-btn--pulse" href="{{ p.url }}#comprar" data-ax-order>
           {% render 'ax-cta-label', text: section.settings.cta, sub: section.settings.cta_sub %}
         </a>

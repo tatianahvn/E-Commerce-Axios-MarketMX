@@ -3,8 +3,8 @@
   - Cada reseña es un bloque. Si el bloque tiene "Producto", solo se ve en la página de ESE producto;
     sin producto se ve en todas (útil para el inicio).
   - También acepta el bloque de una app de reseñas (Judge.me, Loox, etc.).
-  - Resumen: en la página de producto usa los metacampos axios.rating y axios.rating_count;
-    si no existen, calcula el promedio de las reseñas visibles.
+  - Resumen: usa los ajustes "Calificación del resumen" y "Total de opiniones" (sin metacampos);
+    si están vacíos, calcula el promedio y el total de las reseñas visibles.
 {%- endcomment -%}
 {%- liquid
   assign p = section.settings.product | default: product
@@ -29,9 +29,8 @@
 
   assign avg = 0
   assign total = rated
-  if p != blank and p.metafields.axios.rating.value != blank
-    assign avg = p.metafields.axios.rating.value
-    assign total = p.metafields.axios.rating_count.value | default: rated
+  if section.settings.rating != blank
+    assign avg = section.settings.rating | plus: 0
   elsif rated > 0
     assign avg = rating_sum | times: 1.0 | divided_by: rated
   endif
@@ -182,7 +181,8 @@
         { "value": "slider", "label": "Slider (deslizar)" }
       ]
     },
-    { "type": "text", "id": "total_text", "label": "Total de opiniones en el resumen", "info": "Ej. 2,739. Vacío = usa el metacampo axios.rating_count o el número de reseñas." },
+    { "type": "text", "id": "total_text", "label": "Total de opiniones en el resumen", "info": "Ej. 2,739. Vacío = el número de reseñas visibles." },
+    { "type": "text", "id": "rating", "label": "Calificación del resumen", "info": "Ej. 4.8. Vacío = promedio de las reseñas visibles." },
     { "type": "range", "id": "visible_mobile", "label": "Reseñas visibles antes de \"Ver más\"", "min": 2, "max": 12, "step": 1, "default": 4 },
     { "type": "checkbox", "id": "form_enabled", "label": "Formulario para escribir una opinión", "default": true, "info": "Llega a tu correo como mensaje de contacto. Tú decides si la publicas." }
   ],

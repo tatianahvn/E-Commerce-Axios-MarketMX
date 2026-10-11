@@ -1,0 +1,54 @@
+{%- comment -%}
+  Imagen + línea de tiempo ("lo que cambia desde el primer día"). Contenido en el editor de temas:
+  cada bloque es un momento (etiqueta, título y texto). Lo que va entre *asteriscos* en el título sale resaltado.
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  <section class="ax-section ax-section--soft ax-story" aria-labelledby="ax-story-{{ section.id }}">
+    <div class="ax-container">
+      {%- assign head_id = 'ax-story-' | append: section.id -%}
+      {% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, text: section.settings.text, id: head_id %}
+      <div class="ax-story__grid">
+        <div class="ax-story__media ax-reveal">
+          {% render 'ax-media-img', image: section.settings.image, file: section.settings.image_file, alt: section.settings.image_alt, width: 900 %}
+        </div>
+        <ol class="ax-story__list">
+          {%- for block in section.blocks -%}
+            <li class="ax-story__item ax-reveal" {{ block.shopify_attributes }}>
+              {%- if block.settings.tag != blank -%}<span class="ax-story__tag">{{ block.settings.tag }}</span>{%- endif -%}
+              <h3>{{ block.settings.title }}</h3>
+              {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ol>
+      </div>
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Línea de tiempo": agrega al menos un momento.' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Imagen + línea de tiempo",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Tu comodidad *empieza hoy*", "info": "Lo que va entre *asteriscos* sale resaltado." },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "image_picker", "id": "image", "label": "Imagen" },
+    { "type": "text", "id": "image_file", "label": "Imagen incluida en el tema", "info": "Se usa si no eliges una imagen arriba. Nombre del archivo en assets/, ej. sec-portatil.webp" },
+    { "type": "text", "id": "image_alt", "label": "Descripción de la imagen" }
+  ],
+  "blocks": [
+    {
+      "type": "moment",
+      "name": "Momento",
+      "settings": [
+        { "type": "text", "id": "tag", "label": "Etiqueta", "default": "Desde el primer día" },
+        { "type": "text", "id": "title", "label": "Título", "default": "Título del momento" },
+        { "type": "textarea", "id": "text", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Imagen + línea de tiempo" }]
+}
+{% endschema %}

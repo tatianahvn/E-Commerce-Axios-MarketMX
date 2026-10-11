@@ -1,0 +1,68 @@
+{%- comment -%}
+  "Nuestra diferencia": texto a un lado y tabla de dos columnas (nosotros vs. la alternativa)
+  con la columna propia resaltada. Cada bloque es un renglón.
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  <section class="ax-section ax-section--soft ax-diff-wrap" aria-labelledby="ax-diff-{{ section.id }}">
+    <div class="ax-container ax-diff">
+      <div class="ax-diff__intro ax-reveal">
+        <h2 class="ax-title" id="ax-diff-{{ section.id }}">{% render 'ax-em', text: section.settings.title %}</h2>
+        {%- if section.settings.text != blank -%}<p class="ax-lead">{{ section.settings.text }}</p>{%- endif -%}
+      </div>
+      <div class="ax-diff__table ax-reveal">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col"><span class="ax-visually-hidden">Característica</span></th>
+              <th scope="col" class="is-us">{{ section.settings.us }}</th>
+              <th scope="col">{{ section.settings.them }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%- for block in section.blocks -%}
+              <tr {{ block.shopify_attributes }}>
+                <th scope="row">{{ block.settings.label }}</th>
+                {%- assign marks = block.settings.us | append: ',' | append: block.settings.them | split: ',' -%}
+                {%- for mark in marks -%}
+                  <td{% if forloop.first %} class="is-us"{% endif %}>
+                    {%- if mark == 'true' -%}
+                      <span class="ax-diff__mark ax-diff__mark--yes">{% render 'ax-icon', name: 'check' %}<span class="ax-visually-hidden">Sí</span></span>
+                    {%- else -%}
+                      <span class="ax-diff__mark ax-diff__mark--no">{% render 'ax-icon', name: 'x' %}<span class="ax-visually-hidden">No</span></span>
+                    {%- endif -%}
+                  </td>
+                {%- endfor -%}
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Nuestra diferencia": agrega al menos un renglón.' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Nuestra diferencia",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Nuestra *diferencia*" },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "us", "label": "Columna propia", "default": "Nosotros" },
+    { "type": "text", "id": "them", "label": "Columna de comparación", "default": "Otros" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Renglón",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Característica", "default": "Característica" },
+        { "type": "checkbox", "id": "us", "label": "Nosotros lo tenemos", "default": true },
+        { "type": "checkbox", "id": "them", "label": "La comparación lo tiene", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Nuestra diferencia" }]
+}
+{% endschema %}

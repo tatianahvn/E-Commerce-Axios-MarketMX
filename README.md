@@ -3,15 +3,26 @@
 Tema de Shopify **mobile first** para una tienda de varios productos que vende con **Releasit (pago contra entrega)**.
 Fondo blanco; negro para texto y bloques de contraste; rojo solo para acciones (botones, precios, etiquetas).
 
-La página de producto sigue el modelo **AIDA** (guía de Shine Armor Quick Coat). **No usa metacampos para el contenido de abajo:**
-todo el texto vive en el tema, en `templates/product.json`, y se edita desde Personalizar o en ese archivo.
-La caja de compra (sección 1) y las reseñas se dejaron exactamente igual que en el tema anterior.
+La tienda vende **dos productos, cada uno con su propia landing**:
+
+| Producto | Plantilla | Estilo |
+|---|---|---|
+| Shine Armor Quick Coat | `templates/product.json` (la predeterminada) | Modelo **AIDA**, blanco/negro/rojo |
+| Secadora de Ropa Portátil | `templates/product.secadora.json` | Paleta cálida **Miel y canela** con letra Nunito (ver [docs/CONTENIDO-SECADORA.md](docs/CONTENIDO-SECADORA.md)) |
+
+**El tema no usa metacampos.** Todo el contenido (frase gancho, viñetas, paquetes, especificaciones, calificación, secciones,
+reseñas y preguntas) vive en las plantillas y se edita desde Personalizar o en el JSON. En Shopify solo se crea el producto
+(título, precio, fotos, descripción) y se le asigna su plantilla. Un solo `shopify theme push` sube todo.
+
+Para agregar otro producto: duplica una plantilla (`product.<nombre>.json`), cambia sus textos y asígnala al producto.
+Los subtítulos, estrellas y etiquetas de las **tarjetas** (inicio, catálogo, búsqueda y "Otros productos") están en
+**Configuración del tema → Tarjetas de producto**, un renglón por producto.
 
 ## Estructura de la página de producto
 
 | # | Sección | Archivo |
 |---|---|---|
-| 1 | Caja de compra (sin cambios; sigue leyendo sus metacampos `axios.*`) | `sections/ax-product.liquid` |
+| 1 | Caja de compra (gancho, viñetas, paquetes y especificaciones en sus ajustes) | `sections/ax-product.liquid` |
 | 2 | Opiniones de entrega (WhatsApp, rastreo, pago al recibir, garantía) | `sections/ax-voices.liquid` |
 | 3 | Interés: gancho + imagen 1:1 | `sections/ax-copy.liquid` |
 | 4 | El problema (agua y suciedad) + GIF "ANTES → APLICA → BRILLO" | `sections/ax-copy.liquid` |
@@ -47,7 +58,7 @@ Después de instalar el tema:
 1. **Tienda online → Temas → Personalizar → Incrustaciones de apps:** activa Releasit en ESTE tema (se activa por tema).
 2. En Releasit, estilo del botón para que combine: color `#D61F2C`, texto blanco, radio de borde ~14 px.
 3. En Releasit, "Redirigir a página personalizada" después de la compra: `https://TU-DOMINIO/?pedido=confirmado` (muestra el aviso de gracias).
-4. Las ofertas por cantidad de Releasit deben coincidir con `axios.bundles` y con los descuentos de Shopify.
+4. Las ofertas por cantidad de Releasit deben coincidir con los "Paquetes" de la caja de compra de cada plantilla y con los descuentos de Shopify.
 
 La tienda no usa carrito: `/cart` y el blog mandan al inicio (`snippets/ax-redirect.liquid`).
 
@@ -65,21 +76,22 @@ Para ver cambios en vivo mientras editas: `shopify theme dev --store axiosmarket
 
 ## Vista previa local (sin Shopify)
 
-`dev/` renderiza las plantillas con datos simulados de Shine Armor para revisar el diseño. No se sube a Shopify (`.shopifyignore`).
+`dev/` renderiza las plantillas con datos simulados de los dos productos para revisar el diseño. No se sube a Shopify (`.shopifyignore`).
 
 ```bash
 cd dev && npm install && node serve.mjs
 ```
 
-Abre `http://localhost:4173/products/shine-armor/` (o, en el celular dentro de la misma Wi-Fi, `http://IP-DE-TU-MAC:4173/...`).
+Abre `http://localhost:4173/`, `http://localhost:4173/products/shine-armor/` o `http://localhost:4173/products/secadora-ropa-portatil/` (o, en el celular dentro de la misma Wi-Fi, `http://IP-DE-TU-MAC:4173/...`).
 Cada carga vuelve a generar la página: trae las fotos actuales del producto desde la tienda y toma los cambios más recientes del tema.
 Para generar los archivos una sola vez, sin servidor: `node preview.mjs`.
 
-Si cambias el contenido de ejemplo en `dev/mock-data.mjs`, regenera la guía con `node dev/export-content.mjs`.
+`dev/mock-data.mjs` solo simula lo que vive en el producto de Shopify (título, precio, fotos); el resto sale de las plantillas.
 
 ## Archivos
 
 - `assets/ax.css`: estilos (variables de color en `:root`).
+- `assets/ax-calido.css`: paleta Miel y canela; solo la carga la plantilla de la secadora (sección `ax-skin`).
 - `assets/ax.js`: galería, paquetes, Releasit, barra fija, contador, antes/después.
 - `snippets/ax-*.liquid`: piezas reutilizables (íconos, estrellas, tarjeta de producto, contador…).
 - `config/settings_schema.json`: ajustes globales (textos del botón, envío, garantía, correo, redes).

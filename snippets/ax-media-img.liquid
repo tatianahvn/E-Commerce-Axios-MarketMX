@@ -1,0 +1,13 @@
+{%- comment -%}
+  Imagen de un ajuste de sección: la que se eligió en el editor (image) o, si está vacía,
+  un archivo incluido en el tema (file, nombre dentro de assets/).
+  Uso: {% render 'ax-media-img', image: block.settings.image, file: block.settings.file, alt: 'Texto', width: 760 %}
+{%- endcomment -%}
+{%- assign ax_file = file | strip -%}
+{%- assign ax_width = width | default: 760 -%}
+{%- if image != blank -%}
+  {%- assign ax_alt = alt | default: image.alt -%}
+  {{ image | image_url: width: ax_width | image_tag: loading: 'lazy', alt: ax_alt }}
+{%- elsif ax_file != blank -%}
+  <img src="{{ ax_file | asset_url }}" alt="{{ alt | escape }}" loading="lazy" decoding="async" width="1000" height="1000">
+{%- endif -%}

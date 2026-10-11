@@ -28,12 +28,27 @@
     "settings": [
       {
         "type": "paragraph",
-        "content": "Mientras la tienda tenga un solo producto: el inicio, el catálogo, la búsqueda, el carrito y el blog mandan a la página de este producto, y el menú se vuelve de anclas (Beneficios, Funcionamiento, Preguntas). Vacío = tienda normal."
+        "content": "Solo si la tienda tiene UN producto: el inicio, el catálogo, la búsqueda, el carrito y el blog mandan a la página de este producto, y el menú se vuelve de anclas. Con varios productos déjalo vacío (tienda normal)."
       },
       {
         "type": "product",
         "id": "ax_landing_product",
         "label": "Producto de la landing"
+      }
+    ]
+  },
+  {
+    "name": "Tarjetas de producto",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Subtítulo, estrellas y etiqueta de cada producto en las tarjetas del inicio, el catálogo, la búsqueda y \"Otros productos\". Un renglón por producto: identificador | subtítulo | calificación | opiniones | etiqueta. El identificador es el final de la URL del producto (ej. shine-armor). Los campos que no uses déjalos vacíos."
+      },
+      {
+        "type": "textarea",
+        "id": "ax_cards",
+        "label": "Datos de las tarjetas",
+        "default": "shine-armor | Cera cerámica en spray 3 en 1 | 4.8 | 10 | Más vendido\nsecadora-ropa-portatil | Seca tu ropa en casa aunque llueva | | | Nuevo"
       }
     ]
   },

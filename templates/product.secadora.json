@@ -1,0 +1,587 @@
+{
+  "sections": {
+    "skin": {
+      "type": "ax-skin",
+      "settings": {
+        "skin": "calido"
+      }
+    },
+    "main": {
+      "type": "ax-product",
+      "settings": {
+        "product": "",
+        "hook": "Aunque llueva toda la semana, *tu ropa seca en horas, no en días.*",
+        "badge": "Nuevo",
+        "rating": "",
+        "reviews_total": "",
+        "highlights": "Seca tu ropa dentro de casa, llueva o no\nCuelgas hasta 8 a 10 prendas ligeras a la vez\nTemporizador de 1 a 8 horas y control remoto\nSe pliega y cabe en un cajón",
+        "bundles": "",
+        "specs": "Modelo | HP-901\nCalefacción | Cerámica PTC, aire caliente constante y luz UV\nTemporizador | De 1 a 8 horas\nCapacidad | 3 a 5 prendas gruesas u 8 a 10 ligeras\nMedidas armada | 111 cm de alto × 60.5 cm de ancho\nMedidas plegada | 21.5 × 21.5 × 11 cm\nGanchos | Acero inoxidable 304\nIncluye | Base con calefactor, funda plegable y control remoto",
+        "countdown_label": "La oferta termina en",
+        "bundles_title": "Elige tu paquete",
+        "single_note": "Ideal para probar",
+        "bundles_note": "",
+        "secure_text": "",
+        "show_stock": true,
+        "description_open": false,
+        "sticky": true,
+        "stock_text": "¡Quedan pocas unidades!",
+        "sticky_label": "Ordenar ahora",
+        "show_description": false,
+        "show_specs": true,
+        "shipping_title": "Envíos y devoluciones",
+        "guarantee_title": "Nuestra garantía para ti",
+        "shipping_info": "<p>Te escribimos por WhatsApp para validar tus datos y confirmar tu pedido. Una vez confirmado, lo enviamos en un plazo de 24 a 48 horas y te compartimos el número de rastreo. La entrega a tu domicilio tarda de [envio], según tu ubicación.</p><p>Si tu paquete llega dañado o presenta algún problema, te lo reponemos sin costo.</p>",
+        "verified_text": "Tienda comprometida con la calidad y el cumplimiento",
+        "show_countdown": false,
+        "offer_label": "Precio especial de temporada de lluvias"
+      }
+    },
+    "story": {
+      "type": "ax-story",
+      "settings": {
+        "eyebrow": "",
+        "title": "Tu ropa seca, *sin depender del sol*",
+        "text": "Esto es lo que cambia en tu casa desde que la conectas.",
+        "image_file": "sec-portatil.webp",
+        "image_alt": "Secadora portátil armada en una sala, con su base plegada a un lado"
+      },
+      "blocks": {
+        "m1": {
+          "type": "moment",
+          "settings": {
+            "tag": "Desde el primer día",
+            "title": "Adiós a la ropa húmeda",
+            "text": "Ya no esperas a que salga el sol. Cuelgas tu ropa, cierras la funda y se seca dentro de tu casa, aunque afuera no deje de llover."
+          }
+        },
+        "m2": {
+          "type": "moment",
+          "settings": {
+            "tag": "Esa misma noche",
+            "title": "El uniforme listo para mañana",
+            "text": "Prográmala antes de dormir, de 1 a 8 horas. Se apaga sola y en la mañana la ropa de la escuela o del trabajo ya está seca."
+          }
+        },
+        "m3": {
+          "type": "moment",
+          "settings": {
+            "tag": "Toda la semana",
+            "title": "Tu casa sin ropa colgada por todos lados",
+            "text": "Se acabaron las sillas, puertas y cuerdas llenas de ropa mojada. Cuando terminas, la pliegas y cabe en un cajón."
+          }
+        },
+        "m4": {
+          "type": "moment",
+          "settings": {
+            "tag": "Toda la temporada de lluvias",
+            "title": "Ropa que huele a limpio",
+            "text": "La ropa que tarda días en secarse agarra olor a humedad. Con aire caliente constante se seca en horas, no en días."
+          }
+        }
+      },
+      "block_order": [
+        "m1",
+        "m2",
+        "m3",
+        "m4"
+      ]
+    },
+    "reviews": {
+      "type": "ax-reviews",
+      "settings": {
+        "product": "",
+        "eyebrow": "Opiniones de clientes",
+        "title": "Lo que dicen quienes *ya la usan*",
+        "visible_mobile": 4,
+        "form_enabled": true,
+        "layout": "slider",
+        "total_text": "",
+        "rating": ""
+      },
+      "blocks": {
+        "r1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Increíble: le caben 5 ganchos y en más o menos una hora la ropa está seca. Además no la arruga como las secadoras normales. Me gusta mucho.",
+            "name": "Cliente anónimo",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Aparentemente es tal como lo describen. Ya la armé y la voy a seguir probando para contarles.",
+            "name": "C***a",
+            "photos": "sec-review-armada.webp, sec-review-caja-2.webp",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Funciona perfectamente y es muy útil cuando el clima está húmedo para secar prendas pequeñas.",
+            "name": "S***d",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "El producto coincide con la descripción.",
+            "name": "Cliente anónimo",
+            "photos": "sec-review-caja.webp",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r5": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Muy útil, sobre todo para casas pequeñas.",
+            "name": "F***i",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r6": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Está súper práctica, fácil de usar y, lo más importante, seca muy bien la ropa.",
+            "name": "Cliente anónimo",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r7": {
+          "type": "review",
+          "settings": {
+            "rating": 4,
+            "text": "Para salir del paso y secar dos o tres prendas está bien: en una o dos horas están listas. No es para secar mucha ropa todos los días, pero es muy interesante.",
+            "name": "A***z",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r8": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Probablemente el mejor invento para las personas que viven solas.",
+            "name": "Cliente anónimo",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r9": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Le caben unas 3 prendas gruesas. Secó bien y me gustó; fue una buena compra.",
+            "name": "Cliente anónimo",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r10": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Genial. La compré para acampar, pero también se puede usar en casa o cuando viajas.",
+            "name": "W***r",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        },
+        "r11": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "text": "Fabulosa, cumple su función. Lo único es que hay que tener paciencia para acomodar la funda en el aparato la primera vez.",
+            "name": "Cliente anónimo",
+            "product": "secadora-ropa-portatil",
+            "verified": false
+          }
+        }
+      },
+      "block_order": [
+        "r1",
+        "r2",
+        "r3",
+        "r4",
+        "r5",
+        "r6",
+        "r7",
+        "r8",
+        "r9",
+        "r10",
+        "r11"
+      ]
+    },
+    "split": {
+      "type": "ax-split",
+      "settings": {
+        "product": "",
+        "title": "Tu tendedero bajo techo, *que cabe en un cajón*",
+        "text": "Hecha para casas y departamentos pequeños: no necesitas patio, cuarto de lavado ni instalación. Solo un contacto y un lugar donde colgarla.",
+        "image_file": "sec-compacta.webp",
+        "image_alt": "La base plegada de la secadora cabe en un cajón, en una maleta y en el clóset",
+        "cta": "Consigue la tuya ahora"
+      },
+      "blocks": {
+        "p1": {
+          "type": "point",
+          "settings": {
+            "icon": "home",
+            "title": "Sin instalación.",
+            "text": "Cuélgala de un perchero, un tubo o una barra con su gancho, extiende la funda y conéctala."
+          }
+        },
+        "p2": {
+          "type": "point",
+          "settings": {
+            "icon": "moon",
+            "title": "Trabaja mientras duermes.",
+            "text": "Su temporizador la apaga sola y es silenciosa: despiertas con la ropa seca."
+          }
+        },
+        "p3": {
+          "type": "point",
+          "settings": {
+            "icon": "remote",
+            "title": "Control remoto y pantalla LED.",
+            "text": "Enciéndela y elige el tiempo desde donde estés."
+          }
+        }
+      },
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ]
+    },
+    "band": {
+      "type": "ax-band",
+      "settings": {
+        "title": "Días de lluvia",
+        "highlight": "ropa que no seca",
+        "text": "Cuando llueve varios días seguidos, la ropa se queda húmeda en el tendedero, agarra mal olor y la casa se llena de prendas colgadas.",
+        "note": "La solución se guarda en una caja de *21 cm*."
+      },
+      "blocks": {
+        "b1": {
+          "type": "point",
+          "settings": {
+            "icon": "clock",
+            "text": "La ropa tarda *días* en secarse y aun así queda húmeda."
+          }
+        },
+        "b2": {
+          "type": "point",
+          "settings": {
+            "icon": "drop",
+            "text": "Te quedas *sin uniforme* o sin ropa limpia para mañana."
+          }
+        },
+        "b3": {
+          "type": "point",
+          "settings": {
+            "icon": "hanger",
+            "text": "Sillas, puertas y cuerdas *llenas de ropa mojada* por toda la casa."
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3"
+      ]
+    },
+    "features": {
+      "type": "ax-cards",
+      "settings": {
+        "eyebrow": "",
+        "title": "Pensada para *los días grises*",
+        "text": "Cada detalle está hecho para que seques tu ropa en casa sin complicarte.",
+        "numbered": false,
+        "framed": false,
+        "soft": false
+      },
+      "blocks": {
+        "c1": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-calor.webp",
+            "title": "Calor parejo por dentro",
+            "text": "El aire caliente circula por toda la funda y seca la prenda completa, no solo por fuera."
+          }
+        },
+        "c2": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-portatil.webp",
+            "title": "Plegable y portátil",
+            "text": "Armada mide 1.11 m de alto; plegada, solo 21.5 cm. Llévala de un cuarto a otro o de viaje."
+          }
+        },
+        "c3": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-temporizador.webp",
+            "title": "Temporizador de 1 a 8 horas",
+            "text": "Eliges el tiempo y te olvidas: se apaga sola al terminar."
+          }
+        },
+        "c4": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-silenciosa.webp",
+            "title": "Silenciosa",
+            "text": "Hace poco ruido (alrededor de 50 dB), así que puedes dejarla encendida mientras trabajas o duermes."
+          }
+        }
+      },
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
+    },
+    "steps": {
+      "type": "ax-cards",
+      "settings": {
+        "eyebrow": "",
+        "title": "Es *muy sencillo*",
+        "text": "Tres pasos y te olvidas de la ropa húmeda.",
+        "numbered": true,
+        "framed": true,
+        "soft": true
+      },
+      "blocks": {
+        "s1": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-prendas.webp",
+            "title": "Cuelga",
+            "text": "Arma la funda, cuélgala y pon tus prendas en los ganchos de acero inoxidable."
+          }
+        },
+        "s2": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-aire-uv.webp",
+            "title": "Programa",
+            "text": "Con el control elige el tiempo, de 1 a 8 horas, y cierra la funda."
+          }
+        },
+        "s3": {
+          "type": "card",
+          "settings": {
+            "image_file": "sec-ganchos.webp",
+            "title": "Listo",
+            "text": "Saca tu ropa seca y lista para usar. Pliega la secadora y guárdala."
+          }
+        }
+      },
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
+    },
+    "marquee": {
+      "type": "ax-marquee",
+      "settings": {
+        "label": "Compra con tranquilidad",
+        "items": "Pagas al recibir\nEnvío gratis a todo México\nGarantía de [dias] días\nSeca tu ropa aunque llueva\nAtención personalizada"
+      }
+    },
+    "diff": {
+      "type": "ax-diff",
+      "settings": {
+        "title": "Nuestra *diferencia*",
+        "text": "Hecha para casas donde no hay espacio ni secadora: seca tu ropa bajo techo y después se guarda en un cajón.",
+        "us": "Secadora portátil",
+        "them": "Tender adentro"
+      },
+      "blocks": {
+        "d1": {
+          "type": "row",
+          "settings": {
+            "label": "Seca aunque llueva días seguidos",
+            "us": true,
+            "them": false
+          }
+        },
+        "d2": {
+          "type": "row",
+          "settings": {
+            "label": "Ropa seca en horas, no en días",
+            "us": true,
+            "them": false
+          }
+        },
+        "d3": {
+          "type": "row",
+          "settings": {
+            "label": "Sin olor a humedad",
+            "us": true,
+            "them": false
+          }
+        },
+        "d4": {
+          "type": "row",
+          "settings": {
+            "label": "No llena la casa de ropa colgada",
+            "us": true,
+            "them": false
+          }
+        },
+        "d5": {
+          "type": "row",
+          "settings": {
+            "label": "Se apaga sola con temporizador",
+            "us": true,
+            "them": false
+          }
+        },
+        "d6": {
+          "type": "row",
+          "settings": {
+            "label": "Se guarda en un cajón",
+            "us": true,
+            "them": false
+          }
+        }
+      },
+      "block_order": [
+        "d1",
+        "d2",
+        "d3",
+        "d4",
+        "d5",
+        "d6"
+      ]
+    },
+    "faq": {
+      "type": "ax-faq",
+      "settings": {
+        "product": "",
+        "eyebrow": "Resolvemos tus dudas",
+        "title": "Preguntas *frecuentes*",
+        "soft": false
+      },
+      "blocks": {
+        "f1": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuánta ropa le cabe?",
+            "answer": "<p>Depende del grosor: alrededor de 3 a 5 prendas gruesas, como sudaderas o pantalones, o hasta 8 a 10 prendas ligeras, como playeras, blusas o ropa de bebé.</p>"
+          }
+        },
+        "f2": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuánto tarda en secar?",
+            "answer": "<p>Depende de la tela y de qué tan mojada esté. Las prendas ligeras bien exprimidas suelen quedar en 1 a 2 horas; las gruesas tardan más. Puedes programarla de 1 a 8 horas y se apaga sola.</p>"
+          }
+        },
+        "f3": {
+          "type": "question",
+          "settings": {
+            "question": "¿Necesita instalación?",
+            "answer": "<p>No. La cuelgas con su gancho de un perchero, un tubo o una barra, extiendes la funda y la conectas.</p>"
+          }
+        },
+        "f4": {
+          "type": "question",
+          "settings": {
+            "question": "¿Maltrata la ropa?",
+            "answer": "<p>No da vueltas como una secadora de tambor: la ropa queda colgada y el aire caliente circula a temperatura constante. Sirve para algodón, lino, lana, fibras sintéticas y ropa de bebé.</p>"
+          }
+        },
+        "f5": {
+          "type": "question",
+          "settings": {
+            "question": "¿Qué incluye?",
+            "answer": "<p>La base con calefactor, pantalla y ganchos de acero inoxidable, la funda plegable y el control remoto.</p>"
+          }
+        },
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cómo funciona el pago contra entrega?",
+            "answer": "<p>Pides sin tarjeta, confirmamos tus datos por llamada o mensaje y pagas en efectivo al repartidor cuando recibes tu paquete.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuánto tarda en llegar?",
+            "answer": "<p>De [envio]. Te enviamos el número de rastreo en cuanto sale tu paquete.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "¿Y si no me convence?",
+            "answer": "<p>Tienes [dias] días para decírnoslo. Si llega dañada, te la reponemos sin costo.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "f1",
+        "f2",
+        "f3",
+        "f4",
+        "f5",
+        "q1",
+        "q2",
+        "q3"
+      ]
+    },
+    "promise": {
+      "type": "ax-promise",
+      "settings": {
+        "product": "",
+        "title": "Garantía *sin riesgos*",
+        "text": "Pídela hoy sin tarjeta y págala en efectivo cuando llegue a tu puerta. Si llega dañada te la reponemos sin costo, y tienes [dias] días para decirnos si algo no salió bien.",
+        "image_files": "sec-ganchos.webp, sec-prendas.webp, sec-silenciosa.webp, sec-portatil.webp",
+        "cta": "Pídela hoy, págala al recibir"
+      }
+    },
+    "related": {
+      "type": "ax-related",
+      "settings": {
+        "title": "También te puede *interesar*",
+        "collection": "",
+        "limit": 4
+      }
+    }
+  },
+  "order": [
+    "skin",
+    "main",
+    "story",
+    "reviews",
+    "split",
+    "band",
+    "features",
+    "steps",
+    "marquee",
+    "diff",
+    "faq",
+    "promise",
+    "related"
+  ]
+}

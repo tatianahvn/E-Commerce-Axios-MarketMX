@@ -4,6 +4,13 @@
       "type": "ax-product",
       "settings": {
         "product": "",
+        "hook": "Brillo de agencia en minutos. *Sin agua, sin cubeta y sin autolavado.*",
+        "badge": "Más vendido",
+        "rating": "4.8",
+        "reviews_total": "10",
+        "highlights": "Limpia, abrillanta y protege en un solo paso\nCapa cerámica: el agua resbala y se lleva el polvo\nSin agua, sin máquinas y sin experiencia",
+        "bundles": "¡Compra 1! | 1 | 399\n¡Compra 2! | 2 | 599 | ⭐ Más pedido\n¡Compra 3! | 3 | 799 | Mejor precio",
+        "specs": "Tipo | Spray cerámico 3 en 1\nContenido | 100 ml (3.4 fl oz)\nSuperficies | Pintura, metal, vidrio y plástico exterior\nVehículos | Autos, motos, camionetas, lanchas y RVs\nIncluye | 1 botella con atomizador",
         "countdown_label": "La oferta termina en",
         "bundles_title": "Elige tu paquete",
         "single_note": "Ideal para probar",
@@ -14,7 +21,6 @@
         "sticky": true,
         "stock_text": "¡Quedan pocas unidades!",
         "sticky_label": "Ordenar ahora",
-        "reviews_total": "",
         "show_description": false,
         "show_specs": false,
         "shipping_title": "Envíos y devoluciones",
@@ -492,7 +498,8 @@
         "visible_mobile": 4,
         "form_enabled": true,
         "layout": "slider",
-        "total_text": ""
+        "total_text": "",
+        "rating": "4.8"
       },
       "blocks": {
         "review-1": {

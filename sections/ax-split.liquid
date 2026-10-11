@@ -1,0 +1,73 @@
+{%- comment -%}
+  Tarjeta con imagen a un lado y, al otro, título, texto, puntos con ícono y botón que lleva a la compra.
+  Contenido en el editor de temas: cada bloque es un punto ("Título" en negritas + texto).
+{%- endcomment -%}
+{%- assign p = section.settings.product | default: product -%}
+<section class="ax-section ax-section--soft ax-split-wrap" aria-labelledby="ax-split-{{ section.id }}">
+  <div class="ax-container">
+    <div class="ax-split ax-reveal">
+      <div class="ax-split__media">
+        {% render 'ax-media-img', image: section.settings.image, file: section.settings.image_file, alt: section.settings.image_alt, width: 900 %}
+      </div>
+      <div class="ax-split__body">
+        <h2 class="ax-title" id="ax-split-{{ section.id }}">{% render 'ax-em', text: section.settings.title %}</h2>
+        {%- if section.settings.text != blank -%}<p class="ax-lead">{{ section.settings.text }}</p>{%- endif -%}
+        {%- if section.blocks.size > 0 -%}
+          <ul class="ax-split__points">
+            {%- for block in section.blocks -%}
+              <li {{ block.shopify_attributes }}>
+                <span class="ax-split__icon">{% render 'ax-icon', name: block.settings.icon %}</span>
+                <p><strong>{{ block.settings.title }}</strong> {{ block.settings.text }}</p>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+        {%- if section.settings.cta != blank and p != blank -%}
+          <a class="ax-btn ax-btn--sun ax-btn--block" href="{{ p.url }}#comprar" data-ax-order>{{ section.settings.cta }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Imagen + puntos + botón",
+  "settings": [
+    { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página." },
+    { "type": "text", "id": "title", "label": "Título", "default": "Tu refugio *plegable*" },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "image_picker", "id": "image", "label": "Imagen" },
+    { "type": "text", "id": "image_file", "label": "Imagen incluida en el tema", "info": "Se usa si no eliges una imagen arriba. Nombre del archivo en assets/." },
+    { "type": "text", "id": "image_alt", "label": "Descripción de la imagen" },
+    { "type": "text", "id": "cta", "label": "Botón", "default": "Consigue la tuya ahora", "info": "Lleva a la sección de compra. Vacío = sin botón." }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Punto",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ícono",
+          "default": "home",
+          "options": [
+            { "value": "home", "label": "Casa" },
+            { "value": "moon", "label": "Luna" },
+            { "value": "remote", "label": "Control remoto" },
+            { "value": "clock", "label": "Reloj" },
+            { "value": "rain", "label": "Lluvia" },
+            { "value": "hanger", "label": "Gancho" },
+            { "value": "wind", "label": "Aire" },
+            { "value": "shield", "label": "Escudo" }
+          ]
+        },
+        { "type": "text", "id": "title", "label": "Título (negritas)" },
+        { "type": "textarea", "id": "text", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Imagen + puntos + botón" }]
+}
+{% endschema %}

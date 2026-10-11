@@ -1,8 +1,9 @@
 {%- comment -%}
   Caja de compra del producto (arriba del pliegue).
-  Todo el contenido propio de cada producto sale de sus metacampos "axios.*":
-    axios.offer_label, axios.hook, axios.subtitle, axios.rating, axios.rating_count, axios.highlights,
-    axios.offer_ends, axios.bundles, axios.specs, axios.releasit_url
+  Sin metacampos: el contenido propio de cada producto (frase gancho, viñetas, paquetes,
+  especificaciones, calificación) vive en los ajustes de esta sección, dentro de la plantilla
+  de cada producto (product.json, product.secadora.json…). Precio, fotos y título salen del producto.
+  Las listas se escriben una por renglón; renglones vacíos se ignoran.
   La compra la cierra Releasit: al cargar, Releasit oculta el botón del tema y pone el suyo
   (._rsi-buy-now-button) dentro de este formulario. La barra fija y el llamado final
   llevan al inicio de esta sección (ver assets/ax.js). El botón del tema queda como respaldo.
@@ -13,7 +14,7 @@
     assign p = collections.all.products.first
   endif
   assign v = p.selected_or_first_available_variant
-  assign m = p.metafields.axios
+  assign s = section.settings
 
   assign unit_price = v.price
   assign unit_compare = v.compare_at_price | default: 0
@@ -23,8 +24,20 @@
     assign pct = unit_compare | minus: unit_price | times: 100 | divided_by: unit_compare | floor
   endif
 
-  assign hook = m.hook.value | default: m.subtitle.value
-  assign bundles = m.bundles.value
+  assign hook = s.hook
+
+  # Listas (un elemento por renglón, sin renglones vacíos)
+  assign highlights = s.highlights | newline_to_br | strip_newlines | split: '<br />'
+  assign bundles = ''
+  assign bundle_lines = s.bundles | newline_to_br | strip_newlines | split: '<br />'
+  for line in bundle_lines
+    assign line = line | strip
+    if line != blank
+      assign bundles = bundles | append: line | append: '§'
+    endif
+  endfor
+  assign bundles = bundles | split: '§'
+  assign specs = s.specs | newline_to_br | strip_newlines | split: '<br />'
 
   # Paquete destacado: el primero que tenga etiqueta. Si ninguno tiene, el primero.
   assign selected_index = 0
@@ -85,7 +98,7 @@
 
         <div class="ax-gallery__badges">
           {%- if on_sale -%}<span class="ax-badge ax-badge--icon">{% render 'ax-icon', name: 'tag' %}−{{ pct }}% hoy</span>{%- endif -%}
-          {%- if m.badge.value != blank -%}<span class="ax-badge ax-badge--dark">{{ m.badge.value }}</span>{%- endif -%}
+          {%- if s.badge != blank -%}<span class="ax-badge ax-badge--dark">{{ s.badge }}</span>{%- endif -%}
         </div>
 
         {%- if p.media.size > 1 -%}
@@ -125,11 +138,10 @@
           <span class="ax-eyebrow ax-stock"><span class="ax-fire" aria-hidden="true">🔥</span>{{ section.settings.stock_text }}</span>
         {%- elsif section.settings.offer_label != blank -%}
           <span class="ax-eyebrow ax-stock"><span class="ax-fire" aria-hidden="true">🔥</span>{{ section.settings.offer_label }}</span>
-        {%- elsif m.offer_label.value != blank -%}
-          <span class="ax-eyebrow">{% render 'ax-icon', name: 'fire' %}{{ m.offer_label.value }}</span>
         {%- endif -%}
-        {%- if m.rating.value != blank -%}
-          {% render 'ax-stars', rating: m.rating.value, count: m.rating_count.value, count_text: section.settings.reviews_total, link: '#resenas', size: 'lg' %}
+        {%- if s.rating != blank -%}
+          {%- assign rating_num = s.rating | plus: 0 -%}
+          {% render 'ax-stars', rating: rating_num, count_text: s.reviews_total, link: '#resenas', size: 'lg' %}
         {%- endif -%}
       </div>
 
@@ -142,19 +154,20 @@
         <span class="ax-badge ax-badge--soft ax-badge--icon"{% unless on_sale %} hidden{% endunless %}>{% render 'ax-icon', name: 'tag' %}<span data-ax-price-save>{{ pct }}% Descuento</span></span>
       </div>
 
-      {%- if m.highlights.value != blank -%}
+      {%- if s.highlights != blank -%}
         <ul class="ax-pdp__points">
-          {%- for point in m.highlights.value -%}
-            <li>{% render 'ax-icon', name: 'check' %}<span>{{ point }}</span></li>
+          {%- for point in highlights -%}
+            {%- assign point = point | strip -%}
+            {%- if point != blank -%}<li>{% render 'ax-icon', name: 'check' %}<span>{{ point }}</span></li>{%- endif -%}
           {%- endfor -%}
         </ul>
       {%- endif -%}
 
       {%- if section.settings.show_countdown -%}
-        {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: section.settings.countdown_label %}
+        {% render 'ax-countdown', ends: s.offer_ends, key: p.id, label: section.settings.countdown_label %}
       {%- endif -%}
 
-      <div class="ax-buy" data-ax-buy-box{% if m.releasit_url.value != blank %} data-releasit-url="{{ m.releasit_url.value }}"{% endif %}>
+      <div class="ax-buy" data-ax-buy-box{% if s.releasit_url != blank %} data-releasit-url="{{ s.releasit_url }}"{% endif %}>
         <form
           method="post"
           action="{{ routes.cart_add_url }}"
@@ -214,7 +227,7 @@
                   endif
                   assign b_price_text = parts[2] | strip
                   assign b_flag = parts[3] | strip
-                  # La etiqueta viene del metacampo axios.bundles; "Mejor precio" lleva fuego
+                  # "Mejor precio" lleva fuego
                   if b_flag == 'Mejor precio'
                     assign b_flag = '🔥 Mejor precio'
                   endif
@@ -307,21 +320,23 @@
             <div class="ax-details__body ax-rte">{{ p.description }}</div>
           </details>
         {%- endif -%}
-        {%- if section.settings.show_specs and m.specs.value != blank or section.settings.show_specs and m.specs_notes.value != blank -%}
+        {%- if section.settings.show_specs and s.specs != blank or section.settings.show_specs and s.specs_notes != blank -%}
           <details class="ax-details">
             <summary>Especificaciones {% render 'ax-icon', name: 'chevron' %}</summary>
             <div class="ax-details__body">
-              {%- if m.specs.value != blank -%}
+              {%- if s.specs != blank -%}
                 <dl class="ax-specs">
-                  {%- for spec in m.specs.value -%}
-                    {%- assign parts = spec | split: '|' -%}
-                    <div><dt>{{ parts[0] | strip }}</dt><dd>{{ parts[1] | strip }}</dd></div>
+                  {%- for spec in specs -%}
+                    {%- if spec contains '|' -%}
+                      {%- assign parts = spec | split: '|' -%}
+                      <div><dt>{{ parts[0] | strip }}</dt><dd>{{ parts[1] | strip }}</dd></div>
+                    {%- endif -%}
                   {%- endfor -%}
                 </dl>
               {%- endif -%}
-              {%- comment -%} Notas en letra pequeña (metacampo axios.specs_notes, una por renglón) {%- endcomment -%}
-              {%- if m.specs_notes.value != blank -%}
-                {%- assign note_lines = m.specs_notes.value | newline_to_br | split: '<br />' -%}
+              {%- comment -%} Notas en letra pequeña (una por renglón) {%- endcomment -%}
+              {%- if s.specs_notes != blank -%}
+                {%- assign note_lines = s.specs_notes | newline_to_br | split: '<br />' -%}
                 <div class="ax-specs__notes">
                   {%- for line in note_lines -%}
                     {%- assign line = line | strip -%}
@@ -369,11 +384,12 @@
       "description": {{ p.description | strip_html | strip | truncate: 500 | json }},
       {%- if p.vendor != blank -%}"brand": { "@type": "Brand", "name": {{ p.vendor | json }} },{%- endif -%}
       {%- if v.sku != blank -%}"sku": {{ v.sku | json }},{%- endif -%}
-      {%- if m.rating.value != blank and m.rating_count.value > 0 -%}
+      {%- assign rating_count = s.reviews_total | remove: ',' | plus: 0 -%}
+      {%- if s.rating != blank and rating_count > 0 -%}
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": {{ m.rating.value | json }},
-          "reviewCount": {{ m.rating_count.value | json }}
+          "ratingValue": {{ s.rating | plus: 0 | json }},
+          "reviewCount": {{ rating_count | json }}
         },
       {%- endif -%}
       "offers": {
@@ -395,8 +411,18 @@
   "name": "Producto: caja de compra",
   "settings": [
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página. Elige uno solo si usas esta sección en el inicio u otra página." },
-    { "type": "paragraph", "content": "El texto de cada producto se llena en su ficha (Productos → producto → Metacampos): axios.offer_label, axios.hook, axios.rating, axios.highlights, axios.offer_ends, axios.bundles, axios.specs." },
-    { "type": "text", "id": "reviews_total", "label": "Total de reseñas junto a las estrellas", "info": "Ej. 2,739. Vacío = usa el metacampo axios.rating_count." },
+    { "type": "header", "content": "Contenido de este producto" },
+    { "type": "text", "id": "hook", "label": "Frase gancho bajo el título", "info": "Lo que va entre *asteriscos* sale resaltado." },
+    { "type": "text", "id": "badge", "label": "Etiqueta oscura sobre la foto", "info": "Ej. Más vendido. Vacío = no se muestra." },
+    { "type": "text", "id": "rating", "label": "Calificación (estrellas)", "info": "Ej. 4.8. Vacío = sin estrellas." },
+    { "type": "text", "id": "reviews_total", "label": "Total de reseñas junto a las estrellas", "info": "Ej. 2,739. Vacío = solo la calificación." },
+    { "type": "textarea", "id": "highlights", "label": "Viñetas con ✓ (una por renglón)" },
+    { "type": "textarea", "id": "bundles", "label": "Paquetes (uno por renglón)", "info": "Nombre | Cantidad | Precio total | Etiqueta. Ej. ¡Compra 2! | 2 | 599 | ⭐ Más pedido. Sin precio = precio normal × cantidad. El que tenga etiqueta sale preseleccionado. El descuento real se crea en Shopify y en Releasit: que coincidan." },
+    { "type": "textarea", "id": "specs", "label": "Especificaciones (una por renglón)", "info": "Dato | Valor. Ej. Contenido | 100 ml" },
+    { "type": "textarea", "id": "specs_notes", "label": "Notas debajo de las especificaciones (una por renglón)" },
+    { "type": "text", "id": "offer_ends", "label": "Fin de la oferta (contador)", "info": "Fecha y hora, ej. 2026-10-12 23:59. Vacío = contador automático por ciclos de Configuración del tema." },
+    { "type": "url", "id": "releasit_url", "label": "Enlace directo de Releasit (opcional)" },
+    { "type": "header", "content": "Textos generales" },
     { "type": "checkbox", "id": "show_countdown", "label": "Mostrar contador de la oferta", "default": true },
     { "type": "text", "id": "countdown_label", "label": "Texto del contador", "default": "La oferta termina en" },
     { "type": "text", "id": "bundles_title", "label": "Título de los paquetes", "default": "Elige tu paquete" },
@@ -412,7 +438,7 @@
     { "type": "richtext", "id": "shipping_info", "label": "Plegable 1: texto", "default": "<p>Te escribimos por WhatsApp para validar tus datos y confirmar tu pedido. Una vez confirmado, lo enviamos en un plazo de 24 a 48 horas y te compartimos el número de rastreo. La entrega a tu domicilio tarda de [envio], según tu ubicación.</p><p>Si tu paquete llega dañado o presenta algún problema, te lo reponemos sin costo.</p>", "info": "Puedes usar [envio] y [dias]. Vacío = no se muestra." },
     { "type": "text", "id": "guarantee_title", "label": "Plegable 2: título", "default": "Nuestra garantía para ti" },
     { "type": "richtext", "id": "guarantee_info", "label": "Plegable 2: texto", "default": "<p>Queremos que quedes feliz con tu compra. Tu pedido está respaldado por una garantía de [dias] días: si algo no sale como esperabas, escríbenos y lo resolvemos contigo.</p>", "info": "Puedes usar [envio] y [dias]. Vacío = no se muestra." },
-    { "type": "text", "id": "offer_label", "label": "Etiqueta de oferta (con fuego animado)", "info": "Reemplaza el metacampo axios.offer_label. Vacío = usa el metacampo." },
+    { "type": "text", "id": "offer_label", "label": "Etiqueta de oferta (con fuego animado)", "info": "Vacío = no se muestra." },
     { "type": "text", "id": "stock_text", "label": "Texto de pocas unidades", "default": "¡Quedan pocas unidades!" },
     { "type": "checkbox", "id": "show_stock", "label": "Mostrar aviso de pocas unidades", "default": true, "info": "Va arriba del título, en lugar de la etiqueta de oferta. Usa el inventario real: solo aparece si el producto rastrea inventario y quedan menos piezas que el límite de Configuración del tema." },
     { "type": "checkbox", "id": "show_description", "label": "Mostrar \"Descripción\"", "default": true },

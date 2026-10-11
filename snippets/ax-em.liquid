@@ -1,7 +1,7 @@
 {%- comment -%}
   Escribe un texto escapado y pone en rojo lo que va entre asteriscos.
   "Brillo de agencia. *Sin agua.*" → Brillo de agencia. <em>Sin agua.</em>
-  Uso: {% render 'ax-em', text: product.metafields.axios.hook.value %}
+  Uso: {% render 'ax-em', text: section.settings.hook %}
 {%- endcomment -%}
 {%- assign ax_parts = text | escape | split: '*' -%}
 {%- for ax_part in ax_parts -%}

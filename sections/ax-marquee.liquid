@@ -1,0 +1,31 @@
+{%- comment -%}
+  Cinta oscura con frases que se desplazan solas (promesas reales de la tienda).
+  Una frase por línea; acepta [dias] y [envio]. Con movimiento reducido se queda quieta.
+{%- endcomment -%}
+{%- assign lines = section.settings.items | newline_to_br | split: '<br />' -%}
+<section class="ax-marquee" aria-label="{{ section.settings.label | escape }}">
+  {%- if section.settings.label != blank -%}<p class="ax-marquee__label">{{ section.settings.label }}</p>{%- endif -%}
+  <div class="ax-marquee__viewport">
+    {%- for copy in (1..2) -%}
+      <ul class="ax-marquee__track"{% if copy == 2 %} aria-hidden="true"{% endif %}>
+        {%- for line in lines -%}
+          {%- assign line = line | strip -%}
+          {%- if line != blank -%}
+            <li>{% render 'ax-icon', name: 'check' %}{% render 'ax-tokens', text: line %}</li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cinta de promesas",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Título pequeño", "default": "Compra con tranquilidad" },
+    { "type": "textarea", "id": "items", "label": "Frases (una por línea)", "default": "Pagas al recibir\nEnvío gratis a todo México\nGarantía de [dias] días\nAtención personalizada", "info": "Solo promesas que cumples. Puedes usar [dias] y [envio]." }
+  ],
+  "presets": [{ "name": "Cinta de promesas" }]
+}
+{% endschema %}

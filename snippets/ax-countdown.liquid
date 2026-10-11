@@ -1,12 +1,12 @@
 {%- comment -%}
   Contador de la promoción. Dos modos:
-  1) Fecha fija: si el producto tiene el metacampo axios.offer_ends con una fecha futura, cuenta hasta esa fecha
+  1) Fecha fija: si se pasa ends con una fecha futura (ajuste "Fin de la oferta" de la caja de compra), cuenta hasta esa fecha
      y desaparece al llegar.
   2) Ciclo automático: si no hay fecha y está activado en Configuración del tema, cuenta hasta el fin del ciclo
      actual (cada N días, por calendario). Al terminar empieza otro ciclo. El fin se guarda en el navegador
      del cliente (localStorage) para que vea el mismo contador si regresa.
   Mientras ax.js calcula el tiempo, los números se ven como esqueleto (clase is-loading) en lugar de 00.
-  Uso: {% render 'ax-countdown', ends: m.offer_ends.value, key: p.id, label: 'La oferta termina en', light: true %}
+  Uso: {% render 'ax-countdown', ends: section.settings.offer_ends, key: p.id, label: 'La oferta termina en', light: true %}
 {%- endcomment -%}
 {%- liquid
   assign mode = ''

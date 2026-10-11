@@ -104,8 +104,8 @@
                   assign cd_light = true
                 endif
               -%}
-              {%- comment -%} Misma fecha y misma lógica que el contador de la caja de compra, para que marquen lo mismo {%- endcomment -%}
-              {% render 'ax-countdown', ends: p.metafields.axios.offer_ends.value, key: p.id, label: s.label, light: cd_light %}
+              {%- comment -%} Contador automático por ciclos (mismo producto = mismo ciclo que la caja de compra) {%- endcomment -%}
+              {% render 'ax-countdown', key: p.id, label: s.label, light: cd_light %}
             </div>
 
           {%- when 'note' -%}

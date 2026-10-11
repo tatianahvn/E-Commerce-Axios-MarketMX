@@ -1,0 +1,64 @@
+{%- comment -%}
+  Franja oscura con el problema: título con una frase resaltada, texto y puntos con ícono.
+  Sin cifras inventadas: si se agrega un número, que venga de un dato real.
+{%- endcomment -%}
+<section class="ax-section ax-section--dark ax-band" aria-labelledby="ax-band-{{ section.id }}">
+  <div class="ax-container ax-band__grid">
+    <div class="ax-band__intro ax-reveal">
+      <h2 class="ax-band__title" id="ax-band-{{ section.id }}">
+        {{ section.settings.title }}
+        {%- if section.settings.highlight != blank -%}<span class="ax-band__mark">{{ section.settings.highlight }}</span>{%- endif -%}
+      </h2>
+      {%- if section.settings.text != blank -%}<p class="ax-lead">{{ section.settings.text }}</p>{%- endif -%}
+    </div>
+    <div class="ax-band__side">
+      {%- if section.blocks.size > 0 -%}
+        <ul class="ax-band__points">
+          {%- for block in section.blocks -%}
+            <li class="ax-reveal" {{ block.shopify_attributes }}>
+              <span class="ax-band__icon">{% render 'ax-icon', name: block.settings.icon %}</span>
+              <p>{% render 'ax-em', text: block.settings.text %}</p>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+      {%- if section.settings.note != blank -%}<p class="ax-band__note ax-reveal">{% render 'ax-em', text: section.settings.note %}</p>{%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Franja: el problema",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Título", "default": "Días de lluvia" },
+    { "type": "text", "id": "highlight", "label": "Frase resaltada (debajo del título)", "default": "ropa que no seca" },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "text", "id": "note", "label": "Nota final (recuadro claro)", "info": "Lo que va entre *asteriscos* sale en negritas." }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Punto",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ícono",
+          "default": "rain",
+          "options": [
+            { "value": "rain", "label": "Lluvia" },
+            { "value": "clock", "label": "Reloj" },
+            { "value": "drop", "label": "Gota" },
+            { "value": "hanger", "label": "Gancho" },
+            { "value": "home", "label": "Casa" },
+            { "value": "x", "label": "Tache" }
+          ]
+        },
+        { "type": "text", "id": "text", "label": "Texto", "info": "Lo que va entre *asteriscos* sale en negritas." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Franja: el problema" }]
+}
+{% endschema %}

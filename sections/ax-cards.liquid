@@ -1,0 +1,55 @@
+{%- comment -%}
+  Tarjetas con imagen, título y texto (características o pasos).
+  Con "Numerar" activo, cada tarjeta lleva su número (para "Así de sencillo").
+{%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  <section class="ax-section ax-cards-wrap{% if section.settings.soft %} ax-section--soft ax-cards-wrap--slant{% endif %}" aria-labelledby="ax-cards-{{ section.id }}">
+    <div class="ax-container">
+      {%- assign head_id = 'ax-cards-' | append: section.id -%}
+      {% render 'ax-head', eyebrow: section.settings.eyebrow, title: section.settings.title, text: section.settings.text, id: head_id %}
+      <ul class="ax-cards ax-cards--{{ section.blocks.size }}{% if section.settings.framed %} ax-cards--framed{% endif %}">
+        {%- for block in section.blocks -%}
+          <li class="ax-card ax-reveal" {{ block.shopify_attributes }}>
+            <div class="ax-card__media">
+              {% render 'ax-media-img', image: block.settings.image, file: block.settings.image_file, alt: block.settings.title, width: 600 %}
+              {%- if section.settings.numbered -%}<span class="ax-card__num" aria-hidden="true">{{ forloop.index }}</span>{%- endif -%}
+            </div>
+            <div class="ax-card__body">
+              <h3>{{ block.settings.title }}</h3>
+              {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+            </div>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+{%- else -%}
+  {% render 'ax-hint', text: 'Sección "Tarjetas con imagen": agrega al menos una tarjeta.' %}
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Tarjetas con imagen",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Etiqueta" },
+    { "type": "text", "id": "title", "label": "Título", "default": "Pensada para *los días grises*" },
+    { "type": "textarea", "id": "text", "label": "Texto" },
+    { "type": "checkbox", "id": "numbered", "label": "Numerar las tarjetas", "default": false },
+    { "type": "checkbox", "id": "framed", "label": "Tarjetas con marco blanco", "default": false },
+    { "type": "checkbox", "id": "soft", "label": "Fondo crema con bordes inclinados", "default": false }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Tarjeta",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Imagen" },
+        { "type": "text", "id": "image_file", "label": "Imagen incluida en el tema", "info": "Se usa si no eliges una imagen arriba. Nombre del archivo en assets/." },
+        { "type": "text", "id": "title", "label": "Título", "default": "Título" },
+        { "type": "textarea", "id": "text", "label": "Texto" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Tarjetas con imagen" }]
+}
+{% endschema %}
