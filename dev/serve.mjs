@@ -49,8 +49,9 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(403).end();
     return;
   }
-  const isPage = url.pathname.endsWith('/') || url.pathname.endsWith('.html');
-  if (url.pathname.endsWith('/')) file = path.join(file, 'index.html');
+  // Páginas: con o sin "/" al final (como en Shopify: /products/secadora-ropa-portatil)
+  const isPage = url.pathname.endsWith('/') || url.pathname.endsWith('.html') || !path.extname(url.pathname);
+  if (isPage && !url.pathname.endsWith('.html')) file = path.join(file, 'index.html');
   if (isPage) await build();
 
   fs.readFile(file, (err, data) => {
