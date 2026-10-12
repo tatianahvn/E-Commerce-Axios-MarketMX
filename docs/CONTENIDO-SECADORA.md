@@ -11,15 +11,15 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 ## ⚠️ Antes de vender
 
 1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
-2. **Fotos.** Salen de la carpeta "creativos Secadora" del escritorio (hechos con IA; algunos detalles pueden variar respecto al producto real). Los verticales se recortaron en cuadrado desde arriba para que conserven título y producto.
-   - Línea de tiempo: `sec-armario-abierto.jpg` (cuarto de lavado, funda abierta).
-   - Imagen + puntos: `sec-usos.jpg` ("Ampliamente usado").
-   - Tarjetas: circulación descendente · "Compact, no installation" (cajón) · "1-8 Hour Intelligent Timing Automatic Power-off" · "Can dry 8-10 pieces".
-   - Pasos: "Foldable hook can be hung anywhere" · "Dual-mode drying" (dedo en la pantalla) · "Dry clothes are fast enough" (niña con cobija).
-   - Garantía: armario cerrado · telas · noche · `sec-capacidades.jpg`.
-   - Sugerida como **foto principal del producto en Shopify:** `sec-infografia.jpg` ("Ropa seca, siempre").
-   **Ojo con los textos de los creativos:** `sec-infografia.jpg` y `sec-capacidades.jpg` dicen **220V** y "Programable 1h / 2h / 4h", y la infografía lleva la marca **CASA MANDARINA**. "Se apaga sola" dice **1-8 horas**, y la de la niña dice **600W** y **30 min**. Nada de eso lo confirma Dropi; el 220V contradice la corriente de México (127 V). Corrígelos antes de publicar.
-   Dos fotos de clientes en la carpeta (`imgi_67`, `imgi_68`) muestran **clavija americana**: buena señal para el voltaje.
+2. **Fotos.** Salen de la carpeta "Creativos Fixed Secadora" del escritorio: creativos corregidos, sin textos en inglés (archivos `sec-fx-*.jpg`).
+   - Línea de tiempo: `general-01`.
+   - Tarjetas: `secado` (calor y aire), `diseñocompacto` (plegable), `night` (se apaga sola) y `colgar` (hasta 9 prendas).
+   - Pasos: `caracteristicas` (cuelga), `temporizador` (programa) y `clothes` (listo).
+   - Garantía: `vistaprincipal`, armario cerrado, `general-02` y armario abierto.
+   - Imagen + puntos: "Ampliamente usado" (`sec-usos.jpg`).
+   - Sugerida como **foto principal del producto en Shopify:** `vistaprincipal`.
+   **No se usaron** `esterilizar` y `esterilizar-2`: muestran luz UV, que Dropi no confirma y la página no menciona. Si Dropi la confirma, se agregan con su texto. La subcarpeta "originales" tampoco se usó.
+   **Ojo:** `caracteristicas` dice "hasta 8 piezas o 10 kg" y la página dice 9 prendas (Dropi).
 3. **Reseñas.** Vienen del [anuncio de AliExpress del mismo modelo](https://es.aliexpress.com/item/1005007254611442.html) (4.7★, 220 calificaciones). Están cargadas las **64 que traen texto**, traducidas a español sin cambiar lo que dicen, con sus fotos (`sec-rev-*.jpg`). **47 están activas** y **17 desactivadas**; en Personalizar → Reseñas puedes mostrar u ocultar cada una con el ícono del ojo:
    - **Mencionan cosas que Dropi no confirma:** control remoto (bloques ae-0, ae-9, ae-24), luz UV-C (ae-4) o 220 V (ae-11). Si tu producto sí trae control remoto, actívalas.
    - **Delatan que son de AliExpress:** precio en zlotys o dólares (ae-2, ae-4, ae-9) o comparan vendedores (ae-19).
@@ -34,7 +34,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 - **Título:** `Secadora de Ropa Portátil | Plegable con temporizador`
 - **Identificador (handle):** `secadora-ropa-portatil`
 - **Plantilla:** en la ficha del producto → *Plantilla del tema* → **`secadora`**.
-- **Fotos del producto:** de `assets/`, en este orden: `sec-infografia.jpg`, `sec-armario-abierto.jpg`, `sec-capacidades.jpg`, `sec-armario-cerrado.jpg`, `sec-usos.jpg` y `sec-medidas.jpg`.
+- **Fotos del producto:** de `assets/`, en este orden: `sec-fx-vista-principal.jpg`, `sec-fx-general-01.jpg`, `sec-fx-general-02.jpg`, `sec-armario-abierto.jpg`, `sec-usos.jpg` y `sec-medidas.jpg`.
 - **Descripción:**
 
   > Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.

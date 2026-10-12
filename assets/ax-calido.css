@@ -90,7 +90,7 @@
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center;
   border-radius: var(--ax-radius-lg);
   background: var(--ax-soft-2);
 }
