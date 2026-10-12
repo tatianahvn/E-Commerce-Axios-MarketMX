@@ -14,7 +14,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 2. **Fotos.** Salen de la carpeta "Creativos Fixed Secadora" del escritorio: creativos corregidos, sin textos en inglés (archivos `sec-fx-*.jpg`).
    - Línea de tiempo: `antes-despues-secadora` (tendedero bajo la lluvia vs. secadora en casa).
    - Tarjetas: `secado` (calor y aire), `diseñocompacto` (plegable), `night` (se apaga sola) y `colgar` (hasta 9 prendas).
-   - Pasos: `caracteristicas` (cuelga), `temporizador` (programa) y `clothes` (listo).
+   - Pasos: `caracteristicas` (cuelga), `paso-programa` (programa, dedo en la pantalla "120") y `clothes` (listo).
    - Garantía: arriba `colgar` y `vistaprincipal`; abajo `general-01` y `clothes`.
    - Imagen + puntos: "Ampliamente usado" (`sec-usos.jpg`).
    **No se usaron** `esterilizar` y `esterilizar-2`: muestran luz UV, que Dropi no confirma y la página no menciona. Si Dropi la confirma, se agregan con su texto. La subcarpeta "originales" tampoco se usó.
