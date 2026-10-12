@@ -48,7 +48,7 @@ Se edita en **Personalizar → plantilla "secadora" → Producto: caja de compra
 - **Frase gancho:** Aunque llueva toda la semana, *tu ropa seca en horas, no en días.*
 - **Etiqueta sobre la foto:** Nuevo
 - **Etiqueta de oferta:** Precio especial de temporada de lluvias
-- **Viñetas (con ícono):** `cloud | Secado *cálido* y suave para tus prendas` · `home | Optimiza tu *rutina* en días de lluvia` · `shield | Disfruta de total *tranquilidad* en interiores` · `layers | Plegable y ligero` · `moon | Temporizador de apagado automático`. Formato: `icono | texto`; lo que va entre asteriscos sale resaltado
+- **Viñetas (con ícono):** `cloud | Secado *cálido* y suave para tus prendas` · `home | Optimiza tu *rutina* en días de lluvia` · `shield | Disfruta de total *tranquilidad* en interiores` · `layers | Plegable y *ligero*` · `moon | Temporizador de apagado *automático*`. Formato: `icono | texto`; lo que va entre asteriscos sale resaltado
 - **Especificaciones:** capacidad, secado, prendas ligeras, controles, medidas armada y plegada, e incluye. Agrega `Voltaje | 127 V` solo cuando Dropi lo confirme.
 - **Calificación y total de reseñas:** 4.8 y 47, el promedio y el total de las reseñas activas. Si activas o desactivas reseñas, actualízalos
 - **Paquetes:** pendientes, se definen junto con el precio. Formato, uno por renglón: `¡Compra 2! | 2 | 1499 | ⭐ Más pedido`. Mientras estén vacíos, se vende de 1 en 1.
