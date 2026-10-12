@@ -1044,7 +1044,8 @@ ol {
   }
   .ax-pdp__media {
     position: sticky;
-    top: calc(var(--ax-header-h) + 20px);
+    /* ax.js ajusta --ax-media-top si la columna es más alta que la pantalla: así se queda pegada por abajo */
+    top: var(--ax-media-top, calc(var(--ax-header-h) + 20px));
   }
 }
 
@@ -1054,9 +1055,6 @@ ol {
 }
 
 @media (min-width: 768px) {
-  .ax-pdp__media:has(.ax-mini-reviews:not([hidden])) {
-    position: static;
-  }
   .ax-mini-reviews:not([hidden]) {
     display: grid;
     gap: 12px;

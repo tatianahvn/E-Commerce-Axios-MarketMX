@@ -413,6 +413,26 @@
     io.observe(ba);
   });
 
+  /* ---------- Columna de fotos fija en escritorio ----------
+     Si cabe en la pantalla, se queda pegada arriba (debajo del encabezado). Si es más alta (p. ej. con las
+     reseñas en miniatura), primero se recorre completa y luego se queda pegada por abajo mientras sigue
+     la columna de compra; al terminar la sección de compra, todo sigue bajando junto. */
+  const media = $('.ax-pdp__media');
+  if (media) {
+    const desk = window.matchMedia('(min-width: 768px)');
+    const fit = () => {
+      if (!desk.matches) return media.style.removeProperty('--ax-media-top');
+      const headerH = $('[data-ax-header]')?.offsetHeight || 0;
+      const top = headerH + 20;
+      const room = window.innerHeight - media.offsetHeight - 20;
+      media.style.setProperty('--ax-media-top', `${Math.min(top, room)}px`);
+    };
+    fit();
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+    if ('ResizeObserver' in window) new ResizeObserver(fit).observe(media);
+  }
+
   /* ---------- Reseñas en miniatura junto a las fotos (escritorio): una a la vez, pasan solas ---------- */
   $$('[data-ax-mini-reviews]').forEach((box) => {
     const source = $$('#resenas .ax-review').filter((r) => !r.hidden && $('.ax-review__text', r)?.textContent.trim().length > 20);
