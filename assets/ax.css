@@ -1310,6 +1310,21 @@ ol {
   stroke-width: 3;
 }
 
+/* Viñeta con ícono propio ("icono | texto"): trazo normal y un poco más grande */
+.ax-pdp__points li.has-icon .ax-icon {
+  width: 26px;
+  height: 26px;
+  margin-top: -1px;
+  padding: 4px;
+  stroke-width: 2;
+}
+
+.ax-pdp__points em {
+  font-style: normal;
+  font-weight: 800;
+  color: var(--ax-red);
+}
+
 @media (min-width: 768px) {
   .ax-pdp__title {
     font-size: 32px;
