@@ -1048,6 +1048,71 @@ ol {
   }
 }
 
+/* Reseñas en miniatura debajo de las fotos: solo escritorio, una a la vez */
+.ax-mini-reviews {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .ax-pdp__media:has(.ax-mini-reviews:not([hidden])) {
+    position: static;
+  }
+  .ax-mini-reviews:not([hidden]) {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid var(--ax-line);
+    border-radius: var(--ax-radius-lg);
+    background: var(--ax-soft);
+  }
+  .ax-mini-reviews__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .ax-mini-reviews__title {
+    font-weight: 800;
+    font-size: 15px;
+  }
+  .ax-mini-review {
+    animation: ax-mini-in 0.35s ease;
+  }
+  .ax-mini-review .ax-review__text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+  .ax-mini-reviews__dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+  .ax-mini-reviews__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: var(--ax-line);
+    cursor: pointer;
+  }
+  .ax-mini-reviews__dot[aria-current='true'] {
+    width: 20px;
+    background: var(--ax-red);
+  }
+}
+
+@keyframes ax-mini-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
 /* Galería con desplazamiento nativo (rápida en celular) */
 .ax-gallery {
   position: relative;

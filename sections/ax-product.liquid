@@ -164,6 +164,24 @@
           </div>
         {%- endif -%}
       </div>
+
+      {%- comment -%}
+        Reseñas en miniatura (solo escritorio): ax.js copia aquí las tarjetas de la sección de reseñas
+        de esta misma página y las pasa solas, una a la vez. Sin reseñas en la página, no se muestra.
+      {%- endcomment -%}
+      {%- if section.settings.mini_reviews -%}
+        <div class="ax-mini-reviews" data-ax-mini-reviews hidden>
+          <div class="ax-mini-reviews__head">
+            <span class="ax-mini-reviews__title">{{ section.settings.mini_reviews_title }}</span>
+            {%- if s.rating != blank -%}
+              {%- assign rating_num = s.rating | plus: 0 -%}
+              {% render 'ax-stars', rating: rating_num, count_text: s.reviews_total, link: '#resenas' %}
+            {%- endif -%}
+          </div>
+          <div class="ax-mini-reviews__track" data-ax-mini-track aria-live="polite"></div>
+          <div class="ax-mini-reviews__dots" data-ax-mini-dots></div>
+        </div>
+      {%- endif -%}
     </div>
 
     {%- comment -%} Información y compra {%- endcomment -%}
@@ -497,6 +515,8 @@
     { "type": "checkbox", "id": "show_description", "label": "Mostrar \"Descripción\"", "default": true },
     { "type": "checkbox", "id": "show_specs", "label": "Mostrar \"Especificaciones\"", "default": true },
     { "type": "checkbox", "id": "description_open", "label": "Descripción abierta al cargar", "default": false },
+    { "type": "checkbox", "id": "mini_reviews", "label": "Reseñas en miniatura debajo de las fotos (escritorio)", "default": false, "info": "Toma las reseñas de la sección \"Reseñas\" de esta página y las pasa solas, una a la vez." },
+    { "type": "text", "id": "mini_reviews_title", "label": "Título de las reseñas en miniatura", "default": "Lo que dicen nuestros clientes" },
     { "type": "checkbox", "id": "sticky", "label": "Barra fija de compra", "default": true },
     { "type": "text", "id": "sticky_label", "label": "Botón de la barra fija", "default": "Ordenar ahora" }
   ]

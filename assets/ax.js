@@ -413,6 +413,55 @@
     io.observe(ba);
   });
 
+  /* ---------- Reseñas en miniatura junto a las fotos (escritorio): una a la vez, pasan solas ---------- */
+  $$('[data-ax-mini-reviews]').forEach((box) => {
+    const source = $$('#resenas .ax-review').filter((r) => !r.hidden && $('.ax-review__text', r)?.textContent.trim().length > 20);
+    if (!source.length) return;
+    const track = $('[data-ax-mini-track]', box);
+    const dots = $('[data-ax-mini-dots]', box);
+    const cards = source.slice(0, 12).map((review, i) => {
+      const card = review.cloneNode(true);
+      card.removeAttribute('role');
+      card.removeAttribute('hidden');
+      card.removeAttribute('data-ax-review-extra');
+      $$('.ax-review__more', card).forEach((el) => el.remove());
+      card.classList.remove('is-open');
+      card.classList.add('ax-mini-review');
+      card.hidden = i !== 0;
+      track.appendChild(card);
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'ax-mini-reviews__dot';
+      dot.setAttribute('aria-label', `Ver opinión ${i + 1}`);
+      dot.addEventListener('click', () => {
+        show(i);
+        restart();
+      });
+      dots.appendChild(dot);
+      return card;
+    });
+    let current = 0;
+    const show = (i) => {
+      cards[current].hidden = true;
+      current = (i + cards.length) % cards.length;
+      cards[current].hidden = false;
+      $$('.ax-mini-reviews__dot', dots).forEach((d, n) => d.setAttribute('aria-current', n === current ? 'true' : 'false'));
+    };
+    show(0);
+    box.hidden = false;
+    if (reducedMotion || cards.length < 2) return;
+    let timer = null;
+    const restart = () => {
+      clearInterval(timer);
+      timer = setInterval(() => show(current + 1), 5000);
+    };
+    box.addEventListener('mouseenter', () => clearInterval(timer));
+    box.addEventListener('mouseleave', restart);
+    box.addEventListener('focusin', () => clearInterval(timer));
+    box.addEventListener('focusout', restart);
+    restart();
+  });
+
   /* ---------- Reseñas: ver más ---------- */
   $$('[data-ax-reviews-more]').forEach((btn) => {
     btn.addEventListener('click', () => {
