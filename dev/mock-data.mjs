@@ -72,7 +72,7 @@ const secMedia = [
   img('sec-slider-5.jpg', 1400, 781, 'Secadora de ropa portátil'),
 ].map((m, i) => ({ id: 9100 + i, media_type: 'image', alt: m.alt, preview_image: m, src: m.src, width: m.width, height: m.height }));
 
-const secVariant = variant(5600, 89900, 159900, { sku: 'SEC-36701' });
+const secVariant = variant(5600, 79900, 149900, { sku: 'SEC-36701' });
 export const secadora = {
   ...shineArmor,
   id: 1003,
@@ -80,7 +80,7 @@ export const secadora = {
   title: 'Secadora de Ropa Portátil | Plegable con temporizador',
   url: '/products/secadora-ropa-portatil',
   vendor: 'Axios Market',
-  price: 89900,
+  price: 79900,
   description:
     '<p>Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.</p><p>Combina calor y flujo de aire, y tiene pantalla digital con temporizador. Le caben hasta 9 prendas y las ligeras quedan desde 20 minutos. Cuando terminas, la funda se pliega y la base se guarda en el clóset.</p>',
   media: secMedia,

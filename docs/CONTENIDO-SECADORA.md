@@ -25,7 +25,6 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
    - **Negativas:** no enciende (ae-54), llegó roto (ae-193), "no plancha" (ae-194). Léelas: hablan de la calidad del proveedor.
    - **Sin contenido o de envío:** "ok", "¿Estás bien?", reembolso, aduana, nunca llegó (ae-50, ae-53, ae-55, ae-56, ae-46, ae-211, ae-212).
    En la reseña ae-18 solo se muestra una de sus dos fotos, porque la otra enseña la luz UV. Ninguna está marcada como compra verificada. El resumen (4.8 de 47) se calcula solo con las activas.
-4. **Precio y paquetes.** Quedan pendientes. En la vista previa local se usan $899 y $1,599 solo de ejemplo.
 5. **Silencio.** La descripción de Dropi no dice que sea silenciosa, así que la página ya no lo promete.
 
 ## 1. Crear el producto
@@ -50,7 +49,8 @@ Se edita en **Personalizar → plantilla "secadora" → Producto: caja de compra
 - **Viñetas (con ícono):** `cloud | Secado *cálido* y suave para tus prendas` · `home | Optimiza tu *rutina* en días de lluvia` · `shield | Disfruta de total *tranquilidad* en interiores` · `layers | Plegable y *ligero*` · `moon | Temporizador de apagado *automático*`. Formato: `icono | texto`; lo que va entre asteriscos sale resaltado
 - **Especificaciones:** capacidad, secado, prendas ligeras, controles, medidas armada y plegada, e incluye. Agrega `Voltaje | 127 V` solo cuando Dropi lo confirme.
 - **Calificación y total de reseñas:** 4.8 y 47, el promedio y el total de las reseñas activas. Si activas o desactivas reseñas, actualízalos
-- **Paquetes:** pendientes, se definen junto con el precio. Formato, uno por renglón: `¡Compra 2! | 2 | 1499 | ⭐ Más pedido`. Mientras estén vacíos, se vende de 1 en 1.
+- **Paquetes:** `¡Compra 1! | 1 | 799` · `¡Compra 2! | 2 | 1399 | ⭐ Más pedido` · `¡Compra 3! | 3 | 1899 | Mejor precio` ($799, $699.50 y $633 por pieza). Sale preseleccionado el de 2.
+  **En Shopify:** precio del producto **$799** y precio de comparación **$1,499**. Crea en **Descuentos** un descuento automático por cantidad para que 2 piezas cuesten $1,399 y 3 piezas $1,899, y configura las mismas ofertas en Releasit. El tema solo *muestra* estos precios: si no coinciden con Shopify y Releasit, el cliente verá un precio y pagará otro.
 
 La tarjeta del producto en el inicio y en "Otros productos" toma su subtítulo y etiqueta de **Configuración del tema → Tarjetas de producto**
 (renglón `secadora-ropa-portatil | Seca tu ropa en casa aunque llueva | | | Nuevo`).
