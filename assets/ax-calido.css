@@ -170,22 +170,100 @@
   }
 }
 
-/* ---------- Reseñas (el slider es el de ax.css) ---------- */
+/* ---------- Reseñas compactas (el slider es el de ax.css) ----------
+   Cada tarjeta mide lo que su texto (no se estiran a la más alta) y la foto va chica a la derecha. */
+#ax-main #resenas.ax-section {
+  padding: 32px 0 36px;
+}
+
+#ax-main #resenas .ax-head {
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+#ax-main .ax-rsum {
+  margin: 0 auto 16px;
+}
+
+#ax-main .ax-rsum__score {
+  font-size: 36px;
+}
+
+#ax-main .ax-reviews--slider {
+  align-items: flex-start;
+}
+
 #ax-main .ax-review {
+  grid-template-columns: 1fr auto;
+  gap: 8px 12px;
+  padding: 14px;
   border-radius: var(--ax-radius-lg);
 }
 
+#ax-main .ax-review > * {
+  grid-column: 1 / -1;
+}
+
+#ax-main .ax-review:has(.ax-review__photos) .ax-review__top,
+#ax-main .ax-review:has(.ax-review__photos) .ax-review__text {
+  grid-column: 1;
+}
+
 #ax-main .ax-review__photos {
-  order: -1;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  flex-direction: column;
+  gap: 6px;
 }
 
 #ax-main .ax-review__photos a {
-  width: 110px;
-  height: 140px;
-  border-radius: 12px;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+}
+
+#ax-main .ax-review__text {
+  font-size: 14px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
+
+#ax-main .ax-review.is-open .ax-review__text {
+  display: block;
+  -webkit-line-clamp: unset;
+}
+
+#ax-main .ax-review__more {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: -4px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ax-red);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Menos aire entre la sección anterior y las reseñas */
+#ax-main .ax-story.ax-section {
+  padding-bottom: 20px;
+}
+
+#ax-main .ax-review__who {
+  gap: 8px;
+  padding-top: 8px;
+  font-size: 13px;
 }
 
 #ax-main .ax-review__avatar {
+  width: 28px;
+  height: 28px;
+  font-size: 13px;
   background: var(--ax-red);
 }
 

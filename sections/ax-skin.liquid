@@ -7,6 +7,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   {{ 'ax-calido.css' | asset_url | stylesheet_tag }}
+  <script>
+    // Reseñas compactas: los textos largos se cortan a 5 líneas y llevan "Leer más"
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('#resenas .ax-review__text').forEach(function (text) {
+        if (text.scrollHeight - text.clientHeight < 4) return;
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ax-review__more';
+        btn.textContent = 'Leer más';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.addEventListener('click', function () {
+          var open = text.closest('.ax-review').classList.toggle('is-open');
+          btn.textContent = open ? 'Leer menos' : 'Leer más';
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        text.after(btn);
+      });
+    });
+  </script>
 {%- endif -%}
 
 {% schema %}
