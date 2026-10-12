@@ -30,7 +30,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 ## 1. Crear el producto
 
 - **Título:** `Secadora de Ropa Portátil | Plegable con temporizador`
-- **Identificador (handle):** `secadora-ropa-portatil`
+- **Identificador (handle):** `secadora-de-ropa-portatil`
 - **Plantilla:** en la ficha del producto → *Plantilla del tema* → **`secadora`**.
 - **Fotos del producto:** el slider de la landing ya usa las 5 imágenes del tema (`sec-slider-1.jpg` a `sec-slider-5.jpg`, de la carpeta `slider-product`) desde el ajuste **"Fotos del slider incluidas en el tema"** de la caja de compra. Aun así, **sube al producto en Shopify al menos `sec-slider-1.jpg`**: Releasit, las tarjetas del inicio y "Otros productos" usan la foto del producto de Shopify.
 - **Descripción:**
@@ -53,7 +53,7 @@ Se edita en **Personalizar → plantilla "secadora" → Producto: caja de compra
   **En Shopify:** precio del producto **$799** y precio de comparación **$1,499**. Crea en **Descuentos** un descuento automático por cantidad para que 2 piezas cuesten $1,399 y 3 piezas $1,899, y configura las mismas ofertas en Releasit. El tema solo *muestra* estos precios: si no coinciden con Shopify y Releasit, el cliente verá un precio y pagará otro.
 
 La tarjeta del producto en el inicio y en "Otros productos" toma su subtítulo y etiqueta de **Configuración del tema → Tarjetas de producto**
-(renglón `secadora-ropa-portatil | Seca tu ropa en casa aunque llueva | | | Nuevo`).
+(renglón `secadora-de-ropa-portatil | Seca tu ropa en casa aunque llueva | | | Nuevo`).
 
 ## 3. Lo que ya viene en la plantilla
 

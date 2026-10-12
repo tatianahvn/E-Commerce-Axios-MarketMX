@@ -49,7 +49,7 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(403).end();
     return;
   }
-  // Páginas: con o sin "/" al final (como en Shopify: /products/secadora-ropa-portatil)
+  // Páginas: con o sin "/" al final (como en Shopify: /products/secadora-de-ropa-portatil)
   const isPage = url.pathname.endsWith('/') || url.pathname.endsWith('.html') || !path.extname(url.pathname);
   if (isPage && !url.pathname.endsWith('.html')) file = path.join(file, 'index.html');
   if (isPage) await build();

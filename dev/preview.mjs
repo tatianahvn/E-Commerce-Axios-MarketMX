@@ -275,7 +275,7 @@ if (!fs.existsSync(assetsLink)) fs.symlinkSync(path.join(theme, 'assets'), asset
 
 await renderPage('index.json', 'index.html', { name: 'index' }, { page_title: 'Axios Market MX' });
 await renderPage('product.json', 'products/shine-armor/index.html', { name: 'product' }, { product: shineArmor, page_title: shineArmor.title });
-await renderPage('product.secadora.json', 'products/secadora-ropa-portatil/index.html', { name: 'product', suffix: 'secadora' }, { product: secadora, page_title: secadora.title });
+await renderPage('product.secadora.json', 'products/secadora-de-ropa-portatil/index.html', { name: 'product', suffix: 'secadora' }, { product: secadora, page_title: secadora.title });
 await renderPage('product.json', 'products/producto-nuevo/index.html', { name: 'product' }, { product: plainProduct, page_title: plainProduct.title });
 await renderPage('collection.json', 'collections/all/index.html', { name: 'collection' }, {
   collection: { title: 'Todos los productos', description: '', products, products_count: products.length, sort_options: [{ value: 'best-selling', name: 'Más vendidos' }, { value: 'price-ascending', name: 'Precio: menor a mayor' }], default_sort_by: 'best-selling' },

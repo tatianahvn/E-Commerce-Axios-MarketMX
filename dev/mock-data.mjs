@@ -76,9 +76,9 @@ const secVariant = variant(5600, 79900, 149900, { sku: 'SEC-36701' });
 export const secadora = {
   ...shineArmor,
   id: 1003,
-  handle: 'secadora-ropa-portatil',
+  handle: 'secadora-de-ropa-portatil',
   title: 'Secadora de Ropa Portátil | Plegable con temporizador',
-  url: '/products/secadora-ropa-portatil',
+  url: '/products/secadora-de-ropa-portatil',
   vendor: 'Axios Market',
   price: 79900,
   description:

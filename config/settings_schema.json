@@ -48,7 +48,7 @@
         "type": "textarea",
         "id": "ax_cards",
         "label": "Datos de las tarjetas",
-        "default": "shine-armor | Cera cerámica en spray 3 en 1 | 4.8 | 10 | Más vendido\nsecadora-ropa-portatil | Seca tu ropa en casa aunque llueva | | | Nuevo"
+        "default": "shine-armor | Cera cerámica en spray 3 en 1 | 4.8 | 10 | Más vendido\nsecadora-de-ropa-portatil | Seca tu ropa en casa aunque llueva | | | Nuevo"
       }
     ]
   },

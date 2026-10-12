@@ -82,7 +82,7 @@ Para ver cambios en vivo mientras editas: `shopify theme dev --store axiosmarket
 cd dev && npm install && node serve.mjs
 ```
 
-Abre `http://localhost:4173/`, `http://localhost:4173/products/shine-armor/` o `http://localhost:4173/products/secadora-ropa-portatil/` (o, en el celular dentro de la misma Wi-Fi, `http://IP-DE-TU-MAC:4173/...`).
+Abre `http://localhost:4173/`, `http://localhost:4173/products/shine-armor/` o `http://localhost:4173/products/secadora-de-ropa-portatil/` (o, en el celular dentro de la misma Wi-Fi, `http://IP-DE-TU-MAC:4173/...`).
 Cada carga vuelve a generar la página: trae las fotos actuales del producto desde la tienda y toma los cambios más recientes del tema.
 Para generar los archivos una sola vez, sin servidor: `node preview.mjs`.
 
