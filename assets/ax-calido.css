@@ -657,8 +657,8 @@
   .ax-promise {
     grid-template-columns: 1fr 1.5fr 1fr;
     grid-template-areas:
-      'p1 body p3'
-      'p2 body p4';
+      'p1 body p2'
+      'p3 body p4';
     gap: 18px;
     align-items: center;
   }
@@ -672,7 +672,7 @@
   .ax-promise__photo--3 { grid-area: p3; }
   .ax-promise__photo--4 { grid-area: p4; }
   .ax-promise__photo--2,
-  .ax-promise__photo--3 {
+  .ax-promise__photo--4 {
     transform: translateY(18px);
   }
 }

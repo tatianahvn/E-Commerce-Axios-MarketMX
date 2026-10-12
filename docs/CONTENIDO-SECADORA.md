@@ -15,7 +15,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
    - Línea de tiempo: `antes-despues-secadora` (tendedero bajo la lluvia vs. secadora en casa).
    - Tarjetas: `secado` (calor y aire), `diseñocompacto` (plegable), `night` (se apaga sola) y `colgar` (hasta 9 prendas).
    - Pasos: `caracteristicas` (cuelga), `temporizador` (programa) y `clothes` (listo).
-   - Garantía: `vistaprincipal`, armario cerrado, `general-02` y armario abierto.
+   - Garantía: arriba `vistaprincipal` y armario cerrado; abajo `general-01` y `clothes`.
    - Imagen + puntos: "Ampliamente usado" (`sec-usos.jpg`).
    - Sugerida como **foto principal del producto en Shopify:** `vistaprincipal`.
    **No se usaron** `esterilizar` y `esterilizar-2`: muestran luz UV, que Dropi no confirma y la página no menciona. Si Dropi la confirma, se agregan con su texto. La subcarpeta "originales" tampoco se usó.
