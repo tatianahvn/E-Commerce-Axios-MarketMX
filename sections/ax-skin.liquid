@@ -8,6 +8,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
   {{ 'ax-calido.css' | asset_url | stylesheet_tag }}
   <script>
+    // Botón de Releasit con el color de esta landing. Releasit escribe su color en línea con !important,
+    // así que se reemplaza por script cada vez que pone (o vuelve a dibujar) su botón.
+    (function () {
+      var paint = function (btn) {
+        // Si el estilo es el mismo que dejamos la última vez, no se toca (evita repintar sin fin)
+        if (btn.__axStyle && btn.getAttribute('style') === btn.__axStyle) return;
+        btn.style.setProperty('background', '#b95a1a', 'important');
+        btn.style.setProperty('box-shadow', '0 8px 20px rgba(185, 90, 26, 0.35)', 'important');
+        btn.__axStyle = btn.getAttribute('style');
+      };
+      var scan = function () {
+        document.querySelectorAll('#ax-main ._rsi-buy-now-button').forEach(paint);
+      };
+      new MutationObserver(scan).observe(document.documentElement, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['style']
+      });
+      document.addEventListener('DOMContentLoaded', scan);
+    })();
+
     // Reseñas compactas: los textos largos se cortan a 5 líneas y llevan "Leer más"
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('#resenas .ax-review__text').forEach(function (text) {
