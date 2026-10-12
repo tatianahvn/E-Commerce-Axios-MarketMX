@@ -42,8 +42,8 @@
       "type": "ax-story",
       "settings": {
         "eyebrow": "",
-        "title": "Tu ropa seca, *sin depender del sol*",
-        "text": "Esto es lo que cambia en tu casa desde que la conectas.",
+        "title": "La solución para los *días nublados*",
+        "text": "Que la lluvia no arruine tus planes. Úsala en casa de forma fácil y rápida: tu ropa queda seca, tibia y lista para usar.",
         "image_file": "sec-fx-antes-despues.jpg",
         "image_alt": "Antes: ropa mojada en un tendedero bajo la lluvia. Después: ropa secándose dentro de la secadora en casa"
       },
@@ -53,7 +53,8 @@
           "settings": {
             "tag": "Desde el primer día",
             "title": "Adiós a la ropa húmeda",
-            "text": "Ya no esperas a que salga el sol. Cuelgas tu ropa, cierras la funda y se seca dentro de tu casa, aunque afuera no deje de llover."
+            "text": "Ya no esperas a que salga el sol. Cuelgas tu ropa, cierras la funda y se seca dentro de tu casa, aunque afuera no deje de llover.",
+            "icon": "drop"
           }
         },
         "m2": {
@@ -61,7 +62,8 @@
           "settings": {
             "tag": "Esa misma noche",
             "title": "El uniforme listo para mañana",
-            "text": "Programa el temporizador antes de dormir. Se apaga sola y en la mañana la ropa de la escuela o del trabajo ya está seca."
+            "text": "Programa el temporizador antes de dormir. Se apaga sola y en la mañana la ropa de la escuela o del trabajo ya está seca.",
+            "icon": "moon"
           }
         },
         "m3": {
@@ -69,7 +71,8 @@
           "settings": {
             "tag": "Toda la semana",
             "title": "Tu casa sin ropa colgada por todos lados",
-            "text": "Se acabaron las sillas, puertas y cuerdas llenas de ropa mojada. Cuando terminas, pliegas la funda y la guardas en el clóset."
+            "text": "Se acabaron las sillas, puertas y cuerdas llenas de ropa mojada. Cuando terminas, pliegas la funda y la guardas en el clóset.",
+            "icon": "home"
           }
         },
         "m4": {
@@ -77,7 +80,8 @@
           "settings": {
             "tag": "Toda la temporada de lluvias",
             "title": "Ropa que huele a limpio",
-            "text": "La ropa que tarda días en secarse agarra olor a humedad. Con aire caliente constante se seca en horas, no en días."
+            "text": "La ropa que tarda días en secarse agarra olor a humedad. Con aire caliente constante se seca en horas, no en días.",
+            "icon": "sparkle"
           }
         }
       },

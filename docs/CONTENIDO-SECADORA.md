@@ -63,7 +63,7 @@ Todo, incluida la caja de compra, se edita en **Personalizar → plantilla de pr
 |---|---|---|---|
 | 0 | Paleta cálida (no se ve, carga los colores) | `ax-skin` | — |
 | 1 | Caja de compra (la misma de Shine Armor, con sus propios textos) | `ax-product` | Atención |
-| 2 | "Tu ropa seca, *sin depender del sol*": imagen + 4 momentos | `ax-story` | Interés |
+| 2 | "La solución para los *días nublados*": imagen + 4 momentos con ícono | `ax-story` | Interés |
 | 3 | Reseñas en slider (47 activas, primero las que traen foto) | `ax-reviews` | Deseo (prueba social) |
 | 4 | "Tu tendedero bajo techo, *donde lo necesites*": imagen de usos, 3 puntos y botón | `ax-split` | Interés y acción |
 | 5 | Franja oscura "Días de lluvia / ropa que no seca" | `ax-band` | Atención (dolor) |

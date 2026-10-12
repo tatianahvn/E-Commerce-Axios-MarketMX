@@ -13,10 +13,13 @@
         </div>
         <ol class="ax-story__list">
           {%- for block in section.blocks -%}
-            <li class="ax-story__item ax-reveal" {{ block.shopify_attributes }}>
-              {%- if block.settings.tag != blank -%}<span class="ax-story__tag">{{ block.settings.tag }}</span>{%- endif -%}
-              <h3>{{ block.settings.title }}</h3>
-              {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+            <li class="ax-story__item{% if block.settings.icon != blank %} has-icon{% endif %} ax-reveal" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}<span class="ax-story__icon">{% render 'ax-icon', name: block.settings.icon %}</span>{%- endif -%}
+              <div class="ax-story__content">
+                {%- if block.settings.tag != blank -%}<span class="ax-story__tag">{{ block.settings.tag }}</span>{%- endif -%}
+                <h3>{{ block.settings.title }}</h3>
+                {%- if block.settings.text != blank -%}<p>{{ block.settings.text }}</p>{%- endif -%}
+              </div>
             </li>
           {%- endfor -%}
         </ol>
@@ -43,6 +46,23 @@
       "type": "moment",
       "name": "Momento",
       "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Ícono",
+          "default": "",
+          "options": [
+            { "value": "", "label": "Ninguno" },
+            { "value": "drop", "label": "Gota" },
+            { "value": "moon", "label": "Luna" },
+            { "value": "home", "label": "Casa" },
+            { "value": "sparkle", "label": "Brillo" },
+            { "value": "cloud", "label": "Nube" },
+            { "value": "clock", "label": "Reloj" },
+            { "value": "hanger", "label": "Gancho" },
+            { "value": "shield", "label": "Escudo" }
+          ]
+        },
         { "type": "text", "id": "tag", "label": "Etiqueta", "default": "Desde el primer día" },
         { "type": "text", "id": "title", "label": "Título", "default": "Título del momento" },
         { "type": "textarea", "id": "text", "label": "Texto" }
