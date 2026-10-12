@@ -12,8 +12,8 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 
 1. **Voltaje.** Confirma con Dropi que sea de **127 V con clavija americana**. Mientras no esté confirmado, el voltaje no aparece en la página.
 2. **Fotos.** Salen de la carpeta "Creativos Fixed Secadora" del escritorio: creativos corregidos, sin textos en inglés (archivos `sec-fx-*.jpg`).
-   - Línea de tiempo: `secado`.
-   - Tarjetas: `general-01` (calor y aire), `diseñocompacto` (plegable), `night` (se apaga sola) y `colgar` (hasta 9 prendas).
+   - Línea de tiempo: `antes-despues-secadora` (tendedero bajo la lluvia vs. secadora en casa).
+   - Tarjetas: `secado` (calor y aire), `diseñocompacto` (plegable), `night` (se apaga sola) y `colgar` (hasta 9 prendas).
    - Pasos: `caracteristicas` (cuelga), `temporizador` (programa) y `clothes` (listo).
    - Garantía: `vistaprincipal`, armario cerrado, `general-02` y armario abierto.
    - Imagen + puntos: "Ampliamente usado" (`sec-usos.jpg`).

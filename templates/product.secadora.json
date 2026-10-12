@@ -43,8 +43,8 @@
         "eyebrow": "",
         "title": "Tu ropa seca, *sin depender del sol*",
         "text": "Esto es lo que cambia en tu casa desde que la conectas.",
-        "image_file": "sec-fx-secado.jpg",
-        "image_alt": "Ropa secándose con aire caliente dentro de la funda de la secadora"
+        "image_file": "sec-fx-antes-despues.jpg",
+        "image_alt": "Antes: ropa mojada en un tendedero bajo la lluvia. Después: ropa secándose dentro de la secadora en casa"
       },
       "blocks": {
         "m1": {
@@ -994,7 +994,7 @@
         "c1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-fx-general-01.jpg",
+            "image_file": "sec-fx-secado.jpg",
             "title": "Calor y aire a la vez",
             "text": "Combina calor y flujo de aire a temperatura constante para quitar la humedad de toda la prenda."
           }
