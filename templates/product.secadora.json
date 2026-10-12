@@ -43,8 +43,8 @@
         "eyebrow": "",
         "title": "Tu ropa seca, *sin depender del sol*",
         "text": "Esto es lo que cambia en tu casa desde que la conectas.",
-        "image_file": "sec-antes-despues.jpg",
-        "image_alt": "Antes: ropa húmeda colgada en el balcón. Después: ropa seca dentro de la secadora"
+        "image_file": "sec-armario-abierto.jpg",
+        "image_alt": "Secadora con la funda abierta y ropa seca, colgada en un cuarto de lavado"
       },
       "blocks": {
         "m1": {
@@ -1002,7 +1002,7 @@
         "c2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-compacta.jpg",
+            "image_file": "sec-cajon.jpg",
             "title": "Plegable y ligera",
             "text": "Pliegas la funda y la base de 22 cm se guarda en el clóset o se va contigo de viaje."
           }
@@ -1010,7 +1010,7 @@
         "c3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-apagado.jpg",
+            "image_file": "sec-apagado-auto.jpg",
             "title": "Se apaga sola",
             "text": "Programa el tiempo en su pantalla digital y olvídate: se apaga cuando termina."
           }
@@ -1018,7 +1018,7 @@
         "c4": {
           "type": "card",
           "settings": {
-            "image_file": "sec-capacidad.jpg",
+            "image_file": "sec-8-10-prendas.jpg",
             "title": "Hasta 9 prendas",
             "text": "Cuelga varias prendas a la vez en su barra de ganchos y sécalas juntas."
           }
@@ -1045,7 +1045,7 @@
         "s1": {
           "type": "card",
           "settings": {
-            "image_file": "sec-perchas.jpg",
+            "image_file": "sec-gancho-donde.jpg",
             "title": "Cuelga",
             "text": "Cuelga la base de un tubo, sube la funda y acomoda tus prendas en la barra de ganchos."
           }
@@ -1053,7 +1053,7 @@
         "s2": {
           "type": "card",
           "settings": {
-            "image_file": "sec-calor-base.jpg",
+            "image_file": "sec-apagado.jpg",
             "title": "Programa",
             "text": "Enciéndela, programa el tiempo en la pantalla y cierra la funda."
           }
@@ -1061,7 +1061,7 @@
         "s3": {
           "type": "card",
           "settings": {
-            "image_file": "sec-ropero.jpg",
+            "image_file": "sec-ropa-lista.jpg",
             "title": "Listo",
             "text": "Abre la funda y saca tu ropa seca, lista para usar. Pliégala y guárdala."
           }
@@ -1238,7 +1238,7 @@
         "product": "",
         "title": "Garantía *sin riesgos*",
         "text": "Pídela hoy sin tarjeta y págala en efectivo cuando llegue a tu puerta. Si llega dañada te la reponemos sin costo, y tienes [dias] días para decirnos si algo no salió bien.",
-        "image_files": "sec-estilo.jpg, sec-espacios.jpg, sec-360.jpg, sec-ropero.jpg",
+        "image_files": "sec-armario-cerrado.jpg, sec-telas.jpg, sec-noche-silencio.jpg, sec-capacidades.jpg",
         "cta": "Pídela hoy, págala al recibir"
       }
     },
