@@ -37,7 +37,8 @@
         "offer_label": "Precio especial de temporada de lluvias",
         "gallery_files": "sec-slider-1.jpg, sec-slider-2.jpg, sec-slider-3.jpg, sec-slider-4.jpg, sec-slider-5.jpg",
         "mini_reviews": true,
-        "mini_reviews_title": "Lo que dicen nuestros clientes"
+        "mini_reviews_title": "Lo que dicen nuestros clientes",
+        "offer_tone": "rain"
       }
     },
     "story": {
