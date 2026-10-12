@@ -58,11 +58,39 @@
 {%- if p != blank -%}
 <section class="ax-pdp" id="comprar" data-ax-product="{{ p.id }}">
   <div class="ax-container ax-pdp__grid">
-    {%- comment -%} Galería {%- endcomment -%}
+    {%- comment -%}
+      Galería. Si "Fotos del slider incluidas en el tema" tiene archivos (assets/, separados por coma),
+      se muestran esos en ese orden; si está vacío, las fotos del producto en Shopify.
+    {%- endcomment -%}
+    {%- liquid
+      assign gallery_files = s.gallery_files | split: ','
+      assign gallery_count = 0
+      for gf in gallery_files
+        assign gfile = gf | strip
+        if gfile != blank
+          assign gallery_count = gallery_count | plus: 1
+        endif
+      endfor
+      assign slide_count = p.media.size
+      if gallery_count > 0
+        assign slide_count = gallery_count
+      endif
+    -%}
     <div class="ax-pdp__media">
       <div class="ax-gallery" data-ax-gallery>
         <div class="ax-gallery__stage">
         <div class="ax-gallery__track" data-ax-gallery-track tabindex="0" aria-label="Fotos de {{ p.title | escape }}">
+          {%- if gallery_count > 0 -%}
+            {%- assign gi = 0 -%}
+            {%- for gf in gallery_files -%}
+              {%- assign gfile = gf | strip -%}
+              {%- if gfile == blank -%}{%- continue -%}{%- endif -%}
+              {%- assign gi = gi | plus: 1 -%}
+              <div class="ax-gallery__slide">
+                <img src="{{ gfile | asset_url }}" alt="{{ p.title | escape }} – foto {{ gi }}" width="1400" height="1400"{% if gi == 1 %} loading="eager" fetchpriority="high"{% else %} loading="lazy"{% endif %} decoding="async">
+              </div>
+            {%- endfor -%}
+          {%- else -%}
           {%- for media in p.media -%}
             <div class="ax-gallery__slide" data-media-id="{{ media.id }}">
               {%- case media.media_type -%}
@@ -94,6 +122,7 @@
           {%- else -%}
             <div class="ax-gallery__slide" style="display:grid;place-items:center;color:#b9b9be">{% render 'ax-icon', name: 'box' %}</div>
           {%- endfor -%}
+          {%- endif -%}
         </div>
 
         <div class="ax-gallery__badges">
@@ -101,24 +130,37 @@
           {%- if s.badge != blank -%}<span class="ax-badge ax-badge--dark">{{ s.badge }}</span>{%- endif -%}
         </div>
 
-        {%- if p.media.size > 1 -%}
+        {%- if slide_count > 1 -%}
           <button class="ax-gallery__arrow ax-gallery__arrow--prev" type="button" data-ax-gallery-prev aria-label="Foto anterior">{% render 'ax-icon', name: 'chevron-right' %}</button>
           <button class="ax-gallery__arrow ax-gallery__arrow--next" type="button" data-ax-gallery-next aria-label="Foto siguiente">{% render 'ax-icon', name: 'chevron-right' %}</button>
           <div class="ax-gallery__dots" data-ax-gallery-dots>
-            {%- for media in p.media -%}
-              <button class="ax-gallery__dot" type="button" aria-label="Ver foto {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
+            {%- for i in (1..slide_count) -%}
+              <button class="ax-gallery__dot" type="button" aria-label="Ver foto {{ i }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}"></button>
             {%- endfor -%}
           </div>
         {%- endif -%}
         </div>
 
-        {%- if p.media.size > 1 -%}
+        {%- if slide_count > 1 -%}
           <div class="ax-gallery__thumbs" data-ax-gallery-thumbs>
+            {%- if gallery_count > 0 -%}
+              {%- assign gi = 0 -%}
+              {%- for gf in gallery_files -%}
+                {%- assign gfile = gf | strip -%}
+                {%- if gfile == blank -%}{%- continue -%}{%- endif -%}
+                {%- assign gi = gi | plus: 1 -%}
+                {%- if gi > 5 -%}{%- break -%}{%- endif -%}
+                <button class="ax-gallery__thumb" type="button" aria-label="Ver foto {{ gi }}" aria-current="{% if gi == 1 %}true{% else %}false{% endif %}">
+                  <img src="{{ gfile | asset_url }}" alt="" width="200" height="200" loading="lazy" decoding="async">
+                </button>
+              {%- endfor -%}
+            {%- else -%}
             {%- for media in p.media limit: 5 -%}
               <button class="ax-gallery__thumb" type="button" aria-label="Ver foto {{ forloop.index }}" aria-current="{% if forloop.first %}true{% else %}false{% endif %}">
                 {{ media.preview_image | image_url: width: 200 | image_tag: loading: 'lazy', alt: '' }}
               </button>
             {%- endfor -%}
+            {%- endif -%}
           </div>
         {%- endif -%}
       </div>
@@ -423,6 +465,7 @@
     { "type": "product", "id": "product", "label": "Producto", "info": "Vacío = el producto de la página. Elige uno solo si usas esta sección en el inicio u otra página." },
     { "type": "header", "content": "Contenido de este producto" },
     { "type": "text", "id": "hook", "label": "Frase gancho bajo el título", "info": "Lo que va entre *asteriscos* sale resaltado." },
+    { "type": "text", "id": "gallery_files", "label": "Fotos del slider incluidas en el tema", "info": "Nombres de archivo de assets/ separados por coma, en el orden del slider. Vacío = las fotos del producto en Shopify. Sube también fotos al producto: Releasit y las tarjetas usan la de Shopify." },
     { "type": "text", "id": "badge", "label": "Etiqueta oscura sobre la foto", "info": "Ej. Más vendido. Vacío = no se muestra." },
     { "type": "text", "id": "rating", "label": "Calificación (estrellas)", "info": "Ej. 4.8. Vacío = sin estrellas." },
     { "type": "text", "id": "reviews_total", "label": "Total de reseñas junto a las estrellas", "info": "Ej. 2,739. Vacío = solo la calificación." },

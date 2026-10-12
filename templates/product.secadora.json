@@ -34,7 +34,8 @@
         "shipping_info": "<p>Te escribimos por WhatsApp para validar tus datos y confirmar tu pedido. Una vez confirmado, lo enviamos en un plazo de 24 a 48 horas y te compartimos el número de rastreo. La entrega a tu domicilio tarda de [envio], según tu ubicación.</p><p>Si tu paquete llega dañado o presenta algún problema, te lo reponemos sin costo.</p>",
         "verified_text": "Tienda comprometida con la calidad y el cumplimiento",
         "show_countdown": false,
-        "offer_label": "Precio especial de temporada de lluvias"
+        "offer_label": "Precio especial de temporada de lluvias",
+        "gallery_files": "sec-slider-1.jpg, sec-slider-2.jpg, sec-slider-3.jpg, sec-slider-4.jpg, sec-slider-5.jpg"
       }
     },
     "story": {

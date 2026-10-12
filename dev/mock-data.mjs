@@ -65,12 +65,11 @@ export const plainProduct = {
 // Secadora de ropa portátil: usa la plantilla product.secadora.json (paleta Miel y canela).
 // Todo su contenido vive en la plantilla. El precio es SOLO de ejemplo para la vista previa.
 const secMedia = [
-  img('sec-fx-vista-principal.jpg', 644, 644, 'Secadora portátil armada, su base y vista dentro de un clóset'),
-  img('sec-fx-general-01.jpg', 778, 1000, 'Secadora portátil armada junto a su base plegada'),
-  img('sec-fx-general-02.jpg', 1000, 1000, 'Secadora y base plegada sobre una repisa'),
-  img('sec-armario-abierto.jpg', 1400, 933, 'Secadora con la funda abierta en un cuarto de lavado'),
-  img('sec-usos.jpg', 1000, 1000, 'Usos: ropero, dormitorio, casa rodante y viajes'),
-  img('sec-medidas.jpg', 1000, 1000, 'Secadora portátil armada y plegada, con sus medidas'),
+  img('sec-slider-1.jpg', 1400, 1400, 'Secadora portátil armada, su base y vista dentro de un clóset'),
+  img('sec-slider-2.jpg', 1400, 1400, 'Secadora de ropa portátil'),
+  img('sec-slider-3.jpg', 1400, 1400, 'Secadora de ropa portátil'),
+  img('sec-slider-4.jpg', 1400, 1400, 'Secadora de ropa portátil'),
+  img('sec-slider-5.jpg', 1400, 781, 'Secadora de ropa portátil'),
 ].map((m, i) => ({ id: 9100 + i, media_type: 'image', alt: m.alt, preview_image: m, src: m.src, width: m.width, height: m.height }));
 
 const secVariant = variant(5600, 89900, 159900, { sku: 'SEC-36701' });

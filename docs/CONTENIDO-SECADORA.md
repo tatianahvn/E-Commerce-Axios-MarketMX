@@ -17,7 +17,6 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
    - Pasos: `caracteristicas` (cuelga), `temporizador` (programa) y `clothes` (listo).
    - Garantía: arriba `colgar` y `vistaprincipal`; abajo `general-01` y `clothes`.
    - Imagen + puntos: "Ampliamente usado" (`sec-usos.jpg`).
-   - Sugerida como **foto principal del producto en Shopify:** `vistaprincipal`.
    **No se usaron** `esterilizar` y `esterilizar-2`: muestran luz UV, que Dropi no confirma y la página no menciona. Si Dropi la confirma, se agregan con su texto. La subcarpeta "originales" tampoco se usó.
    **Ojo:** `caracteristicas` dice "hasta 8 piezas o 10 kg" y la página dice 9 prendas (Dropi).
 3. **Reseñas.** Vienen del [anuncio de AliExpress del mismo modelo](https://es.aliexpress.com/item/1005007254611442.html) (4.7★, 220 calificaciones). Están cargadas las **64 que traen texto**, traducidas a español sin cambiar lo que dicen, con sus fotos (`sec-rev-*.jpg`). **47 están activas** y **17 desactivadas**; en Personalizar → Reseñas puedes mostrar u ocultar cada una con el ícono del ojo:
@@ -34,7 +33,7 @@ para departamento, viaje, campamento o casa rodante, **pantalla digital** con bo
 - **Título:** `Secadora de Ropa Portátil | Plegable con temporizador`
 - **Identificador (handle):** `secadora-ropa-portatil`
 - **Plantilla:** en la ficha del producto → *Plantilla del tema* → **`secadora`**.
-- **Fotos del producto:** de `assets/`, en este orden: `sec-fx-vista-principal.jpg`, `sec-fx-general-01.jpg`, `sec-fx-general-02.jpg`, `sec-armario-abierto.jpg`, `sec-usos.jpg` y `sec-medidas.jpg`.
+- **Fotos del producto:** el slider de la landing ya usa las 5 imágenes del tema (`sec-slider-1.jpg` a `sec-slider-5.jpg`, de la carpeta `slider-product`) desde el ajuste **"Fotos del slider incluidas en el tema"** de la caja de compra. Aun así, **sube al producto en Shopify al menos `sec-slider-1.jpg`**: Releasit, las tarjetas del inicio y "Otros productos" usan la foto del producto de Shopify.
 - **Descripción:**
 
   > Seca tu ropa dentro de casa aunque llueva. Cuelgas tus prendas en sus ganchos, cierras la funda y el aire caliente circula de forma constante hasta que quedan secas.
